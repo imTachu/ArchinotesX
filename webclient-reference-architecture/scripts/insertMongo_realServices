@@ -1,0 +1,3 @@
+db.realServices.insert(
+	{ serviceId: "SVOL002", serviceName: "Pozo", status: "Undeployed" }
+)

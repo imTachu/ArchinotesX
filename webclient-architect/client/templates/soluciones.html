@@ -1,0 +1,165 @@
+<template name="soluciones">
+  <div class="container">
+
+    <ol class="breadcrumb" style="text-align:right;background:#f8f8f8">
+      <li class="active">Arquitectura de Solución</li>
+    </ol>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Soluciones</h3>
+      </div>
+      <div class="panel-body" id="solutions-panel">
+
+        <!-- New solution button -->  
+        <div class="col-md-12">
+          <button type="button" class="btn btn-outline btn-danger" data-toggle="modal" 
+          data-target="#newSolutionPopUp">Nueva solución</button>
+        </div>
+
+        <div class="col-md-12"><br></div>
+
+        {{#each solutions}}
+          {{> solution_card}}
+        {{/each}}
+
+      </div><!-- /.panel-body -->       
+    </div><!-- /.panel-primary -->
+  </div><!-- /.container -->
+
+  <div class="modal fade" id="newSolutionPopUp" tabindex="-1" role="dialog" 
+  aria-labelledby="solutionModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="solutionModalLabel">Datos Básicos de la Solución</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="solution-name" class="control-label">Nombre:</label>
+              <input type="text" class="form-control" id="solutionName">
+            </div>
+            <div class="form-group">
+              <label for="solution-description" class="control-label">Descripción:</label>
+              <textarea class="form-control" id="solutionDescription"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary new-solution">Crear</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</template>
+
+<template name="solution_card">
+  <div class="col-md-3">
+    <div class="chat-panel panel 
+      {{#if deployed}} panel-green 
+      {{else}}
+        {{#if defined}} panel-yellow 
+        {{else}} panel-primary 
+        {{/if}}  
+      {{/if}}">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-3"></div>  
+          <div class="col-md-9 text-right">
+            <div>{{name}}</div>
+          </div>
+        </div>  
+      </div>
+      <div class="panel-body">
+        <ul class="chat">
+          <li class="left clearfix">
+            <div class="chat-body clearfix">
+              <div class="header">
+                <strong class="primary-font">Estado</strong>
+                <small class="pull-right text-muted">
+                  <i class="fa fa-calendar fa-fw"></i>
+                  {{stateDate}}
+                </small>
+              </div>
+              <p>
+                {{state}}  
+              </p>
+            </div>
+          </li>
+          <li class="left clearfix">  
+            <div class="chat-body clearfix">
+              <div class="header">
+                <strong class="primary-font">Descripción</strong>
+              </div>
+              <p>
+                {{description}}
+              </p>
+            </div>
+          </li>
+          {{#if defined}}
+          <li class="left clearfix">  
+            <div class="chat-body clearfix">
+              <div class="header">
+                <strong class="primary-font">Servicios</strong>
+              </div>
+              {{#each services}}
+                {{> serviceSolution}}
+              {{/each}}
+            </div>
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <span class="pull-right">
+
+          {{#if deployed}}
+          <button type="button" class="btn btn-circle btn-success">
+            <i class="fa fa-pause"></i>
+          </button>          
+          {{else}}
+            {{#if defined}}
+            <button type="button" class="btn btn-circle btn-warning deploy-solution">
+              <i class="fa fa-play"></i>
+            </button>
+            {{/if}}  
+          {{/if}}
+
+          <a href="arZonas">
+            <button type="button" class="btn btn-circle 
+              {{#if deployed}} btn-success
+              {{else}}
+                {{#if defined}} btn-warning 
+                {{else}} btn-primary 
+                {{/if}}  
+              {{/if}} edit-solution">
+              <i class="fa fa-pencil"></i>
+            </button>
+          </a>
+
+          <button type="button" class="btn btn-circle 
+            {{#if deployed}} btn-success
+            {{else}}
+              {{#if defined}} btn-warning 
+              {{else}} btn-primary 
+              {{/if}}  
+            {{/if}} delete-solution">
+            <i class="fa fa-times"></i>
+          </button>
+        </span> 
+        <div class="clearfix"></div>  
+      </div>  
+    </div> 
+  </div>   
+</template>  
+
+<template name="serviceSolution">
+  <p>
+    {{name}}
+  </p>
+</template>  

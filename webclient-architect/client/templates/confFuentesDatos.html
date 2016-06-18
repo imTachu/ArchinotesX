@@ -1,0 +1,59 @@
+<template name="confFuentesDatos">
+  <div class="container">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Configuración de la solución</h3>
+      </div>
+
+      <div class="panel-body" id="solutions-panel">
+        <ol class="breadcrumb" style="text-align:right; background:#FFFFFF">
+          <li><a href="arZonas">Zonas arquitectura de referencia</a></li>
+          <li><a href="confDespliegue">Vista Despliegue</a></li>
+          <li class="active">Vista Datos</li>
+        </ol>
+
+        <h4>3. Seleccione los datos que desea procesar en la solución</h4>
+        <br>
+          
+        <div class="panel-group" id="accordion">
+          {{#each fuentes}}
+            {{> fuente}}
+          {{/each}}
+        </div>  
+
+        <ol class="breadcrumb enviar" style="text-align:right;background:#ffffff">
+          <li><a href="/">Finalizar</a></li>
+        </ol>   
+      </div><!-- /.panel-body -->       
+    </div><!-- /.panel-primary -->
+  </div><!-- /.container -->
+</template>
+
+<template name="fuente">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#{{type}}">{{name}}</a>
+      </h4>
+    </div>
+    <div id="{{type}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{#each keys}}
+          {{> campo}}
+        {{/each}}
+      </div>
+    </div>   
+  </div>  
+</template>
+
+<template name="campo">
+  <div class="col-md-2">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked">
+        {{name}}
+      </label> 
+    </div>   
+  </div>  
+</template>  

@@ -3,11 +3,11 @@
 */
 
 Router.configure({
-    layoutTemplate: 'principal'
+    layoutTemplate: 'navbar-layout'
 });
 
 Router.route('/', {
-    template: 'arZonas'
+    template: 'index'
 });
 
 Router.route('/arZona');

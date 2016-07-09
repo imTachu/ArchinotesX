@@ -1,10 +1,10 @@
+sudo: false
 language: node_js
 node_js:
-  - "0.10"
+  - "0.10.40"
 before_install:
   - cd webclient-reference-architecture
-  - "curl -L http://git.io/3l-rRA | /bin/sh"
-services:
-  - mongodb
-env: 
-  - LAIKA_OPTIONS="-t 5000"
+install:
+  - "npm install"
+script:
+  - "npm test"

@@ -5,8 +5,12 @@
 ![](https://img.shields.io/badge/platform-OS%20X%20%7C%20Linux-808080.svg?style=flat-square)
 
 ## What's ArchinotesX?
+ArchinotesX is a framework that allows the ArcOps execution: An architecture will be modeled over the functional and the deployment viewpoints. In a deployment view on ArchinotesX, when a component (a webservice) is assigned to an infrastructure node it will actually deploy the service: Webservice A will be deployed in X machine. When an update is required, the related component is updated, when this happens, architecture, code and deployment are consistent.
 
-## What's in this repository?
+ArchinotesX is oriented to the explicit scenario where there are multiple data sources and the business need is to constantly create and update services or even microservices that will bring specific information from those sources. This services will be orchestrated by reacting to heterogeneous devices requests at any time. The main goal is to be able to obtain data from different sources in order to rapidly fulfill business needs
+
+## So, what's ArcOps?
+It is a complement to the DevOps approach, we state that the software architect needs to be closer to the development and deployment processes, i.e., the software architect should be invited to that coordinated-close relation between development and operations teams. 
 
 ## The ecosystem
 

@@ -1,315 +1,162 @@
 <template name="index">
 	<div class="container">
-    <ol class="breadcrumb" style="text-align:right; background:#F8F8F8">
-      <li><a href="sources">Fuentezzzzzzzzzzzzzz de Datos</a></li>
-      <li class="active">Zonas arquitectura de referencia</li>
-      <li><a href="vistaDespliegue">Vista de despliegue</a></li>
-      <li><a href="vistaAsignacion">Vista de asignación</a></li>
-    </ol>
+		<a name="about"></a>
+	    <div class="intro-header">
+	        <div class="stars"></div>
+	        <div class="twinkling"></div>
+	        <div class="clouds"></div>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <div class="intro-message">
+	                        <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;ArchinotesX</h1>
+	                        <div class="type-wrap">
+	                            <h3>An ArcOps framework for every software
+	                            <div id="typed-string">
+	                                <p>architect.</p>
+	                                <p>team.</p>
+	                                <p>project.</p>
+	                            </div>
+	                            <span id="typed" style="white-space:pre;"></span>
+	                        </h3>
+	                        </div>
+	                        <hr class="intro-divider">
+	                        <ul class="list-inline intro-social-buttons">
+	                            <li>
+	                                <a href="https://github.com/imTachu/ArchinotesX" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Arquitectura de Referencia</h3>
-      </div>
+	    <a name="services"></a>
+	    <div class="content-section-a">
 
-      <div class="panel-body" id="ar-panel">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel panel-default" style="background:#B7E2FC">
-              <div class="panel-heading" style="background:#B7E2FC">
-                <a href="arZona" class="znPresentacion">
-                  <h1 class="panel-title">Zona Servicios de Presentación</h1>
-                </a>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="arZona" class="thumbnail subznPortal">
-                      Portal
-                    </a>
-                  </div>
-                  <div class="col-md-6">
-                    <a href="arZona" class="thumbnail subznMovilidad">
-                      Movilidad
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-5 col-sm-6">
+	                    <hr class="section-heading-spacer">
+	                    <div class="clearfix"></div>
+	                    <h2 class="section-heading">By adopting an ArcOps strategy,</h2>
+	                    <p class="lead">You create a continuous workflow between architects, developers and system administrators aligning all the artifacts in your software.</p>
+	                </div>
+	                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+	                    <img class="img-responsive" src="img/landing-1.jpg" alt="">
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 
-        </div>
-        <div class="row">
+	    <div class="content-section-b">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+	                    <hr class="section-heading-spacer">
+	                    <div class="clearfix"></div>
+	                    <h2 class="section-heading">Keep your architecture and your app on the same track</h2>
+	                    <p class="lead">In a demanding business, software evolves, and its architecture should too!, ArchinotesX allows you to <em>deploy</em> your architecture. Test it, stress it, use it.</p>
+	                </div>
+	                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+	                    <img class="img-responsive" src="img/landing-2.jpg" alt="">
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 
-          <div class="col-md-12">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znApolo">
-                  <h1 class="panel-title">Servicios Apolo</h1>
-                </a>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-4">
-                    <a href="arZona" class="thumbnail subznVolumetricos">
-                      Servicios Volumétricos
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="arZona" class="thumbnail subznFacilidades">
-                      Servicios Facilidades
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="arZona" class="thumbnail subznOperacionales">
-                      Operacionales
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="arZona" class="thumbnail subznDiseño">
-                      Servicios de Diseño
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="arZona" class="thumbnail subznOptimizacion">
-                      Servicios Optmización
-                    </a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="arZona" class="thumbnail subznMantenimiento">
-                      Servicios de Mantenimiento
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+	    <div class="content-section-a">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-5 col-sm-6">
+	                    <hr class="section-heading-spacer">
+	                    <div class="clearfix"></div>
+	                    <h2 class="section-heading">Somethings just happen over and over again...</h2>
+	                    <p class="lead">ArchinotesX is oriented to the explicit scenario where there are multiple data sources and the business need is to constantly create and update microservices that will bring specific information from those sources.</p>
+	                </div>
+	                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+	                    <img class="img-responsive" src="img/landing-3.jpg" alt="">
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 
-        </div>
-        <div class="row">
+	    <!--<a name="contact"></a>
+	    <div class="banner">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <h3>ArchinotesX is developed for a MSc thesis at
+						<a href="https://sistemas.uniandes.edu.co/es/miso">Universidad de Los Andes</a> <br/>by
+						<a href="https://co.linkedin.com/in/dcorreal">Dario Correal</a> and
+						<a href="https://www.linkedin.com/in/lorenasalamanca">Lorena Salamanca</a>
+						</h3>
+	                </div>
+	            </div>
+	        </div>
+	    </div> -->
 
-          <div class="col-md-12">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znGeociencias">
-                  <h1 class="panel-title">Servicios Geociencias</h1>
-                </a>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="arZona" class="thumbnail subznPerforacion">
-                      Servicios de Perforación
-                    </a>
-                  </div>
-                  <div class="col-md-6">
-                    <a href="arZona" class="thumbnail subznGenerales">
-                      Servicios Generales
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+	     <footer>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <!-- <ul class="list-inline">
+	                        <li>
+	                            <a href="#">Home</a>
+	                        </li>
+	                        <li class="footer-menu-divider">&sdot;</li>
+	                        <li>
+	                            <a href="#about">About</a>
+	                        </li>
+	                        <li class="footer-menu-divider">&sdot;</li>
+	                        <li>
+	                            <a href="#services">Services</a>
+	                        </li>
+	                        <li class="footer-menu-divider">&sdot;</li>
+	                        <li>
+	                            <a href="#contact">Contact</a>
+	                        </li>
+	                    </ul> -->
+	                    <p class="copyright text-muted small">ArchinotesX is developed for a MSc thesis at
+						<a href="https://sistemas.uniandes.edu.co/es/miso">Universidad de Los Andes</a> by
+						<a href="https://co.linkedin.com/in/dcorreal">Dario Correal</a> and
+						<a href="https://www.linkedin.com/in/lorenasalamanca">Lorena Salamanca</a> </p>
+	                </div>
+	            </div>
+	        </div>
+	    </footer>
 
-        </div>
-        <div class="row">
+	    <script src="js/jquery.js"></script>
+	    <script src="js/typed.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script>
+	        $(function() {
+	            $("#typed").typed({
+	                stringsElement: $('#typed-string'),
+	                typeSpeed: 70,
+	                backDelay: 800,
+	                loop: true,
+	                contentType: 'html',
+	                loopCount: false,
+	                callback: function() {
+	                    foo();
+	                },
+	                resetCallback: function() {
+	                    newTyped();
+	                }
+	            });
+	            $(".reset").click(function() {
+	                $("#typed").typed('reset');
+	            });
+	        });
 
-          <div class="col-md-3">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znLaboratorio">
-                  <h1 class="panel-title">Servicios Laboratorio</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
+	        function newTyped() {}
 
-          <div class="col-md-3">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znGAIA">
-                  <h1 class="panel-title">Servicios GAIA</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
+	        function foo() {
+	            console.log("Callback");
+	        }
+	    </script>
 
-          <div class="col-md-3">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znLogistica">
-                  <h1 class="panel-title">Servicios Logística</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znCalidad">
-                  <h1 class="panel-title">Servicios Aseguramiento Calidad</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znIngenieria">
-                  <h1 class="panel-title">Servicios Ingeniería</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znTiempo">
-                  <h1 class="panel-title">Tiempo Real</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="panel panel-default" style="background:#FFCB8C">
-              <div class="panel-heading" style="background:#FFCB8C">
-                <a href="arZona" class="znTransporte">
-                  <h1 class="panel-title">Servicios Transporte y Comercialización</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
-
-        </div>
-        <div class="row">
-
-          <div class="col-md-3">
-            <div class="panel panel-default" style="background:#FF9999">
-              <div class="panel-heading" style="background:#FF9999">
-                <a href="arZona" class="znAutProcesos">
-                  <h1 class="panel-title">Zona Automatización de Procesos</h1>
-                </a>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <a href="arZona" class="thumbnail subznDocumental">
-                      Gestión Documental
-                    </a>
-                  </div>
-                  <div class="col-md-12">
-                    <a href="arZona" class="thumbnail subznProyectos">
-                      Servicios Proyectos
-                    </a>
-                  </div>
-                  <div class="col-md-12">
-                    <a href="arZona" class="thumbnail subznBPM">
-                      BPM
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-9">
-            <div class="panel panel-default" style="background:#FFF1A6">
-              <div class="panel-heading" style="background:#FFF1A6">
-                <a href="arZona" class="znSoporte">
-                  <h1 class="panel-title">Servicios de Soporte</h1>
-                </a>
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznFinancieros">
-                      Servicios Financieros
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznReportes">
-                      Zona de Reportes
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznRRHH">
-                      Servicios RRHH
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznJuridicos">
-                      Servicios Jurídicos
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznRiesgo">
-                      Servicios Riesgo
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznMensajeria">
-                      Servicios Mensajería
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznClienteSocios">
-                      Servicios Cliente Socios
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznArchivoFisico">
-                      Servicios Archivo Físico
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznAmbientales">
-                      Servicios Ambientales
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznHSEQ">
-                      Servicios HSEQ
-                    </a>
-                  </div>
-                  <div class="col-md-3">
-                    <a href="arZona" class="thumbnail subznSeguridad">
-                      Servicios Seguridad
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="row">
-
-          <div class="col-md-12">
-            <div class="panel panel-default" style="background:#D8FBD6">
-              <div class="panel-heading" style="background:#D8FBD6">
-                <a href="arZona" class="znDatos">
-                  <h1 class="panel-title">Zona Servicios de Datos</h1>
-                </a>
-              </div>
-              <div class="panel-body"></div>
-            </div>
-          </div>
-
-        </div>
-
-      </div><!-- /.panel-body -->
-    </div><!-- /.panel-primary -->
   </div><!-- /.container -->
 </template>

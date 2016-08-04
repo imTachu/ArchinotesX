@@ -119,3 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/reference_architect/static/'
+
+# Auth URLs
+LOGIN_URL = '/reference_architect/login'
+LOGIN_REDIRECT_URL = '/reference_architect/overview'
+LOGOUT_REDIRECT_URL = '/reference_architect/'

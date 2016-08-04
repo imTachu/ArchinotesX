@@ -3,12 +3,27 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    {% block extrameta %}{% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Archinotes: An ArcOps framework">
+    <meta name="author" content="Lorena Salamanca, adapted from StartBootstrap">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/b-bootstrap/bootstrap.min.css' %}"/>
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/b-bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/e-main/background.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/e-main/landing-page.css' %}">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/c-fontawesome/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
     {% block extrastyle %}{% endblock %}
 
 </head>

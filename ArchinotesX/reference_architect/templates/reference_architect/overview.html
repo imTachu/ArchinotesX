@@ -1,1 +1,105 @@
-:D
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Archinotes: An ArcOps framework">
+    <meta name="author" content="Lorena Salamanca, adapted from StartBootstrap">
+
+    <title>ArchinotesX: An ArcOps framework</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/b-bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/e-main/background.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/e-main/landing-page.css' %}">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/c-fontawesome/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav navbar-right">
+        <div class="col-xs-6 navbar-title">
+            <h4><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;ArchinotesX&nbsp;|&nbsp;An ArcOps framework</h4>
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="col-xs-3" style="padding-top: 15px;">
+            </div>
+            <div class="col-xs-3 login-button">
+                <li>
+                    <a href="{% url 'logout' %}" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                        <span>Log out</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="padding-top: 100px">
+    Welcome, {{ user.first_name }} {{ user.last_name }}
+    <ol class="breadcrumb" style="text-align:right; background:#F8F8F8">
+        <li><a href="">Datasources</a></li>
+        <li><a href="">Reference architecture</a></li>
+        <li><a href="">Deployment view</a></li>
+    </ol>
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script src="{% static 'js/a-jquery/jquery.js' %}"></script>
+<script src="{% static 'js/g-typed/typed.min.js' %}"></script>
+<script src="{% static 'js/c-bootstrap/bootstrap.min.js' %}"></script>
+<script>
+    $(function () {
+        $("#typed").typed({
+            stringsElement: $('#typed-string'),
+            typeSpeed: 70,
+            backDelay: 800,
+            loop: true,
+            contentType: 'html',
+            loopCount: false,
+            callback: function () {
+                foo();
+            },
+            resetCallback: function () {
+                newTyped();
+            }
+        });
+        $(".reset").click(function () {
+            $("#typed").typed('reset');
+        });
+    });
+
+    function newTyped() {
+    }
+
+    function foo() {
+        console.log("Callback");
+    }
+</script>
+</body>
+
+</html>

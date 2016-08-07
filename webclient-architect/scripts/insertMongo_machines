@@ -1,6 +1,0 @@
-db.machines.insert(
-	{ machineId: 'node001', name: 'Máquina Servicios 1', ip: '172.31.7.29', so: 'Sistema operativo: Ubuntu server 14.04', type: 's' }
-)
-db.machines.insert(
-	{ machineId: 'node002', name: 'Máquina Microservicios 1', ip: '172.31.7.30', so: 'Sistema operativo: Ubuntu server 14.04', type: 'ms' }
-)

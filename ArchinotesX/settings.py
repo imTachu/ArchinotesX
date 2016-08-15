@@ -124,6 +124,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 STATIC_URL = '/reference_architect/static/'
 
 # Auth URLs
-LOGIN_URL = '/reference_architect/'
-LOGIN_REDIRECT_URL = '/reference_architect/datasources'
-LOGOUT_REDIRECT_URL = '/reference_architect/'
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/datasources'
+LOGOUT_REDIRECT_URL = '/'

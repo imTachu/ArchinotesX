@@ -4,8 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-
-
+from reference_architect.models import SQLSource
 from reference_architect.forms import NewSQLSourceForm
 
 
@@ -29,8 +28,10 @@ def index(request):
 
 @login_required
 def overview(request):
+    sql_sources = SQLSource.objects.all()
     context = {
-        'form': NewSQLSourceForm()
+        'form': NewSQLSourceForm(),
+        'sql_sources':sql_sources
     }
     if request.POST:
         form = NewSQLSourceForm(request.POST)

@@ -25,4 +25,14 @@ class SQLSource(models.Model):
     port = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.db_name
+        return self.host + ":" + str(self.port) + "/" + self.db_name
+
+
+class DataMicroservice(models.Model):
+    source = models.ForeignKey(SQLSource, on_delete=models.CASCADE)
+    table = models.CharField(max_length=200)
+    name = models.CharField(max_length=50)
+    endpoint = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.endpoint

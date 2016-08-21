@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from reference_architect import views
+
 
 urlpatterns = [
     url(r'^', include('reference_architect.urls')),
     url(r'^admin/', admin.site.urls),
+    # url(r'^', views.home, name=u'home')
 
 ]

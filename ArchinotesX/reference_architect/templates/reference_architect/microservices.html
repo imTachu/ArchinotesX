@@ -3,68 +3,42 @@
 {% block content %}
     <div class="panel panel-custom-black">
         <div class="panel-heading">
-            <h2 class="panel-title">Datasources</h2>
+            <h2 class="panel-title">Microservices</h2>
         </div>
         <div class="panel-body" id="ar-panel">
             <br>
 
             <div class="row">
                 <div class="col-md-5">
-{#                    <ul class="nav nav-pills col-xs-11">#}
-{#                        <li>#}
-{#                            <a href="#excelList" class="excel-tab" data-toggle="tab" aria-expanded="true">From Excel#}
-{#                                files</a>#}
-{#                        </li>#}
-{#                        <li class="active">#}
-{#                            <a href="#sqlList" class="sql-tab" data-toggle="tab" aria-expanded="true">From SQL</a>#}
-{#                        </li>#}
-{#                    </ul>#}
                     </div>
                         <div class="col-md-6">
                         <small class="pull-right">
                             <button type="button" class="btn btn-success btn-circle" id="add-ms"
-                                    data-toggle="modal" data-target="#createsqlmodal">
-                                <i class="fa fa-plus"></i> Add SQL source
+                                    data-toggle="modal" data-target="#createdatamicroservice">
+                                <i class="fa fa-plus"></i> Add microservice
                             </button>
                         </small>
                 </div>
             </div>
             <div class="row">
                 <div class="tab-content">
-
-                    {#                    <div class="tab-pane fade" id="excelList">#}
-                    {#                        <div class="col col-md-10 col-md-offset-1">#}
-                    {#                            <table class="table table-hover">#}
-                    {#                                <thead>#}
-                    {#                                <tr>#}
-                    {#                                    <th>Nombre</th>#}
-                    {#                                    <th>Origen</th>#}
-                    {#                                    <th>Descripción</th>#}
-                    {#                                    <th>Fuente</th>#}
-                    {#                                    <th>Detalles</th>#}
-                    {#                                </tr>#}
-                    {#                                </thead>#}
-                    {#                            </table>#}
-                    {#                        </div>#}
-                    {#                    </div>#}
-
                     <div class="tab-pane fade active in" id="sqlList">
                         <div class="col col-md-10 col-md-offset-1">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Connection Type</th>
-                                    <th>DB Name</th>
-                                    <th>Host</th>
-                                    <th>Options</th>
+                                    <th>Name</th>
+                                    <th>Endpoint</th>
+                                    <th>Datasource</th>
+                                    <th>Table</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for sql_source in sql_sources %}
+                                {% for data_microservice in data_microservices %}
                                     <tr>
-                                        <td>{{ sql_source.connection_type }}</td>
-                                        <td>{{ sql_source.db_name }}</td>
-                                        <td>{{ sql_source.host }}</td>
+                                        <td>{{ data_microservice.name }}</td>
+                                        <td>{{ data_microservice.endpoint }}</td>
+                                        <td>{{ data_microservice.source.connection_type }}</td>
                                         <td class="text-center">
                                             <div class="btn-group flex-btn-group-container">
                                                 <button type="submit" class="btn btn-info btn-sm">
@@ -85,12 +59,12 @@
             </div>
         </div>
     </div>
-    <div id="createsqlmodal" class="modal fade" role="dialog">
+    <div id="createdatamicroservice" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Create new SQL Datasource</h4>
+                    <h4 class="modal-title">Create new Data Microservice</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -98,10 +72,6 @@
                             <form class="form-horizontal" method="post">
                                 {% csrf_token %}
                                 {{ form | crispy }}
-                                <button type="submit" name="test" class="btn btn-warning">
-                                    <span class="glyphicon glyphicon-flash"></span>&nbsp;
-                                    <span>Test connection</span>
-                                </button>
                                 <button type="submit" name="create" class="btn btn-success">
                                     <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
                                     <span>Create</span>

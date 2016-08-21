@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from .models import SQLSource
+from .models import SQLSource, DataMicroservice
 from crispy_forms.layout import Submit, Layout, Field
 from crispy_forms.bootstrap import (
     PrependedText, PrependedAppendedText, FormActions, StrictButton)
@@ -30,3 +30,14 @@ class NewSQLSourceForm(forms.ModelForm):
     class Meta:
         model = SQLSource
         fields = ['connection_type', 'host', 'db_name', 'user_name', 'password', 'port']
+
+
+class NewDataMicroservice(forms.ModelForm):
+    source = forms.ModelChoiceField(queryset=SQLSource.objects.all())
+    table = forms.CharField(max_length=200)
+    name = forms.CharField(max_length=50)
+
+    class Meta:
+        model = DataMicroservice
+        fields = ['source', 'name', 'table']
+

@@ -11,21 +11,6 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    {% if form.errors %}
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="alert alert-danger">
-                                <strong>Your username and password didn't match.</strong> Please try again.
-                            </div>
-                        </div>
-                    {% endif %}
-                    {% if next %}
-                        {% if user.is_authenticated %}
-                            <p>Your account doesn't have access to this page. To proceed,
-                                please login with an account that has access.</p>
-                        {% else %}
-                            <p>Please login to see this page.</p>
-                        {% endif %}
-                    {% endif %}
                     <div class="col-md-8 col-md-offset-2">
                         <form method="POST" action="{% url 'login' %}">
                             {% csrf_token %}

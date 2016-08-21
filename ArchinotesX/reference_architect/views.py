@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
+
 from reference_architect.forms import NewSQLSourceForm
 
 
@@ -36,14 +37,14 @@ def overview(request):
         context['form'] = form
         if 'create' in request.POST:
             print 'entra a create'
-            if form.is_valid():
-                form.save()
-                return HttpResponse("eiohgzzzf")
+            # if form.is_valid():
+                # form.save()
+            return JsonResponse({'status':'false','message':'no'}, status=500)
         elif 'test' in request.POST:
             print 'entra a test'
             if form.is_valid():
                 test_postgresql_connection(request)
-                context['msg'] = 'conexión exitosa'
+                context['msg'] = 'conexion exitosa'
     return render(request, 'reference_architect/datasources.html', context)
 
 

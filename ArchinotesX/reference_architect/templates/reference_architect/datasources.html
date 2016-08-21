@@ -77,8 +77,7 @@
                             <form class="form-horizontal" method="post" >
                                 {% csrf_token %}
                                 {{ form | crispy }}
-                                <p>{{ msg }}</p>
-                                <button type="submit" name="test" class="btn btn-warning" >
+                                <button type="submit" name="test" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-console"></span>&nbsp;
                                     <span>Test connection</span>
                                 </button>
@@ -93,4 +92,30 @@
             </div>
         </div>
     </div>
+    <div id="datasources_conexionexitosa" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Conexión exitosa</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <p>hey hey</p>
+                            <p>{{ msg }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+<script>
+$(document).ready(function(){
+
+        $("#datasources_conexionexitosa").modal();
+
+});
+</script>

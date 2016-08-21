@@ -37,9 +37,11 @@ def overview(request):
         context['form'] = form
         if 'create' in request.POST:
             print 'entra a create'
-            # if form.is_valid():
-                # form.save()
-            return JsonResponse({'status':'false','message':'no'}, status=500)
+            if form.is_valid():
+                inmemory_form = form.save(commit=False)
+                inmemory_form.company = request.user.userprofile.company
+                inmemory_form.save()
+            # return JsonResponse({'status':'false','message':'no'}, status=500)
         elif 'test' in request.POST:
             print 'entra a test'
             if form.is_valid():

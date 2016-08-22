@@ -17,4 +17,4 @@ This 'application' is hosted in Docker Hub as a public repository and can be use
 
 Then test `http://localhost:49160/api/<TABLE>` and you'll see your results.
 
-**Note:** If you're using docker-toolbox, then you might need to use `docker-machine ip default` to get the right IP.
+**Note:** If you're using docker-toolbox, you might need to use `docker-machine ip default` to get the right IP.

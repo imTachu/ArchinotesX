@@ -39,5 +39,5 @@ class NewDataMicroservice(forms.ModelForm):
 
     class Meta:
         model = DataMicroservice
-        fields = ['source', 'name', 'table']
+        fields = ['name', 'source', 'table']
 

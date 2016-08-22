@@ -8,7 +8,7 @@ var pgp = require('pg-promise')(options);
 var connectionString = process.env.DATABASE_URL;
 var db = pgp(connectionString);
 
-function getAllPuppies(req, res, next) {
+function getAll(req, res, next) {
   db.any('select * from ' + process.env.TABLE)
     .then(function (data) {
       res.status(200)
@@ -22,9 +22,9 @@ function getAllPuppies(req, res, next) {
     });
 }
 
-function getSinglePuppy(req, res, next) {
-  var pupID = parseInt(req.params.id);
-  db.one('select * from ' + process.env.TABLE + ' where id = $1', pupID)
+function getSingle(req, res, next) {
+  var id = parseInt(req.params.id);
+  db.one('select * from ' + process.env.TABLE + ' where id = $1', id)
     .then(function (data) {
       res.status(200)
         .json({
@@ -38,6 +38,6 @@ function getSinglePuppy(req, res, next) {
 }
 
 module.exports = {
-  getAllPuppies: getAllPuppies,
-  getSinglePuppy: getSinglePuppy
+  getAll: getAll,
+  getSingle: getSingle
 };

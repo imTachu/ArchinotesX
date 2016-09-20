@@ -12,11 +12,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.proycomp.sicc</groupId>
-    <artifactId>sicc</artifactId>
+    <groupId>com.proycomp.archinotesx</groupId>
+    <artifactId>archinotesx</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>sicc</name>
+    <name>archinotesx</name>
 
     <prerequisites>
         <maven>3.0.0</maven>

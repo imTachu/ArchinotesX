@@ -1,0 +1,77 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+    ng-click="vm.clear()">&times;</button>
+    <h4 class="modal-title">Subir archivos</h4>
+</div>
+<div class="modal-body">
+
+    <div class="entity-file-uploader">
+       <!--<button class="btn btn-primary btn-file" type="file" ngf-select="vm.uploadFilesOption2($file, $invalidFiles)"
+           ngf-max-height="1000" ngf-max-size="1MB">Seleccionar archivo 2 Opcion</button>-->
+
+      <div ngf-no-file-drop class="alert alert-info" role="alert">
+          El arrastre de archivos no es soportado por este navegador
+      </div>
+      <div 
+          ngf-drop="vm.uploadFiles($file, $invalidFiles)" 
+          ngf-select="vm.uploadFiles($file, $invalidFiles)" 
+          class="uploader-drop-area" 
+          ngf-drag-over-class="'uploader-drag-over'" 
+          ngf-multiple="false" 
+          ngf-allow-dir="false"
+          ngf-accept="vm.allowedFileTypes"
+          ngf-max-files="1" 
+          ng-disabled="vm.uploading"
+          ngf-pattern="vm.allowedFileTypes">
+
+          
+
+            <button type="file" class="btn btn-primary btn-file" ngf-select="vm.uploadFiles($file, $invalidFiles)"
+             ngf-max-height="1000" ngf-max-size="1MB" ngf-accept="vm.allowedFileTypes" ng-disabled="vm.uploading" ngf-pattern="vm.allowedFileTypes">
+               <span class="glyphicon glyphicon-upload"></span>
+              Seleccionar archivo 
+          </button>
+              <span class="no-dragging-msg">O Arrastre sus archivos en esta aréa</span>
+              <span class="dragging-msg">Puede soltarlos aquí</span>
+          
+      </div>
+      <div class="container-fluid uploader-progress" ng-if="vm.file">
+          <h5>Progreso:</h5>
+          <div class="col-xs-8 col-sm-6 col-md-4" ng-cloak>
+              <span>
+                  <!--<span class="glyphicon glyphicon-ban-circle" ng-show="vm.uploading" ng-click="vm.cancelUpload()">
+                      <span class="sr-only">Cancelar</span>
+                  </span>-->
+                  <span class="glyphicon glyphicon-file"></span>
+                  <span class="label label-danger" ng-show="vm.uploadErrorMsg">
+                      {{vm.uploadErrorMsg}}
+                  </span>
+                  &nbsp;{{vm.file.name}} ({{vm.file.size | byte}})
+              </span>
+          </div>
+          <div class="col-xs-4 col-sm-6 col-md-8">
+              <uib-progressbar 
+                  class="progress-striped" 
+                  ng-class="{active:vm.uploading}" 
+                  value="vm.uploadProgress">
+                  <span class="sr-only">{{vm.file.progress()}}%</span> 
+              </uib-progressbar>
+          </div>
+      </div>
+      <br/>
+      <div class="alert alert-success" role="alert" ng-if="vm.uploadCompleted">
+          El archivo fue guardado exitosamente, si desea, puede seleccionar otro archivo para subir
+      </div>
+      <div class="alert alert-danger" role="alert" ng-if="vm.uploadErrorMsg && !vm.uploadCanceled">
+          Ocurrió un error al subir el archivo, si desea, puede seleccionar otro archivo para subir
+          <span ng-if="vm.invalidFile">(Tipos de archivos válidos: {{vm.allowedFileExtensions}})</span>
+          <span ng-if="vm.mexFilesError">(Recuerde: un archivo a la vez)</span>
+      </div>
+      <!--<div class="alert alert-danger" role="alert" ng-if="vm.uploadCanceled">
+          Ha cancelado la subida del archivo, si desea, puede seleccionar otro archivo para subir
+      </div>-->
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" ng-click="vm.clear()" class="btn btn-default bfd-cancel" aria-hidden="true" data-dismiss="modal">Cerrar </button>
+</div>

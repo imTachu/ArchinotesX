@@ -1,0 +1,343 @@
+        <!--
+        <div class="form-group" ng-show="vm.estadoSenalizacionH.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.estadoSenalizacionH.id" readonly />
+        </div>
+        -->
+
+        <h4>Información del estado: <span class="label label-success">{{vm.getStateStatusLabel()}}</span></h4>
+        <div class="entity-section-form-group">
+            <div class="row">
+                <div class="form-group col-xs-12" ng-class="{'has-error':editForm.kilometroInicial.$invalid || editForm.abscisaInicial.$invalid, 'col-sm-5':vm.estadoSenalizacionH.id, 'col-sm-6':!vm.estadoSenalizacionH.id}">
+                    <label class="control-label sr-only" for="field_kilometroInicial">kilometro + Abscisa Inicial</label>
+                    <label class="control-label " for="field_kilometroInicial">Kilómetro + Abscisa Inicial</label>
+
+                    <div class="input-group">  
+                        <div class="input-group-addon">Km</div>  
+                        <input required type="number" class="form-control" name="kilometroInicial" id="field_kilometroInicial"
+                                ng-model="vm.estadoSenalizacionH.kilometroInicial"
+                                min="0" max="200" />
+                        <div class="input-group-addon">+</div>
+                        <input required type="number" class="form-control" name="abscisaInicial" id="field_abscisaInicial"
+                                ng-model="vm.estadoSenalizacionH.abscisaInicial"
+                                min="0" max="999" />
+                    </div>
+                    
+
+                    <div ng-show="editForm.kilometroInicial.$invalid || editForm.abscisaInicial.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.kilometroInicial.$error.min" translate-value-min="0">
+                            El campo km no puede ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroInicial.$error.max">
+                            El campo km no pude ser mayor a 200
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroInicial.$error.number">
+                            El campo km es numérico
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisaInicial.$error.min" translate-value-min="0">
+                            El campo abscisa no puede ser menor a 0.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisaInicial.$error.max">
+                            El campo abscisa no puede ser mayor a 999.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisaInicial.$error.number">
+                            El campo abscisa es numérico.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroInicial.$error.required && !editForm.abscisaInicial.$error.required">
+                            El campo km es obligatorio.
+                        </p>
+                        
+                        <p class="help-block"
+                            ng-show="!editForm.kilometroInicial.$error.required && editForm.abscisaInicial.$error.required">
+                            El campo abscisa es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroInicial.$error.required && editForm.abscisaInicial.$error.required">
+                            Los campos Km y abscisa son obligatorios.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroInicial.$error.kilometroAbscisaInvalid">
+                            Valores por fuera del tramo comprendido de  {{vm.getTramo().origen}}
+                            - {{vm.getTramo().destino}}.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-12" ng-class="{'has-error':editForm.kilometroFinal.$invalid || editForm.abscisaFinal.$invalid, 'col-sm-5':vm.estadoSenalizacionH.id, 'col-sm-6':!vm.estadoSenalizacionH.id}">
+                    <label class="control-label sr-only" for="field_kilometroFinal">kilometro + Abscisa Final</label>
+                    <label class="control-label " for="field_kilometroFinal">Kilómetro + Abscisa Final</label>
+
+                    <div class="input-group">  
+                        <div class="input-group-addon">Km</div>  
+                        <input required type="number" class="form-control" name="kilometroFinal" id="field_kilometroFinal"
+                                ng-model="vm.estadoSenalizacionH.kilometroFinal"
+                                min="0" max="200" />
+                        <div class="input-group-addon">+</div>
+                        <input required type="number" class="form-control" name="abscisaFinal" id="field_abscisaFinal"
+                                ng-model="vm.estadoSenalizacionH.abscisaFinal"
+                                min="0" max="999" />
+                    </div>
+                    
+
+                    <div ng-show="editForm.kilometroFinal.$invalid || editForm.abscisaFinal.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.kilometroFinal.$error.min" translate-value-min="0">
+                            El campo km no puede ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroFinal.$error.max">
+                            El campo km no pude ser mayor a 200
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroFinal.$error.number">
+                            El campo km es numérico
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisaFinal.$error.min" translate-value-min="0">
+                            El campo abscisa no puede ser menor a 0.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisaFinal.$error.max">
+                            El campo abscisa no puede ser mayor a 999.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisaFinal.$error.number">
+                            El campo abscisa es numérico.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroFinal.$error.required && !editForm.abscisaFinal.$error.required">
+                            El campo km es obligatorio.
+                        </p>
+                        
+                        <p class="help-block"
+                            ng-show="!editForm.kilometroFinal.$error.required && editForm.abscisaFinal.$error.required">
+                            El campo abscisa es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroFinal.$error.required && editForm.abscisaFinal.$error.required">
+                            Los campos Km y abscisa son obligatorios.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometroFinal.$error.kilometroAbscisaInvalid">
+                            Valores por fuera del tramo comprendido de  {{vm.getTramo().origen}}
+                            - {{vm.getTramo().destino}}.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6" ng-class="{'col-sm-2':vm.estadoSenalizacionH.id, 'hide':!vm.estadoSenalizacionH.id}">
+                    <label class="control-label" for="field_cumple">¿Ha cumplido?</label>
+                    <indicador-cumple cumple="vm.estadoSenalizacionH.cumple"></indicador-cumple>   
+                </div>
+            </div>
+            <div class="row" ng-if="!vm.isEstadoInVerification()">
+                <div class="form-group col-xs-4" ng-class="{'has-error':editForm.lineaInspeccion.$invalid}">
+                    
+                    <label class="control-label" for="field_lineaInspeccion">Línea</label>
+                    <select required class="form-control" id="field_lineaInspeccion" name="lineaInspeccion" ng-model="vm.estadoSenalizacionH.lineaInspeccion" ng-options="o as o for o in ['Derecha','Centro Derecha','Centro Izquierda', 'Izquierda']" >
+                        <option value=""></option>
+                    </select>    
+                
+
+                    <div ng-show="editForm.lineaInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.lineaInspeccion.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4" ng-class="{'has-error':editForm.tipoLineaInspeccion.$invalid}">
+                    
+                    <label class="control-label" for="field_tipoLineaInspeccion">Tipo de línea</label>
+                    <select required class="form-control" id="field_tipoLineaInspeccion" name="tipoLineaInspeccion" ng-model="vm.estadoSenalizacionH.tipoLineaInspeccion" ng-options="o as o for o in ['Amarilla-15','Blanca-15','Amarilla-30','Blanca-30']" >
+                        <option value=""></option>
+                    </select>    
+                
+
+                    <div ng-show="editForm.tipoLineaInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.tipoLineaInspeccion.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.promedioInspeccion.$invalid}">
+                    <label class="control-label" for="field_promedioInspeccion">Promedio</label>
+                    <input type="number" class="form-control" name="promedioInspeccion" id="field_promedioInspeccion"
+                    ng-model="vm.estadoSenalizacionH.promedioInspeccion"
+                    ng-disabled="true" 
+                    min="0" max="1000" />
+
+                    <div ng-show="editForm.promedioInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.promedioInspeccion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.promedioInspeccion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.promedioInspeccion.$error.max">
+                            Este campo no debe ser mayor a 1000.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.promedioInspeccion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                    <p class="help-block"
+                        ng-if="vm.showUserToSaveMessage">
+                        Debes guardar para ver el valor actualizado
+                    </p>
+                </div>
+                <div class="form-group col-xs-12">
+                    <label class="control-label" for="field_observacionesInspeccion">Observaciones inspección:</label>
+                    <textarea class="form-control" rows="3" name="observacionesInspeccion" 
+                        id="field_observacionesInspeccion" ng-model="vm.estadoSenalizacionH.observacionesInspeccion" ng-maxlength="400" ></textarea>
+                    <div ng-show="editForm.observacionesInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.observacionesInspeccion.$error.maxlength">
+                            Este campo no puede tener más de 400 caracteres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.isEstadoInVerification()">
+                <div class="form-group col-xs-4" ng-class="{'has-error':editForm.lineaVerificacion.$invalid}">
+                    
+                    <label class="control-label" for="field_lineaVerificacion">Linea</label>
+                    <select required class="form-control" id="field_lineaVerificacion" name="lineaVerificacion" ng-model="vm.estadoSenalizacionH.lineaVerificacion" ng-options="o as o for o in ['Derecha','Centro Derecha','Centro Izquierda', 'Izquierda']" >
+                        <option value=""></option>
+                    </select>    
+                
+
+                    <div ng-show="editForm.lineaVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.lineaVerificacion.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4" ng-class="{'has-error':editForm.tipoLineaVerificacion.$invalid}">
+                    
+                    <label class="control-label" for="field_tipoLineaVerificacion">Tipo de línea</label>
+                    <select required class="form-control" id="field_tipoLineaVerificacion" name="tipoLineaVerificacion" ng-model="vm.estadoSenalizacionH.tipoLineaVerificacion" ng-options="o as o for o in ['Amarilla-15','Blanca-15','Amarilla-30','Blanca-30']" >
+                        <option value=""></option>
+                    </select>    
+                
+
+                    <div ng-show="editForm.tipoLineaVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.tipoLineaVerificacion.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.promedioVerificacion.$invalid}">
+                    <label class="control-label" for="field_promedioVerificacion">Promedio</label>
+                    <input type="number" class="form-control" name="promedioVerificacion" id="field_promedioVerificacion"
+                    ng-model="vm.estadoSenalizacionH.promedioVerificacion"
+                    ng-disabled="true"
+                    min="0" max="1000" />
+
+                    <div ng-show="editForm.promedioVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.promedioVerificacion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.promedioVerificacion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.promedioVerificacion.$error.max">
+                            Este campo no debe ser mayor a 1000.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.promedioVerificacion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                    <p class="help-block"
+                        ng-if="vm.showUserToSaveMessage">
+                        Debes guardar para ver el valor actualizado
+                    </p>
+                </div>
+                <div class="form-group col-xs-12">
+                    <label class="control-label" for="field_observacionesVerificacion">Observaciones verificación:</label>
+                    <textarea class="form-control" rows="3" name="observacionesVerificacion" 
+                        id="field_observacionesVerificacion" ng-model="vm.estadoSenalizacionH.observacionesVerificacion" ng-maxlength="400" ></textarea>
+                    <div ng-show="editForm.observacionesVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.observacionesVerificacion.$error.maxlength">
+                            Este campo no puede tener más de 400 caracteres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.isEstadoInVerification()">
+                <div class="col-xs-12">
+                    <div class="alert alert-success alert-entity-message">
+                        Se requiere la <strong>fecha de verificación</strong> en el panel principal <a ui-sref="inspeccion-senalizacion-h.edit"><strong>(Información de la inspección)</strong></a>, de lo contrario, se calculará el cumplimiento basado en la fecha y hora del sistema
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.estadoSenalizacionH.id">
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="medida-estado-senalizacion-h({id_medida_senalizacion_h: vm.estadoSenalizacionH.id})">
+                        <span>
+                            Medidas
+                            &nbsp
+                        </span>
+                        <span class="glyphicon glyphicon-file"></span>
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="archivo-inspeccion-senalizacion-h({id_estado_senalizacion_h: vm.estadoSenalizacionH.id})">
+                        <span>
+                            Evidencia 
+                            &nbsp
+                        </span>
+                        <span class="glyphicon glyphicon-file"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label class="control-label" for="field_cumple">Cumple</label>
+            <input type="checkbox" class="form-control" name="cumple" id="field_cumple"
+                    ng-model="vm.estadoSenalizacionH.cumple"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_estado">Estado</label>
+            <input type="text" class= "form-control" name="estado" id="field_estado"
+                    ng-model="vm.estadoSenalizacionH.estado"
+                    ng-maxlength="10" />
+            <div ng-show="editForm.estado.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.estado.$error.maxlength">
+                    This field cannot be longer than 10 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_senalizacionDeInspeccion">Senalizacion De Inspeccion</label>
+            <select class="form-control" id="field_senalizacionDeInspeccion" name="senalizacionDeInspeccion" ng-model="vm.estadoSenalizacionH.senalizacionDeInspeccion" ng-options="inspeccionSenalizacionH as inspeccionSenalizacionH.id for inspeccionSenalizacionH in vm.inspeccionsenalizacionhs track by inspeccionSenalizacionH.id">
+                <option value=""></option>
+            </select>
+        </div>-->

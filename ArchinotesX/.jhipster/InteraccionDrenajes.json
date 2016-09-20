@@ -1,0 +1,45 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "usuarioDeInteraccion",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "interaccionDeEstado",
+            "otherEntityName": "estadoDrenajes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "interaccionDeInspeccion",
+            "otherEntityName": "inspeccionDrenajes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fechaDeInteraccion",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "interaccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "15"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "interaccion_drenajes",
+    "pagination": "pager"
+}

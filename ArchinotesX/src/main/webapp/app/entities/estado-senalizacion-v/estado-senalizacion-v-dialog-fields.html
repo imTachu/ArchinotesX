@@ -1,0 +1,651 @@
+<!--
+        <div class="form-group" ng-show="vm.estadoSenalizacionV.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.estadoSenalizacionV.id" readonly />
+        </div>
+        -->
+<h4>Información del estado: <span class="label label-success">{{vm.getStateStatusLabel()}}</span></h4>
+<div class="entity-section-form-group">
+    <div class="row">
+        <div class="form-group col-xs-12" ng-class="{'has-error':editForm.tipoSenalDeSenalizacion.$invalid, 'col-xs-10':vm.estadoSenalizacionV.id}">
+            <!--<label class="control-label" for="field_tipoSenalDeSenalizacion">Tipo de señal</label>
+                    <select required class="form-control" id="field_tipoSenalDeSenalizacion" name="tipoSenalDeSenalizacion" ng-model="vm.estadoSenalizacionV.tipoSenalDeSenalizacion" ng-options="tipoSenal as tipoSenal.nombreSenal for tipoSenal in vm.tiposenals track by tipoSenal.id">
+                        <option value=""></option>
+                    </select>
+                    <div ng-show="editForm.tipoSenalDeSenalizacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.tipoSenalDeSenalizacion.$error.required">
+                            Este campo es obligatorio
+                        </p>
+                    </div>-->
+            <label class="control-label" for="field_tipoSenalDeSenalizacion">Tipo de señal</label>
+            <input autocomplete="off" type="text" ng-model="vm.tipoSenalOptionsSelected" required ng-model-options="vm.typeHeadModelOptions" id="field_tipoSenalDeSenalizacion" name="tipoSenalDeSenalizacion" placeholder="Ej: Km WW - Ab XX - Tipo YY Margen: ZZZ" uib-typeahead="tipoSenal as tipoSenal.label for tipoSenal in vm.tiposenals | filter:{label:$viewValue} | limitTo:15" class="form-control">
+            <div ng-show="editForm.tipoSenalDeSenalizacion.$invalid">
+                <p class="help-block" ng-show="editForm.tipoSenalDeSenalizacion.$error.required">
+                    Este campo es obligatorio
+                </p>
+                <p class="help-block" ng-show="editForm.tipoSenalDeSenalizacion.$error.debeEscogerTipoSenal">
+                    Debe seleccionar un tipo de señal válido de la lista
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'col-xs-2':vm.estadoSenalizacionV.id, 'hide':!vm.estadoSenalizacionV.id}">
+            <label class="control-label" for="field_cumple">¿Ha cumplido?</label>
+            <indicador-cumple cumple="vm.estadoSenalizacionV.cumple"></indicador-cumple>
+        </div>
+        <div class="form-group col-xs-12 col-sm-6" ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
+            <label class="control-label sr-only" for="field_kilometro">Kilometro + Abscisa</label>
+            <label class="control-label " for="field_kilometro">Kilómetro + Abscisa</label>
+            <div class="input-group">
+                <div class="input-group-addon">Km</div>
+                <input type="number" class="form-control" name="kilometro" id="field_kilometro" ng-model="vm.estadoSenalizacionV.kilometro" ng-disabled="true" min="0" max="200" />
+                <div class="input-group-addon">+</div>
+                <input type="number" class="form-control" name="abscisa" id="field_abscisa" ng-model="vm.estadoSenalizacionV.abscisa" ng-disabled="true" min="0" max="999" />
+            </div>
+            <div ng-show="editForm.kilometro.$invalid || editForm.abscisa.$invalid">
+                <p class="help-block" ng-show="editForm.kilometro.$error.min" translate-value-min="0">
+                    El campo km no puede ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.kilometro.$error.max">
+                    El campo km no pude ser mayor a 200
+                </p>
+                <p class="help-block" ng-show="editForm.kilometro.$error.number">
+                    El campo km es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.abscisa.$error.min" translate-value-min="0">
+                    El campo abscisa no puede ser menor a 0.
+                </p>
+                <p class="help-block" ng-show="editForm.abscisa.$error.max">
+                    El campo abscisa no puede ser mayor a 999.
+                </p>
+                <p class="help-block" ng-show="editForm.abscisa.$error.number">
+                    El campo abscisa es numérico.
+                </p>
+                <p class="help-block" ng-show="editForm.kilometro.$error.required && !editForm.abscisa.$error.required">
+                    El campo km es obligatorio.
+                </p>
+                <p class="help-block" ng-show="!editForm.kilometro.$error.required && editForm.abscisa.$error.required">
+                    El campo abscisa es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.kilometro.$error.required && editForm.abscisa.$error.required">
+                    Los campos Km y abscisa son obligatorios.
+                </p>
+                <p class="help-block" ng-show="editForm.kilometro.$error.kilometroAbscisaInvalid">
+                    Valores por fuera del tramo comprendido de {{vm.getTramo().origen}} - {{vm.getTramo().destino}}.
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-sm-6 col-xs-12" ng-class="{'has-error':editForm.margen.$invalid}">
+            <label class="control-label" for="field_margen">Margen</label>
+            <br>
+            <div class="row">
+                <div class="col-sm-6 form-control-static" ng-class="{'col-xs-6':!vm.estadoSenalizacionV.id}">
+                    <label>
+                        <input type="radio" name="margen" id="field_margen" ng-disabled="true" ng-model="vm.estadoSenalizacionV.margen" value="Izquierda" /> Izquierda
+                    </label>
+                </div>
+                <div class="col-sm-6 form-control-static" ng-class="{'col-xs-6':!vm.estadoSenalizacionV.id}">
+                    <label>
+                        <input type="radio" name="margen" id="field_margen" ng-disabled="true" ng-model="vm.estadoSenalizacionV.margen" value="Derecha" /> Derecha
+                    </label>
+                </div>
+            </div>
+            <div ng-show="editForm.margen.$invalid">
+                <p class="help-block" ng-show="editForm.margen.$error.required">
+                    El campo es obligatorio.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!vm.isEstadoInVerification()">
+        <div class="form-group col-xs-3" ng-class="{'has-error':editForm.amarilloInspeccion.$invalid}">
+            <label class="control-label" for="field_amarilloInspeccion">Amarillo</label>
+            <input type="number" class="form-control" name="amarilloInspeccion" id="field_amarilloInspeccion" ng-model="vm.estadoSenalizacionV.amarilloInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.amarilloInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.amarilloInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-3" ng-class="{'has-error':editForm.blancoInspeccion.$invalid}">
+            <label class="control-label" for="field_blancoInspeccion">Blanco</label>
+            <input type="number" class="form-control" name="blancoInspeccion" id="field_blancoInspeccion" ng-model="vm.estadoSenalizacionV.blancoInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.blancoInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.blancoInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.blancoInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.blancoInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.blancoInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.blancoInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-3" ng-class="{'has-error':editForm.verdeInspeccion.$invalid}">
+            <label class="control-label" for="field_verdeInspeccion">Verde</label>
+            <input type="number" class="form-control" name="verdeInspeccion" id="field_verdeInspeccion" ng-model="vm.estadoSenalizacionV.verdeInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.verdeInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.verdeInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.verdeInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.verdeInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.verdeInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.verdeInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-3" ng-class="{'has-error':editForm.rojoInspeccion.$invalid}">
+            <label class="control-label" for="field_rojoInspeccion">Rojo</label>
+            <input type="number" class="form-control" name="rojoInspeccion" id="field_rojoInspeccion" ng-model="vm.estadoSenalizacionV.rojoInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.rojoInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.rojoInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.rojoInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.rojoInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.rojoInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.rojoInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!vm.isEstadoInVerification()">
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.azulInspeccion.$invalid}">
+            <label class="control-label" for="field_azulInspeccion">Azul</label>
+            <input type="number" class="form-control" name="azulInspeccion" id="field_azulInspeccion" ng-model="vm.estadoSenalizacionV.azulInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.azulInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.azulInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.azulInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.azulInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.azulInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.azulInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.naranjaInspeccion.$invalid}">
+            <label class="control-label" for="field_naranjaInspeccion">Naranja</label>
+            <input type="number" class="form-control" name="naranjaInspeccion" id="field_naranjaInspeccion" ng-model="vm.estadoSenalizacionV.naranjaInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.naranjaInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.naranjaInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.marronInspeccion.$invalid}">
+            <label class="control-label" for="field_marronInspeccion">Marron</label>
+            <input type="number" class="form-control" name="marronInspeccion" id="field_marronInspeccion" ng-model="vm.estadoSenalizacionV.marronInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.marronInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.marronInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.marronInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.marronInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.marronInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.marronInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!vm.isEstadoInVerification()">
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.amarilloVerdeFluorescenteInspeccion.$invalid}">
+            <label class="control-label" for="field_amarilloVerdeFluorescenteInspeccion">Amarillo verde fluorescente</label>
+            <input type="number" class="form-control" name="amarilloVerdeFluorescenteInspeccion" id="field_amarilloVerdeFluorescenteInspeccion" ng-model="vm.estadoSenalizacionV.amarilloVerdeFluorescenteInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.amarilloVerdeFluorescenteInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.amarilloFluorescenteInspeccion.$invalid}">
+            <label class="control-label" for="field_amarilloFluorescenteInspeccion">Amarillo fluorescente</label>
+            <input type="number" class="form-control" name="amarilloFluorescenteInspeccion" id="field_amarilloFluorescenteInspeccion" ng-model="vm.estadoSenalizacionV.amarilloFluorescenteInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.amarilloFluorescenteInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.naranjaFluorescenteInspeccion.$invalid}">
+            <label class="control-label" for="field_naranjaFluorescenteInspeccion">Naranja fluorescente</label>
+            <input type="number" class="form-control" name="naranjaFluorescenteInspeccion" id="field_naranjaFluorescenteInspeccion" ng-model="vm.estadoSenalizacionV.naranjaFluorescenteInspeccion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.naranjaFluorescenteInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteInspeccion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteInspeccion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteInspeccion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteInspeccion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!vm.isEstadoInVerification()">
+        <div class="form-group col-xs-6" ng-class="{'has-error':editForm.posLegInspeccion.$invalid}">
+            <label class="control-label" for="field_posLegInspeccion">Pos Leg Inspeccion</label>
+            <input type="text" class="form-control" name="posLegInspeccion" id="field_posLegInspeccion" ng-model="vm.estadoSenalizacionV.posLegInspeccion" ng-maxlength="30" />
+            <div ng-show="editForm.posLegInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.posLegInspeccion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.posLegInspeccion.$error.maxlength">
+                    Este campo no puede tener más de 30 caracteres
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-6" ng-class="{'has-error': editForm.anguloMedicionInspeccion.$invalid}">
+            <label class="control-label" for="field_anguloMedicionInspeccion">Ángulo de medición</label>
+            <select required class="form-control" name="anguloMedicionInspeccion" id="field_anguloMedicionInspeccion" ng-model="vm.estadoSenalizacionV.anguloMedicionInspeccion" ng-options="angulo as angulo for angulo in vm.angulosMedicion">
+                <option value=""></option>
+            </select>
+            <div ng-show="editForm.anguloMedicionInspeccion.$invalid">
+                <p class="help-block" ng-show="editForm.anguloMedicionInspeccion.$error.required">
+                    Este campo es obligatorio
+                </p>
+            </div>
+        </div>
+    </div>
+<div class="row" ng-if="!vm.isEstadoInVerification()">
+    <div class="form-group col-xs-12">
+        <label class="control-label" for="field_observacionesInspeccion">Observaciones inspección:</label>
+        <textarea class="form-control" rows="3" name="observacionesInspeccion" id="field_observacionesInspeccion" ng-model="vm.estadoSenalizacionV.observacionesInspeccion" ng-maxlength="400"></textarea>
+        <div ng-show="editForm.observacionesInspeccion.$invalid">
+            <p class="help-block" ng-show="editForm.observacionesInspeccion.$error.maxlength">
+                Este campo no puede tener más de 400 caracteres.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row" ng-if="vm.isEstadoInVerification()">
+    <div class="form-group col-xs-3" ng-class="{'has-error':editForm.amarilloVerificacion.$invalid}">
+        <label class="control-label" for="field_amarilloVerificacion">Amarillo</label>
+        <input type="number" class="form-control" name="amarilloVerificacion" id="field_amarilloVerificacion" ng-model="vm.estadoSenalizacionV.amarilloVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+        <div ng-show="editForm.amarilloVerificacion.$invalid">
+            <p class="help-block" ng-show="editForm.amarilloVerificacion.$error.required">
+                Este campo es obligatorio.
+            </p>
+            <p class="help-block" ng-show="editForm.amarilloVerificacion.$error.min" translate-value-min="0">
+                Este campo no debe ser menor a 0
+            </p>
+            <p class="help-block" ng-show="editForm.amarilloVerificacion.$error.max">
+                Este campo no debe ser mayor a 10000.
+            </p>
+            <p class="help-block" ng-show="editForm.amarilloVerificacion.$error.number">
+                Este campo es numérico
+            </p>
+            <p class="help-block" ng-show="editForm.amarilloVerificacion.$error.debeEscogerAlMenosUnColor">
+                Diligencie al menos uno de los colores
+            </p>
+        </div>
+    </div>
+    <div class="form-group col-xs-3" ng-class="{'has-error':editForm.blancoVerificacion.$invalid}">
+        <label class="control-label" for="field_blancoVerificacion">Blanco</label>
+        <input type="number" class="form-control" name="blancoVerificacion" id="field_blancoVerificacion" ng-model="vm.estadoSenalizacionV.blancoVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+        <div ng-show="editForm.blancoVerificacion.$invalid">
+            <p class="help-block" ng-show="editForm.blancoVerificacion.$error.required">
+                Este campo es obligatorio.
+            </p>
+            <p class="help-block" ng-show="editForm.blancoVerificacion.$error.min" translate-value-min="0">
+                Este campo no debe ser menor a 0
+            </p>
+            <p class="help-block" ng-show="editForm.blancoVerificacion.$error.max">
+                Este campo no debe ser mayor a 10000.
+            </p>
+            <p class="help-block" ng-show="editForm.blancoVerificacion.$error.number">
+                Este campo es numérico
+            </p>
+            <p class="help-block" ng-show="editForm.blancoVerificacion.$error.debeEscogerAlMenosUnColor">
+                Diligencie al menos uno de los colores
+            </p>
+        </div>
+    </div>
+    <div class="form-group col-xs-3" ng-class="{'has-error':editForm.verdeVerificacion.$invalid}">
+        <label class="control-label" for="field_verdeVerificacion">Verde</label>
+        <input type="number" class="form-control" name="verdeVerificacion" id="field_verdeVerificacion" ng-model="vm.estadoSenalizacionV.verdeVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+        <div ng-show="editForm.verdeVerificacion.$invalid">
+            <p class="help-block" ng-show="editForm.verdeVerificacion.$error.required">
+                Este campo es obligatorio.
+            </p>
+            <p class="help-block" ng-show="editForm.verdeVerificacion.$error.min" translate-value-min="0">
+                Este campo no debe ser menor a 0
+            </p>
+            <p class="help-block" ng-show="editForm.verdeVerificacion.$error.max">
+                Este campo no debe ser mayor a 10000.
+            </p>
+            <p class="help-block" ng-show="editForm.verdeVerificacion.$error.number">
+                Este campo es numérico
+            </p>
+            <p class="help-block" ng-show="editForm.verdeVerificacion.$error.debeEscogerAlMenosUnColor">
+                Diligencie al menos uno de los colores
+            </p>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.isEstadoInVerification()">
+        <div class="form-group col-xs-3" ng-class="{'has-error':editForm.rojoVerificacion.$invalid}">
+            <label class="control-label" for="field_rojoVerificacion">Rojo</label>
+            <input type="number" class="form-control" name="rojoVerificacion" id="field_rojoVerificacion" ng-model="vm.estadoSenalizacionV.rojoVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.rojoVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.rojoVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.rojoVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.rojoVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.rojoVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.rojoVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row" ng-if="vm.isEstadoInVerification()">
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.azulVerificacion.$invalid}">
+            <label class="control-label" for="field_azulVerificacion">Azul</label>
+            <input type="number" class="form-control" name="azulVerificacion" id="field_azulVerificacion" ng-model="vm.estadoSenalizacionV.azulVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.azulVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.azulVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.azulVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.azulVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.azulVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.azulVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.naranjaVerificacion.$invalid}">
+            <label class="control-label" for="field_naranjaVerificacion">Naranja</label>
+            <input type="number" class="form-control" name="naranjaVerificacion" id="field_naranjaVerificacion" ng-model="vm.estadoSenalizacionV.naranjaVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.naranjaVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.naranjaVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.marronVerificacion.$invalid}">
+            <label class="control-label" for="field_marronVerificacion">Marron</label>
+            <input type="number" class="form-control" name="marronVerificacion" id="field_marronVerificacion" ng-model="vm.estadoSenalizacionV.marronVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.marronVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.marronVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.marronVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.marronVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.marronVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.marronVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.isEstadoInVerification()">
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.amarilloVerdeFluorescenteVerificacion.$invalid}">
+            <label class="control-label" for="field_amarilloVerdeFluorescenteVerificacion">Amarillo verde fluorescente</label>
+            <input type="number" class="form-control" name="amarilloVerdeFluorescenteVerificacion" id="field_amarilloVerdeFluorescenteVerificacion" ng-model="vm.estadoSenalizacionV.amarilloVerdeFluorescenteVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.amarilloVerdeFluorescenteVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloVerdeFluorescenteVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.amarilloFluorescenteVerificacion.$invalid}">
+            <label class="control-label" for="field_amarilloFluorescenteVerificacion">Amarillo fluorescente</label>
+            <input type="number" class="form-control" name="amarilloFluorescenteVerificacion" id="field_amarilloFluorescenteVerificacion" ng-model="vm.estadoSenalizacionV.amarilloFluorescenteVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.amarilloFluorescenteVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.amarilloFluorescenteVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-4" ng-class="{'has-error':editForm.naranjaFluorescenteVerificacion.$invalid}">
+            <label class="control-label" for="field_naranjaFluorescenteVerificacion">Naranja fluorescente</label>
+            <input type="number" class="form-control" name="naranjaFluorescenteVerificacion" id="field_naranjaFluorescenteVerificacion" ng-model="vm.estadoSenalizacionV.naranjaFluorescenteVerificacion" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" min="0" max="10000" />
+            <div ng-show="editForm.naranjaFluorescenteVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteVerificacion.$error.min" translate-value-min="0">
+                    Este campo no debe ser menor a 0
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteVerificacion.$error.max">
+                    Este campo no debe ser mayor a 10000.
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteVerificacion.$error.number">
+                    Este campo es numérico
+                </p>
+                <p class="help-block" ng-show="editForm.naranjaFluorescenteVerificacion.$error.debeEscogerAlMenosUnColor">
+                    Diligencie al menos uno de los colores
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.isEstadoInVerification()">
+        <div class="form-group col-xs-6" ng-class="{'has-error':editForm.posLegVerificacion.$invalid}">
+            <label class="control-label" for="field_posLegVerificacion">Pos Leg Verificación</label>
+            <input type="text" class="form-control" name="posLegVerificacion" id="field_posLegVerificacion" ng-model="vm.estadoSenalizacionV.posLegVerificacion" ng-maxlength="30" />
+            <div ng-show="editForm.posLegVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.posLegVerificacion.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block" ng-show="editForm.posLegVerificacion.$error.maxlength">
+                    Este campo no puede tener más de 30 caracteres
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-xs-6" ng-class="{'has-error': editForm.anguloMedicionVerificacion.$invalid}">
+            <label class="control-label" for="field_anguloMedicionVerificacion">Ángulo de medición</label>
+            <select required class="form-control" name="anguloMedicionVerificacion" id="field_anguloMedicionVerificacion" ng-model="vm.estadoSenalizacionV.anguloMedicionVerificacion" ng-options="angulo as angulo for angulo in vm.angulosMedicion">
+                <option value=""></option>
+            </select>
+            <div ng-show="editForm.anguloMedicionVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.anguloMedicionVerificacion.$error.required">
+                    Este campo es obligatorio
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.isEstadoInVerification()">
+        <div class="form-group col-xs-12">
+            <label class="control-label" for="field_observacionesVerificacion">Observaciones verificación:</label>
+            <textarea class="form-control" rows="3" name="observacionesVerificacion" id="field_observacionesVerificacion" ng-model="vm.estadoSenalizacionV.observacionesVerificacion" ng-maxlength="400"></textarea>
+            <div ng-show="editForm.observacionesVerificacion.$invalid">
+                <p class="help-block" ng-show="editForm.observacionesVerificacion.$error.maxlength">
+                    Este campo no puede tener más de 400 caracteres.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.isEstadoInVerification()">
+        <div class="col-xs-12">
+            <div class="alert alert-success alert-entity-message">
+                Se requiere la <strong>fecha de verificación</strong> en el panel principal <a ui-sref="inspeccion-senalizacion-v.edit"><strong>(Información de la inspección)</strong></a>, de lo contrario, se calculará el cumplimiento basado en la fecha y hora del sistema }
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="vm.estadoSenalizacionV.id">
+        <div class="col-sm-6 col-md-offset-6">
+            <button type="button" class="btn btn-primary btn-block" ui-sref="archivo-inspeccion-senalizacion-v({id_estado_senalizacion_v: vm.estadoSenalizacionV.id})">
+                <span>
+                            Archivos
+                            &nbsp
+                        </span>
+                <span class="glyphicon glyphicon-file"></span>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+<!--<div class="form-group">
+            <label class="control-label" for="field_cumple">Cumple</label>
+            <input type="checkbox" class="form-control" name="cumple" id="field_cumple"
+                    ng-model="vm.estadoSenalizacionV.cumple"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_estado">Estado</label>
+            <input type="text" class="form-control" name="estado" id="field_estado"
+                    ng-model="vm.estadoSenalizacionV.estado"
+                    ng-maxlength="10" />
+            <div ng-show="editForm.estado.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.estado.$error.maxlength">
+                    This field cannot be longer than 10 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_senalizacionDeInspeccion">Senalizacion De Inspeccion</label>
+            <select class="form-control" id="field_senalizacionDeInspeccion" name="senalizacionDeInspeccion" ng-model="vm.estadoSenalizacionV.senalizacionDeInspeccion" ng-options="inspeccionSenalizacionV as inspeccionSenalizacionV.id for inspeccionSenalizacionV in vm.inspeccionsenalizacionvs track by inspeccionSenalizacionV.id">
+                <option value=""></option>
+            </select>
+        </div>-->

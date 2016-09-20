@@ -1,0 +1,603 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/" ng-click="vm.collapseNavbar()">
+                <img src="content/images/autovia_logo.png" alt="SICC">
+                <span class="brand-space">&nbsp;</span>
+                <span class="brand-title">SICC</span>
+                <!-- <span class="navbar-version">v{{VERSION}}</span> -->
+            </a>
+        </div>
+        <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
+            <ul class="nav navbar-nav navbar-right">
+                <li ui-sref-active="active">
+                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="hidden-sm">Inicio</span>
+                    </a>
+                </li>
+                <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                <li has-active-state-child-link has-any-authority="ROLE_OPERADOR1, ROLE_SUPERVISOR" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="reportarEvento-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                        <span class="hidden-sm">
+                                Reportar evento
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="incidente" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-warning-sign"></span>&nbsp;
+                                <span>(O4) Incidente</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="accidente" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-fire"></span>&nbsp;
+                                <span>(O5) Accidente</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li has-active-state-child-link has-any-authority="ROLE_OPERADOR1, ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="gestionIndicadores-menu">
+                        <span>
+                            <span class="glyphicon glyphicon glyphicon-stats"></span>
+                        <span class="hidden-sm">
+                                Gestión de indicadores
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li has-active-state-child-link has-any-authority="ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR" class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-wrench"></span>&nbsp;
+                                <span>Mantenimiento</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" class="dropdown-header">Ingresar</li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-baches" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E6) Inspección baches</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-margenes-separador" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E8) Inspección márgenes separador</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-drenajes" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E10) Inspección drenajes</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-senalizacion-v" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E11) Inspección señalización vertical</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-senalizacion-h" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E12) Inspección señalización horizontal</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-barrera-contencion" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E13) Inspección barrera contención</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" ui-sref-active="active">
+                                    <a ui-sref="inspeccion-desportillamiento" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(E24) Inspección desportillamiento</span>
+                                    </a>
+                                </li>
+                                <li has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR" role="separator" class="divider"></li>
+                                <li class="dropdown-header">Reportes</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-inspeccion-baches" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E6) Inspección baches</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-inspeccion-margenes" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E8) Inspección márgenes separador</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-inspeccion-drenajes" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E10) Inspección drenajes</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-senalizacion-vertical" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E11) Inspección señalización vertical</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-senalizacion-horizontal" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E12) Inspección señalización horizontal</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-inspeccion-barreras" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E13) Inspección barrera contención</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="reporte-inspeccion-desportillamientos" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(E24) Inspección desportillamiento</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Operación</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header" has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR">Ingresar</li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="indice-mortalidad" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(O1) Índice mortalidad</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="ocupacion-carriles" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(O2) Ocupación de carriles</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="cola-peaje" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pencil-square-o"></span>&nbsp;
+                                        <span>(O3) Cola de peaje</span>
+                                    </a>
+                                </li>
+                                <li role="separator" class="divider" has-any-authority="ROLE_OPERADOR2, ROLE_INTERVENTOR, ROLE_SUPERVISOR"></li>
+                                <li class="dropdown-header">Reportes</li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="reporte-indice-mortalidad" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(O1) Índice mortalidad</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="reporte-ocupacion-carriles" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(O2) Ocupación de carriles</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="reporte-cola-peajes" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(O3) Cola de peaje</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR1, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="tiempo-atencion-incidentes" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(O4) Tiempo atención incidentes</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR1, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="tiempo-atencion-accidentes" ng-click="vm.collapseNavbar()">
+                                        <span class="fa fa-pie-chart"></span>&nbsp;
+                                        <span>(O5) Tiempo atención accidentes</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR1, ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                                    <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
+                                        <span>(O6) Rendimiento del sistema</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_OPERADOR1, ROLE_OPERADOR2, ROLE_CONSULTA_CONCESION, ROLE_CONSULTA_INTERVENTOR, ROLE_INTERVENTOR, ROLE_SUPERVISOR">
+                            <a ui-sref="reporte-indice-cumplimiento">
+                                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
+                                <span>Índice de cumplimiento</span>
+                            </a>
+                        </li>
+                        <!-- <li ui-sref-active="active">
+                            <a href="#/reportes" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
+                                <span>Rendimiento del sistema</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;
+                                <span>Indice de cumplimiento</span>
+                            </a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li has-active-state-child-link has-any-authority="ROLE_ADMIN" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="gestionDocumental-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-folder-close"></span>
+                        <span class="hidden-sm">
+                                Gestión documental
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-road"></span>&nbsp;
+                                <span>ANI</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-scale"></span>&nbsp;
+                                <span>Interventoría</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-bullhorn"></span>&nbsp;
+                                <span>Concesión</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li has-active-state-child-link has-any-authority="ROLE_ADMIN" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="gestionSocial-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-briefcase"></span>
+                        <span class="hidden-sm">
+                                Gestión social
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-envelope"></span>&nbsp;
+                                <span>Correspondencia</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-compressed"></span>&nbsp;
+                                <span>Empleo</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li has-active-state-child-link has-any-authority="ROLE_ADMIN" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="informes-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                        <span class="hidden-sm">
+                                Informes
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span>Mensual</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span>Trimestral</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span>Anual</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li has-active-state-child-link has-any-authority="ROLE_ADMIN" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                        <span class="hidden-sm">
+                                Entidades
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul has-active-state-child-link class="dropdown-menu" uib-dropdown-menu>
+                        <li class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios trasversales</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios trasversales</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tramo" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tramo</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="infraestructura-afectada" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Infraestructura Afectada</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-vehiculo-afectado" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo Vehiculo Afectado</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-vehiculo-apoyo" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo Vehiculo Apoyo</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="factor-climatologico" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Factor Climatológico</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios incidente</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios de incidente</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="causa-incidente" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Causa Incidente</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-incidente" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo Incidente</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios de accidente</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios de accidente</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="causa-accidente" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Causa Accidente</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-accidente" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo Accidente</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-novedad-accidente" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo Novedad Accidente</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="centro-medico" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Centro Medico</span>
+                                    </a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-afectacion-persona" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo Afectación Persona</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios de señalización vertical</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios de señalización vertical</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="tipo-senal" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Tipo de señal</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios de drenajes</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios de drenajes</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="estructura-hidraulica" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Estructura Hidráulica</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios de barreras de contención</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios de barreras de contención</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="estructura-contencion" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Estructura de Contención</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li has-active-state-child-link class="menu-item dropdown dropdown-submenu">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Dominios de colas de peajes</span>
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu>
+                                <li class="dropdown-header">Dominios de colas de peajes</li>
+                                <li ui-sref-active="active">
+                                    <a ui-sref="peaje" ng-click="vm.collapseNavbar()">
+                                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                        <span>Peaje</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+                <li has-active-state-child-link has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                        <span class="hidden-sm">Administración</span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="user-management" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-user"></span>&nbsp;
+                                <span>Usuarios</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="jhi-metrics" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-dashboard"></span>&nbsp;
+                                <span>(O6) Rendimiento del sistema</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="jhi-health" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-heart"></span>&nbsp;
+                                <span>Estado de servicios</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="jhi-configuration" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span>Configuraciones</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="audits" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-bell"></span>&nbsp;
+                                <span>Auditoría  de acceso</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="logs" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Niveles de logs</span>
+                            </a>
+                        </li>
+                        <li ng-hide="vm.inProduction" ui-sref-active="active">
+                            <a ui-sref="docs" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-book"></span>&nbsp;
+                                <span>Transferencia de Estado - REST</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                    </ul>
+                </li>
+                <li ng-class="{
+                            active:vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-user"></span>
+                        <span class="hidden-sm">
+                                Cuenta
+                            </span>
+                        <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a ui-sref="settings" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-wrench"></span>&nbsp;
+                                <span>Configuración de cuenta</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a ui-sref="password" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-lock"></span>&nbsp;
+                                <span>Contraseña</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+                            <a href="" ng-click="vm.logout()" id="logout">
+                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                                <span>Cerrar sesión</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" ng-switch-when="false">
+                            <a href="" ng-click="vm.login()" id="login">
+                                <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                                <span>Iniciar sesión</span>
+                            </a>
+                        </li>
+                        <!--No debe aparecer <li ui-sref-active="active" ng-switch-when="false">
+                            <a ui-sref="register" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;
+                                <span>Register</span>
+                            </a>
+                        </li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

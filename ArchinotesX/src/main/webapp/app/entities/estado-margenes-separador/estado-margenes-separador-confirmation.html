@@ -1,0 +1,92 @@
+<!-- <jhi-alert-error></jhi-alert-error>
+<div>
+    <div class="col-xs-12 text-center confirmation-header" ng-show="vm.checkState()">
+        <p><span class="glyphicon glyphicon glyphicon-ban-circle confirmation-header__icon"></span></p>
+        <h4>¡No se puede editar el registro! Ya ha sido finalizado.</h4>
+    </div>
+    <div>
+        <div class="row" ng-show="!vm.checkState()">
+            <div class="col-xs-12 text-center confirmation-header">
+                <p><span class="glyphicon glyphicon-question-sign confirmation-header__icon"></span></p>
+                <h4>¿Está seguro que desea finalizar este registro?</h4>
+            </div> -->
+            <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Kilómetro + abscisa</span></dt>
+                    <dd>
+                        <span class="summary-section__text">{{vm.estadoMargenesSeparador.kilometro}} + {{vm.estadoMargenesSeparador.abscisa}}</span>
+                    </dd>
+                </div>
+            <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                <dt><span>Margen</span></dt>
+                <dd>
+                    <span ng-show="!vm.estadoMargenesSeparador.margen">N/A</span>
+                    <span class="summary-section__text">{{vm.estadoMargenesSeparador.margen}}</span>
+                </dd>
+            </div>
+
+            <div class="row" ng-show="vm.isForStateInspection()">
+            <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                <dt><span>Altura vegetación inspección</span></dt>
+                <dd>
+                    <span ng-show="vm.estadoMargenesSeparador.alturaVegetacionInspeccion === '' ">N/A</span>
+                    <span class="summary-section__text">{{vm.estadoMargenesSeparador.alturaVegetacionInspeccion}}</span>
+                </dd>
+            </div>
+            
+            <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                <dt><span>Artículos basura inspección</span></dt>
+                <dd>
+                    <span ng-show="vm.estadoMargenesSeparador.articulosBasuraInspeccion === '' ">N/A</span>
+                    <span class="summary-section__text">{{vm.estadoMargenesSeparador.articulosBasuraInspeccion}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-12 col-sm-12 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                <dt><span>Observaciones inspección</span></dt>
+                <dd>
+                    <span ng-show="!vm.estadoMargenesSeparador.observacionesInspeccion">N/A</span>
+                    <span class="summary-section__text">{{vm.estadoMargenesSeparador.observacionesInspeccion}}</span>
+                </dd>
+            </div>
+            </div>
+
+            <div class="row" ng-show="!vm.isForStateInspection()">
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Altura vegetación verificacion</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoMargenesSeparador.alturaVegetacionVerificacion === '' ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoMargenesSeparador.alturaVegetacionVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Artículos basura verificación</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoMargenesSeparador.articulosBasuraVerificacion === '' ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoMargenesSeparador.articulosBasuraVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-12 text-center summary-section__info">
+                    <dt><span>Observaciones verificación</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoMargenesSeparador.observacionesVerificacion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoMargenesSeparador.observacionesVerificacion}}</span>
+                    </dd>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                <dt><span>¿Ha cumplido?</span></dt>
+                <dd>
+                    <indicador-cumple cumple="vm.estadoMargenesSeparador.cumple"></indicador-cumple>
+                </dd>
+            </div>
+            
+   <!--      </div>
+        <div class="entity-actions">
+            <button class="btn btn-info" type="button" ui-sref="estado-margenes-separador.edit({id_estado_margenes: vm.entityID})">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+            </button>
+            <button ng-click="vm.finalizeAndClose()"  ng-disabled="!vm.entityID || vm.isSaving" class="btn btn-primary">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;<span> Confirmar</span>
+            </button>
+        </div>
+    </div>
+</div> -->

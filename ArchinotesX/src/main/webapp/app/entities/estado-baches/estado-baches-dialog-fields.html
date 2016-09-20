@@ -1,0 +1,333 @@
+        <!--
+        <div class="form-group" ng-show="vm.estadoBaches.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.estadoBaches.id" readonly />
+        </div>
+        -->
+        <h4>Información del estado: <span class="label label-success">{{vm.getStateStatusLabel()}}</span></h4>
+        <div class="entity-section-form-group">
+            <div class="row">
+                <div class="form-group col-xs-12" ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid, 'col-sm-5':vm.estadoBaches.id, 'col-sm-6':!vm.estadoBaches.id}">
+                    <label class="control-label sr-only" for="field_kilometro">Kilometro + Abscisa</label>
+                    <label class="control-label " for="field_kilometro">Kilómetro + Abscisa</label>
+
+                    <div class="input-group">  
+                        <div class="input-group-addon">Km</div>  
+                        <input required type="number" class="form-control" name="kilometro" id="field_kilometro"
+                                ng-model="vm.estadoBaches.kilometro"
+                                min="0" max="200" />
+                        <div class="input-group-addon">+</div>
+                        <input required type="number" class="form-control" name="abscisa" id="field_abscisa"
+                                ng-model="vm.estadoBaches.abscisa"
+                                min="0" max="999" />
+                    </div>
+                    
+
+                    <div ng-show="editForm.kilometro.$invalid || editForm.abscisa.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.kilometro.$error.min" translate-value-min="0">
+                            El campo km no puede ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometro.$error.max">
+                            El campo km no pude ser mayor a 200
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometro.$error.number">
+                            El campo km es numérico
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisa.$error.min" translate-value-min="0">
+                            El campo abscisa no puede ser menor a 0.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisa.$error.max">
+                            El campo abscisa no puede ser mayor a 999.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.abscisa.$error.number">
+                            El campo abscisa es numérico.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometro.$error.required && !editForm.abscisa.$error.required">
+                            El campo km es obligatorio.
+                        </p>
+                        
+                        <p class="help-block"
+                            ng-show="!editForm.kilometro.$error.required && editForm.abscisa.$error.required">
+                            El campo abscisa es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometro.$error.required && editForm.abscisa.$error.required">
+                            Los campos Km y abscisa son obligatorios.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.kilometro.$error.kilometroAbscisaInvalid">
+                            Valores por fuera del tramo comprendido de  {{vm.getTramo().origen}}
+                            - {{vm.getTramo().destino}}.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':editForm.costado.$invalid, 'col-sm-5 col-xs-6':vm.estadoBaches.id, 'col-sm-6 col-xs-12':!vm.estadoBaches.id}">
+                    <label class="control-label" for="field_costado">Costado</label>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6 form-control-static" ng-class="{'col-xs-6':!vm.estadoBaches.id}">
+                            <label>
+                                <input required type="radio" name="costado" id="field_costado"
+                                    ng-model="vm.estadoBaches.costado" value="Izquierdo"/>
+                                Izquierdo
+                            </label>        
+                        </div>
+                        <div class="col-sm-6 form-control-static" ng-class="{'col-xs-6':!vm.estadoBaches.id}">
+                            <label>
+                                <input required type="radio" name="costado" id="field_costado"
+                                    ng-model="vm.estadoBaches.costado" value="Derecho"/>
+                                Derecho
+                            </label>        
+                        </div>
+                    </div>
+                    <div ng-show="editForm.costado.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.costado.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6" ng-class="{'col-sm-2':vm.estadoBaches.id, 'hide':!vm.estadoBaches.id}">
+                    <label class="control-label" for="field_cumple">¿Ha cumplido?</label>
+                    <indicador-cumple cumple="vm.estadoBaches.cumple"></indicador-cumple>
+                </div>
+            </div>
+            <div class="row" ng-if="!vm.isEstadoInVerification()">
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.largoInspeccion.$invalid}">
+                    <label class="control-label" for="field_largoInspeccion">Largo(m)</label>
+                    <input type="number" class="form-control" name="largoInspeccion" id="field_largoInspeccion"
+                            ng-model="vm.estadoBaches.largoInspeccion"
+                            required
+                            min="0" max="1000" />
+                    <div ng-show="editForm.largoInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.largoInspeccion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.largoInspeccion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.largoInspeccion.$error.max">
+                            Este campo no debe ser mayor a 1000.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.largoInspeccion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.anchoInspeccion.$invalid}">
+                    <label class="control-label" for="field_anchoInspeccion">Ancho(m)</label>
+                    <input type="number" class="form-control" name="anchoInspeccion" id="field_anchoInspeccion"
+                    ng-model="vm.estadoBaches.anchoInspeccion"
+                    required 
+                    min="0" max="100" />
+
+                    <div ng-show="editForm.anchoInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.anchoInspeccion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.anchoInspeccion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.anchoInspeccion.$error.max">
+                            Este campo no debe ser mayor a 100.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.anchoInspeccion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.profundidadInspeccion.$invalid}">
+                    <label class="control-label" for="field_profundidadInspeccion">Profundidad(m)</label>
+                    <input type="number" class="form-control" name="profundidadInspeccion" id="field_profundidadInspeccion"
+                    ng-model="vm.estadoBaches.profundidadInspeccion"
+                    required 
+                    min="0" max="100" />
+
+                    <div ng-show="editForm.profundidadInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.profundidadInspeccion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.profundidadInspeccion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.profundidadInspeccion.$error.max">
+                            Este campo no debe ser mayor a 100.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.profundidadInspeccion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-12">
+                    <label class="control-label" for="field_observacionesInspeccion">Observaciones inspección:</label>
+                    <textarea class="form-control" rows="3" name="observacionesInspeccion" 
+                        id="field_observacionesInspeccion" ng-model="vm.estadoBaches.observacionesInspeccion" ng-maxlength="400" ></textarea>
+                    <div ng-show="editForm.observacionesInspeccion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.observacionesInspeccion.$error.maxlength">
+                            Este campo no puede tener más de 400 caracteres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.isEstadoInVerification()">
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.largoVerificacion.$invalid}">
+                    <label class="control-label" for="field_largoVerificacion">Largo(m)</label>
+                    <input type="number" class="form-control" name="largoVerificacion" id="field_largoVerificacion"
+                            ng-model="vm.estadoBaches.largoVerificacion"
+                            required
+                            min="0" max="1000" />
+                    <div ng-show="editForm.largoVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.largoVerificacion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.largoVerificacion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.largoVerificacion.$error.max">
+                            Este campo no debe ser mayor a 1000.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.largoVerificacion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.anchoVerificacion.$invalid}">
+                    <label class="control-label" for="field_anchoVerificacion">Ancho(m)</label>
+                    <input type="number" class="form-control" name="anchoVerificacion" id="field_anchoVerificacion"
+                    ng-model="vm.estadoBaches.anchoVerificacion"
+                    required 
+                    min="0" max="100" />
+
+                    <div ng-show="editForm.anchoVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.anchoVerificacion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.anchoVerificacion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.anchoVerificacion.$error.max">
+                            Este campo no debe ser mayor a 100.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.anchoInspeccion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-4"
+                    ng-class="{'has-error':editForm.profundidadVerificacion.$invalid}">
+                    <label class="control-label" for="field_profundidadVerificacion">Profundidad(m)</label>
+                    <input type="number" class="form-control" name="profundidadVerificacion" id="field_profundidadVerificacion"
+                    ng-model="vm.estadoBaches.profundidadVerificacion"
+                    required 
+                    min="0" max="100" />
+
+                    <div ng-show="editForm.profundidadVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.profundidadVerificacion.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.profundidadVerificacion.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.profundidadVerificacion.$error.max">
+                            Este campo no debe ser mayor a 100.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.profundidadVerificacion.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-12">
+                    <label class="control-label" for="field_observacionesVerificacion">Observaciones verificación:</label>
+                    <textarea class="form-control" rows="3" name="observacionesVerificacion" 
+                        id="field_observacionesVerificacion" ng-model="vm.estadoBaches.observacionesVerificacion" ng-maxlength="400" ></textarea>
+                    <div ng-show="editForm.observacionesVerificacion.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.observacionesVerificacion.$error.maxlength">
+                            Este campo no puede tener más de 400 caracteres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.isEstadoInVerification()">
+                <div class="col-xs-12">
+                    <div class="alert alert-success alert-entity-message">
+                        Se requiere la <strong>fecha de verificación</strong> en el panel principal <a ui-sref="inspeccion-baches.edit"><strong>(Información de la inspección)</strong></a>, de lo contrario, se calculará el cumplimiento basado en la fecha y hora del sistema
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="vm.estadoBaches.id">
+                <div class="col-sm-6 col-md-offset-6">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="archivo-inspeccion-baches({id_estado_baches: vm.estadoBaches.id})">
+                        <span>
+                            Evidencia
+                            &nbsp
+                        </span>
+                        <span class="glyphicon glyphicon-file"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label class="control-label" for="field_cumple">Cumple</label>
+            <input type="checkbox" class="form-control" name="cumple" id="field_cumple"
+                    ng-model="vm.estadoBaches.cumple"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_estado">Estado</label>
+            <input type="text" class="form-control" name="estado" id="field_estado"
+                    ng-model="vm.estadoBaches.estado"
+                    ng-maxlength="10" />
+            <div ng-show="editForm.estado.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.estado.$error.maxlength">
+                    This field cannot be longer than 10 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_EstadoBachesDeInspeccion">Estado Baches De Inspeccion</label>
+            <select class="form-control" id="field_EstadoBachesDeInspeccion" name="EstadoBachesDeInspeccion" ng-model="vm.estadoBaches.estadoBachesDeInspeccion" ng-options="inspeccionBaches as inspeccionBaches.id for inspeccionBaches in vm.inspeccionbaches track by inspeccionBaches.id">
+                <option value=""></option>
+            </select>
+        </div>-->

@@ -1,0 +1,50 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "vehiculoAfectadoEnAccidente",
+            "otherEntityName": "tipoVehiculoAfectado",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "tipoVehiculo"
+        },
+        {
+            "relationshipName": "VehiculoAfectadoDeAccidente",
+            "otherEntityName": "accidente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "placasVehiculoAccidente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "nombreConductorVehiculoAccidente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "telefonoConductorVehiculoAccidente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "vehiculo_afectado_en_accidente",
+    "pagination": "pager"
+}

@@ -1,0 +1,28 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "nombreTramo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 60
+        },
+        {
+            "fieldName": "unidadFuncional",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 7
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "tramo",
+    "pagination": "pager"
+}

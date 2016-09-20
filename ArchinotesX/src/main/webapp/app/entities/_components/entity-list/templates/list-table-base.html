@@ -1,0 +1,75 @@
+    <div class="table-responsive" ng-init="fieldsConfig=vm.getListFields()">
+        <table class="jh-table table table-striped">
+            <thead ng-init="isSortable=vm.isSortableList();">
+                <tr ng-if="isSortable" jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th ng-repeat="columnField in fieldsConfig.fields" jh-sort-by="{{columnField.sortBy}}">
+                        <span>{{columnField.label}}</span> <span class="glyphicon glyphicon-sort"></span>
+                    </th>
+                    <th></th>
+                </tr>
+                <tr ng-if="!isSortable" callback="vm.transition()">
+                    <th ng-repeat="columnField in fieldsConfig.fields">
+                        <span>{{columnField.label}}</span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entity in vm.entitiesData track by entity.id">
+                    <td ng-repeat="columnField in fieldsConfig.fields">
+
+                        <span ng-if="!columnField.linkToState && !columnField.linkExternal && !columnField.asIndicadorCumple">
+                            {{columnField.value(entity)}}
+                        </span>
+                        <a ng-if="columnField.linkToState" 
+                            ui-state="columnField.linkToState(entity).state" 
+                            ui-state-params="columnField.linkToState(entity).stateParams">
+                            {{columnField.value(entity)}}
+                        </a>
+                        <a ng-if="columnField.linkExternal" target="_blank"
+                            ng-href="{{columnField.linkExternal(entity).url}}">
+                            {{columnField.linkExternal(entity).text}}
+                        </a>
+                        <indicador-cumple ng-if="columnField.asIndicadorCumple" cumple="columnField.value(entity)" class="small"></indicador-cumple>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container" ng-init="isItemFinalized=vm.isListItemFinalizedEntity(entity);">
+                            <button type="button"
+                                    ng-if="fieldsConfig.detailLink" 
+                                    ng-init="link=fieldsConfig.detailLink(entity)"
+                                    ui-state="link.state"
+                                    ui-state-params="link.stateParams"
+                                    has-any-authority="{{link.roles}}"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="button"
+                                    ng-if="fieldsConfig.editLink" 
+                                    ng-init="link=fieldsConfig.editLink(entity)"
+                                    ui-state="link.state"
+                                    ui-state-params="link.stateParams"
+                                    has-any-authority="{{link.roles}}"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil" ng-if="!isItemFinalized"></span>
+                                <span class="glyphicon gglyphicon glyphicon-zoom-in" ng-if="isItemFinalized"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+
+                            
+                            <button type="button"
+                                    ng-if="fieldsConfig.deleteLink && !isItemFinalized" 
+                                    ng-init="link=fieldsConfig.deleteLink(entity)"
+                                    ui-state="link.state"
+                                    ui-state-params="link.stateParams"
+                                    has-any-authority="{{link.roles}}"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

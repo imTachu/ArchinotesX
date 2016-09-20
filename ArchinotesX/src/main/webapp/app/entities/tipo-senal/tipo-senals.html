@@ -1,0 +1,74 @@
+<div>
+    <h2>Tipos de señal</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="tipo-senal.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Crear un nuevo tipo de señal
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombreSenal"><span>Nombre Senal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="kilometro"><span>Kilómetro</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="abscisa"><span>Abscisa</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="margenSenal"><span>Margen Senal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tipoSenal"><span>Tipo Senal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tipoPapel"><span>Tipo Papel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tramoDeSenal.nombreTramo"><span>Tramo De Senal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tipoSenal in vm.tipoSenals track by tipoSenal.id">
+                    <td><a ui-sref="tipo-senal-detail({id:tipoSenal.id})">{{tipoSenal.id}}</a></td>
+                    <td>{{tipoSenal.nombreSenal}}</td>
+                    <td>{{tipoSenal.kilometro}}</td>
+                    <td>{{tipoSenal.abscisa}}</td>
+                    <td>{{tipoSenal.margenSenal}}</td>
+                    <td>{{tipoSenal.tipoSenal}}</td>
+                    <td>{{tipoSenal.tipoPapel}}</td>
+                    <td>
+                        <a ui-sref="tramo-detail({id:tipoSenal.tramoDeSenal.id})">{{tipoSenal.tramoDeSenal.nombreTramo}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="tipo-senal-detail({id:tipoSenal.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tipo-senal.edit({id:tipoSenal.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tipo-senal.delete({id:tipoSenal.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

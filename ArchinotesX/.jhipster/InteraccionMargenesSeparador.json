@@ -1,0 +1,45 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "interaccionUserMargenes",
+            "otherEntityName": "User",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "interaccionDeEstado",
+            "otherEntityName": "estadoMargenesSeparador",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "interaccionDeInspeccion",
+            "otherEntityName": "inspeccionMargenesSeparador",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fechaDeInteraccion",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "interaccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "15"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "interaccion_margenes_separador",
+    "pagination": "pager"
+}

@@ -1,0 +1,137 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "infraestructuraEnDrenaje",
+            "otherEntityName": "estructuraHidraulica",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "estructura"
+        },
+        {
+            "relationshipName": "drenajesDeInspeccion",
+            "otherEntityName": "inspeccionDrenajes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "kilometro",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "200"
+        },
+        {
+            "fieldName": "abscisa",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999"
+        },
+        {
+            "fieldName": "margen",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "colmatacionInspeccion",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "colmatacionVerificacion",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "hcolmatacionInspeccion",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "hcolmatacionVerificacion",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "observacionesInspeccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "400"
+        },
+        {
+            "fieldName": "observacionesVerificacion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "400"
+        },
+        {
+            "fieldName": "cumple",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "encoleInspeccion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "descoleInspeccion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "encoleVerificacion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "descoleVerificacion",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "estado_drenajes",
+    "pagination": "pager"
+}

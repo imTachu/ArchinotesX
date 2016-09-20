@@ -1,0 +1,327 @@
+<div>
+    <h2><span class="fa fa-bar-chart"></span>&#xA0;Indicador E11 - Señalización vertical</h2>
+    <uib-alert type="warning" close="vm.closeAlert()" dismiss-on-timeout="5000" ng-show="vm.diffDays > 60">
+        <div class="text-center">Seleccione un rango de fechas <strong>menor a 60 días</strong> para descargar el reporte.</div>
+    </uib-alert>
+    <uib-alert type="warning" close="vm.closeAlert()" dismiss-on-timeout="5000" ng-show="vm.filterByIncumplido">
+        <div class="text-center">Solo puede descargar el reporte para la totalidad de kilómetros.</div>
+    </uib-alert>
+    <div class="row report__header">
+        <div class="col-xs-12 col-sm-12 col-md-7">
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <fieldset class="report__dates__helper">
+                        <legend class="scheduler-border">Filtrar resultados</legend>
+                        <div class="col-xs-12 report__dates">
+                            <!-- <p class="input-group">
+                                <span class="input-group-addon">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>&#xA0;Desde</span>
+                                <input type="date" class="input-sm form-control" name="start" ng-model="vm.fromDate" ng-change="vm.onChangeDate()" required/>
+                                <span class="input-group-addon">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>&#xA0;Hasta</span>
+                                <input type="date" class="input-sm form-control" name="end" ng-model="vm.toDate" ng-change="vm.onChangeDate()" required/>
+                            </p> -->
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <label class="control-label" for="field_fromDate">Desde</label>
+                                <div class="input-group">
+                                    <input id="field_fromDate" type="text" class="form-control" name="start" datetime-picker="{{vm.dateFormat}}" enable-time="false" ng-model="vm.fromDate" is-open="vm.datePickerOpenStatus.fromDate" ng-change="vm.onChangeDate()" required/>
+                                    <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fromDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-6">
+                                <label class="control-label" for="field_fechaInspeccion">Hasta</label>
+                                <div class="input-group">
+                                    <input id="field_toDate" type="text" class="form-control" name="end" datetime-picker="{{vm.dateFormat}}" enable-time="false" ng-model="vm.toDate" is-open="vm.datePickerOpenStatus.toDate" ng-change="vm.onChangeDate()" required/>
+                                    <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar('toDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <select class="horizontal-form-control" ng-model="vm.currentUnidadFuncional" ng-options="item for item in vm.unidadesFuncionales" ng-change="vm.loadPage(1)">
+                                </select>
+                                <select class="horizontal-form-control" ng-model="vm.tipoReporte" ng-options="item for item in vm.tiposReporte" ng-show="vm.account.tipoReporte == 'CONCESION'" ng-change="vm.onChangeDate()" >
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-xs-12 text-center visible-md visible-lg">
+                    <button ng-disabled="vm.diffDays > 60 || vm.filterByIncumplido || vm.kilometros.length == 0" class="btn btn-default" lazy-load="true" ng-csv="vm.kilometrosAsCsv()" filename="{{vm.csvFilename}}" field-separator=";" decimal-separator="," csv-header="['Id', 'Fecha', 'Unidad funcional', 'Kilómetro', 'Cumple']">
+                        <span class="fa fa-table fa-lg"></span> CSV
+                    </button>
+                    <button ng-disabled="vm.diffDays > 60 || vm.filterByIncumplido || vm.kilometros.length == 0" class="btn btn-default" title="Descargar reporte como PDF" ng-click="vm.kilometrosAsPdf()">
+                        <span class="fa fa-file-pdf-o fa-lg"></span> PDF
+                    </button>
+                    <!--  <div ng-if="vm.diffDays > 60 || vm.filterByIncumplido || vm.kilometros.length == 0">
+                    <button class="btn btn-default" disabled>
+                        <span class="fa fa-table fa-lg"></span> CSV
+                    </button>
+                    <button class="btn btn-default" disabled>
+                        <span class="fa fa-file-pdf-o fa-lg"></span> PDF
+                    </button>
+                </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5">
+            <fieldset class="scheduler-border entity-section-form-group">
+                <legend class="scheduler-border">{{vm.porcentajeCumplimiento}}% de cumplimiento</legend>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-offset-2 col-sm-3  col-md-offset-0 col-md-4 text-center vcenter">
+                        <div ng-show="vm.pieValidationKilometros()" ng-if="vm.pieValidationCumplimiento()" class="pie" style="animation-delay: -{{100-vm.porcentajeCumplimiento}}s" title="{{vm.porcentajeCumplimiento}}% de cumplimiento">
+                        </div>
+                        <div ng-show="vm.pieValidationKilometros()" ng-if="!vm.pieValidationCumplimiento()" class="allwrongpie" style="animation-delay: -{{100-vm.porcentajeCumplimiento}}s" title="{{vm.porcentajeCumplimiento}}% de cumplimiento">
+                        </div>
+                    </div>
+                    <div class="col-xs-8 col-sm-7 col-md-8 report">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 report__summary-section">
+                                <a class="node-link" ng-click="vm.verTodos()"><strong>Total Kms:</strong></a> &#xA0;{{ vm.totalKilometros }}
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 report__summary-section">
+                                <a class="node-link" ng-click="vm.performFilterByIncumplido(true)"><strong>Total km que cumplen:</strong></a> &#xA0;{{ vm.totalKilometrosCumplen }}
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 report__summary-section">
+                                <a class="node-link" ng-click="vm.performFilterByIncumplido(false)"><strong>Total km que incumplen:</strong></a> &#xA0;{{ vm.totalKilometrosIncumplen }}
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 report__summary-section">
+                                <strong>Porcentaje de cumplimiento:</strong>&#xA0;{{ vm.porcentajeCumplimiento }}%
+                            </div>
+                        </div>
+                        <!-- <br><a class="node-link" ng-click="vm.verTodos()"><strong>Total Kms:</strong>
+                        &#xA0;{{ vm.totalKilometros }}</a>
+                        <br><a class="node-link" ng-click="vm.performFilterByIncumplido(true)"><strong>Total Kms que cumplen:</strong>
+                        &#xA0;{{ vm.totalKilometrosCumplen }}</a>
+                        <br><a class="node-link" ng-click="vm.performFilterByIncumplido(false)"><strong>Total Kms que incumplen:</strong>
+                        &#xA0;{{ vm.totalKilometrosIncumplen }}</a>
+                        <br><strong>Porcentaje de cumplimiento:</strong>&#xA0;{{ vm.porcentajeCumplimiento }}% -->
+                    </div>
+                </div>
+                <div class="col-xs-12 text-center report__btn-action">
+                    <button class="btn btn-warning btn-block" data-toggle="modal" data-target="#criteriosAceptacionE8">
+                        &#xA0;Ver criterios de aceptación
+                    </button>
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-xs-12 text-center hidden-md hidden-lg report__summary-section">
+            <button ng-disabled="vm.diffDays > 60 || vm.filterByIncumplido || vm.kilometros.length == 0" class="btn btn-default" lazy-load="true" ng-csv="vm.kilometrosAsCsv()" filename="{{vm.csvFilename}}" field-separator=";" decimal-separator="," csv-header="['Id', 'Fecha', 'Unidad funcional', 'Kilómetro', 'Cumple']">
+                <span class="fa fa-table fa-lg"></span> CSV
+            </button>
+            <button ng-disabled="vm.diffDays > 60 || vm.filterByIncumplido || vm.kilometros.length == 0" class="btn btn-default" title="Descargar reporte como PDF" ng-click="vm.kilometrosAsPdf()">
+                <span class="fa fa-file-pdf-o fa-lg"></span> PDF
+            </button>
+        </div>
+    </div>
+    <!-- Tabla principal -->
+    <div ng-show="vm.IsFill()">
+        <div class="report__md-table">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th ng-click="predicate = 'fecha'; reverse=!reverse">
+                                <span>Fecha</span>
+                                <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='fecha', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='fecha'}"></i>
+                            </th>
+                            <th ng-click="predicate = 'unidadFuncional'; reverse=!reverse">
+                                <span>Unidad funcional</span>
+                                <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='unidadFuncional', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='unidadFuncional'}"></i>
+                            </th>
+                            <th ng-click="predicate = 'kilometro'; reverse=!reverse">
+                                <span>Kilómetro</span>
+                                <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='kilometro', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='kilometro'}"></i>
+                            </th>
+                            <th ng-click="predicate = 'cumple'; reverse=!reverse">
+                                <span>¿Cumple?</span>
+                                <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='cumple', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='cumple'}"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="kilometro in vm.kilometros | orderBy:predicate:reverse">
+                        <td>{{ kilometro.fecha | date: 'yyyy-MM-dd' }}</td>
+                        <td>{{ kilometro.unidadFuncional }}</td>
+                        <td>{{ kilometro.kilometro }}&#xA0;
+                            <button class="btn btn-default btn-xs" ng-click="vm.verDetalleKilometro(kilometro.unidadFuncional, kilometro.idInspeccion, kilometro.kilometro)" title="Ver detalle del kilómetro {{ kilometro.kilometro }} de la unidad funcional {{ kilometro.unidadFuncional }}">
+                                <span class="fa fa-search-plus" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td class="text-center">
+                            <indicador-cumple cumple="kilometro.cumple" class="small"></indicador-cumple>
+                            <!-- <span class="label label-success" ng-show="kilometro.cumple==true" style="cursor: pointer;">SÍ</span>
+                            <span class="label label-danger" ng-show="kilometro.cumple==false" style="cursor: pointer;">NO</span> -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="text-center">
+            <uib-pagination total-items="vm.totalItems" ng-change="vm.loadPage(vm.page)" ng-model='vm.page' class="pagination-sm" items-per-page='vm.itemsPerPage' boundary-links="true" max-size="5" />
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="report__paginationText">Página {{vm.page}} de {{vm.numberOfPages}}</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{vm.itemsPerPage}} ítems por página <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="node-link" ng-click="vm.changeItemsPerPage(20)">20 ítems por página</a></li>
+                            <li><a class="node-link" ng-click="vm.changeItemsPerPage(50)">50 ítems por página</a></li>
+                            <li><a class="node-link" ng-click="vm.changeItemsPerPage(100)">100 ítems por página</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tabla detalle -->
+    <div ng-show="vm.selectedKilometro != null" class="report__detail-table">
+        <h3>Kilómetro {{ vm.selectedKilometro }} de unidad funcional {{ vm.selectedUnidadFuncional }}</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th ng-click="predicate = 'fecha'; reverse=!reverse">
+                            <span>Fecha</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='fecha', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='fecha'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'abcisa'; reverse=!reverse">
+                            <span>Abcisa</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='abcisa', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='abcisa'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'tramo'; reverse=!reverse">
+                            <span>Tramo</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='tramo', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='tramo'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'tipoSenal'; reverse=!reverse">
+                            <span>Tipo señal</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='tipoSenal', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='tipoSenal'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'amarilloInicial'; reverse=!reverse">
+                            <span>Amarillo</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='amarilloInicial', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='amarilloInicial'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'blancoInicial'; reverse=!reverse">
+                            <span>Blanco</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='blancoInicial', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='blancoInicial'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'verdeInicial'; reverse=!reverse">
+                            <span>Verde</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='verdeInicial', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='verdeInicial'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'rojoInicial'; reverse=!reverse">
+                            <span>Rojo</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='rojoInicial', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='rojoInicial'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'azulInicial'; reverse=!reverse">
+                            <span>Azul</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='azulInicial', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='azulInicial'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'posicionLegibilidadInicial'; reverse=!reverse">
+                            <span>Posición / Legibilidad</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='posicionLegibilidadInicial', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='posicionLegibilidadInicial'}"></i>
+                        </th>
+                        <th ng-click="predicate = 'cumple'; reverse=!reverse">
+                            <span>¿Cumple?</span>
+                            <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='cumple', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='cumple'}"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="detalle in vm.detalleKilometro | orderBy:predicate:reverse">
+                    <td>{{ detalle.fecha | date: 'yyyy-MM-dd' }}</td>
+                    <td>{{ detalle.abcisa }}</td>
+                    <td>{{ detalle.tramo }}</td>
+                    <td>{{ detalle.tipoSenal }}</td>
+                    <td>{{ detalle.amarilloInicial }}</td>
+                    <td>{{ detalle.blancoInicial }}</td>
+                    <td>{{ detalle.verdeInicial }}</td>
+                    <td>{{ detalle.rojoInicial }}</td>
+                    <td>{{ detalle.azulInicial }}</td>
+                    <td>{{ detalle.posicionLegibilidadInicial }}</td>
+                    <td class="text-center">
+                        <indicador-cumple cumple="detalle.cumple" class="small"></indicador-cumple>
+                        <!-- <span class="label label-success" ng-show="detalle.cumple==true" style="cursor: pointer;">SÍ</span>
+                        <span class="label label-danger" ng-show="detalle.cumple==false" style="cursor: pointer;">NO</span> -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-center">
+            <uib-pagination total-items="vm.totalItemsDetalle" ng-change="vm.loadPage(vm.page)" ng-model='vm.page' class="pagination-sm" items-per-page='vm.itemsPerPage' boundary-links="true" max-size="5" />
+            <p>Página {{vm.pageDetalle}} de {{vm.numberOfPagesDetalle}}</p>
+        </div>
+    </div>
+</div>
+<div ng-show="vm.kilometros.length < 1">
+    <div class="middle-box text-center animated fadeInDown">
+        <h2>No hay resultados para el criterio seleccionado</h2>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="criteriosAceptacionE8" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Indicador E11 - Criterios de aceptación</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-10 text-center report__modal-content-div">
+                        <h3 class="text-info report__modal-content-title">Señalización</h3>
+                        <ul class="report__modal-content-description text-left" style="list-style: none;">
+                            <li><i class="fa fa-caret-right" aria-hidden="true"></i> La señal cumple con definido en la NTC correspondiente</li>
+                            <li><i class="fa fa-caret-right" aria-hidden="true"></i> La señal está presente en la posición definida en el Proyecto y cumple con las dimensiones, culores, rotulado</li>
+                            <li><i class="fa fa-caret-right" aria-hidden="true"></i> La señal es inequívocamente legible por un conductor que se desplace a la velocidad máxima permitida y cumple con lo contenido en el manual de señalización descrito en el Apéndice 3</li>
+                            <li><i class="fa fa-caret-right" aria-hidden="true"></i> Retroflectividad mayor o igual al <strong>{{vm.criteriosAceptacion.retroflectividad}}% </strong>del valor tomado de la instalación</li>
+                        </ul>
+                        <h4 class="text-info">Niveles mínimos de retrorreflexión</h4>
+                        <div class="table-responsive padding-1">
+                            <table class="table table-hover table-bordered table-condensed small">
+                                <thead>
+                                    <th>Ángulos observación | entrada</th>
+                                    <th>Blanco</th>
+                                    <th>Amarillo</th>
+                                    <th>Naranja</th>
+                                    <th>Verde</th>
+                                    <th>Rojo</th>
+                                    <th>Azul</th>
+                                    <th>Marrón</th>
+                                    <th>Amarillo verde fluorescente</th>
+                                    <th>Amarillo fluorescente</th>
+                                    <th>Naranja fluorescente</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="angulosMedicion in vm.criteriosAceptacion.angulosMedicionNivelesCombo.angulosMedicionNivelesArreglo">
+                                        <td>{{angulosMedicion}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionBlanco[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionAmarillo[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionNaranja[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionVerde[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionRojo[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionAzul[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionMarron[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionAmarilloVerdeFluorescente[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionAmarilloFluorescente[$index]}}</td>
+                                        <td>{{vm.criteriosAceptacion.nivelesMinimosRetroreflexionMicroprismas.nivelesRetroreflexionNaranjaFluorescente[$index]}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-xs-offset-1 col-xs-10 text-center report__modal-content-div">
+                        <h3 class="text-info report__modal-content-title">Índice de cumplimiento</h3>
+                        <p class="report__modal-content-description">El incumplimiento de dos o más señales puntuales en un mismo segmento (Km) generará incumplimiento del segmento.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="vm.clear()" class="btn btn-default bfd-cancel" aria-hidden="true" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

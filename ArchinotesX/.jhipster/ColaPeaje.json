@@ -1,0 +1,64 @@
+{
+    "relationships": [
+      {
+          "relationshipName": "peaje",
+          "otherEntityName": "peaje",
+          "relationshipType": "many-to-one",
+          "otherEntityField": "nombrePeaje"
+      }
+    ],
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "carrilesActivos",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "20"
+        },
+        {
+            "fieldName": "Observaciones",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "incumplimientos",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "1000"
+        },
+        {
+            "fieldName": "cumple",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "cola_peaje",
+    "pagination": "pager"
+}

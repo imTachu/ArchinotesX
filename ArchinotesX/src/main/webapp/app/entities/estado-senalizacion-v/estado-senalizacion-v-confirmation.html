@@ -1,0 +1,257 @@
+<!-- <jhi-alert-error></jhi-alert-error>
+<div>
+    <div class="col-xs-12 text-center confirmation-header" ng-show="vm.checkState()">
+        <p><span class="glyphicon glyphicon glyphicon-ban-circle confirmation-header__icon"></span></p>
+        <h4>¡No se puede editar el registro! Ya ha sido finalizado.</h4>
+    </div>
+    <div class="row" ng-show="!vm.checkState()">
+        <div class="col-xs-12 text-center confirmation-header">
+            <p><span class="glyphicon glyphicon-question-sign confirmation-header__icon"></span></p>
+            <h4>¿Está seguro que desea finalizar este registro?</h4>
+        </div> -->
+        <div class="col-xs-12 summary-section">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Kilómetro + abscisa inicial</span></dt>
+                    <dd>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.kilometro}} + {{vm.estadoSenalizacionV.abscisa}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Margen</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.margen">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.margen}}</span>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row" ng-show="vm.isForStateInspection()">
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Amarillo</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.amarilloInspeccion  === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.amarilloInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Blanco</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.blancoInspeccion  === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.blancoInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Verde</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.verdeInspeccion  === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.verdeInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Rojo</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.rojoInspeccion  === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.rojoInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Azul</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.azulInspeccion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.azulInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Naranja</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.naranjaInspeccion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.naranjaInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Marrón</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.marronInspeccion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.marronInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Amarillo verde fluorescente</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.amarilloVerdeFluorescenteInspeccion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.amarilloVerdeFluorescenteInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Amarillo fluorescente</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.amarilloFluorescenteInspeccion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.amarilloFluorescenteInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Naranja fluorescente</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.naranjaFluorescenteInspeccion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.naranjaFluorescenteInspeccion}}</span>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row" ng-show="!vm.isForStateInspection()">
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Amarillo verificación</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.amarilloVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.amarilloVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Blanco verificación</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.blancoVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.blancoVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Verde verificación</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.verdeVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.verdeVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-3 text-center summary-section__info">
+                    <dt><span>Rojo verificación</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.rojoVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.rojoVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Azul verificación</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.azulVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.azulVerificacion}}</span>
+                    </dd>
+                </div>
+                 <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Naranja</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.naranjaVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.naranjaVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Marrón</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.marronVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.marronVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Amarillo verde fluorescente</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.amarilloVerdeFluorescenteVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.amarilloVerdeFluorescenteVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Amarillo fluorescente</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.amarilloFluorescenteVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.amarilloFluorescenteVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Naranja fluorescente</span></dt>
+                    <dd>
+                        <span ng-show="vm.estadoSenalizacionV.naranjaFluorescenteVerificacion === null ">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.naranjaFluorescenteVerificacion}}</span>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row" ng-show="vm.isForStateInspection()">
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Pos leg inspección</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.posLegInspeccion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.posLegInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Ángulo medición</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.anguloMedicionInspeccion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.anguloMedicionInspeccion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Observaciones inspección</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.observacionesInspeccion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.observacionesInspeccion}}</span>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="row" ng-show="!vm.isForStateInspection()">
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Pos leg verificación</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.posLegVerificacion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.posLegVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Ángulo medición</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.anguloMedicionVerificacion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.anguloMedicionVerificacion}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Observaciones Verificación</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.observacionesVerificacion">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.observacionesVerificacion}}</span>
+                    </dd>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Tipo señal de senalización</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.tipoSenalDeSenalizacion.nombreSenal">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.tipoSenalDeSenalizacion.nombreSenal}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Estado</span></dt>
+                    <dd>
+                        <span ng-show="!vm.estadoSenalizacionV.estado">N/A</span>
+                        <span class="summary-section__text">{{vm.estadoSenalizacionV.estado}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>¿Ha cumplido?</span></dt>
+                    <dd>
+                        <indicador-cumple cumple="vm.estadoSenalizacionV.cumple"></indicador-cumple>
+                    </dd>
+                </div>
+            </div>
+        </div>
+  <!--   </div>
+
+    <div class="entity-actions">
+        <button class="btn btn-info" type="button" ui-sref="estado-senalizacion-v.edit({id_estado_senalizacion_v: vm.entityID})">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+        </button>
+        <button ng-click="vm.finalizeAndClose()" ng-disabled="!vm.entityID || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Confirmar</span>
+        </button>
+    </div>
+
+</div> -->

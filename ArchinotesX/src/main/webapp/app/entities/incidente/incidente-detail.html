@@ -1,0 +1,148 @@
+
+<div>
+    <h2><span>Incidente #</span> {{vm.incidente.id}}</h2>
+    <hr>
+    <dl class="dl-vertical">
+        <dt><span>Hora de Recepción de llamada</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaRecepcionLlamada | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>¿Reportado Por Tercero?</span></dt>
+        <dd>
+            <span>{{vm.incidente.reportadoPorTercero}}</span>
+        </dd>
+        <hr>
+        <dt><span>Nombre de persona que reporta</span></dt>
+        <dd>
+            <span>{{vm.incidente.nombrePersonaQueReporta}}</span>
+        </dd>
+        <hr>
+        <dt><span>Teléfono de persona que reporta</span></dt>
+        <dd>
+            <span>{{vm.incidente.telefonoPersonaQueReporta}}</span>
+        </dd>
+        <hr>
+        <dt><span>Kilómetro</span></dt>
+        <dd>
+            <span>{{vm.incidente.kilometro}}</span>
+        </dd>
+        <hr>
+        <dt><span>Abscisa</span></dt>
+        <dd>
+            <span>{{vm.incidente.abscisa}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha y hora de señalizacion</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaInicioSenalizacion | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <!--<dt><span>Fecha Fin Senalizacion</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaFinSenalizacion | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha Inicio Despeje</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaInicioDespeje | date:'medium'}}</span>
+        </dd>
+        <hr>-->
+        <dt><span>Fecha y hora de despeje</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaFinDespeje | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>M3 de derrumbe</span></dt>
+        <dd>
+            <span>{{vm.incidente.m3Derrumbe}}</span>
+        </dd>
+        <hr>
+        <dt><span>Otra infraestructura afectada</span></dt>
+        <dd>
+            <span>{{vm.incidente.otraInfraestructuraAfectada}}</span>
+        </dd>
+        <hr>
+        <dt><span>¿Requiere cierre de vía?</span></dt>
+        <dd>
+            <span>{{vm.incidente.requiereCierreDeVia}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha inicio de cierre de vía</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaInicioCierreVia | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha Fin de cierre de vía</span></dt>
+        <dd>
+            <span>{{vm.incidente.fechaFinCierreVia | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Entidad que cierra la vía</span></dt>
+        <dd>
+            <span>{{vm.incidente.entidadQueCierraVia}}</span>
+        </dd>
+        <hr>
+        <dt><span>Tipo de cierre</span></dt>
+        <dd>
+            <span>{{vm.incidente.tipoDeCierre}}</span>
+        </dd>
+        <hr>
+        <dt><span>Comentario</span></dt>
+        <dd>
+            <span>{{vm.incidente.comentario}}</span>
+        </dd>
+        <hr>
+        <!--<dt><span>Comentario Interventor</span></dt>
+        <dd>
+            <span>{{vm.incidente.comentarioInterventor}}</span>
+        </dd>
+        <hr>
+        <dt><span>Visto Bueno Interventor</span></dt>
+        <dd>
+            <span>{{vm.incidente.vistoBuenoInterventor}}</span>
+        </dd>-->
+        <hr>
+        <dt><span>¿Cumple?</span></dt>
+        <dd>
+            <span>{{vm.incidente.cumple}}</span>
+        </dd>
+        <hr>
+        <dt><span>Estado</span></dt>
+        <dd>
+            <span>{{vm.incidente.estado}}</span>
+        </dd>
+        <hr>
+        <dt><span>Infraestructura afectada en incidente</span></dt>
+        <dd>
+            <a ui-sref="infraestructura-afectada-detail({id:vm.incidente.infraestructuraEnIncidente.id})">{{vm.incidente.infraestructuraEnIncidente.infraestructuraAfectada}}</a>
+        </dd>
+        <hr>
+        <dt><span>Posible causa de incidente</span></dt>
+        <dd>
+            <a ui-sref="causa-incidente-detail({id:vm.incidente.causaDeIncidente.id})">{{vm.incidente.causaDeIncidente.causaIncidente}}</a>
+        </dd>
+        <hr>
+        <dt><span>Tipo de incidente</span></dt>
+        <dd>
+            <a ui-sref="tipo-incidente-detail({id:vm.incidente.tipoDeIncidente.id})">{{vm.incidente.tipoDeIncidente.tipoIncidente}}</a>
+        </dd>
+        <hr>
+        <dt><span>Factor climatológico en incidente</span></dt>
+        <dd>
+            <a ui-sref="factor-climatologico-detail({id:vm.incidente.climaEnIncidente.id})">{{vm.incidente.climaEnIncidente.condicionClima}}</a>
+        </dd>
+        <hr>
+        <dt><span>Tramo de incidente</span></dt>
+        <dd>
+            <a ui-sref="tramo-detail({id:vm.incidente.tramoDeIncidente.id})">{{vm.incidente.tramoDeIncidente.nombreTramo}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+    </button>
+</div>

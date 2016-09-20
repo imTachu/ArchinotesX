@@ -1,0 +1,106 @@
+<!-- <jhi-alert-error></jhi-alert-error>
+<div>
+    <div class="col-xs-12 text-center confirmation-header" ng-show="vm.checkState()">
+        <p><span class="glyphicon glyphicon glyphicon-ban-circle confirmation-header__icon"></span></p>
+        <h4>¡No se puede editar el registro! Ya ha sido finalizado.</h4>
+    </div> 
+    <div class="row" ng-show="!vm.checkState()">
+        <div class="col-xs-12 text-center confirmation-header">
+            <p><span class="glyphicon glyphicon-question-sign confirmation-header__icon"></span></p>
+            <h4>¿Está seguro que desea finalizar este registro?</h4>
+        </div> -->
+
+        <div class="col-xs-12 summary-section">
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Kilómetro + abscisa</span></dt>
+                        <dd>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.kilometro}} + {{vm.estadoDesportillamiento.abscisa}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                    <dt><span>Costado inspección</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.costadoInspeccion">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.costadoInspeccion}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="!vm.isForStateInspection()">
+                    <dt><span>Costado verificación</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.costadoVerificacion">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.costadoVerificacion}}</span>
+                        </dd>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                    <dt><span>Severidad inspección</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.severidadInspeccion">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.severidadInspeccion}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="!vm.isForStateInspection()">
+                    <dt><span>Severidad verificación</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.severidadVerificacion">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.severidadVerificacion}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                    <dt><span>Cantidad inspección</span></dt>
+                        <dd>
+                            <span ng-show="vm.estadoDesportillamiento.cantidadInspeccion === '' ">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.cantidadInspeccion}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info" ng-show="!vm.isForStateInspection()">
+                    <dt><span>Cantidad verificación</span></dt>
+                        <dd>
+                            <span ng-show="vm.estadoDesportillamiento.cantidadVerificacion === '' ">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.cantidadVerificacion}}</span>
+                        </dd>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 text-center summary-section__info" ng-show="vm.isForStateInspection()">
+                    <dt><span>Observaciones Inspección</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.observacionesInspeccion">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.observacionesInspeccion}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-12 text-center summary-section__info" ng-show="!vm.isForStateInspection()">
+                    <dt><span>Observaciones Verificación</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.observacionesVerificacion">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.observacionesVerificacion}}</span>
+                        </dd>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Estado</span></dt>
+                        <dd>
+                            <span ng-show="!vm.estadoDesportillamiento.estado">N/A</span>
+                            <span class="summary-section__text">{{vm.estadoDesportillamiento.estado}}</span>
+                        </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>¿Ha cumplido?</span></dt>
+                        <dd>
+                            <indicador-cumple cumple="vm.estadoDesportillamiento.cumple"></indicador-cumple>
+                        </dd>
+                </div>
+        </div>
+   <!--  </div>
+
+    <div class="entity-actions">
+        <button class="btn btn-info" type="button" ui-sref="estado-desportillamiento.edit({id_estado_desportillamiento: vm.entityID})">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+        </button>
+        <button ng-click="vm.finalizeAndClose()"  ng-disabled="!vm.entityID || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Confirmar</span>
+        </button>
+    </div>
+
+</div>
+
+ -->

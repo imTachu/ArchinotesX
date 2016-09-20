@@ -1,0 +1,44 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "tramoDeInspeccionSenalizacion",
+            "otherEntityName": "tramo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombreTramo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fechaInspeccion",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaVerificacion",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "vistoBuenoInterventor",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cumple",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "inspeccion_senalizacion_h",
+    "pagination": "pager"
+}

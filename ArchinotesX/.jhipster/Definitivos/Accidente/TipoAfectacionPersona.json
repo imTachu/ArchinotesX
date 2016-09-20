@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tipoAfectacion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "tipo_afectacion_persona",
+    "pagination": "pager"
+}

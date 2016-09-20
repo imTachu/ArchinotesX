@@ -1,0 +1,45 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "usuarioDeInteraccion",
+            "otherEntityName": "User",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "interaccionDeEstado",
+            "otherEntityName": "estadoSenalizacionH",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "interaccionDeInspeccion",
+            "otherEntityName": "inspeccionSenalizacionH",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fechaDeInteraccion",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "interaccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "15"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "interaccion_senalizacion_h",
+    "pagination": "pager"
+}

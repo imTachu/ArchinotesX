@@ -1,0 +1,58 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "archivoDeAccidente",
+            "otherEntityName": "accidente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "extension",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "4"
+        },
+        {
+            "fieldName": "fechaDeRegistro",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ubicacion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ] 
+        },
+        {
+            "fieldName": "bucket",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "keyS3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idVersion",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "archivo_accidente",
+    "pagination": "pager"
+}

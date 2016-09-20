@@ -1,0 +1,53 @@
+
+<div>
+    <h2><span>Indice Mortalidad Detalle</span> {{vm.indiceMortalidadDetalle.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span>Unidad Funcional</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.unidadFuncional}}</span>
+        </dd>
+        <hr>
+        <dt><span>Kilometro Inicial</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.kilometroInicial}}</span>
+        </dd>
+        <hr>
+        <dt><span>Abscisa Inicial</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.abscisaInicial}}</span>
+        </dd>
+        <hr>
+        <dt><span>Kilometro Final</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.kilometroFinal}}</span>
+        </dd>
+        <hr>
+        <dt><span>Abscisa Final</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.abscisaFinal}}</span>
+        </dd>
+        <hr>
+        <dt><span>Tramo Critico</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.tramoCritico}}</span>
+        </dd>
+        <hr>
+        <dt><span>Numero Victimas Fatales</span></dt>
+        <dd>
+            <span>{{vm.indiceMortalidadDetalle.numeroVictimasFatales}}</span>
+        </dd>
+        <hr>
+        <dt><span>Detalle De Indice Mortalidad</span></dt>
+        <dd>
+            <a ui-sref="indice-mortalidad-detail({id:vm.indiceMortalidadDetalle.detalleDeIndiceMortalidad.id})">{{vm.indiceMortalidadDetalle.detalleDeIndiceMortalidad.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

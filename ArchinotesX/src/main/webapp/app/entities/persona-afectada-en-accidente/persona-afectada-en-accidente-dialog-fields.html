@@ -1,0 +1,133 @@
+        <h4>Persona afectada:</h4>
+        <div class="entity-section-form-group">
+            <div class="row">
+                <!-- <div class="form-group" ng-show="vm.personaAfectadaEnAccidente.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                            ng-model="vm.personaAfectadaEnAccidente.id" readonly />
+                </div> -->
+                <div class="form-group col-xs-12" ng-class="{'has-error':editForm.nombre.$invalid}">
+                    <label class="control-label" for="field_nombre">Nombre</label>
+                    <input required type="text" class="form-control" name="nombre" id="field_nombre"
+                            ng-model="vm.personaAfectadaEnAccidente.nombre"
+                            ng-minlength="0" ng-maxlength="50" />
+                    <div ng-show="editForm.nombre.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.nombre.$error.minlength" translate-value-min="0">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.nombre.$error.maxlength">
+                            Este campo no puede tener más de 50 caracteres.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6" ng-class="{'has-error':editForm.genero.$invalid}">
+                    <label class="control-label" for="field_genero">Género</label>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 form-control-static"">
+                            <label>
+                                <input required type="radio" name="genero" id="field_genero"
+                                    ng-model="vm.personaAfectadaEnAccidente.genero" value="Masculino"/>
+                                Masculino
+                            </label>        
+                        </div>
+                        <div class="col-xs-6 form-control-static">
+                            <label>
+                                <input required type="radio" name="genero" id="field_genero"
+                                    ng-model="vm.personaAfectadaEnAccidente.genero" value="Femenino"/>
+                                Femenino
+                            </label>        
+                        </div>
+                    </div>
+                    <div ng-show="editForm.genero.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.genero.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6" ng-class="{'has-error':editForm.edad.$invalid}">
+                    <label class="control-label" for="field_edad">Edad</label>
+                    <input required type="number" class="form-control" name="edad" id="field_edad"
+                            ng-model="vm.personaAfectadaEnAccidente.edad"
+                            min="0" max="100" />
+                    <div ng-show="editForm.edad.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.edad.$error.required">
+                            El campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.edad.$error.min" translate-value-min="0">
+                            Este campo debe ser mayor o igual a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.edad.$error.max">
+                            Este campo no puede ser mayor a 100
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.edad.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6" ng-class="{'has-error':editForm.fechaInicioTraslado.$invalid}">
+                    <label class="control-label" for="field_fechaInicioTraslado">Hora de inicio de traslado</label>
+                    <div class="input-group">
+                        <input required id="field_fechaInicioTraslado" type="text" class="form-control" name="fechaInicioTraslado" datetime-picker="{{dateformat}}" ng-model="vm.personaAfectadaEnAccidente.fechaInicioTraslado" is-open="vm.datePickerOpenStatus.fechaInicioTraslado"
+                          />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaInicioTraslado')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                    <div ng-show="editForm.fechaInicioTraslado.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.fechaInicioTraslado.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.fechaInicioTraslado.$error.datetime">
+                            La fecha es inválida
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6" ng-class="{'has-error':editForm.fechaFinTraslado.$invalid}">
+                    <label class="control-label" for="field_fechaFinTraslado">Hora de fin de traslado</label>
+                    <div class="input-group">
+                        <input id="field_fechaFinTraslado" type="text" class="form-control" name="fechaFinTraslado" datetime-picker="{{dateformat}}" ng-model="vm.personaAfectadaEnAccidente.fechaFinTraslado" is-open="vm.datePickerOpenStatus.fechaFinTraslado"
+                          />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaFinTraslado')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                    <div ng-show="editForm.fechaFinTraslado.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.fechaFinTraslado.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.fechaFinTraslado.$error.datetime">
+                            La fecha es inválida
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-xs-6">
+                    <label for="field_tipoAfectacionDePersona">Tipo de afectación</label>
+                    <select class="form-control" id="field_tipoAfectacionDePersona" name="tipoAfectacionDePersona" ng-model="vm.personaAfectadaEnAccidente.tipoAfectacionDePersona" ng-options="tipoAfectacionPersona as tipoAfectacionPersona.tipoAfectacion for tipoAfectacionPersona in vm.tipoafectacionpersonas track by tipoAfectacionPersona.id">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label for="field_centroMedicoDeTraslado">Centro médico de traslado</label>
+                    <select class="form-control" id="field_centroMedicoDeTraslado" name="centroMedicoDeTraslado" ng-model="vm.personaAfectadaEnAccidente.centroMedicoDeTraslado" ng-options="centroMedico as centroMedico.nombreCentroMedico for centroMedico in vm.centromedicos track by centroMedico.id">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>

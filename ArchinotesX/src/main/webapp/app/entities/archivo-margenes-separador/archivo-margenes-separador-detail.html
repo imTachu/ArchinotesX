@@ -1,0 +1,53 @@
+
+<div>
+    <h2><span>Archivo Margenes Separador</span> {{vm.archivoMargenesSeparador.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.nombre}}</span>
+        </dd>
+        <hr>
+        <dt><span>Extension</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.extension}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha De Registro</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.fechaDeRegistro | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Ubicacion</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.ubicacion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Bucket</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.bucket}}</span>
+        </dd>
+        <hr>
+        <dt><span>Key S 3</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.keyS3}}</span>
+        </dd>
+        <hr>
+        <dt><span>Id Version</span></dt>
+        <dd>
+            <span>{{vm.archivoMargenesSeparador.idVersion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Archivo De Inspeccion</span></dt>
+        <dd>
+            <a ui-sref="inspeccion-margenes-separador-detail({id:vm.archivoMargenesSeparador.archivoDeInspeccion.id})">{{vm.archivoMargenesSeparador.archivoDeInspeccion.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

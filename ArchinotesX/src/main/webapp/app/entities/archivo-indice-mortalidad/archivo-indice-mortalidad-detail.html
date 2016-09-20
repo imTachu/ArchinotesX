@@ -1,0 +1,53 @@
+
+<div>
+    <h2><span>Archivo Indice Mortalidad</span> {{vm.archivoIndiceMortalidad.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.nombre}}</span>
+        </dd>
+        <hr>
+        <dt><span>Extension</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.extension}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha De Registro</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.fechaDeRegistro | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Ubicacion</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.ubicacion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Bucket</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.bucket}}</span>
+        </dd>
+        <hr>
+        <dt><span>Key S 3</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.keyS3}}</span>
+        </dd>
+        <hr>
+        <dt><span>Id Version</span></dt>
+        <dd>
+            <span>{{vm.archivoIndiceMortalidad.idVersion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Archivo De Indice Mortalidad</span></dt>
+        <dd>
+            <a ui-sref="indice-mortalidad-detail({id:vm.archivoIndiceMortalidad.archivoDeIndiceMortalidad.id})">{{vm.archivoIndiceMortalidad.archivoDeIndiceMortalidad.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

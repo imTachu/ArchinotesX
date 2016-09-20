@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span>Vehiculo Afectado En Accidente</span> {{vm.vehiculoAfectadoEnAccidente.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span>Vehiculo Incidente</span></dt>
+        <dd>
+            <span>{{vm.vehiculoAfectadoEnAccidente.VehiculoIncidente}}</span>
+        </dd>
+        <hr>
+        <dt><span>Nombre Conductor Vehiculo Accidente</span></dt>
+        <dd>
+            <span>{{vm.vehiculoAfectadoEnAccidente.nombreConductorVehiculoAccidente}}</span>
+        </dd>
+        <hr>
+        <dt><span>Telefono Conductor Vehiculo Accidente</span></dt>
+        <dd>
+            <span>{{vm.vehiculoAfectadoEnAccidente.telefonoConductorVehiculoAccidente}}</span>
+        </dd>
+        <hr>
+        <dt><span>Vehiculo Afectado En Accidente</span></dt>
+        <dd>
+            <a ui-sref="tipo-vehiculo-afectado-detail({id:vm.vehiculoAfectadoEnAccidente.vehiculoAfectadoEnAccidente.id})">{{vm.vehiculoAfectadoEnAccidente.vehiculoAfectadoEnAccidente.tipoVehiculo}}</a>
+        </dd>
+        <hr>
+        <dt><span>Vehiculo Afectado De Accidente</span></dt>
+        <dd>
+            <a ui-sref="accidente-detail({id:vm.vehiculoAfectadoEnAccidente.vehiculoAfectadoDeAccidente.id})">{{vm.vehiculoAfectadoEnAccidente.vehiculoAfectadoDeAccidente.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

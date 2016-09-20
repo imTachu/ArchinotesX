@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "vehiculoAfectadoEnIncidente",
+            "otherEntityName": "tipoVehiculoAfectado",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "tipoVehiculo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "placas",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "vehiculo_afectado_en_incidente",
+    "pagination": "pager"
+}

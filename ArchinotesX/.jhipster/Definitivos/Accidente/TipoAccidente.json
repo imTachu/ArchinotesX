@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "tipoAccidente",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "tipo_accidente",
+    "pagination": "pager"
+}

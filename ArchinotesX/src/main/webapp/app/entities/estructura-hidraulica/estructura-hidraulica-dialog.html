@@ -1,0 +1,208 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEstructuraHidraulicaLabel">Crear o editar estructuras hidráulicas</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.estructuraHidraulica.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.estructuraHidraulica.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_estructura">Estructura</label>
+            <select required class="form-control" id="field_estructura" name="estructura" ng-model="vm.estructuraHidraulica.estructura" ng-options="tipo.label as tipo.label for tipo in vm.tiposEstructurasHidraulica" >
+                        <option value=""></option>
+                    </select>
+            <div ng-show="editForm.estructura.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.estructura.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <!-- <p class="help-block"
+                    ng-show="editForm.estructura.$error.maxlength">
+                    Este campo no puede tener más de 30 caracteres.
+                </p> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_kilometro">Kilometro</label>
+            <input type="number" class="form-control" name="kilometro" id="field_kilometro"
+                    ng-model="vm.estructuraHidraulica.kilometro"
+                    min="0" max="200" />
+            <div ng-show="editForm.kilometro.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.kilometro.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.kilometro.$error.max">
+                    Este campo debe ser mayor a 200.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.kilometro.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_abscisa">Abscisa</label>
+            <input type="number" class="form-control" name="abscisa" id="field_abscisa"
+                    required ng-model="vm.estructuraHidraulica.abscisa"
+                    min="0" max="999" />
+            <div ng-show="editForm.abscisa.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.abscisa.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.abscisa.$error.max">
+                    Este campo no puede ser mayor a 999.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.abscisa.$error.number">
+                    Este campo es numérico
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_largo">Largo</label>
+            <input type="number" class="form-control" name="largo" id="field_largo"
+                    required ng-model="vm.estructuraHidraulica.largo"
+                    min="0" max="100" />
+            <div ng-show="editForm.largo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.largo.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.largo.$error.max">
+                    Este campo no debe ser mayor a 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.largo.$error.number">
+                    Este campo es numérico
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ancho">Ancho</label>
+            <input type="number" class="form-control" name="ancho" id="field_ancho"
+                    required ng-model="vm.estructuraHidraulica.ancho"
+                    min="0" max="100" />
+            <div ng-show="editForm.ancho.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ancho.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor o igual a 0
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.ancho.$error.max">
+                    Este campo no puede ser mayor a 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.ancho.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_altura">Altura</label>
+            <input type="number" class="form-control" name="altura" id="field_altura"
+                    required ng-model="vm.estructuraHidraulica.altura"
+                    min="0" max="100" />
+            <div ng-show="editForm.altura.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.altura.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.altura.$error.max">
+                    Este campo no puede ser mayor a 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.altura.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_baseMayor">Base Mayor</label>
+            <input type="number" class="form-control" name="baseMayor" id="field_baseMayor"
+                    required ng-model="vm.estructuraHidraulica.baseMayor"
+                    min="0" max="100" />
+            <div ng-show="editForm.baseMayor.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.baseMayor.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.baseMayor.$error.max">
+                    Este campo no puede ser mayor a 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.baseMayor.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_baseMenor">Base Menor</label>
+            <input type="number" class="form-control" name="baseMenor" id="field_baseMenor"
+                    required ng-model="vm.estructuraHidraulica.baseMenor"
+                    min="0" max="100" />
+            <div ng-show="editForm.baseMenor.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.baseMenor.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.baseMenor.$error.max">
+                    Este campo no puede ser mayor a 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.baseMenor.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_radio">Radio</label>
+            <input type="number" class="form-control" name="radio" id="field_radio"
+                    required ng-model="vm.estructuraHidraulica.radio"
+                    min="0" max="100" />
+            <div ng-show="editForm.radio.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.radio.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor o igual a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.radio.$error.max">
+                    Este campo no puede ser mayor a 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.radio.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_tramoDeEstructura">Tramo de estructura</label>
+            <select class="form-control" id="field_tramoDeEstructura" name="tramoDeEstructura" ng-model="vm.estructuraHidraulica.tramoDeEstructura" ng-options="tramo as tramo.nombreTramo for tramo in vm.tramos track by tramo.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
+        </button>
+    </div>
+</form>

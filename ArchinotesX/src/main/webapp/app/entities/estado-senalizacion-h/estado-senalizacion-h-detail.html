@@ -1,0 +1,88 @@
+
+<div>
+    <h2><span>Estado Senalizacion H</span> {{vm.estadoSenalizacionH.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span>Kilometro Inicial</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.kilometroInicial}}</span>
+        </dd>
+        <hr>
+        <dt><span>Abscisa Inicial</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.abscisaInicial}}</span>
+        </dd>
+        <hr>
+        <dt><span>Kilometro Final</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.kilometroFinal}}</span>
+        </dd>
+        <hr>
+        <dt><span>Abscisa Final</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.abscisaFinal}}</span>
+        </dd>
+        <hr>
+        <dt><span>Linea Inspeccion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.lineaInspeccion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Linea Verificacion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.lineaVerificacion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Tipo Linea Inspeccion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.tipoLineaInspeccion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Tipo Linea Verificacion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.tipoLineaVerificacion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Promedio Inspeccion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.promedioInspeccion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Promedio Verificacion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.promedioVerificacion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Observaciones Inspeccion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.observacionesInspeccion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Observaciones Verificacion</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.observacionesVerificacion}}</span>
+        </dd>
+        <hr>
+        <dt><span>Cumple</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.cumple}}</span>
+        </dd>
+        <hr>
+        <dt><span>Estado</span></dt>
+        <dd>
+            <span>{{vm.estadoSenalizacionH.estado}}</span>
+        </dd>
+        <hr>
+        <dt><span>Senalizacion De Inspeccion</span></dt>
+        <dd>
+            <a ui-sref="inspeccion-senalizacion-h-detail({id:vm.estadoSenalizacionH.senalizacionDeInspeccion.id})">{{vm.estadoSenalizacionH.senalizacionDeInspeccion.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

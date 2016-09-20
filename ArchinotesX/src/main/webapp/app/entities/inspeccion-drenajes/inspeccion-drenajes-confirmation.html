@@ -1,0 +1,64 @@
+<!-- <jhi-alert-error></jhi-alert-error>
+<div>
+    <div class="col-xs-12 text-center confirmation-header" ng-show="vm.checkState()">
+        <p><span class="glyphicon glyphicon glyphicon-ban-circle confirmation-header__icon"></span></p>
+        <h4>¡No se puede editar el registro! Ya ha sido finalizado.</h4>
+    </div>
+    <div class="row" ng-show="!vm.checkState()">
+        <div class="col-xs-12 text-center confirmation-header">
+            <p><span class="glyphicon glyphicon-question-sign confirmation-header__icon"></span></p>
+            <h4>¿Está seguro que desea finalizar éste registro?</h4>
+        </div> -->
+        <div class="col-xs-12 summary-section">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 text-center summary-section__info">
+                    <dt><span>Tramo de inspección</span></dt>
+                    <dd>
+                        <span class="summary-section__text">{{vm.inspeccionDrenajes.tramoDeInspeccionDrenajes.nombreTramo}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Fecha inspección</span></dt>
+                    <dd>
+                        <span class="summary-section__text">{{vm.inspeccionDrenajes.fechaVerificacion | date:'medium'}}</span>
+                    </dd>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-center summary-section__info">
+                    <dt><span>Fecha verificación </span></dt>
+                    <dd>
+                        <span class="summary-section__text">{{vm.inspeccionDrenajes.fechaVerificacion | date:'medium'}}</span>
+                    </dd>
+                </div>
+               <!--  <div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>¿Ha cumplido?</span></dt>
+                    <dd>
+                        <indicador-cumple cumple="vm.inspeccionDrenajes.cumple"></indicador-cumple>
+                    </dd>
+                </div> -->
+            </div>
+            <div class="row" ng-show="vm.isForInspection()">
+                <!--<div class="col-xs-12 col-sm-4 text-center summary-section__info">
+                    <dt><span>Visto Bueno Interventor</span></dt>
+                    <dd>
+                        <a>{{vm.inspeccionDrenajes.vistoBuenoInterventor}}</a>
+                    </dd>
+                </div>-->
+                <!-- <div class="col-xs-12 col-sm-12 text-center summary-section__info">
+                    <dt><span>Estado</span></dt>
+                    <dd>
+                        <a>{{vm.inspeccionDrenajes.estado}}</a>
+                    </dd>
+                </div> -->
+            </div>
+        </div>
+  <!--   </div>
+    <div class="entity-actions">
+        <button class="btn btn-info" type="button" ui-sref="inspeccion-drenajes.edit({id: vm.entityID})">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+        </button>
+        <button ng-click="vm.finalizeAndClose()" ng-disabled="!vm.entityID || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Confirmar</span>
+        </button>
+    </div>
+</div>
+ -->

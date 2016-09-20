@@ -1,0 +1,127 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "estadoBarreraDeInspeccion",
+            "otherEntityName": "inspeccionBarreraContencion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "estructuraContencionDeInspeccion",
+            "otherEntityName": "estructuraContencion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "estructura"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "kilometroInicial",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "200"
+        },
+        {
+            "fieldName": "abscisaInicial",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999"
+        },
+        {
+            "fieldName": "kilometroFinal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "200"
+        },
+        {
+            "fieldName": "abscisaFinal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999"
+        },
+        {
+            "fieldName": "estadoEstructuralInspeccion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoEstructuralVerificacion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoAlineacionInspeccion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoAlineacionVerificacion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoOxidacionInspeccion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoOxidacionVerificacion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoAnclajeInspeccion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estadoAnclajeVerificacion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "observacionesInspeccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "400"
+        },
+        {
+            "fieldName": "observacionesVerificacion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "400"
+        },
+        {
+            "fieldName": "cumple",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "estado_barrera_contencion",
+    "pagination": "pager"
+}

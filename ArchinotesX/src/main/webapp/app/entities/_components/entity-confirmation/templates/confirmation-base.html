@@ -1,0 +1,28 @@
+<jhi-alert-error></jhi-alert-error>
+<div>
+    <div class="col-xs-12 text-center confirmation-header" ng-show="vm.checkState()">
+        <p><span class="glyphicon glyphicon glyphicon-ban-circle confirmation-header__icon"></span></p>
+        <h4>¡No se puede editar el registro! Ya ha sido finalizado.</h4>
+    </div> 
+    <div class="row" ng-show="!vm.checkState()">
+        <div class="col-xs-12 text-center confirmation-header">
+            <p><span class="glyphicon glyphicon-question-sign confirmation-header__icon"></span></p>
+            <h4>¿Está seguro que desea finalizar este registro?</h4>
+        </div>
+        
+        <div ng-include="vm.getUIListTemplateURL()"></div>
+        
+    </div>
+
+    <div class="entity-actions">
+        <button class="btn btn-info" type="button" ng-click="vm.goBackToEditEntity()">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+        </button>
+        <button ng-click="vm.finalizeAndClose()"  ng-disabled="!vm.entityID || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Confirmar</span>
+        </button>
+    </div>
+</div>
+
+        
+

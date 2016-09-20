@@ -1,0 +1,67 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "tramoDeIndiceMortalidad",
+            "otherEntityName": "tramo",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombreTramo"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "fechaInicial",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "fechaFinal",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "cantidadTrafico",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "10000000"
+        },
+        {
+            "fieldName": "comentario",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "comentarioInterventor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        },
+        {
+            "fieldName": "vistoBuenoInterventor",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cumple",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "indice_mortalidad",
+    "pagination": "pager"
+}

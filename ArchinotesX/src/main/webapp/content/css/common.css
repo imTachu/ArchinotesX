@@ -1,0 +1,478 @@
+.modal{
+    min-width: 480px;
+}
+
+.entity-section-form-group{
+    padding:15px;
+    background: #fcf8e3;
+    border: 1px #faebcc solid;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.entity-actions {
+    /* margins negativos y border, similares a modal-footer class*/
+    margin: 15px -15px 0 -15px;
+    padding: 10px 10px;
+    text-align: right;
+    border-top: 1px solid #E5E5E5;
+}
+.modal-body-principal-entities {
+    padding-bottom: 0px;
+}
+.entity-file-uploader {
+    background: #EEE;
+    border: 1px #CCC solid;
+    border-radius: 4px;
+    padding: 15px;
+}
+.entity-file-uploader .uploader-drop-area {
+    padding: 15px;
+    border: 2px #BBB dashed;
+    border-radius: 5px;
+    background: white;
+    color: black;
+}
+.entity-file-uploader .uploader-drop-area.uploader-drag-over {
+    color: #BBB;
+    border-color: #666;
+}
+.entity-file-uploader .uploader-drop-area .dragging-msg {
+    display: none;
+}
+.entity-file-uploader .uploader-drop-area.uploader-drag-over .dragging-msg {
+    display: inline;
+}
+.entity-file-uploader .uploader-drop-area.uploader-drag-over .no-dragging-msg {
+    display: none;
+}
+.entity-file-uploader .uploader-progress {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.entity-file-uploader .uploader-progress .glyphicon.glyphicon-ban-circle {
+    color: red;
+}
+
+
+.help-block {
+    font-size: 0.785em;
+}
+
+/* formularios con validacion disabled */
+
+form.disable-all .has-error .control-label{
+    color:inherit;
+    
+}
+
+form.disable-all .has-error .form-control{
+    border:1px solid #ccc;
+    transition:none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+}
+
+form.disable-all .has-error .help-block{
+    display: none;
+    
+}
+
+form.disable-all .has-error .input-group-addon{
+    color:inherit;
+    background-color:inherit;
+    border:1px solid #ccc;
+}
+
+/* formularios de inspecciones */
+
+.alert.alert-entity-message{
+    font-size:0.857em;
+    padding:10px;
+}
+
+
+/* formulario confirmación */
+
+.confirmation-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 1%;
+}
+.confirmation-header__icon {
+    font-size: 3.5em;
+    color: #337ab7;
+}
+.summary-section {
+    border-top: 1px solid #e5e5e5;
+    padding: 1.5% 0;
+}
+.summary-section__text {
+    color: #337ab7;
+} 
+.summary-section__info {
+    padding: 2% 1%;
+}
+.summary-section__info__icon {
+    font-size: 1.5em;
+    color: #d58512;
+}
+
+.summary-section__info{
+    padding: 1%;
+}
+
+.summary-section__info__icon{
+    font-size:1.5em;
+    color: #d58512;
+}
+
+/* breadcrumb */
+.breadcrumb {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    background: none;
+}
+
+/* inspeccion forms*/
+.indicador-cumple, .indicador-no-cumple, .indicador-cumple-desconocido{
+    font-size: 2.5em;
+    text-align: center;
+    display: block;
+}
+
+.indicador-cumple{
+    color:#5cb85c;
+}
+
+.indicador-no-cumple{
+    color:#d9534f;
+}
+
+.indicador-cumple-desconocido{
+    color:gray;
+}
+.indicador-cumple.small, .indicador-no-cumple.small, .indicador-cumple-desconocido.small{
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+/* ==========================================================================
+Estilos para dropdown-submenu
+========================================================================== */
+
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    right:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+
+/* ==========================================================================
+Estilos para reportes
+========================================================================== */
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    text-align: center;
+}
+.table > thead > tr > th {
+    vertical-align: middle;
+    text-align: center;
+}
+hr.double {
+    border-top: 3px double #8c8b8b;
+    width: 70%;
+}
+.fa-2 {
+    font-size: 2em;
+    text-align: right;
+    padding-right: 10px;
+}
+.spaced-row {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.node-link {
+    cursor: pointer;
+}
+.vcenter {
+    padding: 4%;
+}
+.display-cell {
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+.report__btn-action {
+    padding-top: 10px;
+}
+
+.report {
+    font-size:.9em; 
+    margin-top:3%;
+}
+
+.report__header{
+    margin-top: 30px;
+}
+
+.report__dates{
+    margin-top: 15px;
+}
+
+.report__summary-section{
+    padding: 2%;
+}
+
+.report__dates__helper {
+    padding: 0 !important;
+    margin: .2% !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+.report__paginationText {
+    display: inline-block; 
+    vertical-align:inherit; 
+    padding: 0 7px;
+}
+
+.report__md-table {
+    width: 50%; 
+    margin: 0 auto;
+}
+
+.report__modal-content-div {
+    border:1px solid #ccc; 
+    padding:0;
+    margin-bottom: 2%;
+    border-radius: 5px;
+}
+
+.report__modal-content-title {
+    background: #d9edf7;
+    margin: 0; 
+    padding: 1.5%;
+    border-radius: 5px;
+}
+
+.report__modal-content-description {
+    margin-top: 2%; 
+    padding: 2%;
+}
+
+.report__detail-table {
+    border-top: 1px dashed #ccc; 
+    margin-top:2%;
+}
+
+.modal__line { 
+    border:10px solid gray;
+    width:100px; 
+    height:30px; 
+    margin: 0 auto; 
+    border-radius:5px;
+}
+
+.modal__white-line {
+    background:white;
+}
+
+.modal__yellow-line {
+    background:yellow;
+}
+
+/* ==========================================================================
+"Pie chart" que muestra el progreso de un reporte
+========================================================================== */
+
+.pie {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #4cb85c;
+    background-image: linear-gradient(to right, transparent 50%, #f5f5f5 0);
+}
+@keyframes spin {
+    to {
+        transform: rotate(.5turn);
+    }
+}
+@keyframes bg {
+    50% {
+        background: #f5f5f5;
+    }
+}
+.allwrongpie::before, .pie::before {
+    content: '';
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 50%;
+    background-color: inherit;
+    transform-origin: left;
+    animation: spin 50s linear infinite, bg 100s step-end infinite;
+    animation-play-state: paused;
+    animation-delay: inherit;
+}
+.allwrongpie {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #d9534f;
+    background-image: linear-gradient(to right, transparent 50%, #d9534f 0);
+}
+fieldset.scheduler-border {
+    border: 1px solid #ddd !important;
+    border-radius: 6px;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+
+.horizontal-form-control {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* ==========================================================================
+Estilos para navbar brand
+========================================================================== */
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  display: inline-block;
+  height: 100%;
+  padding:10px;
+  width: auto;
+}
+
+.navbar-brand>.brand-title {
+    display: inline-block;
+    vertical-align: sub;
+    color: #014e91;
+    font-size: .9em;
+    font-weight: bold;
+}
+
+.navbar-brand>.brand-space {
+    /*display: inline-block;*/
+    vertical-align: sub;
+    border-left: 1px solid #ccc;
+}
+
+/* ==========================================================================
+Rendimiento del sistema - helpers pie disponibilidad 
+========================================================================== */
+
+.pie__helper {
+    padding:4.5% 0;
+}
+
+.pie__helper__title {
+    padding: 0 0 1%;
+}
+
+.pie__helper__description {
+    font-weight: 100;
+}
+
+/* ==========================================================================
+Indice de cumplimiento
+========================================================================== */
+
+.UF__title {
+    background:#6393bd; 
+    margin:0; padding: 1% 0; 
+    color:white; 
+    border-top-right-radius:5px; 
+    border-top-left-radius:5px;
+}
+
+.UF__value {
+    background:#fff; 
+    margin:0; 
+    padding: 1% 0; 
+    font-weight:bold; 
+    border-bottom-right-radius:5px; 
+    border-bottom-left-radius:5px;
+}
+
+.helper__text__left {
+    text-align: left !important;
+}
+
+.important-table-data {
+    background:#ccc; 
+    font-weight: bold;
+}
+
+
+

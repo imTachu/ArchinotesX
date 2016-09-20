@@ -1,0 +1,90 @@
+<h2><span class="fa fa-bar-chart"></span>&#xA0; Índice de cumplimiento</h2>
+<div class="row report__header">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <fieldset class="report__dates__helper">
+                    <legend class="scheduler-border">Filtrar resultados</legend>
+                    <div class="col-xs-12 report__dates">
+                        <div class="form-group col-xs-12 col-sm-4">
+                            <label class="control-label" for="field_fromDate">Año / mes</label>
+                            <div class="input-group">
+                                <input id="field_fromDate" type="text" class="form-control" name="start" datetime-picker="{{vm.dateFormat}}" enable-time="false" enable-time="false" ng-model="vm.selectedDate" is-open="vm.datePickerOpenStatus.fromDate" ng-change="vm.onChangeDate()" datepicker-options="vm.pickerOptions_month" required ng-disabled="vm.isLoading || vm.downloadingPDF"/>
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-disabled="vm.isLoading || vm.downloadingPDF" ng-click="vm.openCalendar('fromDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-offset-0 col-xs-12 col-sm-offset-5 col-sm-3 text-center">
+                            <p class="UF__title"><strong>Unidad funcional (UF) :</strong></p>
+                            <p class="UF__value">0</p>
+                        </div>
+                        <!--        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label" for="field_fechaInspeccion">Hasta</label>
+                            <div class="input-group">
+                                <input id="field_toDate" type="text" class="form-control" name="end" datetime-picker="{{vm.dateFormat}}" enable-time="false" enable-time="false" ng-model="vm.toDate" is-open="vm.datePickerOpenStatus.toDate" ng-change="vm.onChangeDate()" datepicker-options="vm.pickerOptions" required/>
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('toDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                            </div>
+                        </div> -->
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-xs-12">
+                <button type="button" ng-disabled="true" class="btn btn-default" lazy-load="true" ng-csv="vm.downloadAsCsv()" filename="{{vm.csvFilename}}" field-separator=";" decimal-separator="," csv-header="['Id', 'Indicador', 'Vr. Ponderado contrato', 'Indicador mes', 'Vr. Ponderado mes']">
+                    <span class="fa fa-table fa-lg"></span> CSV
+                </button>
+                <button type="button" ng-disabled="vm.isLoading || vm.downloadingPDF || !vm.PDFObject" class="btn btn-default" title="Descargar reporte como PDF" ng-click="vm.downloadAsPdf()">
+                    <span class="fa fa-file-pdf-o fa-lg"></span> PDF
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row report__header"></div>
+<!-- Tabla principal -->
+<div>
+
+<!-- <indicador-indice-cumplimiento indicator-data="vm.test"></indicador-indice-cumplimiento> -->
+    <!-- ng-show="vm.IsFill()"-->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th ng-click="predicate = 'id'; reverse=!reverse">
+                        <span>ID</span>
+                        <!-- <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='id', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='id'}"></i> -->
+                    </th>
+                    <th ng-click="predicate = 'indicador'; reverse=!reverse">
+                        <span>Indicador</span>
+                        <!-- <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='indicador', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='indicador'}"></i> -->
+                    </th>
+                    <th ng-click="predicate = 'ponderadoContrato'; reverse=!reverse">
+                        <span>Vr. Ponderado contrato</span>
+                        <!-- <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='ponderadoContrato', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='ponderadoContrato'}"></i> -->
+                    </th>
+                    <th ng-click="predicate = 'indicadorMes'; reverse=!reverse">
+                        <span>Indicador mes</span>
+                        <!-- <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='indicadorMes', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='indicadorMes'}"></i> -->
+                    </th>
+                    <th ng-click="predicate = 'indicadorMes'; reverse=!reverse">
+                        <span>Vr. Ponderado mes</span>
+                        <!-- <i ng-class="{'glyphicon glyphicon-chevron-up' : !reverse && predicate==='indicadorMes', 'glyphicon glyphicon-chevron-down' : reverse && predicate==='indicadorMes'}"></i> -->
+                    </th>
+                </tr>
+            </thead>
+            <tr ng-repeat="test in vm.indicesCumplimientoPromises" indicador-indice-cumplimiento="test"></tr>
+            <tr>
+                <td colspan="2" class="helper__text__left">Indice de Cumplimiento UF 0 (calculado)</td>
+                <td><strong>{{vm.totalIndicePonderadoContrato*100 | number:2}}%</strong></td>
+                <td></td>
+                <td><strong>{{vm.totalIndicePonderadoMes*100 | number:2}}%</strong></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="helper__text__left"><strong>Indice de Cumplimiento UF 0 (Final)</strong></td>
+                <td class="important-table-data"><strong>{{vm.totalIndiceCumplimientoFinal*100 | number:2}}%</strong></td>
+            </tr>
+        </table>
+    </div>
+</div>

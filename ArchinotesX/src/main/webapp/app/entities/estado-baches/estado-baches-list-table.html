@@ -1,0 +1,71 @@
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="estado"><span>Estado</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cumple"><span>Cumple</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="kilometro"><span>Kilometro</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="abscisa"><span>Abscisa</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="costado"><span>Costado</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="largoInspeccion"><span>Largo Inspeccion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="largoVerificacion"><span>Largo Verificacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anchoInspeccion"><span>Ancho Inspeccion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="anchoVerificacion"><span>Ancho Verificacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="profundidadInspeccion"><span>Profundidad Inspeccion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="profundidadVerificacion"><span>Profundidad Verificacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="observacionesInspeccion"><span>Observaciones Inspeccion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="observacionesVerificacion"><span>Observaciones Verificacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    
+                    
+                    <!-- <th jh-sort-by="EstadoBachesDeInspeccion.id"><span>Estado De Inspeccion</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entity in vm.entityCollection track by entity.id">
+                    <td><!--<a ui-sref="estado-baches-detail({id:entity.id})">-->{{entity.id}}<!-- </a> --></td>
+                    <td>{{entity.estado}}</td>
+                    <td>{{entity.cumple}}</td>
+                    <td>{{entity.kilometro}}</td>
+                    <td>{{entity.abscisa}}</td>
+                    <td>{{entity.costado}}</td>
+                    <td>{{entity.largoInspeccion}}</td>
+                    <td>{{entity.largoVerificacion}}</td>
+                    <td>{{entity.anchoInspeccion}}</td>
+                    <td>{{entity.anchoVerificacion}}</td>
+                    <td>{{entity.profundidadInspeccion}}</td>
+                    <td>{{entity.profundidadVerificacion}}</td>
+                    <td>{{entity.observacionesInspeccion}}</td>
+                    <td>{{entity.observacionesVerificacion}}</td>
+                    
+                    
+                    <!-- <td>
+                        <a ui-sref="inspeccion-baches-detail({id:entity.entityDeInspeccion.id})">{{entity.entityDeInspeccion.id}}</a>
+                    </td> -->
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <!--<button type="submit"
+                                    ui-sref="estado-baches-detail({id:entity.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>-->
+                            <button type="submit"
+                                    ui-sref="estado-baches.edit({id_estado_baches:entity.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <!--<button type="submit"
+                                    ui-sref="estado-baches.delete({id:entity.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>-->
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

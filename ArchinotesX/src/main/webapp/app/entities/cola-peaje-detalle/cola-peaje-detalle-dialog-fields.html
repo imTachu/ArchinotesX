@@ -1,0 +1,152 @@
+        <!--<div class="form-group" ng-show="vm.colaPeajeDetalle.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.colaPeajeDetalle.id" readonly />
+        </div>-->
+
+        <h4>Información:</h4>
+        <div class="entity-section-form-group">
+            <div class="row">
+                <div class="form-group col-xs-6 col-sm-4"
+                    ng-class="{'has-error':editForm.numeroCarril.$invalid}">
+                    <label class="control-label" for="field_numeroCarril">Número del carril</label>
+                    <input required type="number" class="form-control" name="numeroCarril" id="field_numeroCarril"
+                            ng-model="vm.colaPeajeDetalle.numeroCarril"
+                            min="0" max="20" />
+                    <div ng-show="editForm.numeroCarril.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.numeroCarril.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.numeroCarril.$error.min" translate-value-min="0">
+                            Este campo no debe ser menor a 0
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.numeroCarril.$error.max">
+                            Este campo no debe ser mayor a 20.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.numeroCarril.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6" 
+                    ng-class="{'has-error':editForm.fechaInicial.$invalid}">
+                    <label class="control-label" for="field_fechaInicial">Fecha Inicial</label>
+                    <div class="input-group">
+                        <input required id="field_fechaInicial" type="text" class="form-control" 
+                            name="fechaInicial" 
+                            datetime-picker="{{dateformat}}" 
+                            ng-model="vm.colaPeajeDetalle.fechaInicial" 
+                            is-open="vm.datePickerOpenStatus.fechaInicial"
+                        />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaInicial')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </div>
+                    <div ng-show="editForm.fechaInicial.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.fechaInicial.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.fechaInicial.$error.datetime">
+                            La fecha es inválida
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6"
+                    ng-class="{'has-error':editForm.cantidadVehiculosInicial.$invalid}">
+                    <label class="control-label" for="field_cantidadVehiculosInicial">No. vehículos inicial</label>
+                    <input required type="number" class="form-control" name="cantidadVehiculosInicial" id="field_cantidadVehiculosInicial"
+                            ng-model="vm.colaPeajeDetalle.cantidadVehiculosInicial"
+                            min="10" max="100" />
+                    <div ng-show="editForm.cantidadVehiculosInicial.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosInicial.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosInicial.$error.min" translate-value-min="10">
+                            Este campo no debe ser menor a 10
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosInicial.$error.max">
+                            Este campo no debe ser mayor a 100.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosInicial.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6" 
+                    ng-class="{'has-error':editForm.fechaFinal.$invalid}">
+                    <label class="control-label" for="field_fechaFinal">Fecha Final</label>
+                    <div class="input-group">
+                        <input required id="field_fechaFinal" type="text" class="form-control" 
+                            name="fechaFinal" 
+                            datetime-picker="{{dateformat}}" 
+                            ng-model="vm.colaPeajeDetalle.fechaFinal" 
+                            is-open="vm.datePickerOpenStatus.fechaFinal"
+                        />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaFinal')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </div>
+                    <div ng-show="editForm.fechaFinal.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.fechaFinal.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.fechaFinal.$error.datetime">
+                            La fecha es inválida
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.fechaFinal.$error.fechaFinalNoEsMayor">
+                            Debe ser mayor a la inicial
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6"
+                    ng-class="{'has-error':editForm.cantidadVehiculosFinal.$invalid}">
+                    <label class="control-label" for="field_cantidadVehiculosFinal">No. vehículos final</label>
+                    <input required type="number" class="form-control" name="cantidadVehiculosFinal" id="field_cantidadVehiculosFinal"
+                            ng-model="vm.colaPeajeDetalle.cantidadVehiculosFinal"
+                            min="0" max="100" />
+                    <div ng-show="editForm.cantidadVehiculosFinal.$invalid">
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosFinal.$error.required">
+                            Este campo es obligatorio.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosFinal.$error.max">
+                            Este campo no debe ser mayor a 100.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosFinal.$error.min">
+                            Este campo no debe ser menor a 0.
+                        </p>
+                        <p class="help-block"
+                            ng-show="editForm.cantidadVehiculosFinal.$error.number">
+                            Este campo es numérico
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="form-group">
+            <label for="field_detalleDeColaPeaje">Detalle De Cola Peaje</label>
+            <select class="form-control" id="field_detalleDeColaPeaje" name="detalleDeColaPeaje" ng-model="vm.colaPeajeDetalle.detalleDeColaPeaje" ng-options="colaPeaje as colaPeaje.id for colaPeaje in vm.colapeajes track by colaPeaje.id">
+                <option value=""></option>
+            </select>
+        </div>
+        -->

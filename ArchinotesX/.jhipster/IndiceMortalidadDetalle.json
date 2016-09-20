@@ -1,0 +1,83 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "detalleDeIndiceMortalidad",
+            "otherEntityName": "indiceMortalidad",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "unidadFuncional",
+            "fieldType": "String",
+            "fieldValidateRules": [
+              "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "7"
+        },
+        {
+            "fieldName": "kilometroInicial",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "200"
+        },
+        {
+            "fieldName": "abscisaInicial",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999"
+        },
+        {
+            "fieldName": "kilometroFinal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "200"
+        },
+        {
+            "fieldName": "abscisaFinal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "999"
+        },
+        {
+            "fieldName": "tramoCritico",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "numeroVictimasFatales",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "detalle_de_indice_mortalidad",
+    "pagination": "pager"
+}

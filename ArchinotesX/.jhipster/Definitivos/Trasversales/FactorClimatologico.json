@@ -1,0 +1,21 @@
+{
+    "relationships": [
+
+    ],
+    "fields": [
+        {
+            "fieldName": "condicionClima",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "30"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "factor_climatologico",
+    "pagination": "pager"
+}

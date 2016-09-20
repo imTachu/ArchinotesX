@@ -1,0 +1,175 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTramoLabel">Crear o editar un tramo</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.tramo.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.tramo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nombreTramo">Nombre Tramo</label>
+            <input type="text" class="form-control" name="nombreTramo" id="field_nombreTramo"
+                    ng-model="vm.tramo.nombreTramo"
+                    required ng-maxlength="60" />
+            <div ng-show="editForm.nombreTramo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombreTramo.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.nombreTramo.$error.maxlength">
+                    Este campo no puede tener más de 60 caracteres.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_unidadFuncional">Unidad Funcional</label>
+            <input type="text" class="form-control" name="unidadFuncional" id="field_unidadFuncional"
+                    ng-model="vm.tramo.unidadFuncional"
+                    required ng-maxlength="7" />
+            <div ng-show="editForm.unidadFuncional.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.unidadFuncional.$error.required">
+                    Este campo es obligatorio.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.unidadFuncional.$error.maxlength">
+                    Este campo no puede tener más de 7 caracteres.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_sector">Sector</label>
+            <input type="text" class="form-control" name="sector" id="field_sector"
+                    ng-model="vm.tramo.sector"
+                    ng-maxlength="40" />
+            <div ng-show="editForm.sector.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sector.$error.maxlength">
+                    Este campo no puede tener más de 40 caracteres.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_origen">Origen</label>
+            <input type="text" class="form-control" name="origen" id="field_origen"
+                    ng-model="vm.tramo.origen" ng-pattern="vm.kmAbscisaPattern"
+                    ng-maxlength="40" placeholder="Km + Abscisa, ejemplo: '100+100'"/>
+            <div ng-show="editForm.origen.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.origen.$error.maxlength">
+                    Este campo no puede tener más de 40 caracteres.
+                </p>
+
+                <p class="help-block"
+                    ng-show="editForm.origen.$error.pattern">
+                    Este campo debe seguir el patrón KM+Abscisa "100+100".
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.origen.$error.kilometroAbscisaInvalid">
+                    Campo inválido, kilometro no debe exceder el valor 200
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_prNacionalInicio">Pr Nacional Inicio</label>
+            <input type="text" class="form-control" name="prNacionalInicio" id="field_prNacionalInicio"
+                    ng-model="vm.tramo.prNacionalInicio"
+                    ng-maxlength="20" />
+            <div ng-show="editForm.prNacionalInicio.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.prNacionalInicio.$error.maxlength">
+                    Este campo no puede tener más de 20 caracteres.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_destino">Destino</label>
+            <input type="text" class="form-control" name="destino" id="field_destino"
+                    ng-model="vm.tramo.destino" ng-pattern="vm.kmAbscisaPattern"
+                    ng-maxlength="40"  placeholder="Km + Abscisa, ejemplo: '100+100'"/>
+            <div ng-show="editForm.destino.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.destino.$error.maxlength">
+                    Este campo no puede tener más de 40 caracteres.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.origen.$error.pattern">
+                    Este campo debe seguir el patrón KM+Abscisa "100+100".
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.origen.$error.kilometroAbscisaInvalid">
+                    Campo inválido, kilometro no debe exceder el valor 200
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_prNacionalFinal">Pr Nacional Final</label>
+            <input type="text" class="form-control" name="prNacionalFinal" id="field_prNacionalFinal"
+                    ng-model="vm.tramo.prNacionalFinal"
+                    ng-maxlength="20" />
+            <div ng-show="editForm.prNacionalFinal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.prNacionalFinal.$error.maxlength">
+                    Este campo no puede tener más de 20 caracteres.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_longitudAproximadaTramo">Longitud Aproximada Tramo</label>
+            <input type="number" class="form-control" name="longitudAproximadaTramo" id="field_longitudAproximadaTramo"
+                    ng-model="vm.tramo.longitudAproximadaTramo"
+                    max="200" />
+            <div ng-show="editForm.longitudAproximadaTramo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.longitudAproximadaTramo.$error.max">
+                    Este campo no puede ser mayor a 200.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.longitudAproximadaTramo.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_intervencionPrevista">Intervención Prevista</label>
+            <input type="text" class="form-control" name="intervencionPrevista" id="field_intervencionPrevista"
+                    ng-model="vm.tramo.intervencionPrevista"
+                    ng-maxlength="200" />
+            <div ng-show="editForm.intervencionPrevista.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.intervencionPrevista.$error.maxlength">
+                    Este campo no puede tener más de 200 caracteres.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_observacion">Observación</label>
+            <input type="text" class="form-control" name="observacion" id="field_observacion"
+                    ng-model="vm.tramo.observacion"
+                    ng-maxlength="200" />
+            <div ng-show="editForm.observacion.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.observacion.$error.maxlength">
+                    Este campo no puede tener más de 200 caracteres.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
+        </button>
+    </div>
+</form>

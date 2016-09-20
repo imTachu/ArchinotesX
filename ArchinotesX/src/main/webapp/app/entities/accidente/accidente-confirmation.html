@@ -1,0 +1,244 @@
+<!-- <jhi-alert-error></jhi-alert-error>
+<div>
+    <div class="col-xs-12 text-center confirmation-header" ng-show="vm.checkState()">
+        <p><span class="glyphicon glyphicon glyphicon-ban-circle confirmation-header__icon"></span></p>
+        <h4>Este registro ya ha sido finalizado.</h4>
+    </div>
+    <div class="row" ng-show="!vm.checkState()">
+        <div class="col-xs-12 text-center confirmation-header">
+            <p><span class="glyphicon glyphicon-question-sign confirmation-header__icon"></span></p>
+            <h4>¿Está seguro que desea finalizar este registro?</h4>
+        </div> -->
+        <div class="col-xs-12 summary-section">
+            <div class="col-xs-12">
+                <h4>Clasificación del accidente:</h4>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Tipo De Accidente</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.tipoDeAccidente.tipoAccidente">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.tipoDeAccidente.tipoAccidente}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Causa De Accidente</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.causaDeAccidente.causaAccidente">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.causaDeAccidente.causaAccidente}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Clima En Accidente</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.climaEnAccidente.condicionClima">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.climaEnAccidente.condicionClima}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Tipo de Novedad</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.tipoNovedadDeAccidente.tipoNovedad">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.tipoNovedadDeAccidente.tipoNovedad}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center summary-section__info" ng-show="vm.accidente.reportadoPorTercero">
+                        <dt><span class="glyphicon glyphicon-exclamation-sign summary-section__info__icon"></span></dt>
+                        <dt><span>Reportado por Tercero</span></dt>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 text-center summary-section__info">
+                        <dt><span>Nombre de la persona que reporta</span></dt>
+                        <dd>
+                            <span ng-show="!vm.accidente.nombrePersonaQueReporta">N/A</span>
+                            <span class="summary-section__text">{{vm.accidente.nombrePersonaQueReporta}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 text-center summary-section__info">
+                        <dt><span>Teléfono de la persona que reporta</span></dt>
+                        <dd>
+                            <span ng-show="!vm.accidente.telefonoPersonaQueReporta">N/A</span>
+                            <span class="summary-section__text">{{vm.accidente.telefonoPersonaQueReporta}}</span>
+                        </dd>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 summary-section">
+            <div class="col-xs-12">
+                <h4>Infraestructura Afectada:</h4>
+            </div>
+            <div class="col-xs-4 text-center summary-section__info">
+                <dt><span>Infraestructura:</span></dt>
+                <dd>
+                    <span class="summary-section__text" ng-show="!vm.accidente.otraInfraestructuraAfectada">{{vm.accidente.infraestructuraEnAccidente.infraestructuraAfectada}}</span>
+                    <span class="summary-section__text" ng-show="vm.accidente.otraInfraestructuraAfectada">{{vm.accidente.otraInfraestructuraAfectada}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-4 text-center summary-section__info">
+                <dt><span>Tramo De Accidente</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.tramoDeAccidente.nombreTramo">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.tramoDeAccidente.nombreTramo}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-4 text-center summary-section__info">
+                <dt><span>Kilómetro + abscisa</span></dt>
+                <dd>
+                    <span class="summary-section__text">{{vm.accidente.kilometro}} + {{vm.accidente.abscisa}}</span>
+                </dd>
+            </div>
+            <!-- <div class="col-xs-12 text-center summary-section__info" ng-show="vm.vehiculoDeApoyoAccidentesNumero > 0">
+                <dt><span class="glyphicon glyphicon-exclamation-sign" style="font-size:1.5em; color: #d58512;"></span></dt>
+                <dt><span># Vehículos de apoyo</span></dt>
+                <dd>
+                    <span ng-show="!vm.vehiculoDeApoyoAccidentesNumero">N/A</span>
+                    <span class="summary-section__text">{{vm.vehiculoDeApoyoAccidentesNumero}}</span>
+                </dd>
+            </div> -->
+        </div>
+        <div class="col-xs-12 summary-section">
+            <div class="col-xs-12">
+                <h4>Tiempos de atención:</h4>
+            </div>
+            <div class="col-xs-12 col-sm-12 text-center summary-section__info">
+                <dt><span>Fecha Recepcion Llamada</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.fechaRecepcionLlamada">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.fechaRecepcionLlamada | date:'medium'}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Hora llegada de señalización</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.fechaLlegadaSenalizacion">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.fechaLlegadaSenalizacion | date:'medium'}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Hora de llegada de ambulancia</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.fechaLlegadaAmbulancia">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.fechaLlegadaAmbulancia | date:'medium'}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Hora de llegada de vehículo Apoyo</span></dt>
+                <dd> 
+                    <span ng-show="!vm.accidente.fechaLlegadaVehiculoApoyo">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.fechaLlegadaVehiculoApoyo | date:'medium'}}</span>
+                </dd>
+            </div>
+            <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                <dt><span>Hora de finalización de despeje</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.fechaLlegadaFinDespeje">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.fechaLlegadaFinDespeje | date:'medium'}}</span>
+                </dd>
+            </div>
+        </div>
+        <div class="col-xs-12 summary-section">
+            <div class="col-xs-12">
+                <h4>Datos adicionales:</h4>
+            </div>
+            <div class="col-xs-12" ng-show="vm.accidente.requiereCierreDeVia">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <dt><span class="glyphicon glyphicon-exclamation-sign summary-section__info__icon"></span></dt>
+                        <dt><span>Requiere Cierre De Via</span></dt>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                        <dt><span>Hora de inicio de cierre</span></dt>
+                        <dd>
+                            <span ng-show="!vm.accidente.fechaInicioCierreVia">N/A</span>
+                            <span class="summary-section__text">{{vm.accidente.fechaInicioCierreVia | date:'medium'}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                        <dt><span>Hora de fin de cierre</span></dt>
+                        <dd>
+                            <span ng-show="!vm.accidente.fechaFinCierreVia">N/A</span>
+                            <span class="summary-section__text">{{vm.accidente.fechaFinCierreVia | date:'medium'}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                        <dt><span>Entidad realiza el cierre</span></dt>
+                        <dd>
+                            <span ng-show="!vm.accidente.entidadQueCierraVia">N/A</span>
+                            <span class="summary-section__text">{{vm.accidente.entidadQueCierraVia}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 text-center summary-section__info">
+                        <dt><span>Tipo de cierre</span></dt>
+                        <dd>
+                            <span ng-show="!vm.accidente.tipoDeCierre">N/A</span>
+                            <span class="summary-section__text">{{vm.accidente.tipoDeCierre}}</span>
+                        </dd>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 text-center summary-section__info">
+                <dt><span>Comentarios</span></dt>
+                <dd>
+                    <span ng-show="!vm.accidente.comentario">N/A</span>
+                    <span class="summary-section__text">{{vm.accidente.comentario}}</span>
+                </dd>
+            </div>
+            <!--<div class="col-xs-12">
+                    <div class="col-xs-4 text-center">
+                        <dt><span class="glyphicon glyphicon-exclamation-sign summary-section__info__icon"></span></dt>
+                        <dt><span># Vehículos Afectados</span></dt>
+                        <dd>
+                           <span>{{vm.vehiculoAfectadoEnAccidentesNumero}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <dt><span class="glyphicon glyphicon-exclamation-sign summary-section__info__icon"></span></dt>
+                        <dt><span># Personas Afectadas</span></dt>
+                        <dd>
+                           <span>{{vm.PersonaAfectadaEnAccidentesNumero}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <dt><span class="glyphicon glyphicon-exclamation-sign summary-section__info__icon"></span></dt>
+                        <dt><span># Documentos Adjuntos</span></dt>
+                        <dd>
+                           <span>{{vm.ArchivoAccidenteNumero}}</span>
+                        </dd>
+                    </div>
+                 </div>-->
+        </div>
+  <!--   </div>
+       
+    <hr>
+    <dl class="dl-horizontal">
+        <hr>
+        <dt><span>Comentario Interventor</span></dt>
+        <dd>
+            <span>{{vm.accidente.comentarioInterventor}}</span>
+        </dd>
+        <hr>
+        <dt><span>Visto Bueno Interventor</span></dt>
+        <dd>
+            <span>{{vm.accidente.vistoBuenoInterventor}}</span>
+        </dd>
+        <hr>
+        <dt><span>Cumple</span></dt>
+        <dd>
+            <span>{{vm.accidente.cumple}}</span>
+        </dd>
+        <hr>
+        <dt><span>Estado</span></dt>
+        <dd>
+            <span>{{vm.accidente.estado}}</span>
+        </dd>
+    </dl>
+    <div class="entity-actions">
+        <button type="submit" ui-sref="accidente.edit({id: vm.entityID})" class="btn btn-info">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+        </button>
+        <button ng-click="vm.finalizeAndClose()" ng-disabled="!vm.entityID || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Confirmar</span>
+        </button>
+    </div>
+</div> -->

@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="vm.cancel()">&times;</button>
+    <h4 class="modal-title">Inicio de sesión</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <!--<h2>Iniciar sesión</h2>-->
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger" ng-show="vm.authenticationError">
+                <strong>¡Fallo la autenticación!</strong> Por favor verifique sus credenciales e intente nuevamente.
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <form class="form" role="form" ng-submit="vm.login($event)">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" class="form-control" id="username" placeholder="Su usuario" ng-model="vm.username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Su contraseña"
+                           ng-model="vm.password">
+                </div>
+                <!--<div class="form-group">
+                    <label for="rememberMe">
+                        <input type="checkbox" id="rememberMe" ng-model="vm.rememberMe" checked>
+                        <span>Remember me</span>
+                    </label>
+                </div>-->
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </form>
+            <p></p>
+            <!--<div class="alert alert-warning">
+                <a class="alert-link" href="" ng-click="vm.requestResetPassword()">Did you forget your password?</a>
+            </div>
+            <div class="alert alert-warning">
+                You don't have an account yet? <a class="alert-link" href="" ng-click="vm.register()">Register a new account</a>
+            </div>-->
+        </div>
+    </div>
+</div>

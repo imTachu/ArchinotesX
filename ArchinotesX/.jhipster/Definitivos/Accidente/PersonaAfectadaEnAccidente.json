@@ -1,0 +1,68 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "tipoAfectacionDePersona",
+            "otherEntityName": "tipoAfectacionPersona",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "tipoAfectacion"
+        },
+        {
+            "relationshipName": "centroMedicoDeTraslado",
+            "otherEntityName": "centroMedico",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "nombreCentroMedico"
+        },
+        {
+            "relationshipName": "personaAfectadaEnAccidente",
+            "otherEntityName": "accidente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "0",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "genero",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "0",
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "edad",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "100"
+        },
+        {
+            "fieldName": "fechaInicioTraslado",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "fechaFinTraslado",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160504210227",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "persona_afectada_en_accidente",
+    "pagination": "pager"
+}

@@ -1,0 +1,88 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPeajeLabel">Create or edit a Peaje</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.peaje.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.peaje.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_kilometro">Kilómetro</label>
+            <input type="number" class="form-control" name="kilometro" id="field_kilometro"
+                    ng-model="vm.peaje.kilometro"
+                    min="0" max="200" />
+            <div ng-show="editForm.kilometro.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.kilometro.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor o igual a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.kilometro.$error.max">
+                    Este campo no puede ser mayor a 200.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.kilometro.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_abscisa">Abscisa</label>
+            <input type="number" class="form-control" name="abscisa" id="field_abscisa"
+                    ng-model="vm.peaje.abscisa"
+                    min="0" max="999" />
+            <div ng-show="editForm.abscisa.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.abscisa.$error.min" translate-value-min="0">
+                    Este campo debe ser mayor o igual a 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.abscisa.$error.max">
+                    Este campo no puede ser mayor a 999.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.abscisa.$error.number">
+                    Este campo es numérico.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nombrePeaje">Nombre Peaje</label>
+            <input type="text" class="form-control" name="nombrePeaje" id="field_nombrePeaje"
+                    ng-model="vm.peaje.nombrePeaje"
+                    ng-minlength="0" ng-maxlength="60" />
+            <div ng-show="editForm.nombrePeaje.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombrePeaje.$error.minlength" translate-value-min="0">
+                    Este campo debería tener al menos 1 caracter
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.nombrePeaje.$error.maxlength">
+                    Este campo no puede tener más de 60 caracteres.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_tramoDePeaje">Tramo De Peaje</label>
+            <select class="form-control" id="field_tramoDePeaje" name="tramoDePeaje" ng-model="vm.peaje.tramoDePeaje" ng-options="tramo as tramo.nombreTramo for tramo in vm.tramos track by tramo.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
+        </button>
+    </div>
+</form>

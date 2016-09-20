@@ -1,0 +1,78 @@
+<div>
+    <h2>Tramos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="tramo.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Crear un nuevo tramo
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombreTramo"><span>Nombre Tramo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unidadFuncional"><span>Unidad Funcional</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sector"><span>Sector</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="origen"><span>Origen</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prNacionalInicio"><span>Pr Nacional Inicio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="destino"><span>Destino</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prNacionalFinal"><span>Pr Nacional Final</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="longitudAproximadaTramo"><span>Longitud Aproximada Tramo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="intervencionPrevista"><span>Intervención Prevista</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="observacion"><span>Observación</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tramo in vm.tramos track by tramo.id">
+                    <td><a ui-sref="tramo-detail({id:tramo.id})">{{tramo.id}}</a></td>
+                    <td>{{tramo.nombreTramo}}</td>
+                    <td>{{tramo.unidadFuncional}}</td>
+                    <td>{{tramo.sector}}</td>
+                    <td>{{tramo.origen}}</td>
+                    <td>{{tramo.prNacionalInicio}}</td>
+                    <td>{{tramo.destino}}</td>
+                    <td>{{tramo.prNacionalFinal}}</td>
+                    <td>{{tramo.longitudAproximadaTramo}}</td>
+                    <td>{{tramo.intervencionPrevista}}</td>
+                    <td>{{tramo.observacion}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="tramo-detail({id:tramo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tramo.edit({id:tramo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tramo.delete({id:tramo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

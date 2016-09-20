@@ -1,0 +1,17 @@
+INSERT INTO `causa_accidente` VALUES (1,'Deficiencia mecánica'),(2,'Deficiencia en la vía'),(3,'Factores climatológicos');
+INSERT INTO `causa_incidente` VALUES (1,'Exceso de velocidad'),(2,'Deficiencia humana'),(3,'Deficiencia mecánica'),(4,'Deficiencia en la vía'),(5,'Condiciones climatológicas');
+INSERT INTO `factor_climatologico` VALUES (1,'Normal'),(2,'Neblina'),(3,'Lluvia'),(4,'Vendaval');
+INSERT INTO `infraestructura_afectada` VALUES (1,'Berma','Vía'),(2,'Calzada completa','Vía'),(3,'Carril','Vía'),(4,'Puente','Vía'),(5,'Box coulvert','Estructura hidráulica'),(6,'Alcantarilla','Estructura hidráulica'),(7,'Peaje','Infraestructura operativa'),(8,'Báscula','Infraestructura operativa'),(9,'CCO','Infraestructura operativa'),(10,'Área de servicio','Infraestructura operativa'),(11,'Base operativa','Infraestructura operativa'),(12,'Glorieta','Vía'),(13,'Cuneta circular','Estructura hidráulica'),(14,'Cuneta triangular','Estructura hidráulica'),(15,'Cuneta trapezoidal','Estructura hidráulica'),(16,'Otro','Otro');
+INSERT INTO `tipo_accidente` VALUES (1,'Latas'),(2,'Heridos'),(3,'Muertos');
+INSERT INTO `tipo_afectacion_persona` VALUES (1,'Herido leve'),(2,'Herido Grave'),(3,'Muerto');
+INSERT INTO `tipo_incidente` VALUES (1,'Derrumbe'),(2,'Caída de árbol sobre la vía'),(3,'Caída de carga sobre la vía'),(4,'Derrame de sustancias'), (5,'Varado');
+INSERT INTO `tipo_novedad_accidente` VALUES (1,'Accidente con bicicleta'),(2,'Accidente con moto'),(3,'Atropello peatón'),(4,'Colisión con animal'),(5,'Colisión con automóvil'),(6,'Choque con objeto fijo'),(7,'Volcado'),(8,'Salida calzada');
+INSERT INTO `tipo_vehiculo_afectado` VALUES (1,'Moto','Liviano'),(2,'Automóvil','Liviano'),(3,'Camioneta','Liviano'),(4,'Van','Liviano'),(5,'Camión','Pesado'),(6,'Tractocamión','Pesado'),(7,'Bus ó Buseta','Pesado'), (8,'Bus de dos pisos','Pesado');
+INSERT INTO `tipo_vehiculo_apoyo` VALUES (1,'Ambulancia','Servicio médico'),(2,'Carro-taller','Servicio mecánico'),(3,'Grúa','Servicio de despeje'),(4,'Vehículo inspección','Servicio supervisión');
+INSERT INTO `tramo` VALUES (1,'UF1 JUNCAL – TRIANGULO (K0 AL K21+300)','UF1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'UF1 PUENTE SANTANDER – TRIANGULO (K0 AL K0+500)','UF1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,'UF2 NEIVA – AIPE (K0+500 AL K33+000)','UF2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,'UF3 AIPE – SALDAÑA (K33+000 AL K120+700)','UF3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,'UF4 SALDAÑA – INICIO VARIANTE GUAMO (K120+700 AL K130+500)','UF4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,'UF4 VARIANTE GUAMO (K0 AL K5+800)','UF4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,'UF4 FIN VAR.GUAMO INICIO VAR. ESPINAL (K136+300 AL K147+300)','UF4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,'UF4 VARIANTE ESPINAL (K0 AL K4+200)','UF4',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'UF5 GLORIETA TEXPINAL – GIRARDOT (K152+000 AL K168+000)','UF5',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `sicc`.`jhi_authority` (`name`) VALUES ('ROLE_OPERADOR1');
+INSERT INTO `sicc`.`jhi_authority` (`name`) VALUES ('ROLE_OPERADOR2');
+INSERT INTO `sicc`.`jhi_authority` (`name`) VALUES ('ROLE_CONSULTA_CONCESION');
+INSERT INTO `sicc`.`jhi_authority` (`name`) VALUES ('ROLE_SUPERVISOR');
+INSERT INTO `sicc`.`jhi_authority` (`name`) VALUES ('ROLE_CONSULTA_INTERVENTOR');
+INSERT INTO `sicc`.`jhi_authority` (`name`) VALUES ('ROLE_INTERVENTOR');

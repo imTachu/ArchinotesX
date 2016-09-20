@@ -1,0 +1,74 @@
+<div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h1>Nueva contraseña</h1>
+
+            <div class="alert alert-danger" ng-show="vm.keyMissing">
+                <strong>Seha perdido la llave de reinicio de contraseña.</strong>
+            </div>
+
+            <div class="alert alert-warning" ng-hide="vm.success || vm.keyMissing">
+                <p>Especifique una nueva contraseña</p>
+            </div>
+
+            <div class="alert alert-danger" ng-show="vm.error">
+                <p>Su contraseña no pudo ser cambiada. Recuerde que su petición de cambio de contraseña durará 24 horas</p>
+            </div>
+
+            <div class="alert alert-success" ng-show="vm.success">
+                <p><strong>Su contraseña ha sido cambiada.</strong> Por favor <a class="alert-link" href="" ng-click="vm.login()">Inicie sesión</a>.</p>
+            </div>
+
+            <div class="alert alert-danger" ng-show="vm.doNotMatch">
+                ¡La contraseña y su confirmación no coinciden!
+            </div>
+
+            <div ng-hide="vm.keyMissing">
+                <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.finishReset()" show-validation>
+                    <div class="form-group">
+                        <label class="control-label" for="password">Nueva contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="New password"
+                               ng-model="vm.resetAccount.password" ng-minlength=4 ng-maxlength=50 required>
+                        <div ng-show="form.password.$dirty && form.password.$invalid">
+                            <p class="help-block"
+                               ng-show="form.password.$error.required">
+                                Se requiere una contraseña
+                            </p>
+                            <p class="help-block"
+                               ng-show="form.password.$error.minlength">
+                                Su contraseña debe tener al menos 4 caracteres
+                            </p>
+                            <p class="help-block"
+                               ng-show="form.password.$error.maxlength">
+                                Su contraseña no puede tener más de 50 caracteres
+                            </p>
+                        </div>
+                        <password-strength-bar password-to-check="vm.resetAccount.password"></password-strength-bar>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="confirmPassword">New password confirmation</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm the new password"
+                               ng-model="vm.confirmPassword" ng-minlength=4 ng-maxlength=50 required>
+                        <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+                            <p class="help-block"
+                               ng-show="form.confirmPassword.$error.required">
+                                Se requiere la confirmación de la contraseña
+                            </p>
+                            <p class="help-block"
+                               ng-show="form.confirmPassword.$error.minlength">
+                                la confirmación de su contraseña debe tener al menos 4 caracteres.
+                            </p>
+                            <p class="help-block"
+                               ng-show="form.confirmPassword.$error.maxlength">
+                                La confirmación de su contraseña no puede tener más de 50 caracteres.
+                            </p>
+                        </div>
+                    </div>
+                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Reiniciar contraseña</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<!--<uib-alert type="danger" ng-if="!vm.isEditableEntity()">
+    ¡No se puede editar el registro! Ya ha sido finalizado.
+</uib-alert>-->
+<form ng-init="isEditableEntity=vm.isEditableEntity();" disable-all="vm.disableAllFormControls" ng-cloak name="editForm" role="form" ng-submit="vm.save()" novalidate show-validation>
+    <jhi-alert-error></jhi-alert-error>
+
+
+    <div ng-init="dialogTemplateURL=vm.getUIFormFieldsTemplateURL()" 
+    ng-include="dialogTemplateURL" 
+    onload="vm.onTemplateLoaded()"></div>
+
+
+    <div class="entity-actions" >
+        <button skip-disable ng-if="vm.withBackButton" type="button" class="btn btn-info" ng-click="vm.goToBack()">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Volver</span>
+        </button>
+        <button skip-disable ng-if="!vm.withBackButton" type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancelar</span>
+        </button>
+        <button skip-disable ng-if="isEditableEntity" type="submit" ng-disabled="vm.isSaveDisabled()" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Guardar</span>
+        </button>
+        <button skip-disable ng-if="vm.withFinalizeState && isEditableEntity" type="button" ng-show="vm.entity.id" ng-click="vm.saveAndSendToConfirm()" ng-disabled="vm.isConfirmationDisabled()" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Finalizar</span>
+        </button>
+    </div>
+</form>

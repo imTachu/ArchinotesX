@@ -1,0 +1,53 @@
+
+<div>
+    <h2><span>Persona Afectada En Accidente</span> {{vm.personaAfectadaEnAccidente.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.personaAfectadaEnAccidente.nombre}}</span>
+        </dd>
+        <hr>
+        <dt><span>Genero</span></dt>
+        <dd>
+            <span>{{vm.personaAfectadaEnAccidente.genero}}</span>
+        </dd>
+        <hr>
+        <dt><span>Edad</span></dt>
+        <dd>
+            <span>{{vm.personaAfectadaEnAccidente.edad}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha Inicio Traslado</span></dt>
+        <dd>
+            <span>{{vm.personaAfectadaEnAccidente.fechaInicioTraslado | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Fecha Fin Traslado</span></dt>
+        <dd>
+            <span>{{vm.personaAfectadaEnAccidente.fechaFinTraslado | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span>Tipo Afectacion De Persona</span></dt>
+        <dd>
+            <a ui-sref="tipo-afectacion-persona-detail({id:vm.personaAfectadaEnAccidente.tipoAfectacionDePersona.id})">{{vm.personaAfectadaEnAccidente.tipoAfectacionDePersona.tipoAfectacion}}</a>
+        </dd>
+        <hr>
+        <dt><span>Centro Medico De Traslado</span></dt>
+        <dd>
+            <a ui-sref="centro-medico-detail({id:vm.personaAfectadaEnAccidente.centroMedicoDeTraslado.id})">{{vm.personaAfectadaEnAccidente.centroMedicoDeTraslado.nombreCentroMedico}}</a>
+        </dd>
+        <hr>
+        <dt><span>Persona Afectada En Accidente</span></dt>
+        <dd>
+            <a ui-sref="accidente-detail({id:vm.personaAfectadaEnAccidente.personaAfectadaEnAccidente.id})">{{vm.personaAfectadaEnAccidente.personaAfectadaEnAccidente.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

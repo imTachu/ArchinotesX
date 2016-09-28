@@ -17,10 +17,10 @@ spring:
         livereload:
             enabled: false
     datasource:
-        url: jdbc:mysql://172.22.6.31:3306/siccdev?useUnicode=true&characterEncoding=utf8&useSSL=false
-        name: siccdev
-        username: smart
-        password: smart
+        url: jdbc:mysql://archinotesx.cv3pd00vsf0w.us-east-1.rds.amazonaws.com:3306/archinotesx?useUnicode=true&characterEncoding=utf8&useSSL=false
+        name: archinotesx
+        username: archinotesx
+        password: archinotesx
         hikari:
             data-source-properties:
                 cachePrepStmts: true

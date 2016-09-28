@@ -12,7 +12,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.proycomp.archinotesx</groupId>
+    <groupId>com.proycomp.sicc</groupId>
     <artifactId>archinotesx</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -475,10 +475,10 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <url>jdbc:mysql://172.22.6.31:3306/siccdev</url>
-                    <defaultSchemaName>siccdev</defaultSchemaName>
-                    <username>smart</username>
-                    <password>smart</password>
+                    <url>jdbc:mysql://archinotesx.cv3pd00vsf0w.us-east-1.rds.amazonaws.com:3306/archinotesx</url>
+                    <defaultSchemaName>archinotesx</defaultSchemaName>
+                    <username>archinotesx</username>
+                    <password>archinotesx</password>
                     <referenceUrl>hibernate:spring:com.proycomp.sicc.domain?dialect=org.hibernate.dialect.MySQLInnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>DEBUG</logging>

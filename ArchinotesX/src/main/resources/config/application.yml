@@ -14,7 +14,7 @@
 
 spring:
     application:
-        name: sicc
+        name: archinotesx
     jpa:
         open-in-view: false
         hibernate:
@@ -82,7 +82,7 @@ sicc:
             nombreBucket: O1
         o2:
         # Criterio de O2 representada en metros
-           maximoLongitudRetencion: 300 
+           maximoLongitudRetencion: 300
            ponderadoContrato: 0.0895
            nombreIndicador: Ocupación de carriles.
         # Bucket Amazon S3
@@ -167,29 +167,29 @@ sicc:
             retroflectividad: 80
             porcentajeDeInstalacion: 0.8
             ponderadoContrato: 0.0805
-            
+
             angulosMedicionNivelesCombo:
-                
-                anguloPunto1EntradaMenos4:  0.1 | -4           
-                anguloPunto1EntradaMas30:  0.1 | +30      
+
+                anguloPunto1EntradaMenos4:  0.1 | -4
+                anguloPunto1EntradaMas30:  0.1 | +30
                 anguloPunto2EntradaMenos4:  0.2 | -4
                 anguloPunto2EntradaMas30:  0.2 | +30
                 anguloPunto5EntradaMenos4:  0.5 | -4
                 anguloPunto5EntradaMas30:  0.5 | +30
-            
+
             nivelesMinimosRetroreflexionMicroprismas:
-                
+
                 anguloPunto1EntradaMenos4Blanco: 500
                 anguloPunto1EntradaMenos4Amarillo: 380
                 anguloPunto1EntradaMenos4Naranja: 200
-                anguloPunto1EntradaMenos4Verde: 70 
+                anguloPunto1EntradaMenos4Verde: 70
                 anguloPunto1EntradaMenos4Rojo: 90
                 anguloPunto1EntradaMenos4Azul: 42
                 anguloPunto1EntradaMenos4Marron: 25
                 anguloPunto1EntradaMenos4AmarilloVerdeFluorescente: 400
                 anguloPunto1EntradaMenos4AmarilloFluorescente: 300
                 anguloPunto1EntradaMenos4NaranjaFluorescente: 150
-                
+
                 anguloPunto1EntradaMas30Blanco: 240
                 anguloPunto1EntradaMas30Amarillo: 175
                 anguloPunto1EntradaMas30Naranja: 94
@@ -200,7 +200,7 @@ sicc:
                 anguloPunto1EntradaMas30AmarilloVerdeFluorescente: 185
                 anguloPunto1EntradaMas30AmarilloFluorescente: 140
                 anguloPunto1EntradaMas30NaranjaFluorescente: 70
-    
+
                 anguloPunto2EntradaMenos4Blanco: 360
                 anguloPunto2EntradaMenos4Amarillo: 270
                 anguloPunto2EntradaMenos4Naranja: 145
@@ -211,7 +211,7 @@ sicc:
                 anguloPunto2EntradaMenos4AmarilloVerdeFluorescente: 290
                 anguloPunto2EntradaMenos4AmarilloFluorescente: 220
                 anguloPunto2EntradaMenos4NaranjaFluorescente: 105
-                
+
                 anguloPunto2EntradaMas30Blanco: 170
                 anguloPunto2EntradaMas30Amarillo: 135
                 anguloPunto2EntradaMas30Naranja: 68
@@ -222,8 +222,8 @@ sicc:
                 anguloPunto2EntradaMas30AmarilloVerdeFluorescente: 135
                 anguloPunto2EntradaMas30AmarilloFluorescente: 100
                 anguloPunto2EntradaMas30NaranjaFluorescente: 50
-                
-                
+
+
                 anguloPunto5EntradaMenos4Blanco: 150
                 anguloPunto5EntradaMenos4Amarillo: 110
                 anguloPunto5EntradaMenos4Naranja: 60
@@ -234,7 +234,7 @@ sicc:
                 anguloPunto5EntradaMenos4AmarilloVerdeFluorescente: 120
                 anguloPunto5EntradaMenos4AmarilloFluorescente: 90
                 anguloPunto5EntradaMenos4NaranjaFluorescente: 45
-                
+
                 anguloPunto5EntradaMas30Blanco: 72
                 anguloPunto5EntradaMas30Amarillo: 54
                 anguloPunto5EntradaMas30Naranja: 28
@@ -245,8 +245,8 @@ sicc:
                 anguloPunto5EntradaMas30AmarilloVerdeFluorescente: 55
                 anguloPunto5EntradaMas30AmarilloFluorescente: 40
                 anguloPunto5EntradaMas30NaranjaFluorescente: 22
-                
-                
+
+
             nombreIndicador: Señalización vertical.
         # Criterio de E8 representan días
             tiempoAtencionPorReflectividad: 7

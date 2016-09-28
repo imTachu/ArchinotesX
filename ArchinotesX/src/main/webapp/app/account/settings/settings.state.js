@@ -12,8 +12,7 @@
             parent: 'account',
             url: '/settings',
             data: {
-                authorities: ['ROLE_ADMIN', 'ROLE_OPERADOR1', 'ROLE_OPERADOR2', 'ROLE_CONSULTA_CONCESION',
-                'ROLE_SUPERVISOR', 'ROLE_CONSULTA_INTERVENTOR', 'ROLE_INTERVENTOR'],
+                authorities: ['ROLE_ADMIN', 'ROLE_REFERENCE_ARCHITECT', 'ROLE_SOLUTIONS_ARCHITECT'],
                 pageTitle: 'Settings'
             },
             views: {

@@ -13,23 +13,6 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 }
 
 /* ==========================================================================
-Developement Ribbon
-========================================================================== */
-.development {
-    position: absolute;
-    width: 149px;
-    height: 149px;
-    top: 0;
-    left: 0;
-    border: 0;
-    z-index: 1000;
-    background-image: url("../images/development_ribbon_es.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-}
-
-/* ==========================================================================
 Version number in navbar
 ========================================================================== */
 .navbar-version {
@@ -93,64 +76,15 @@ Browser Upgrade Prompt
     background-size: contain;
 }
 
-.forbiden {
+.forbidden {
     display: inline-block;
-    width: 630px;
-    height: 497px;
-    background: url("../images/forbiden.png") no-repeat center top;
+    width: 371px;
+    height: 450px;
+    background: url("../images/forbidden.jpg") no-repeat center top;
     background-size: contain;
 }
 
-.vicepresidencia {
-    display: inline-block;
-    width: 200px;
-    height: 70px;
-    background: url("../images/vicepresidencia.png") no-repeat center top;
-    background-size: contain;
-}
-
-.mintransporte {
-    display: inline-block;
-    width: 200px;
-    height: 70px;
-    background: url("../images/mintransporte.png") no-repeat center top;
-    background-size: contain;
-}
-
-.ani {
-    display: inline-block;
-    width: 100px;
-    height: 60px;
-    background: url("../images/ani.png") no-repeat center top;
-    background-size: contain;
-}
-
-
-.supertransporte {
-    display: inline-block;
-    width: 200px;
-    height: 70px;
-    background: url("../images/supertransporte.png") no-repeat center top;
-    background-size: contain;
-}
-
-.concesion {
-    display: inline-block;
-    width: 120px;
-    height: 70px;
-    background: url("../images/autovia.png") no-repeat center top;
-    background-size: contain;
-}
-
-.lema {
-    display: inline-block;
-    width: 140px;
-    height: 70px;
-    background: url("../images/lema_gobierno.png") no-repeat center top;
-    background-size: contain;
-}
-
-@media (min-width: 320px) 
+@media (min-width: 320px)
 {
     .logos {
         display: inline-block;
@@ -162,7 +96,7 @@ Browser Upgrade Prompt
     }
 }
 
-@media (min-width: 375px) 
+@media (min-width: 375px)
 {
     .logos {
         display: inline-block;
@@ -173,7 +107,7 @@ Browser Upgrade Prompt
     }
 }
 
-@media (min-width: 425px) 
+@media (min-width: 425px)
 {
     .logos {
         display: inline-block;
@@ -184,7 +118,7 @@ Browser Upgrade Prompt
     }
 }
 
-@media (min-width: 768px) 
+@media (min-width: 768px)
 {
     .logos {
         display: inline-block;
@@ -195,7 +129,7 @@ Browser Upgrade Prompt
     }
 }
 
-@media (min-width: 1024px) 
+@media (min-width: 1024px)
 {
     .logos {
         display: inline-block;
@@ -207,7 +141,7 @@ Browser Upgrade Prompt
     }
 }
 
-@media (min-width: 1440px) 
+@media (min-width: 1440px)
 {
     .logos {
         display: inline-block;
@@ -221,10 +155,10 @@ Browser Upgrade Prompt
 
 .center-image
 {
-    
+
      display: block;
     margin-left: auto;
-    margin-right: auto 
+    margin-right: auto
 }
 .pad {
     padding: 10px;

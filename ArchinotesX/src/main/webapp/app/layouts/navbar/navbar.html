@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand" href="#/" ng-click="vm.collapseNavbar()">
                 <!--<img src="content/images/autovia_logo.png" alt="SICC">-->
-                <span class="brand-space">&nbsp;</span>
+                <!--<span class="brand-space">&nbsp;</span>-->
                 <!--<span class="brand-title">SICC</span>-->
                 <!-- <span class="navbar-version">v{{VERSION}}</span> -->
             </a>
@@ -19,7 +19,7 @@
                 <li ui-sref-active="active">
                     <a ui-sref="home" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-home"></span>
-                        <span class="hidden-sm">Inicio</span>
+                        <span class="hidden-sm">Home</span>
                     </a>
                 </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
@@ -386,7 +386,7 @@
                         <span>
                             <span class="glyphicon glyphicon-user"></span>
                         <span class="hidden-sm">
-                                Cuenta
+                                Account
                             </span>
                         <b class="caret"></b>
                         </span>
@@ -395,25 +395,25 @@
                         <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="settings" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-wrench"></span>&nbsp;
-                                <span>Configuración de cuenta</span>
+                                <span>Setup</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" ng-switch-when="true">
                             <a ui-sref="password" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-lock"></span>&nbsp;
-                                <span>Contraseña</span>
+                                <span>Password</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" ng-switch-when="true">
                             <a href="" ng-click="vm.logout()" id="logout">
                                 <span class="glyphicon glyphicon-log-out"></span>&nbsp;
-                                <span>Cerrar sesión</span>
+                                <span>Log out</span>
                             </a>
                         </li>
                         <li ui-sref-active="active" ng-switch-when="false">
                             <a href="" ng-click="vm.login()" id="login">
                                 <span class="glyphicon glyphicon-log-in"></span>&nbsp;
-                                <span>Iniciar sesión</span>
+                                <span>Log in</span>
                             </a>
                         </li>
                         <!--No debe aparecer <li ui-sref-active="active" ng-switch-when="false">

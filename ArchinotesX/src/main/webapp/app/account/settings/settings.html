@@ -1,24 +1,24 @@
 <div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <h2>Configuración de cuenta de [<b>{{vm.settingsAccount.login}}</b>]</h2>
+            <h2>Account configuration for [<b>{{vm.settingsAccount.login}}</b>]</h2>
 
             <div class="alert alert-success" ng-show="vm.success">
-                <strong>¡Se ha guardado la configuración!</strong>
+                <strong>¡Configuration successfully saved!</strong>
             </div>
 
             <div class="alert alert-danger" ng-show="vm.errorEmailExists">
-                <strong>¡El correo electrónico registrado ya está en uso!</strong> Por favor registre otro.
+                <strong>¡This e-mail is already in use!</strong> Use another one.
             </div>
 
             <div class="alert alert-danger" ng-show="vm.error">
-                <strong>¡Ha ocurrido un error!</strong> La configuración no se ha podido guardar.
+                <strong>¡Something happened!</strong> This configuration couldn't be saved.
             </div>
 
             <form name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
 
                 <div class="form-group">
-                    <label class="control-label" for="firstName">Nombres</label>
+                    <label class="control-label" for="firstName">Given name</label>
                     <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your first name"
                            ng-model="vm.settingsAccount.firstName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="lastName">Apellidos</label>
+                    <label class="control-label" for="lastName">Last name</label>
                     <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name"
                            ng-model="vm.settingsAccount.lastName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="email">Correo electrónico</label>
+                    <label class="control-label" for="email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Your e-mail"
                            ng-model="vm.settingsAccount.email" ng-minlength=5 ng-maxlength=100 required maxlength="100">
                     <div ng-show="form.email.$dirty && form.email.$invalid">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Guardar</button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
             </form>
         </div>
     </div>

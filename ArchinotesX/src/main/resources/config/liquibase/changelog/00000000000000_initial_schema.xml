@@ -6,10 +6,6 @@
 
     <property name="autoIncrement" value="true" dbms="mysql"/>
 
-    <!--
-        JHipster core tables.
-        The initial schema has the '00000000000001' id, so that it is over-written if we re-generate it.
-    -->
     <changeSet id="00000000000001" author="jhipster">
 
         <createTable tableName="jhi_user">
@@ -42,6 +38,7 @@
             </column>
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
+            <column name="project_id" type="bigint"/>
         </createTable>
 
         <createIndex indexName="idx_user_login"
@@ -84,6 +81,7 @@
                                  constraintName="fk_user_id"
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
+
         <loadData encoding="UTF-8"
                   file="config/liquibase/users.csv"
                   separator=";"
@@ -143,6 +141,90 @@
                                  constraintName="fk_evt_pers_audit_evt_data"
                                  referencedColumnNames="event_id"
                                  referencedTableName="jhi_persistent_audit_event"/>
+
+    </changeSet>
+
+    <changeSet id="00000000000002" author="tachu">
+        <createTable tableName="company">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="company_PK"/>
+            </column>
+            <column name="name" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="logo" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="project">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="project_PK"/>
+            </column>
+            <column name="name" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="data_microservice">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="data_microservice_PK"/>
+            </column>
+            <column name="endpoint" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="table" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="bigint"/>
+            <column name="sql_datasource_id" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="sql_datasource">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="sql_datasource_PK"/>
+            </column>
+            <column name="host" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="db_name" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uesrname" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="port" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="project"
+                                 constraintName="fk_project_to_company_on_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="data_microservice"
+                                 constraintName="fk_data_microservice_to_project_on_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <addForeignKeyConstraint baseColumnNames="sql_datasource_id"
+                                 baseTableName="data_microservice"
+                                 constraintName="fk_data_microservice_to_sql_datasource_on_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sql_datasource"/>
+
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="jhi_user"
+                                 constraintName="fk_user_to_project_on_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
 
     </changeSet>
 

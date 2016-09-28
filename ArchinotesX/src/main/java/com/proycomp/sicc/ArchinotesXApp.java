@@ -25,9 +25,9 @@ import java.util.Collection;
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
 @EnableConfigurationProperties({JHipsterProperties.class, LiquibaseProperties.class, SiccProperties.class})
-public class SiccApp {
+public class ArchinotesXApp {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SiccApp.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ArchinotesXApp.class);
 
     @Autowired
     private Environment env;
@@ -65,7 +65,7 @@ public class SiccApp {
      * @throws UnknownHostException if the local host name could not be resolved into an address
      */
     public static void main(String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(SiccApp.class);
+        SpringApplication app = new SpringApplication(ArchinotesXApp.class);
         SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(args);
         addDefaultProfile(app, source);
         Environment env = app.run(args).getEnvironment();

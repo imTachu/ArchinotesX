@@ -82,25 +82,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/users.csv"
-                  separator=";"
-                  tableName="jhi_user">
-            <column name="activated" type="boolean"/>
-            <column name="created_date" type="timestamp"/>
-        </loadData>
-        <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
-
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/authorities.csv"
-                  separator=";"
-                  tableName="jhi_authority"/>
-
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/users_authorities.csv"
-                  separator=";"
-                  tableName="jhi_user_authority"/>
-
         <createTable tableName="jhi_persistent_audit_event">
             <column name="event_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -226,6 +207,34 @@
                                  referencedColumnNames="id"
                                  referencedTableName="project"/>
 
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/companies.csv"
+                  separator=";"
+                  tableName="company"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/projects.csv"
+                  separator=";"
+                  tableName="project"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/users.csv"
+                  separator=";"
+                  tableName="jhi_user">
+            <column name="activated" type="boolean"/>
+            <column name="created_date" type="timestamp"/>
+        </loadData>
+        <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/authorities.csv"
+                  separator=";"
+                  tableName="jhi_authority"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/users_authorities.csv"
+                  separator=";"
+                  tableName="jhi_user_authority"/>
     </changeSet>
 
 </databaseChangeLog>

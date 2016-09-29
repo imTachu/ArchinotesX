@@ -21,8 +21,8 @@
                         <span ng-if="!columnField.linkToState && !columnField.linkExternal && !columnField.asIndicadorCumple">
                             {{columnField.value(entity)}}
                         </span>
-                        <a ng-if="columnField.linkToState" 
-                            ui-state="columnField.linkToState(entity).state" 
+                        <a ng-if="columnField.linkToState"
+                            ui-state="columnField.linkToState(entity).state"
                             ui-state-params="columnField.linkToState(entity).stateParams">
                             {{columnField.value(entity)}}
                         </a>
@@ -35,7 +35,7 @@
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container" ng-init="isItemFinalized=vm.isListItemFinalizedEntity(entity);">
                             <button type="button"
-                                    ng-if="fieldsConfig.detailLink" 
+                                    ng-if="fieldsConfig.detailLink"
                                     ng-init="link=fieldsConfig.detailLink(entity)"
                                     ui-state="link.state"
                                     ui-state-params="link.stateParams"
@@ -45,7 +45,7 @@
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="button"
-                                    ng-if="fieldsConfig.editLink" 
+                                    ng-if="fieldsConfig.editLink"
                                     ng-init="link=fieldsConfig.editLink(entity)"
                                     ui-state="link.state"
                                     ui-state-params="link.stateParams"
@@ -55,10 +55,8 @@
                                 <span class="glyphicon gglyphicon glyphicon-zoom-in" ng-if="isItemFinalized"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
-
-                            
                             <button type="button"
-                                    ng-if="fieldsConfig.deleteLink && !isItemFinalized" 
+                                    ng-if="fieldsConfig.deleteLink"
                                     ng-init="link=fieldsConfig.deleteLink(entity)"
                                     ui-state="link.state"
                                     ui-state-params="link.stateParams"

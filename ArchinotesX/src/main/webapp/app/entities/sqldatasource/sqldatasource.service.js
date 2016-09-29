@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('archinotesxApp')
-        .factory('Accidente', Accidente);
+        .factory('SQLDatasource', SQLDatasource);
 
-    Accidente.$inject = ['$resource', 'DateUtils'];
+    SQLDatasource.$inject = ['$resource', 'DateUtils'];
 
-    function Accidente ($resource, DateUtils) {
-        var resourceUrl =  'api/accidentes/:id';
+    function SQLDatasource ($resource, DateUtils) {
+        var resourceUrl =  'api/sqldatasources/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
@@ -41,7 +41,7 @@
             },
             'finalize':{
                 method:'PUT',
-                url:'api/accidentes/finalize'
+                url:'api/sqldatasources/finalize'
             }
         });
     }

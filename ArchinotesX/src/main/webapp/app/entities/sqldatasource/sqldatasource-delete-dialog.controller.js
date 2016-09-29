@@ -3,18 +3,18 @@
 
     angular
         .module('archinotesxApp')
-        .controller('AccidenteDeleteController',AccidenteDeleteController);
+        .controller('SQLDatasourceDeleteController',SQLDatasourceDeleteController);
 
-    AccidenteDeleteController.$inject = ['$uibModalInstance', 'entity', 'Accidente'];
+    SQLDatasourceDeleteController.$inject = ['$uibModalInstance', 'entity', 'SQLDatasource'];
 
-    function AccidenteDeleteController($uibModalInstance, entity, Accidente) {
+    function SQLDatasourceDeleteController($uibModalInstance, entity, SQLDatasource) {
         var vm = this;
-        vm.accidente = entity;
+        vm.sqldatasource = entity;
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
         vm.confirmDelete = function (id) {
-            Accidente.delete({id: id},
+            SQLDatasource.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

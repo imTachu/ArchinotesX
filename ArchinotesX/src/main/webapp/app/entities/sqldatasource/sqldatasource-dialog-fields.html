@@ -1,13 +1,13 @@
-        <!--<div class="form-group" ng-show="vm.accidente.id">
+        <!--<div class="form-group" ng-show="vm.sqldatasource.id">
             <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.accidente.id" readonly />
+                    ng-model="vm.sqldatasource.id" readonly />
         </div>-->
         <!--
         <div class="form-group">
             <label class="control-label" for="field_fechaRecepcionLlamada">Fecha Recepcion Llamada</label>
                 <div class="input-group">
-                    <input id="field_fechaRecepcionLlamada" type="text" class="form-control" name="fechaRecepcionLlamada" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaRecepcionLlamada" is-open="vm.datePickerOpenStatus.fechaRecepcionLlamada"
+                    <input id="field_fechaRecepcionLlamada" type="text" class="form-control" name="fechaRecepcionLlamada" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaRecepcionLlamada" is-open="vm.datePickerOpenStatus.fechaRecepcionLlamada"
                       />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaRecepcionLlamada')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -16,62 +16,62 @@
         </div>
         -->
 
-        <div class="alert alert-info" ng-if="vm.accidente.id">
-            Hora de recepción de la llamada: 
-            <strong>{{vm.accidente.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}</strong>
+        <div class="alert alert-info" ng-if="vm.sqldatasource.id">
+            Hora de recepción de la llamada:
+            <strong>{{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}</strong>
         </div>
 
-        <h4>Clasificación del accidente:</h4>
+        <h4>Clasificación del sqldatasource:</h4>
         <div class="entity-section-form-group">
-            
+
             <div class="row">
-                <div class="form-group col-md-3 col-sm-6" 
-                    ng-class="{'has-error':editForm.tipoDeAccidente.$invalid}">
-                    <label for="field_tipoDeAccidente">Tipo de accidente</label>
-                    <select required class="form-control" id="field_tipoDeAccidente" name="tipoDeAccidente" ng-model="vm.accidente.tipoDeAccidente" ng-options="TipoAccidente as TipoAccidente.tipoAccidente for TipoAccidente in vm.tipoaccidentes track by TipoAccidente.id"
+                <div class="form-group col-md-3 col-sm-6"
+                    ng-class="{'has-error':editForm.tipoDeSQLDatasource.$invalid}">
+                    <label for="field_tipoDeSQLDatasource">Tipo de sqldatasource</label>
+                    <select required class="form-control" id="field_tipoDeSQLDatasource" name="tipoDeSQLDatasource" ng-model="vm.sqldatasource.tipoDeSQLDatasource" ng-options="TipoSQLDatasource as TipoSQLDatasource.tipoSQLDatasource for TipoSQLDatasource in vm.tiposqldatasources track by TipoSQLDatasource.id"
                     >
                         <option value=""></option>
                     </select>
-                    <div ng-show="editForm.tipoDeAccidente.$invalid">
+                    <div ng-show="editForm.tipoDeSQLDatasource.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.tipoDeAccidente.$error.required">
+                            ng-show="editForm.tipoDeSQLDatasource.$error.required">
                             Este campo es obligatorio
                         </p>
                     </div>
                 </div>
-                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.causaDeAccidente.$invalid}">
-                    <label for="field_causaDeAccidente">Posible causa</label>
-                    <select class="form-control" id="field_causaDeAccidente" name="causaDeAccidente" ng-model="vm.accidente.causaDeAccidente" ng-options="CausaAccidente as CausaAccidente.causaAccidente for CausaAccidente in vm.causaaccidentes track by CausaAccidente.id">
+                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.causaDeSQLDatasource.$invalid}">
+                    <label for="field_causaDeSQLDatasource">Posible causa</label>
+                    <select class="form-control" id="field_causaDeSQLDatasource" name="causaDeSQLDatasource" ng-model="vm.sqldatasource.causaDeSQLDatasource" ng-options="CausaSQLDatasource as CausaSQLDatasource.causaSQLDatasource for CausaSQLDatasource in vm.causasqldatasources track by CausaSQLDatasource.id">
                         <option value=""></option>
                     </select>
-                    <div ng-show="editForm.causaDeAccidente.$invalid">
+                    <div ng-show="editForm.causaDeSQLDatasource.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.causaDeAccidente.$error.required">
+                            ng-show="editForm.causaDeSQLDatasource.$error.required">
                             Este campo es obligatorio
                         </p>
                     </div>
                 </div>
                 <div class="clearfix hidden-md hidden-lg"></div>
-                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.climaEnAccidente.$invalid}">
-                    <label for="field_climaEnAccidente">Factores climatológicos</label>
-                    <select class="form-control" id="field_climaEnAccidente" name="climaEnAccidente" ng-model="vm.accidente.climaEnAccidente" ng-options="FactorClimatologico as FactorClimatologico.condicionClima for FactorClimatologico in vm.factorclimatologicos track by FactorClimatologico.id">
+                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.climaEnSQLDatasource.$invalid}">
+                    <label for="field_climaEnSQLDatasource">Factores climatológicos</label>
+                    <select class="form-control" id="field_climaEnSQLDatasource" name="climaEnSQLDatasource" ng-model="vm.sqldatasource.climaEnSQLDatasource" ng-options="FactorClimatologico as FactorClimatologico.condicionClima for FactorClimatologico in vm.factorclimatologicos track by FactorClimatologico.id">
                         <option value=""></option>
                     </select>
-                    <div ng-show="editForm.climaEnAccidente.$invalid">
+                    <div ng-show="editForm.climaEnSQLDatasource.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.climaEnAccidente.$error.required">
+                            ng-show="editForm.climaEnSQLDatasource.$error.required">
                             Este campo es obligatorio
                         </p>
                     </div>
                 </div>
-                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.tipoNovedadDeAccidente.$invalid}">
-                    <label for="field_tipoNovedadDeAccidente">Tipo de novedad</label>
-                    <select class="form-control" id="field_tipoNovedadDeAccidente" name="tipoNovedadDeAccidente" ng-model="vm.accidente.tipoNovedadDeAccidente" ng-options="tipoNovedadAccidente as tipoNovedadAccidente.tipoNovedad for tipoNovedadAccidente in vm.tiponovedadaccidentes track by tipoNovedadAccidente.id">
+                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.tipoNovedadDeSQLDatasource.$invalid}">
+                    <label for="field_tipoNovedadDeSQLDatasource">Tipo de novedad</label>
+                    <select class="form-control" id="field_tipoNovedadDeSQLDatasource" name="tipoNovedadDeSQLDatasource" ng-model="vm.sqldatasource.tipoNovedadDeSQLDatasource" ng-options="tipoNovedadSQLDatasource as tipoNovedadSQLDatasource.tipoNovedad for tipoNovedadSQLDatasource in vm.tiponovedadsqldatasources track by tipoNovedadSQLDatasource.id">
                         <option value=""></option>
                     </select>
-                    <div ng-show="editForm.tipoNovedadDeAccidente.$invalid">
+                    <div ng-show="editForm.tipoNovedadDeSQLDatasource.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.tipoNovedadDeAccidente.$error.required">
+                            ng-show="editForm.tipoNovedadDeSQLDatasource.$error.required">
                             Este campo es obligatorio
                         </p>
                     </div>
@@ -84,7 +84,7 @@
                 <div class="form-group col-sm-5 col-md-6" ng-class="{'has-error':editForm.nombrePersonaQueReporta.$invalid}">
                     <label class="control-label" for="field_nombrePersonaQueReporta">Nombre</label>
                     <input type="text" class="form-control" name="nombrePersonaQueReporta" id="field_nombrePersonaQueReporta"
-                            ng-model="vm.accidente.nombrePersonaQueReporta"
+                            ng-model="vm.sqldatasource.nombrePersonaQueReporta"
                             required
                             ng-minlength="5" ng-maxlength="40" />
                     <div ng-show="editForm.nombrePersonaQueReporta.$invalid">
@@ -106,7 +106,7 @@
                 <div class="form-group col-sm-3 col-md-3" ng-class="{'has-error':editForm.telefonoPersonaQueReporta.$invalid}">
                     <label class="control-label" for="field_telefonoPersonaQueReporta">Teléfono</label>
                     <input type="text" class="form-control" name="telefonoPersonaQueReporta" id="field_telefonoPersonaQueReporta"
-                            ng-model="vm.accidente.telefonoPersonaQueReporta"
+                            ng-model="vm.sqldatasource.telefonoPersonaQueReporta"
                             required
                             ng-maxlength="10" />
                     <div ng-show="editForm.telefonoPersonaQueReporta.$invalid">
@@ -123,7 +123,7 @@
                 <div class="form-group col-sm-4 col-md-3">
                     <br class="hidden-xs"/>
                     <input type="checkbox" name="reportadoPorTercero" id="field_reportadoPorTercero"
-                            ng-model="vm.accidente.reportadoPorTercero"
+                            ng-model="vm.sqldatasource.reportadoPorTercero"
                              />
                     <label class="control-label" for="field_reportadoPorTercero">Es un tercero?</label>
                 </div>
@@ -134,14 +134,14 @@
         <h4>Infraestructura afectada:</h4>
         <div class="entity-section-form-group">
             <div class="row">
-                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.infraestructuraEnAccidente.$invalid && vm.accidente.id}">
-                    <label for="field_infraestructuraEnAccidente">Infraestructura</label>
-                    <select required class="form-control" id="field_infraestructuraEnAccidente" name="infraestructuraEnAccidente" ng-model="vm.accidente.infraestructuraEnAccidente" ng-options="InfraestructuraAfectada as InfraestructuraAfectada.infraestructuraAfectada for InfraestructuraAfectada in vm.infraestructuraafectadas track by InfraestructuraAfectada.id">
+                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.infraestructuraEnSQLDatasource.$invalid && vm.sqldatasource.id}">
+                    <label for="field_infraestructuraEnSQLDatasource">Infraestructura</label>
+                    <select required class="form-control" id="field_infraestructuraEnSQLDatasource" name="infraestructuraEnSQLDatasource" ng-model="vm.sqldatasource.infraestructuraEnSQLDatasource" ng-options="InfraestructuraAfectada as InfraestructuraAfectada.infraestructuraAfectada for InfraestructuraAfectada in vm.infraestructuraafectadas track by InfraestructuraAfectada.id">
                         <option value=""></option>
                     </select>
-                    <div ng-show="editForm.infraestructuraEnAccidente.$invalid && vm.accidente.id">
+                    <div ng-show="editForm.infraestructuraEnSQLDatasource.$invalid && vm.sqldatasource.id">
                         <p class="help-block"
-                            ng-show="editForm.infraestructuraEnAccidente.$error.required">
+                            ng-show="editForm.infraestructuraEnSQLDatasource.$error.required">
                             Este campo es obligatorio
                         </p>
                     </div>
@@ -149,15 +149,15 @@
 
 
 
-                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.otraInfraestructuraAfectada.$invalid && vm.accidente.infraestructuraEnAccidente.infraestructuraAfectada == 'Otro'}">
+                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.otraInfraestructuraAfectada.$invalid && vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada == 'Otro'}">
                     <label class="control-label" for="field_otraInfraestructuraAfectada">Otra infraestructura</label>
-                    <input type="text" class="form-control" name="otraInfraestructuraAfectada" 
+                    <input type="text" class="form-control" name="otraInfraestructuraAfectada"
                             id="field_otraInfraestructuraAfectada"
-                            ng-model="vm.accidente.otraInfraestructuraAfectada"
-                            ng-required="vm.accidente.infraestructuraEnAccidente.infraestructuraAfectada == 'Otro'"
+                            ng-model="vm.sqldatasource.otraInfraestructuraAfectada"
+                            ng-required="vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada == 'Otro'"
                             ng-minlength="3" ng-maxlength="20"
-                            ng-disabled="vm.accidente.infraestructuraEnAccidente.infraestructuraAfectada != 'Otro'"  />
-                    <div ng-show="editForm.otraInfraestructuraAfectada.$invalid && vm.accidente.infraestructuraEnAccidente.infraestructuraAfectada == 'Otro'">
+                            ng-disabled="vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada != 'Otro'"  />
+                    <div ng-show="editForm.otraInfraestructuraAfectada.$invalid && vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada == 'Otro'">
                         <p class="help-block"
                             ng-show="editForm.otraInfraestructuraAfectada.$error.required">
                             Este campo es obligatorio
@@ -173,36 +173,36 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                
-                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.tramoDeAccidente.$invalid}">
-                    <label for="field_tramoDeAccidente">Tramo</label>
-                    <select required class="form-control" id="field_tramoDeAccidente" name="tramoDeAccidente" ng-model="vm.accidente.tramoDeAccidente" 
+
+                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.tramoDeSQLDatasource.$invalid}">
+                    <label for="field_tramoDeSQLDatasource">Tramo</label>
+                    <select required class="form-control" id="field_tramoDeSQLDatasource" name="tramoDeSQLDatasource" ng-model="vm.sqldatasource.tramoDeSQLDatasource"
                     ng-options="tramo as tramo.nombreTramo for tramo in vm.tramos track by tramo.id"
                     ng-change="vm.onTramoChanged()">
                         <option value=""></option>
                     </select>
-                    <div ng-show="editForm.tramoDeAccidente.$invalid">
+                    <div ng-show="editForm.tramoDeSQLDatasource.$invalid">
                         <p class="help-block"
-                            ng-show="editForm.tramoDeAccidente.$error.required">
+                            ng-show="editForm.tramoDeSQLDatasource.$error.required">
                             Este campo es obligatorio
                         </p>
                     </div>
                 </div>
-                <div class="form-group col-sm-6" 
+                <div class="form-group col-sm-6"
                     ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
                     <label class="control-label sr-only" for="field_kilometro">Kilómetro + Abscisa</label>
                     <label class="control-label " for="field_kilometro">Kilómetro + Abscisa</label>
 
-                    <div class="input-group">  
-                        <div class="input-group-addon">Km</div>  
+                    <div class="input-group">
+                        <div class="input-group-addon">Km</div>
                         <input required type="number" class="form-control" name="kilometro" id="field_kilometro"
-                                ng-model="vm.accidente.kilometro"
+                                ng-model="vm.sqldatasource.kilometro"
                                 min="0" max="200"
                                 ng-class="{'has-error':editForm.kilometro.$invalid}"
                                  />
                         <div class="input-group-addon">+</div>
                         <input required type="number" class="form-control" name="abscisa" id="field_abscisa"
-                                ng-model="vm.accidente.abscisa"
+                                ng-model="vm.sqldatasource.abscisa"
                                 min="0" max="999"
                                 ng-class="{'has-error':editForm.abscisa.$invalid}" />
                     </div>
@@ -236,7 +236,7 @@
                             ng-show="editForm.kilometro.$error.required && !editForm.abscisa.$error.required">
                             El campo km es obligatorio.
                         </p>
-                        
+
                         <p class="help-block"
                             ng-show="!editForm.kilometro.$error.required && editForm.abscisa.$error.required">
                             El campo abscisa es obligatorio.
@@ -256,9 +256,9 @@
                         </p>
                     </div>
                 </div>
-            
-                <div class="col-sm-6 col-md-offset-6" ng-if="vm.accidente.id">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="vehiculo-de-apoyo-accidente({id: vm.accidente.id})">
+
+                <div class="col-sm-6 col-md-offset-6" ng-if="vm.sqldatasource.id">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="vehiculo-de-apoyo-sqldatasource({id: vm.sqldatasource.id})">
                         <span>
                             Vehículos de apoyo
                             &nbsp
@@ -279,13 +279,13 @@
 
 
 
-        <h4 ng-if="vm.accidente.id">Tiempos de atención:</h4>
-        <div class="entity-section-form-group" ng-if="vm.accidente.id">
+        <h4 ng-if="vm.sqldatasource.id">Tiempos de atención:</h4>
+        <div class="entity-section-form-group" ng-if="vm.sqldatasource.id">
             <div class="row">
                 <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaSenalizacion.$invalid}">
                     <label class="control-label" for="field_fechaLlegadaSenalizacion">Hora llegada de señalización</label>
                     <div class="input-group">
-                        <input required id="field_fechaLlegadaSenalizacion" type="text" class="form-control" name="fechaLlegadaSenalizacion" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaLlegadaSenalizacion" is-open="vm.datePickerOpenStatus.fechaLlegadaSenalizacion"
+                        <input required id="field_fechaLlegadaSenalizacion" type="text" class="form-control" name="fechaLlegadaSenalizacion" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaSenalizacion" is-open="vm.datePickerOpenStatus.fechaLlegadaSenalizacion"
                           />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaSenalizacion')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -306,7 +306,7 @@
                         </p>
                         <p class="help-block"
                             ng-show="editForm.fechaLlegadaSenalizacion.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.accidente.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
+                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
                         </p>
                     </div>
                 </div>
@@ -316,7 +316,7 @@
                 <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaAmbulancia.$invalid}">
                     <label class="control-label" for="field_fechaLlegadaAmbulancia">Hora de llegada de ambulancia</label>
                     <div class="input-group">
-                        <input id="field_fechaLlegadaAmbulancia" type="text" class="form-control" name="fechaLlegadaAmbulancia" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaLlegadaAmbulancia" is-open="vm.datePickerOpenStatus.fechaLlegadaAmbulancia"
+                        <input id="field_fechaLlegadaAmbulancia" type="text" class="form-control" name="fechaLlegadaAmbulancia" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaAmbulancia" is-open="vm.datePickerOpenStatus.fechaLlegadaAmbulancia"
                         ng-required="vm.necesitaValidarHoraAmbulancia()"
                           />
                         <span class="input-group-btn">
@@ -338,7 +338,7 @@
                         </p>
                         <p class="help-block"
                             ng-show="editForm.fechaLlegadaAmbulancia.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.accidente.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
+                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
                         </p>
                     </div>
                 </div>
@@ -346,7 +346,7 @@
                 <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaVehiculoApoyo.$invalid}">
                     <label class="control-label" for="field_fechaLlegadaVehiculoApoyo">Hora de llegada de vehículo Apoyo</label>
                     <div class="input-group">
-                        <input required id="field_fechaLlegadaVehiculoApoyo" type="text" class="form-control" name="fechaLlegadaVehiculoApoyo" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaLlegadaVehiculoApoyo" is-open="vm.datePickerOpenStatus.fechaLlegadaVehiculoApoyo"
+                        <input required id="field_fechaLlegadaVehiculoApoyo" type="text" class="form-control" name="fechaLlegadaVehiculoApoyo" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaVehiculoApoyo" is-open="vm.datePickerOpenStatus.fechaLlegadaVehiculoApoyo"
                           />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaVehiculoApoyo')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -367,14 +367,14 @@
                         </p>
                         <p class="help-block"
                             ng-show="editForm.fechaLlegadaVehiculoApoyo.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.accidente.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
+                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
                         </p>
                     </div>
                 </div>
                 <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaFinDespeje.$invalid}">
                     <label class="control-label" for="field_fechaLlegadaFinDespeje">Hora de finalización de despeje</label>
                     <div class="input-group">
-                        <input required id="field_fechaLlegadaFinDespeje" type="text" class="form-control" name="fechaLlegadaFinDespeje" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaLlegadaFinDespeje" is-open="vm.datePickerOpenStatus.fechaLlegadaFinDespeje"
+                        <input required id="field_fechaLlegadaFinDespeje" type="text" class="form-control" name="fechaLlegadaFinDespeje" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaFinDespeje" is-open="vm.datePickerOpenStatus.fechaLlegadaFinDespeje"
                           />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaFinDespeje')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -395,7 +395,7 @@
                         </p>
                         <p class="help-block"
                             ng-show="editForm.fechaLlegadaFinDespeje.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.accidente.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
+                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
                         </p>
                         <p class="help-block"
                             ng-show="editForm.fechaLlegadaFinDespeje.$error.fechaDespejeNoEsMayor">
@@ -405,12 +405,12 @@
                 </div>
             </div>
         </div>
-        <h4 ng-if="vm.accidente.id">Datos Adicionales:</h4>
-        <div class="entity-section-form-group" ng-if="vm.accidente.id">
+        <h4 ng-if="vm.sqldatasource.id">Datos Adicionales:</h4>
+        <div class="entity-section-form-group" ng-if="vm.sqldatasource.id">
             <div class="row">
                 <div class="form-group col-xs-12">
                      <input type="checkbox" name="requiereCierreDeVia" id="field_requiereCierreDeVia"
-                    ng-model="vm.accidente.requiereCierreDeVia"
+                    ng-model="vm.sqldatasource.requiereCierreDeVia"
                      />
                     <label class="control-label" for="field_requiereCierreDeVia">¿Requiere cierre de la vía?</label>
                 </div>
@@ -420,7 +420,7 @@
                 <div class="form-group col-sm-6">
                     <label class="control-label" for="field_fechaInicioCierreVia">Hora de inicio de cierre</label>
                     <div class="input-group">
-                        <input id="field_fechaInicioCierreVia" type="text" class="form-control" name="fechaInicioCierreVia" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaInicioCierreVia" is-open="vm.datePickerOpenStatus.fechaInicioCierreVia" ng-disabled="!vm.accidente.requiereCierreDeVia"
+                        <input id="field_fechaInicioCierreVia" type="text" class="form-control" name="fechaInicioCierreVia" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaInicioCierreVia" is-open="vm.datePickerOpenStatus.fechaInicioCierreVia" ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
                           />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaInicioCierreVia')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -430,7 +430,7 @@
                 <div class="form-group col-sm-6">
                     <label class="control-label" for="field_fechaFinCierreVia">Hora de fin de cierre</label>
                     <div class="input-group">
-                        <input id="field_fechaFinCierreVia" type="text" class="form-control" name="fechaFinCierreVia" datetime-picker="{{dateformat}}" ng-model="vm.accidente.fechaFinCierreVia" is-open="vm.datePickerOpenStatus.fechaFinCierreVia"  ng-disabled="!vm.accidente.requiereCierreDeVia"
+                        <input id="field_fechaFinCierreVia" type="text" class="form-control" name="fechaFinCierreVia" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaFinCierreVia" is-open="vm.datePickerOpenStatus.fechaFinCierreVia"  ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
                           />
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaFinCierreVia')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -441,8 +441,8 @@
                 <div class="form-group col-sm-6">
                     <label class="control-label" for="field_entidadQueCierraVia">Entidad realiza el cierre</label>
                     <input type="text" class="form-control" name="entidadQueCierraVia" id="field_entidadQueCierraVia"
-                            ng-model="vm.accidente.entidadQueCierraVia"
-                            ng-disabled="!vm.accidente.requiereCierreDeVia"
+                            ng-model="vm.sqldatasource.entidadQueCierraVia"
+                            ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
                             ng-maxlength="20" />
                     <div ng-show="editForm.entidadQueCierraVia.$invalid">
                         <p class="help-block"
@@ -458,43 +458,43 @@
                         <div class="col-sm-6 form-control-static">
                             <label>
                                 <input type="radio" name="tipoDeCierre" id="field_tipoDeCierre"
-                                    ng-disabled="!vm.accidente.requiereCierreDeVia"
-                                    ng-model="vm.accidente.tipoDeCierre" value="Total"/>
+                                    ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
+                                    ng-model="vm.sqldatasource.tipoDeCierre" value="Total"/>
                                 Total
-                            </label>        
+                            </label>
                         </div>
                         <div class="col-sm-6 form-control-static" >
                             <label>
                                 <input type="radio" name="tipoDeCierre" id="field_tipoDeCierre"
-                                    ng-disabled="!vm.accidente.requiereCierreDeVia"
-                                    ng-model="vm.accidente.tipoDeCierre" value="Parcial"/>
+                                    ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
+                                    ng-model="vm.sqldatasource.tipoDeCierre" value="Parcial"/>
                                 Parcial
-                            </label>        
+                            </label>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row" ng-if="vm.accidente.id">
+            <div class="row" ng-if="vm.sqldatasource.id">
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="vehiculo-afectado-en-accidente({id: vm.accidente.id})">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="vehiculo-afectado-en-sqldatasource({id: vm.sqldatasource.id})">
                         <span>
-                            Vehículos afectados 
+                            Vehículos afectados
                             &nbsp
                         </span>
                         <span class="glyphicon glyphicon-bullhorn"></span>
                     </button>
                 </div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="persona-afectada-en-accidente({id: vm.accidente.id})">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="persona-afectada-en-sqldatasource({id: vm.sqldatasource.id})">
                         <span>
-                            Personas afectadas 
+                            Personas afectadas
                             &nbsp
                         </span>
                         <span class="glyphicon glyphicon-user"></span>
                     </button>
                 </div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="archivo-accidente({id: vm.accidente.id})">
+                    <button type="button" class="btn btn-primary btn-block" ui-sref="archivo-sqldatasource({id: vm.sqldatasource.id})">
                         <span>
                             Archivos
                             &nbsp
@@ -506,8 +506,8 @@
             <br/>
             <div class="form-group">
                 <label class="control-label" for="field_comentario">Comentarios:</label>
-                <textarea class="form-control" rows="3" name="comentario" 
-                    id="field_comentario" ng-model="vm.accidente.comentario" ng-maxlength="500" ></textarea>
+                <textarea class="form-control" rows="3" name="comentario"
+                    id="field_comentario" ng-model="vm.sqldatasource.comentario" ng-maxlength="500" ></textarea>
                 <div ng-show="editForm.comentario.$invalid">
                     <p class="help-block"
                         ng-show="editForm.comentario.$error.maxlength">
@@ -520,14 +520,14 @@
 
 
 
-        
-        
-        
+
+
+
         <!--
         <div class="form-group">
             <label class="control-label" for="field_comentarioInterventor">Comentario Interventor</label>
             <input type="text" class="form-control" name="comentarioInterventor" id="field_comentarioInterventor"
-                    ng-model="vm.accidente.comentarioInterventor"
+                    ng-model="vm.sqldatasource.comentarioInterventor"
                     ng-maxlength="500" />
             <div ng-show="editForm.comentarioInterventor.$invalid">
                 <p class="help-block"
@@ -539,19 +539,19 @@
         <div class="form-group">
             <label class="control-label" for="field_vistoBuenoInterventor">Visto Bueno Interventor</label>
             <input type="checkbox" class="form-control" name="vistoBuenoInterventor" id="field_vistoBuenoInterventor"
-                    ng-model="vm.accidente.vistoBuenoInterventor"
+                    ng-model="vm.sqldatasource.vistoBuenoInterventor"
                      />
         </div>
         <div class="form-group">
             <label class="control-label" for="field_cumple">Cumple</label>
             <input type="checkbox" class="form-control" name="cumple" id="field_cumple"
-                    ng-model="vm.accidente.cumple"
+                    ng-model="vm.sqldatasource.cumple"
                      />
         </div>
         <div class="form-group">
             <label class="control-label" for="field_estado">Estado</label>
             <input type="text" class="form-control" name="estado" id="field_estado"
-                    ng-model="vm.accidente.estado"
+                    ng-model="vm.sqldatasource.estado"
                     ng-maxlength="10" />
             <div ng-show="editForm.estado.$invalid">
                 <p class="help-block"

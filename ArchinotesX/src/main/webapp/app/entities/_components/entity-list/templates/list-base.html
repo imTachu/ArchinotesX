@@ -15,10 +15,6 @@
     </div>
     <br/>
     <div ng-init="listTemplateURL=vm.getUIListTemplateURL()" ng-include="listTemplateURL"></div>
-    <!-- <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
-    </div>
-    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager> -->
     <div class="text-center">
         <uib-pagination total-items="vm.totalItems" ng-change="vm.loadPage(vm.page)" ng-model='vm.page' class="pagination-sm" items-per-page='vm.itemsPerPage' boundary-links="true" max-size="5" />
         <div class="row">

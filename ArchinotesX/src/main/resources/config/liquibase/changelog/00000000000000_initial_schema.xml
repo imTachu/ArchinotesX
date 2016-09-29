@@ -218,6 +218,11 @@
                   tableName="project"/>
 
         <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/sql_datasources.csv"
+                  separator=";"
+                  tableName="sql_datasource"/>
+
+        <loadData encoding="UTF-8"
                   file="config/liquibase/imports/users.csv"
                   separator=";"
                   tableName="jhi_user">

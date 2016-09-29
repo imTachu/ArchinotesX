@@ -31,51 +31,51 @@ public class SQLDatasourceResource {
     @Autowired
     private SQLDatasourceService sqlDatasourceService;
 
-    @RequestMapping(value = "/accidentes",
+    @RequestMapping(value = "/sqldatasources",
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<SQLDatasource> createSQLDatasource(@Valid @RequestBody SQLDatasource accidente) throws Exception{
-        if (accidente.getId() != null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("accidente", "idexists", "A new accidente cannot already have an ID")).body(null);
+    public ResponseEntity<SQLDatasource> createSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception{
+        if (sqldatasource.getId() != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sqldatasource", "idexists", "A new sqldatasource cannot already have an ID")).body(null);
         }
-        SQLDatasource result = sqlDatasourceService.save(accidente);
-        return ResponseEntity.created(new URI("/api/accidentes/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert("accidente", result.getId().toString()))
+        SQLDatasource result = sqlDatasourceService.save(sqldatasource);
+        return ResponseEntity.created(new URI("/api/sqldatasources/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("sqldatasource", result.getId().toString()))
             .body(result);
     }
 
-    @RequestMapping(value = "/accidentes",
+    @RequestMapping(value = "/sqldatasources",
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<SQLDatasource> updateSQLDatasource(@Valid @RequestBody SQLDatasource accidente) throws Exception {
-        if (accidente.getId() == null) {
-            return createSQLDatasource(accidente);
+    public ResponseEntity<SQLDatasource> updateSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception {
+        if (sqldatasource.getId() == null) {
+            return createSQLDatasource(sqldatasource);
         }
-        SQLDatasource result = sqlDatasourceService.save(accidente);
+        SQLDatasource result = sqlDatasourceService.save(sqldatasource);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("accidente", accidente.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert("sqldatasource", sqldatasource.getId().toString()))
             .body(result);
     }
 
-    @RequestMapping(value = "/accidentes",
+    @RequestMapping(value = "/sqldatasources",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<List<SQLDatasource>> getAllSQLDatasources(Pageable pageable) throws URISyntaxException {
         Page<SQLDatasource> page = sqlDatasourceService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/accidentes");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sqldatasources");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/accidentes/{id}",
+    @RequestMapping(value = "/sqldatasources/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<SQLDatasource> getSQLDatasource(@PathVariable Long id) {
-        SQLDatasource accidente = sqlDatasourceService.findOne(id);
-        return Optional.ofNullable(accidente)
+        SQLDatasource sqldatasource = sqlDatasourceService.findOne(id);
+        return Optional.ofNullable(sqldatasource)
             .map(result -> new ResponseEntity<>(
                 result,
                 HttpStatus.OK))

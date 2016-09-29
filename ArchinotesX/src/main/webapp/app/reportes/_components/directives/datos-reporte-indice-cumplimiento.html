@@ -1,7 +1,0 @@
-<td ng-if="!loading && !error" class="indicador-cumplimiento">{{ reportData.criteriosAceptacion.nombreBucket }}{{ reportModel.getIndicadorCodigo() }}</td> 
-<td ng-if="!loading && !error" class="indicador-cumplimiento">{{ reportData.criteriosAceptacion.nombreIndicador }}</td> 
-<td ng-if="!loading && !error" class="indicador-cumplimiento"><strong>{{reportData.criteriosAceptacion.ponderadoContrato *100 | number: 3 }} %</strong></td> 
-<td ng-if="!loading && !error" class="indicador-cumplimiento"><strong>{{ reportData.porcentajeCumplimiento | number: 3 }} %</strong></td> 
-<td ng-if="!loading && !error" class="indicador-cumplimiento"><strong>{{ reportData.ponderado *100 | number: 3 }} %</strong></td> 
-<td ng-if="loading" class="indicador-loading" colspan="5"><uib-progressbar type="success" class="progress-striped active">Cargando...</uib-progressbar></td>
-<td ng-if="error" class="indicador-loading" colspan="5"><strong class="text-danger">Ocurrió un error en la consulta del indicador</strong></td>

@@ -13,8 +13,8 @@
             parent: 'entity',
             url: '/accidente?page&sort&search&size',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR'],
-                pageTitle: 'Accidentes'
+                authorities: ['ROLE_REFERENCE_ARCHITECT'],
+                pageTitle: 'SQL Datasources'
             },
             views: {
                 'content@': {

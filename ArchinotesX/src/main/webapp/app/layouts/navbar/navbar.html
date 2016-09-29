@@ -23,27 +23,27 @@
                     </a>
                 </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-                <li has-active-state-child-link has-any-authority="ROLE_OPERADOR1, ROLE_SUPERVISOR" ng-switch-when="true" uib-dropdown class="dropdown pointer">
+                <li has-active-state-child-link has-any-authority="ROLE_REFERENCE_ARCHITECT" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="reportarEvento-menu">
                         <span>
                             <span class="glyphicon glyphicon-th-list"></span>
                         <span class="hidden-sm">
-                                Reportar evento
+                                Datasources
                             </span>
                         <b class="caret"></b>
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active">
-                            <a ui-sref="incidente" ng-click="vm.collapseNavbar()">
+                            <a ui-sref="underconstruction" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-warning-sign"></span>&nbsp;
-                                <span>(O4) Incidente</span>
+                                <span>Excel datasources</span>
                             </a>
                         </li>
                         <li ui-sref-active="active">
                             <a ui-sref="accidente" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-fire"></span>&nbsp;
-                                <span>(O5) Accidente</span>
+                                <span>SQL Datasources</span>
                             </a>
                         </li>
                     </ul>

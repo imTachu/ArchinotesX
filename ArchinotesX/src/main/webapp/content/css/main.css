@@ -70,9 +70,9 @@ Browser Upgrade Prompt
 
 .underconstruction {
     display: inline-block;
-    width: 630px;
-    height: 497px;
-    background: url("../images/Web-under-construction.png") no-repeat center top;
+    width: 590px;
+    height: 442px;
+    background: url("../images/underconstruction.png") no-repeat center top;
     background-size: contain;
 }
 

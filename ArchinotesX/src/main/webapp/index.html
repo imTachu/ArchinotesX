@@ -30,7 +30,12 @@
     <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak></div>
     <div ui-view="navbar" ng-cloak></div>
     <div class="container">
-        <div class="well" ui-view="content"></div>
+        <div ng-switch="!vm.isAuthenticated()" class="intro-header">
+            <div class="stars"></div>
+            <div class="twinkling"></div>
+            <div class="clouds"></div>
+        </div>
+        <div class="" ui-view="content"></div>
 
         <div class="footer" ng-cloak>
                 <!--<div class="logos center-image">-->
@@ -59,7 +64,6 @@
     <script src="bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
     <script src="bower_components/ng-csv/build/ng-csv.min.js"></script>
     <script src="bower_components/Chart.js/dist/Chart.js"></script>
-    <script src="bower_components/tc-angular-chartjs/dist/tc-angular-chartjs.min.js"></script>
     <script src="bower_components/bind-polyfill/index.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
@@ -194,33 +198,5 @@
     <!-- endbuild -->
 
     <script src="content/js/typed.min.js"></script>
-    <script>
-        $(function () {
-            $("#typed").typed({
-                stringsElement: $('#typed-string'),
-                typeSpeed: 70,
-                backDelay: 800,
-                loop: true,
-                contentType: 'html',
-                loopCount: false,
-                callback: function () {
-                    foo();
-                },
-                resetCallback: function () {
-                    newTyped();
-                }
-            });
-            $(".reset").click(function () {
-                $("#typed").typed('reset');
-            });
-        });
-
-        function newTyped() {
-        }
-
-        function foo() {
-            console.log("Callback");
-        }
-    </script>
 </body>
 </html>

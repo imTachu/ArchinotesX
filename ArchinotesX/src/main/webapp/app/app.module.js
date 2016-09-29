@@ -15,8 +15,7 @@
             'infinite-scroll',
             'angular-loading-bar',
             'ngCsv',
-            'ncy-angular-breadcrumb',
-            'tc.chartjs'
+            'ncy-angular-breadcrumb'
         ])
         .run(run);
 

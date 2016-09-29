@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('FactorClimatologicoController', FactorClimatologicoController);
 
     FactorClimatologicoController.$inject = ['$scope', '$state', 'FactorClimatologico', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

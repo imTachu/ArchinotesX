@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('MedidaEstadoSenalizacionHController', MedidaEstadoSenalizacionHController);
 
     MedidaEstadoSenalizacionHController.$inject = ['$state', 'ListWithParentControllerFactory', '$scope', 'pagingParams', 'MedidaEstadoSenalizacionH', 'estadoSenalizacionHs', 'archivosListListener'];

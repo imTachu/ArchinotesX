@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('EstadosListControllerFactory', EstadosListControllerFactory);
 
     EstadosListControllerFactory.$inject = ['ListWithParentControllerFactory', '$state'];

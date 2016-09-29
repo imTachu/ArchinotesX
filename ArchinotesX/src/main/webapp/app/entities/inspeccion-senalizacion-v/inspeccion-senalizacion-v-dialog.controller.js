@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('InspeccionSenalizacionVDialogController', InspeccionSenalizacionVDialogController);
     InspeccionSenalizacionVDialogController.$inject = ['DialogInspeccionControllerFactory', '$scope', 'entity', 'InspeccionSenalizacionV'];
 

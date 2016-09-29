@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('AccidenteController', AccidenteController);
 
     AccidenteController.$inject = ['$filter', 'EntityListControllerFactory', '$scope', 'pagingParams', 'Accidente'];

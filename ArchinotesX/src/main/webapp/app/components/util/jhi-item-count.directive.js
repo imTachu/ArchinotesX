@@ -17,6 +17,6 @@
     };
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .component('jhiItemCount', jhiItemCount);
 })();

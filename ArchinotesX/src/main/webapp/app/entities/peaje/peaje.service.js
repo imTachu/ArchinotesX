@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('Peaje', Peaje);
 
     Peaje.$inject = ['$resource'];

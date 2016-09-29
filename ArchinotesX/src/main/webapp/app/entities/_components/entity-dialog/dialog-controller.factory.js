@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('EntityDialogControllerFactory', EntityDialogControllerFactory);
 
     EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES'];
@@ -146,8 +146,8 @@
                     var vm=this;
                     var entityName=vm.entityName;
                     var entityCamelCase=$filter('hyphenToCamelCase')(entityName);
-                    //console.log('onSaveSuccess emit name: '+'siccApp:'+entityCamelCase+'Update');
-                    $scope.$emit('siccApp:'+entityCamelCase+'Update', result);
+                    //console.log('onSaveSuccess emit name: '+'archinotesxApp:'+entityCamelCase+'Update');
+                    $scope.$emit('archinotesxApp:'+entityCamelCase+'Update', result);
                     $state.go(entityName+'.edit', {id: result.id});
                     vm.isSaving = false;
                 },

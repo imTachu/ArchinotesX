@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('PersonaAfectadaEnAccidenteController', PersonaAfectadaEnAccidenteController);
 
     PersonaAfectadaEnAccidenteController.$inject = ['ListWithParentControllerFactory', '$scope', 'pagingParams', 'PersonaAfectadaEnAccidente', 'accidente'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('InspeccionBarreraContencionController', InspeccionBarreraContencionController);
 
     InspeccionBarreraContencionController.$inject = ['$filter', 'EntityListControllerFactory', '$scope', 'pagingParams', 'InspeccionBarreraContencion'];

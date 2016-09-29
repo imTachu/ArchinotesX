@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoBarreraContencionController', EstadoBarreraContencionController);
 
     EstadoBarreraContencionController.$inject = ['EstadosListControllerFactory', '$scope', 'pagingParams', 'EstadoBarreraContencion', 'inspeccionBarreraContencion'];

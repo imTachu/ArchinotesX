@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('LogsController', LogsController);
 
     LogsController.$inject = ['LogsService'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoIndiceMortalidadDialogController', ArchivoIndiceMortalidadDialogController);
 
     ArchivoIndiceMortalidadDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoIndiceMortalidad', 'IndiceMortalidad'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoIndiceMortalidadUpdate', result);
+            $scope.$emit('archinotesxApp:archivoIndiceMortalidadUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

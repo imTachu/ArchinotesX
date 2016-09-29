@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('TramoDialogController', TramoDialogController);
 
     TramoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Tramo', 'KMAbscisaHelper'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:tramoUpdate', result);
+            $scope.$emit('archinotesxApp:tramoUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

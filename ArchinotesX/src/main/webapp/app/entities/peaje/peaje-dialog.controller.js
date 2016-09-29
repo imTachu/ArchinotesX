@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('PeajeDialogController', PeajeDialogController);
 
     PeajeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Peaje', 'Tramo'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:peajeUpdate', result);
+            $scope.$emit('archinotesxApp:peajeUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

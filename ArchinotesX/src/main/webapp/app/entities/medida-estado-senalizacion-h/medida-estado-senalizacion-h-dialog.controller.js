@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('MedidaEstadoSenalizacionHDialogController', MedidaEstadoSenalizacionHDialogController);
 
     MedidaEstadoSenalizacionHDialogController.$inject = ['$filter', '$state','DialogWithParentControllerFactory', '$scope', 'entity', 'MedidaEstadoSenalizacionH', 'estadoEntity', 'DateUtils'];
@@ -19,10 +19,10 @@
                 var vm=this;
                 var entityName=vm.entityName;
                 var entityCamelCase=$filter('hyphenToCamelCase')(entityName);
-                //console.log('onSaveSuccess emit name: '+'siccApp:'+entityCamelCase+'Update');
-                $scope.$emit('siccApp:'+entityCamelCase+'Update', result);
+                //console.log('onSaveSuccess emit name: '+'archinotesxApp:'+entityCamelCase+'Update');
+                $scope.$emit('archinotesxApp:'+entityCamelCase+'Update', result);
                 $state.go(entityName);
-                //$scope.$emit('siccApp:medidaEstadoSenalizacionHUpdate', result);
+                //$scope.$emit('archinotesxApp:medidaEstadoSenalizacionHUpdate', result);
                 //$state.go('medida-estado-senalizacion-h.edit', {id_medida_senalizacion_h: result.id});
                 vm.isSaving = false;
             }

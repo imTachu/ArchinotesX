@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .directive('minbytes', minbytes);
 
     function minbytes () {

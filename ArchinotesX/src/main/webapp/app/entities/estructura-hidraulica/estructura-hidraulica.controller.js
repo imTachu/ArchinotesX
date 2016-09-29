@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstructuraHidraulicaController', EstructuraHidraulicaController);
 
     EstructuraHidraulicaController.$inject = ['$scope', '$state', 'EstructuraHidraulica', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

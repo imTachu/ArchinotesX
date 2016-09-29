@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoBarreraContencionDeleteController',EstadoBarreraContencionDeleteController);
 
     EstadoBarreraContencionDeleteController.$inject = ['$uibModalInstance', 'entity', 'EstadoBarreraContencion'];

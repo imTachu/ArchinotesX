@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .directive('hasAuthority', hasAuthority);
 
     function hasAuthority(Principal) {

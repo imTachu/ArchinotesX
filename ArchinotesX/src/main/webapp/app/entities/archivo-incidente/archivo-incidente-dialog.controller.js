@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoIncidenteDialogController', ArchivoIncidenteDialogController);
 
     ArchivoIncidenteDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$state', 'entity', 'ArchivoIncidente', 'Incidente', 'incidente'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoIncidenteUpdate', result);
+            $scope.$emit('archinotesxApp:archivoIncidenteUpdate', result);
             //$uibModalInstance.close(result);
             vm.isSaving = false;
             $state.go('archivo-incidente', null, {reload: true});

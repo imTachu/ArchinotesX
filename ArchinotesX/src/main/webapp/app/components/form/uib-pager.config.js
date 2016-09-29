@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .config(pagerConfig);
 
     function pagerConfig(uibPagerConfig, paginationConstants) {

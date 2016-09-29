@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoDrenajesDialogController', EstadoDrenajesDialogController);
     EstadoDrenajesDialogController.$inject = ['DialogEstadosControllerFactory', '$scope', 'entity', 'EstadoDrenajes', 'inspeccionEntity', 'DateUtils', 'EstructuraHidraulica', 'TIPOS_ESTRUCTURAS_HIDRAULICAS', 'DialogKMAbscisaValidationImplement'];
 

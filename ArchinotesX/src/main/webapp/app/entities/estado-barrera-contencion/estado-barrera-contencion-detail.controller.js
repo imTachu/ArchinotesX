@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoBarreraContencionDetailController', EstadoBarreraContencionDetailController);
 
     EstadoBarreraContencionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'EstadoBarreraContencion', 'InspeccionBarreraContencion', 'EstructuraContencion'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.estadoBarreraContencion = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:estadoBarreraContencionUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:estadoBarreraContencionUpdate', function(event, result) {
             vm.estadoBarreraContencion = result;
         });
         $scope.$on('$destroy', unsubscribe);

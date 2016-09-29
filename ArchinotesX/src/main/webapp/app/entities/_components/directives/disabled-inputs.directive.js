@@ -12,7 +12,7 @@
      * @description
      * This directive allows you to do not disable the element even if it's under the disableAll directive
      */
-    angular.module('siccApp').directive('skipDisable', skipDisableDirective);
+    angular.module('archinotesxApp').directive('skipDisable', skipDisableDirective);
     
     /**
      * @ngInject
@@ -32,7 +32,7 @@
      * This directive allows you to disable any element in the DOM. Directive turns off all clicks, disables
      * inputs, buttons and textareas in the given element scope.
      */
-    angular.module('siccApp').directive('disableAll', disableAllDirective);
+    angular.module('archinotesxApp').directive('disableAll', disableAllDirective);
 
      /**
      * Disables given elements.

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('TramoDeleteController',TramoDeleteController);
 
     TramoDeleteController.$inject = ['$uibModalInstance', 'entity', 'Tramo'];

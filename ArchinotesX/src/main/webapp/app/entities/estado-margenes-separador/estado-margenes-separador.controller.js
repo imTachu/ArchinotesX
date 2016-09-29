@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoMargenesSeparadorController', EstadoMargenesSeparadorController);
 
     EstadoMargenesSeparadorController.$inject = ['EstadosListControllerFactory', '$scope', 'pagingParams', 'EstadoMargenesSeparador', 'inspeccionMargenes'];

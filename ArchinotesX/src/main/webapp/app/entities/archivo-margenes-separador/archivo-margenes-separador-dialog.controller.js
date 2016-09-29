@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoMargenesSeparadorDialogController', ArchivoMargenesSeparadorDialogController);
 
     ArchivoMargenesSeparadorDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoMargenesSeparador', 'InspeccionMargenesSeparador'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoMargenesSeparadorUpdate', result);
+            $scope.$emit('archinotesxApp:archivoMargenesSeparadorUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

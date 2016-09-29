@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoInspeccionDesportillamientoDialogController', ArchivoInspeccionDesportillamientoDialogController);
 
     ArchivoInspeccionDesportillamientoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoInspeccionDesportillamiento', 'EstadoDesportillamiento'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoInspeccionDesportillamientoUpdate', result);
+            $scope.$emit('archinotesxApp:archivoInspeccionDesportillamientoUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

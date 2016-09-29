@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('DialogWithParentControllerFactory', DialogWithParentControllerFactory);
 
     DialogWithParentControllerFactory.$inject = ['$state', 'EntityDialogControllerFactory', 'ENTITY_STATES'];

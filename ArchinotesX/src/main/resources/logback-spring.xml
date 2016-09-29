@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="com.proycomp.sicc" level="@logback.loglevel@"/>
+    <logger name="com.uniandes.thesis" level="@logback.loglevel@"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>

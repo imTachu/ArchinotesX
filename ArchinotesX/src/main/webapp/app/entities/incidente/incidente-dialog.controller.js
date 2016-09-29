@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('IncidenteDialogController', IncidenteDialogController);
 
     IncidenteDialogController.$inject = ['$q', 'EntityDialogControllerFactory', '$scope', 'entity', 'Incidente', 'InfraestructuraAfectada', 'CausaIncidente', 'TipoIncidente', 'FactorClimatologico', 'Tramo', 'DateUtils', 'DialogKMAbscisaValidationImplement'];

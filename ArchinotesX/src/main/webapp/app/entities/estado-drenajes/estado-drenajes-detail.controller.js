@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoDrenajesDetailController', EstadoDrenajesDetailController);
 
     EstadoDrenajesDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'EstadoDrenajes', 'EstructuraHidraulica', 'InspeccionDrenajes'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.estadoDrenajes = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:estadoDrenajesUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:estadoDrenajesUpdate', function(event, result) {
             vm.estadoDrenajes = result;
         });
         $scope.$on('$destroy', unsubscribe);

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoAccidenteDetailController', ArchivoAccidenteDetailController);
 
     ArchivoAccidenteDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'ArchivoAccidente', 'Accidente'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.archivoAccidente = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:archivoAccidenteUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:archivoAccidenteUpdate', function(event, result) {
             vm.archivoAccidente = result;
         });
         $scope.$on('$destroy', unsubscribe);

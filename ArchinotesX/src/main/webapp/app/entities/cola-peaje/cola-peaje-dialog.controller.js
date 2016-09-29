@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ColaPeajeDialogController', ColaPeajeDialogController);
 
     ColaPeajeDialogController.$inject = ['EntityDialogControllerFactory', '$scope', 'entity', 'ColaPeaje', 'Peaje', 'DateUtils'];

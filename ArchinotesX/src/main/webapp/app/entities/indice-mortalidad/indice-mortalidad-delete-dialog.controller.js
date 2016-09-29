@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('IndiceMortalidadDeleteController',IndiceMortalidadDeleteController);
 
     IndiceMortalidadDeleteController.$inject = ['$uibModalInstance', 'entity', 'IndiceMortalidad'];

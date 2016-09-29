@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EntityConfirmationController', EntityConfirmationController);
 
     EntityConfirmationController.$inject = ['$filter','$scope', '$rootScope', 'AlertService', '$stateParams', '$state', 'controllerConfig', 'Tramo', 'ENTITY_STATES' ,'ConfirmationControllerFactory'];

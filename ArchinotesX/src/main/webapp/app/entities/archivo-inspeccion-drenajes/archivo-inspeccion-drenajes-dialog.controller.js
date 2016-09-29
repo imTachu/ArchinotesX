@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoInspeccionDrenajesDialogController', ArchivoInspeccionDrenajesDialogController);
 
     ArchivoInspeccionDrenajesDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoInspeccionDrenajes', 'EstadoDrenajes'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoInspeccionDrenajesUpdate', result);
+            $scope.$emit('archinotesxApp:archivoInspeccionDrenajesUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

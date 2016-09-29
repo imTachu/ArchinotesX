@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ColaPeajeDetalleController', ColaPeajeDetalleController);
 
     ColaPeajeDetalleController.$inject = ['$filter', 'ListWithParentControllerFactory', '$scope', 'pagingParams', 'ColaPeajeDetalle', 'colaPeaje'];

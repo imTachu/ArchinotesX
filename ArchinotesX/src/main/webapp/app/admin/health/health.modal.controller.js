@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('siccApp')
+    angular.module('archinotesxApp')
         .controller('HealthModalController', HealthModalController);
 
     HealthModalController.$inject = ['$uibModalInstance', 'currentHealth', 'baseName', 'subSystemName'];

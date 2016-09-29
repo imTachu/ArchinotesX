@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('KMAbscisaHelper', KMAbscisaHelper);
 
     function KMAbscisaHelper () {

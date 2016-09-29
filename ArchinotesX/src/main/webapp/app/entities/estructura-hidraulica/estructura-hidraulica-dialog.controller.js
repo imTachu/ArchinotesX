@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstructuraHidraulicaDialogController', EstructuraHidraulicaDialogController);
 
     EstructuraHidraulicaDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'EstructuraHidraulica', 'Tramo', 'TIPOS_ESTRUCTURAS_HIDRAULICAS'];
@@ -18,7 +18,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:estructuraHidraulicaUpdate', result);
+            $scope.$emit('archinotesxApp:estructuraHidraulicaUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

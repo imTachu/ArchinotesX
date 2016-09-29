@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoMargenesSeparadorDialogController', EstadoMargenesSeparadorDialogController);
     EstadoMargenesSeparadorDialogController.$inject = ['$state', 'DialogEstadosControllerFactory', '$scope', 'entity', 'EstadoMargenesSeparador', 'inspeccionEntity', 'DateUtils', 'DialogKMAbscisaValidationImplement'];
 
@@ -55,7 +55,7 @@
             },
             onSaveSuccess : function(result){
                 var vm=this;
-                $scope.$emit('siccApp:estadoMargenesSeparadorUpdate', result);
+                $scope.$emit('archinotesxApp:estadoMargenesSeparadorUpdate', result);
                 $state.go('estado-margenes-separador.edit', {id_estado_margenes: result.id});
                 vm.isSaving = false;
             },

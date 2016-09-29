@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstructuraContencionController', EstructuraContencionController);
 
     EstructuraContencionController.$inject = ['$scope', '$state', 'EstructuraContencion', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

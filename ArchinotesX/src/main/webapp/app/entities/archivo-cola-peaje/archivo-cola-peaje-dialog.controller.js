@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoColaPeajeDialogController', ArchivoColaPeajeDialogController);
 
     ArchivoColaPeajeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoColaPeaje', 'ColaPeaje'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoColaPeajeUpdate', result);
+            $scope.$emit('archinotesxApp:archivoColaPeajeUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoMargenesSeparadorController', ArchivoMargenesSeparadorController);
 
     ArchivoMargenesSeparadorController.$inject = ['ArchivosListControllerFactory', '$scope', 'pagingParams', 'ArchivoMargenesSeparador', 'estadoMargenes', 'archivosListListener', 'inspeccionEntity'];

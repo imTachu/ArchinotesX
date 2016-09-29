@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoDesportillamientoDialogController', EstadoDesportillamientoDialogController);
     EstadoDesportillamientoDialogController.$inject = ['DialogEstadosControllerFactory', '$scope', 'entity', 'EstadoDesportillamiento', 'inspeccionEntity', 'DateUtils', 'DialogKMAbscisaValidationImplement'];
 

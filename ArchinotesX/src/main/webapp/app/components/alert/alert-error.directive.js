@@ -11,7 +11,7 @@
     };
     
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .component('jhiAlertError', jhiAlertError);
 
     jhiAlertErrorController.$inject = ['$scope', 'AlertService', '$rootScope'];
@@ -36,7 +36,7 @@
             );
         }
 
-        var cleanHttpErrorListener = $rootScope.$on('siccApp.httpError', function (event, httpResponse) {
+        var cleanHttpErrorListener = $rootScope.$on('archinotesxApp.httpError', function (event, httpResponse) {
             var i;
             event.stopPropagation();
             switch (httpResponse.status) {
@@ -46,8 +46,8 @@
                 break;
 
             case 400:
-                var errorHeader = httpResponse.headers('X-siccApp-error');
-                var entityKey = httpResponse.headers('X-siccApp-params');
+                var errorHeader = httpResponse.headers('X-archinotesxApp-error');
+                var entityKey = httpResponse.headers('X-archinotesxApp-params');
                 if (errorHeader) {
                     var entityName = entityKey;
                     addErrorAlert(errorHeader, errorHeader, {entityName: entityName});

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('JhiMetricsService', JhiMetricsService);
 
     JhiMetricsService.$inject = ['$rootScope', '$http'];
@@ -42,7 +42,7 @@
 
         function getCriteriosAceptacion(){
             return $http.get(
-            'api/reports/disponibilidadsicccriteriosaceptacion', {
+            'api/reports/disponibilidadarchinotesxcriteriosaceptacion', {
             }).then(function(response) {
                 return response.data;
             });   

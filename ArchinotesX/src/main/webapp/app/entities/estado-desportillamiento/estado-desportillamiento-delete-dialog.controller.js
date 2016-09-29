@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoDesportillamientoDeleteController',EstadoDesportillamientoDeleteController);
 
     EstadoDesportillamientoDeleteController.$inject = ['$uibModalInstance', 'entity', 'EstadoDesportillamiento'];

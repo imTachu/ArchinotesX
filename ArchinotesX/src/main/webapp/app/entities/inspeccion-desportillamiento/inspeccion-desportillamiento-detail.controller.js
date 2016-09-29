@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('InspeccionDesportillamientoDetailController', InspeccionDesportillamientoDetailController);
 
     InspeccionDesportillamientoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'InspeccionDesportillamiento', 'Tramo'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.inspeccionDesportillamiento = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:inspeccionDesportillamientoUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:inspeccionDesportillamientoUpdate', function(event, result) {
             vm.inspeccionDesportillamiento = result;
         });
         $scope.$on('$destroy', unsubscribe);

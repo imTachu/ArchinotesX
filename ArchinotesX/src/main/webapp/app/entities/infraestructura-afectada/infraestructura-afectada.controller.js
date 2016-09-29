@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('InfraestructuraAfectadaController', InfraestructuraAfectadaController);
 
     InfraestructuraAfectadaController.$inject = ['$scope', '$state', 'InfraestructuraAfectada', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

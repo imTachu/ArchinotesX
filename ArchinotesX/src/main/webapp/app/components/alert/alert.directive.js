@@ -11,7 +11,7 @@
     };
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .component('jhiAlert', jhiAlert);
 
     jhiAlertController.$inject = ['$scope', 'AlertService'];

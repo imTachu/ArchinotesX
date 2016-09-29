@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('DialogInspeccionControllerFactory', DialogInspeccionControllerFactory);
 
     DialogInspeccionControllerFactory.$inject = ['$filter', '$state', 'DialogWithParentControllerFactory', 'ENTITY_STATES', 'INSPECTION_STATES_STATUSES', 'Tramo', 'DateUtils'];

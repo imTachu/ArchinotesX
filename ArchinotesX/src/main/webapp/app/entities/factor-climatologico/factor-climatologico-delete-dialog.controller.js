@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('FactorClimatologicoDeleteController',FactorClimatologicoDeleteController);
 
     FactorClimatologicoDeleteController.$inject = ['$uibModalInstance', 'entity', 'FactorClimatologico'];

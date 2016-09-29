@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('ConfirmationControllerFactory', ConfirmationControllerFactory);
 
     ConfirmationControllerFactory.$inject = ['$filter', '$rootScope', 'AlertService', '$stateParams', '$state', 'Tramo', 'ENTITY_STATES'];
@@ -40,7 +40,7 @@
                 vm.entityID = vm.entity.id;
                 vm.isSaving = false;
 
-                var unsubscribe = $rootScope.$on('siccApp:' + vm.entityCamelCase + 'Update', function(event, result) {
+                var unsubscribe = $rootScope.$on('archinotesxApp:' + vm.entityCamelCase + 'Update', function(event, result) {
                     vm[vm.entityCamelCase] = result;
                 });
                 $scope.$on('$destroy', unsubscribe);

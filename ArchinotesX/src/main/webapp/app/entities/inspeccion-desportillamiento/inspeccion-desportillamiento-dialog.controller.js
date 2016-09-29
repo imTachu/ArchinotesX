@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('InspeccionDesportillamientoDialogController', InspeccionDesportillamientoDialogController);
     InspeccionDesportillamientoDialogController.$inject = ['DialogInspeccionControllerFactory', '$scope', 'entity', 'InspeccionDesportillamiento'];
 

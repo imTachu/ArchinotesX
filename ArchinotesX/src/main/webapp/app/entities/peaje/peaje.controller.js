@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('PeajeController', PeajeController);
 
     PeajeController.$inject = ['$scope', '$state', 'Peaje', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

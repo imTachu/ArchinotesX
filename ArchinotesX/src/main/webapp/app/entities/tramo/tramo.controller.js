@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('TramoController', TramoController);
 
     TramoController.$inject = ['$scope', '$state', 'Tramo', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

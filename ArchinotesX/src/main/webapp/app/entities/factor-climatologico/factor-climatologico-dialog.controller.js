@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('FactorClimatologicoDialogController', FactorClimatologicoDialogController);
 
     FactorClimatologicoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'FactorClimatologico'];
@@ -16,7 +16,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:factorClimatologicoUpdate', result);
+            $scope.$emit('archinotesxApp:factorClimatologicoUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

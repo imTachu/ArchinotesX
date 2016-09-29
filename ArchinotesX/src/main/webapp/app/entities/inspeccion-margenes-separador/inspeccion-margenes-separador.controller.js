@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('InspeccionMargenesSeparadorController', InspeccionMargenesSeparadorController);
 
     InspeccionMargenesSeparadorController.$inject = ['$filter', 'EntityListControllerFactory', '$scope', 'pagingParams', 'InspeccionMargenesSeparador'];

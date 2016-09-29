@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoDesportillamientoController', EstadoDesportillamientoController);
 
     EstadoDesportillamientoController.$inject = ['EstadosListControllerFactory', '$scope', 'pagingParams', 'EstadoDesportillamiento', 'inspeccionDesportillamientos'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('CentroMedicoDialogController', CentroMedicoDialogController);
 
     CentroMedicoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'CentroMedico'];
@@ -16,7 +16,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:centroMedicoUpdate', result);
+            $scope.$emit('archinotesxApp:centroMedicoUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

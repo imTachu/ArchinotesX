@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .directive('showValidation', showValidation);
 
     function showValidation () {

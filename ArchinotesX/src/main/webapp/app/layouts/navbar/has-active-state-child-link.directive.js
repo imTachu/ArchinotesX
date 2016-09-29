@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .directive('hasActiveStateChildLink', hasActiveStateChildLink);
     hasActiveStateChildLink.$inject=['$state', '$interpolate'];
     function hasActiveStateChildLink($state, $interpolate) {

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('TipoSenalDialogController', TipoSenalDialogController);
 
     TipoSenalDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'TipoSenal', 'Tramo'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:tipoSenalUpdate', result);
+            $scope.$emit('archinotesxApp:tipoSenalUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

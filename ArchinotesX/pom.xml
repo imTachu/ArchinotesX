@@ -479,7 +479,7 @@
                     <defaultSchemaName>archinotesx</defaultSchemaName>
                     <username>archinotesx</username>
                     <password>archinotesx</password>
-                    <referenceUrl>hibernate:spring:com.proycomp.sicc.domain?dialect=org.hibernate.dialect.MySQLInnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.uniandes.thesis.domain?dialect=org.hibernate.dialect.MySQLInnoDBDialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>DEBUG</logging>
                 </configuration>

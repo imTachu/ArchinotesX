@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('TipoSenalController', TipoSenalController);
 
     TipoSenalController.$inject = ['$scope', '$state', 'TipoSenal', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EntityModalController', EntityModalController);
 
     EntityModalController.$inject = ['$timeout', '$scope', '$rootScope', '$stateParams', '$state', '$uibModalInstance', 'modalControllerConfig'];

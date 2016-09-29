@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('IndiceMortalidadDialogController', IndiceMortalidadDialogController);
 
     IndiceMortalidadDialogController.$inject = ['EntityDialogControllerFactory', '$scope', 'entity', 'IndiceMortalidad', 'Tramo', 'DateUtils'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('TipoIncidenteDialogController', TipoIncidenteDialogController);
 
     TipoIncidenteDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'TipoIncidente'];
@@ -16,7 +16,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:tipoIncidenteUpdate', result);
+            $scope.$emit('archinotesxApp:tipoIncidenteUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

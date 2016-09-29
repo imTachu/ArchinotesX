@@ -1,9 +1,9 @@
 {
   "generator-jhipster": {
     "jhipsterVersion": "3.1.0",
-    "baseName": "sicc",
-    "packageName": "com.proycomp.sicc",
-    "packageFolder": "com/proycomp/sicc",
+    "baseName": "archinotesx",
+    "packageName": "com.uniandes.thesis",
+    "packageFolder": "com/uniandes/thesis",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "hibernateCache": "ehcache",

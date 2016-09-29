@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('AuditsService', AuditsService);
 
     AuditsService.$inject = ['$resource'];

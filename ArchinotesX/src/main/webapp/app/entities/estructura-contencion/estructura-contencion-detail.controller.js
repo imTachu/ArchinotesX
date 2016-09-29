@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstructuraContencionDetailController', EstructuraContencionDetailController);
 
     EstructuraContencionDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'EstructuraContencion', 'Tramo'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.estructuraContencion = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:estructuraContencionUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:estructuraContencionUpdate', function(event, result) {
             vm.estructuraContencion = result;
         });
         $scope.$on('$destroy', unsubscribe);

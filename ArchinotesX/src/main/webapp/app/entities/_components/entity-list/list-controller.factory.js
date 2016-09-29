@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('EntityListControllerFactory', EntityListControllerFactory);
 
     EntityListControllerFactory.$inject = ['$state', 'ParseLinks', 'AlertService', 'paginationConstants', 'ENTITY_STATES'];

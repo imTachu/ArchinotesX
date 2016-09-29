@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('Principal', Principal);
 
     Principal.$inject = ['$q', 'Account'];

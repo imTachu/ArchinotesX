@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .directive('preventDrop', preventDrop);
 
     function preventDrop () {

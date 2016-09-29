@@ -17,23 +17,23 @@
             overflowToDisk="false"
             />
 
-    <cache name="com.proycomp.sicc.domain.User"
+    <cache name="com.uniandes.thesis.domain.User"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.proycomp.sicc.domain.Authority"
+    <cache name="com.uniandes.thesis.domain.Authority"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.proycomp.sicc.domain.User.authorities"
+    <cache name="com.uniandes.thesis.domain.User.authorities"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.proycomp.sicc.domain.PersistentToken"
+    <cache name="com.uniandes.thesis.domain.PersistentToken"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.proycomp.sicc.domain.User.persistentTokens"
+    <cache name="com.uniandes.thesis.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
     </ehcache>

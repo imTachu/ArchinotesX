@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('ArchivosListControllerFactory', ArchivosListControllerFactory);
 
     ArchivosListControllerFactory.$inject = ['$filter', 'EntityListControllerFactory', '$state', 'ENTITY_STATES'];

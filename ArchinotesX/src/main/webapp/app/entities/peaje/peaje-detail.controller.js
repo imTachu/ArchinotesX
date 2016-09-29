@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('PeajeDetailController', PeajeDetailController);
 
     PeajeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Peaje', 'Tramo'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.peaje = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:peajeUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:peajeUpdate', function(event, result) {
             vm.peaje = result;
         });
         $scope.$on('$destroy', unsubscribe);

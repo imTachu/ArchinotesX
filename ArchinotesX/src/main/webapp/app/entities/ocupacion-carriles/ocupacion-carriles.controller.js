@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('OcupacionCarrilesController', OcupacionCarrilesController);
 
     OcupacionCarrilesController.$inject = ['$filter', 'EntityListControllerFactory', '$scope', 'pagingParams', 'OcupacionCarriles'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('FactorClimatologicoDetailController', FactorClimatologicoDetailController);
 
     FactorClimatologicoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'FactorClimatologico'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.factorClimatologico = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:factorClimatologicoUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:factorClimatologicoUpdate', function(event, result) {
             vm.factorClimatologico = result;
         });
         $scope.$on('$destroy', unsubscribe);

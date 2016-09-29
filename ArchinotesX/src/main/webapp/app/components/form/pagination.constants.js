@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .constant('paginationConstants', {
             'itemsPerPage': 20
         });

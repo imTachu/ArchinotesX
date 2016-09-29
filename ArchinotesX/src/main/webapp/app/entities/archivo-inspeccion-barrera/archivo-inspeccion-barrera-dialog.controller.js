@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoInspeccionBarreraDialogController', ArchivoInspeccionBarreraDialogController);
 
     ArchivoInspeccionBarreraDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoInspeccionBarrera', 'EstadoBarreraContencion'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoInspeccionBarreraUpdate', result);
+            $scope.$emit('archinotesxApp:archivoInspeccionBarreraUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

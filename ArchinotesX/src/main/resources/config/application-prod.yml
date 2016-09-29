@@ -19,9 +19,9 @@ spring:
             enabled: false
     datasource:
         url: ${JDBC_CONNECTION_STRING}?useUnicode=true&characterEncoding=utf8&useSSL=false
-        name: SICC
-        username: SICC
-        password: SICCSICC
+        name: archinotesx
+        username: archinotesx
+        password: archinotesx
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -40,7 +40,7 @@ spring:
     mail:
         host: smtp.gmail.com
         port: 587
-        username: sicc.usercreator@gmail.com
+        username: archinotesx.usercreator@gmail.com
         password: AuGiNe_2016
         protocol: smtp
         tls: true
@@ -61,8 +61,8 @@ server:
         mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
 
 bucket:
-    name: sicc-prod
-    
+    name: archinotesx-prod
+
 # ===================================================================
 # JHipster specific properties
 # ===================================================================
@@ -76,7 +76,7 @@ jhipster:
         ehcache:
             maxBytesLocalHeap: 256M
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: sicc@localhost
+        from: archinotesx@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
@@ -87,7 +87,7 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: sicc
+            prefix: archinotesx
         logs: # report metrics in the logs
             enabled: false
             reportFrequency: 60 # in seconds

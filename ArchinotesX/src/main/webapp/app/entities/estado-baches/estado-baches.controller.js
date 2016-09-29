@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoBachesController', EstadoBachesController);
 
     EstadoBachesController.$inject = ['EstadosListControllerFactory', '$scope', 'pagingParams', 'EstadoBaches', 'inspeccionBaches'];

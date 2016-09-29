@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .factory('ArchivoInspeccionBarrera', ArchivoInspeccionBarrera);
 
     ArchivoInspeccionBarrera.$inject = ['$resource', 'DateUtils'];

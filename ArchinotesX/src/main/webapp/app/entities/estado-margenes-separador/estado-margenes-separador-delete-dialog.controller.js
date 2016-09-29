@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoMargenesSeparadorDeleteController',EstadoMargenesSeparadorDeleteController);
 
     EstadoMargenesSeparadorDeleteController.$inject = ['$uibModalInstance', 'entity', 'EstadoMargenesSeparador'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/user-management',
             data: {
                 authorities: ['ROLE_ADMIN'],
-                pageTitle: 'sicc'
+                pageTitle: 'archinotesx'
             },
             views: {
                 'content@': {
@@ -29,7 +29,7 @@
             url: '/user/:login',
             data: {
                 authorities: ['ROLE_ADMIN'],
-                pageTitle: 'sicc'
+                pageTitle: 'archinotesx'
             },
             views: {
                 'content@': {

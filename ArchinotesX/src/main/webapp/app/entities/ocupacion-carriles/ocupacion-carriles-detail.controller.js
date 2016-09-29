@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('OcupacionCarrilesDetailController', OcupacionCarrilesDetailController);
 
     OcupacionCarrilesDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'OcupacionCarriles'];
@@ -11,7 +11,7 @@
         var vm = this;
         vm.ocupacionCarriles = entity;
         
-        var unsubscribe = $rootScope.$on('siccApp:ocupacionCarrilesUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('archinotesxApp:ocupacionCarrilesUpdate', function(event, result) {
             vm.ocupacionCarriles = result;
         });
         $scope.$on('$destroy', unsubscribe);

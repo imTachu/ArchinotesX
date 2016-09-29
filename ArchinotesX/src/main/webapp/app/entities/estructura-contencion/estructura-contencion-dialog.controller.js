@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstructuraContencionDialogController', EstructuraContencionDialogController);
 
     EstructuraContencionDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'EstructuraContencion', 'Tramo'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:estructuraContencionUpdate', result);
+            $scope.$emit('archinotesxApp:estructuraContencionUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

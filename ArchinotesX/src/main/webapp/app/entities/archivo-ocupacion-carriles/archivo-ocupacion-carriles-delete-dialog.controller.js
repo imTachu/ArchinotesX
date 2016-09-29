@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoOcupacionCarrilesDeleteController',ArchivoOcupacionCarrilesDeleteController);
 
     ArchivoOcupacionCarrilesDeleteController.$inject = ['$uibModalInstance', 'entity', 'ArchivoOcupacionCarriles'];

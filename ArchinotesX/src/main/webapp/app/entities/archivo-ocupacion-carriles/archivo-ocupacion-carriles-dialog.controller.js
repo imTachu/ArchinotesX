@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('ArchivoOcupacionCarrilesDialogController', ArchivoOcupacionCarrilesDialogController);
 
     ArchivoOcupacionCarrilesDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ArchivoOcupacionCarriles', 'OcupacionCarriles'];
@@ -17,7 +17,7 @@
         });
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('siccApp:archivoOcupacionCarrilesUpdate', result);
+            $scope.$emit('archinotesxApp:archivoOcupacionCarrilesUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };

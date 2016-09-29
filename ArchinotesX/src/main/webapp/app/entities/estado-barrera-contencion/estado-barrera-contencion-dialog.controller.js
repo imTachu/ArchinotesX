@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .controller('EstadoBarreraContencionDialogController', EstadoBarreraContencionDialogController);
     EstadoBarreraContencionDialogController.$inject = ['DialogEstadosControllerFactory', '$scope', 'entity', 'EstadoBarreraContencion', 'inspeccionEntity', 'DateUtils', 'EstructuraContencion', 'TIPOS_ESTRUCTURAS_HIDRAULICAS', 'DialogKMAbscisaValidationImplement'];
 

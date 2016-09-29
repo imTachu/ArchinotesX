@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider', 'paginationConstants'];
@@ -185,7 +185,7 @@
                         controllerConfig:function(){
                             return new EntityFileUploadControllerConfig({
                                 resourceURL:'api/archivo-inspeccion-baches',
-                                uploadSuccessEventName:'siccApp:archivoInspeccionBachesUpdate',
+                                uploadSuccessEventName:'archinotesxApp:archivoInspeccionBachesUpdate',
                                 fileParamName:'archivo',
                                 requestParams:{
                                     idArchivo:"",

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .directive('indicadorCumple', indicadorCumple);
 
     function indicadorCumple () {

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('siccApp')
+        .module('archinotesxApp')
         .filter('hyphenToCamelCase', hyphenToCamelCase);
 
     function hyphenToCamelCase() {

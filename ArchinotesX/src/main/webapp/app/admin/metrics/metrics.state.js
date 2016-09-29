@@ -12,7 +12,7 @@
             parent: 'admin',
             url: '/metrics',
             data: {
-                authorities: ['ROLE_OPERADOR1','ROLE_OPERADOR2','ROLE_ADMIN', 'ROLE_SUPERVISOR', 'ROLE_INTERVENTOR', 'ROLE_CONSULTA_INTERVENTOR' ,'ROLE_CONSULTA_CONCESION'],
+                authorities: ['ROLE_REFERENCE_ARCHITECT','ROLE_SOLUTIONS_ARCHITECT'],
                 pageTitle: 'Application Metrics'
             },
             views: {

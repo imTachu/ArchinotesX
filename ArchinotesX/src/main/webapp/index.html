@@ -1,11 +1,12 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ArchinotesX</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Archinotes: An ArcOps framework">
+    <meta name="author" content="Lorena Salamanca, adapted from StartBootstrap">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
@@ -17,6 +18,9 @@
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
     <link rel="stylesheet" href="content/css/common.css">
+    <link rel="stylesheet" href="content/css/background.css">
+    <link rel="stylesheet" href="content/css/landing-page.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- endbuild -->
 </head>
 <body ng-app="archinotesxApp" prevent-drop>
@@ -32,16 +36,6 @@
                 <!--<div class="logos center-image">-->
         </div>
     </div>
-
-    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>-->
 
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->
@@ -91,333 +85,8 @@
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-incidente/vehiculo-de-apoyo-incidente-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-incidente/vehiculo-de-apoyo-incidente-detail.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-incidente/vehiculo-de-apoyo-incidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-incidente/vehiculo-de-apoyo-incidente.state.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-incidente/vehiculo-de-apoyo-incidente.service.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-incidente/vehiculo-de-apoyo-incidente.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-accidente/vehiculo-de-apoyo-accidente-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-accidente/vehiculo-de-apoyo-accidente-detail.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-accidente/vehiculo-de-apoyo-accidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-accidente/vehiculo-de-apoyo-accidente.state.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-accidente/vehiculo-de-apoyo-accidente.service.js"></script>
-    <script src="app/entities/vehiculo-de-apoyo-accidente/vehiculo-de-apoyo-accidente.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-incidente/vehiculo-afectado-en-incidente-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-incidente/vehiculo-afectado-en-incidente-detail.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-incidente/vehiculo-afectado-en-incidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-incidente/vehiculo-afectado-en-incidente.state.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-incidente/vehiculo-afectado-en-incidente.service.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-incidente/vehiculo-afectado-en-incidente.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-accidente/vehiculo-afectado-en-accidente-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-accidente/vehiculo-afectado-en-accidente-detail.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-accidente/vehiculo-afectado-en-accidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-accidente/vehiculo-afectado-en-accidente.state.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-accidente/vehiculo-afectado-en-accidente.service.js"></script>
-    <script src="app/entities/vehiculo-afectado-en-accidente/vehiculo-afectado-en-accidente.controller.js"></script>
-    <script src="app/entities/tramo/tramo-dialog.controller.js"></script>
-    <script src="app/entities/tramo/tramo-detail.controller.js"></script>
-    <script src="app/entities/tramo/tramo-delete-dialog.controller.js"></script>
-    <script src="app/entities/tramo/tramo.state.js"></script>
-    <script src="app/entities/tramo/tramo.service.js"></script>
-    <script src="app/entities/tramo/tramo.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-apoyo/tipo-vehiculo-apoyo-dialog.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-apoyo/tipo-vehiculo-apoyo-detail.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-apoyo/tipo-vehiculo-apoyo-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-apoyo/tipo-vehiculo-apoyo.state.js"></script>
-    <script src="app/entities/tipo-vehiculo-apoyo/tipo-vehiculo-apoyo.service.js"></script>
-    <script src="app/entities/tipo-vehiculo-apoyo/tipo-vehiculo-apoyo.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-afectado/tipo-vehiculo-afectado-dialog.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-afectado/tipo-vehiculo-afectado-detail.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-afectado/tipo-vehiculo-afectado-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-vehiculo-afectado/tipo-vehiculo-afectado.state.js"></script>
-    <script src="app/entities/tipo-vehiculo-afectado/tipo-vehiculo-afectado.service.js"></script>
-    <script src="app/entities/tipo-vehiculo-afectado/tipo-vehiculo-afectado.controller.js"></script>
-    <script src="app/entities/tipo-senal/tipo-senal-dialog.controller.js"></script>
-    <script src="app/entities/tipo-senal/tipo-senal-detail.controller.js"></script>
-    <script src="app/entities/tipo-senal/tipo-senal-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-senal/tipo-senal.state.js"></script>
-    <script src="app/entities/tipo-senal/tipo-senal.service.js"></script>
-    <script src="app/entities/tipo-senal/tipo-senal.controller.js"></script>
-    <script src="app/entities/tipo-novedad-accidente/tipo-novedad-accidente-dialog.controller.js"></script>
-    <script src="app/entities/tipo-novedad-accidente/tipo-novedad-accidente-detail.controller.js"></script>
-    <script src="app/entities/tipo-novedad-accidente/tipo-novedad-accidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-novedad-accidente/tipo-novedad-accidente.state.js"></script>
-    <script src="app/entities/tipo-novedad-accidente/tipo-novedad-accidente.service.js"></script>
-    <script src="app/entities/tipo-novedad-accidente/tipo-novedad-accidente.controller.js"></script>
-    <script src="app/entities/tipo-incidente/tipo-incidente-dialog.controller.js"></script>
-    <script src="app/entities/tipo-incidente/tipo-incidente-detail.controller.js"></script>
-    <script src="app/entities/tipo-incidente/tipo-incidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-incidente/tipo-incidente.state.js"></script>
-    <script src="app/entities/tipo-incidente/tipo-incidente.service.js"></script>
-    <script src="app/entities/tipo-incidente/tipo-incidente.controller.js"></script>
-    <script src="app/entities/tipo-afectacion-persona/tipo-afectacion-persona-dialog.controller.js"></script>
-    <script src="app/entities/tipo-afectacion-persona/tipo-afectacion-persona-detail.controller.js"></script>
-    <script src="app/entities/tipo-afectacion-persona/tipo-afectacion-persona-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-afectacion-persona/tipo-afectacion-persona.state.js"></script>
-    <script src="app/entities/tipo-afectacion-persona/tipo-afectacion-persona.service.js"></script>
-    <script src="app/entities/tipo-afectacion-persona/tipo-afectacion-persona.controller.js"></script>
-    <script src="app/entities/tipo-accidente/tipo-accidente-dialog.controller.js"></script>
-    <script src="app/entities/tipo-accidente/tipo-accidente-detail.controller.js"></script>
-    <script src="app/entities/tipo-accidente/tipo-accidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/tipo-accidente/tipo-accidente.state.js"></script>
-    <script src="app/entities/tipo-accidente/tipo-accidente.service.js"></script>
-    <script src="app/entities/tipo-accidente/tipo-accidente.controller.js"></script>
-    <script src="app/entities/persona-afectada-en-accidente/persona-afectada-en-accidente-dialog.controller.js"></script>
-    <script src="app/entities/persona-afectada-en-accidente/persona-afectada-en-accidente-detail.controller.js"></script>
-    <script src="app/entities/persona-afectada-en-accidente/persona-afectada-en-accidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/persona-afectada-en-accidente/persona-afectada-en-accidente.state.js"></script>
-    <script src="app/entities/persona-afectada-en-accidente/persona-afectada-en-accidente.service.js"></script>
-    <script src="app/entities/persona-afectada-en-accidente/persona-afectada-en-accidente.controller.js"></script>
-    <script src="app/entities/peaje/peaje-dialog.controller.js"></script>
-    <script src="app/entities/peaje/peaje-detail.controller.js"></script>
-    <script src="app/entities/peaje/peaje-delete-dialog.controller.js"></script>
-    <script src="app/entities/peaje/peaje.state.js"></script>
-    <script src="app/entities/peaje/peaje.service.js"></script>
-    <script src="app/entities/peaje/peaje.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles-detalle/ocupacion-carriles-detalle-dialog.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles-detalle/ocupacion-carriles-detalle-detail.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles-detalle/ocupacion-carriles-detalle-delete-dialog.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles-detalle/ocupacion-carriles-detalle.state.js"></script>
-    <script src="app/entities/ocupacion-carriles-detalle/ocupacion-carriles-detalle.service.js"></script>
-    <script src="app/entities/ocupacion-carriles-detalle/ocupacion-carriles-detalle.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles/ocupacion-carriles-dialog.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles/ocupacion-carriles-detail.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles/ocupacion-carriles-delete-dialog.controller.js"></script>
-    <script src="app/entities/ocupacion-carriles/ocupacion-carriles.state.js"></script>
-    <script src="app/entities/ocupacion-carriles/ocupacion-carriles.service.js"></script>
-    <script src="app/entities/ocupacion-carriles/ocupacion-carriles.controller.js"></script>
-    <script src="app/entities/medida-estado-senalizacion-h/medida-estado-senalizacion-h-dialog.controller.js"></script>
-    <script src="app/entities/medida-estado-senalizacion-h/medida-estado-senalizacion-h-detail.controller.js"></script>
-    <script src="app/entities/medida-estado-senalizacion-h/medida-estado-senalizacion-h-delete-dialog.controller.js"></script>
-    <script src="app/entities/medida-estado-senalizacion-h/medida-estado-senalizacion-h.state.js"></script>
-    <script src="app/entities/medida-estado-senalizacion-h/medida-estado-senalizacion-h.service.js"></script>
-    <script src="app/entities/medida-estado-senalizacion-h/medida-estado-senalizacion-h.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-v/inspeccion-senalizacion-v-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-v/inspeccion-senalizacion-v-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-v/inspeccion-senalizacion-v-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-v/inspeccion-senalizacion-v.state.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-v/inspeccion-senalizacion-v.service.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-v/inspeccion-senalizacion-v.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-h/inspeccion-senalizacion-h-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-h/inspeccion-senalizacion-h-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-h/inspeccion-senalizacion-h-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-h/inspeccion-senalizacion-h.state.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-h/inspeccion-senalizacion-h.service.js"></script>
-    <script src="app/entities/inspeccion-senalizacion-h/inspeccion-senalizacion-h.controller.js"></script>
-    <script src="app/entities/inspeccion-margenes-separador/inspeccion-margenes-separador-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-margenes-separador/inspeccion-margenes-separador-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-margenes-separador/inspeccion-margenes-separador-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-margenes-separador/inspeccion-margenes-separador.state.js"></script>
-    <script src="app/entities/inspeccion-margenes-separador/inspeccion-margenes-separador.service.js"></script>
-    <script src="app/entities/inspeccion-margenes-separador/inspeccion-margenes-separador.controller.js"></script>
-    <script src="app/entities/inspeccion-drenajes/inspeccion-drenajes-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-drenajes/inspeccion-drenajes-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-drenajes/inspeccion-drenajes-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-drenajes/inspeccion-drenajes.state.js"></script>
-    <script src="app/entities/inspeccion-drenajes/inspeccion-drenajes.service.js"></script>
-    <script src="app/entities/inspeccion-drenajes/inspeccion-drenajes.controller.js"></script>
-    <script src="app/entities/inspeccion-desportillamiento/inspeccion-desportillamiento-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-desportillamiento/inspeccion-desportillamiento-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-desportillamiento/inspeccion-desportillamiento-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-desportillamiento/inspeccion-desportillamiento.state.js"></script>
-    <script src="app/entities/inspeccion-desportillamiento/inspeccion-desportillamiento.service.js"></script>
-    <script src="app/entities/inspeccion-desportillamiento/inspeccion-desportillamiento.controller.js"></script>
-    <script src="app/entities/inspeccion-barrera-contencion/inspeccion-barrera-contencion-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-barrera-contencion/inspeccion-barrera-contencion-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-barrera-contencion/inspeccion-barrera-contencion-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-barrera-contencion/inspeccion-barrera-contencion.state.js"></script>
-    <script src="app/entities/inspeccion-barrera-contencion/inspeccion-barrera-contencion.service.js"></script>
-    <script src="app/entities/inspeccion-barrera-contencion/inspeccion-barrera-contencion.controller.js"></script>
-    <script src="app/entities/inspeccion-baches/inspeccion-baches-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-baches/inspeccion-baches-detail.controller.js"></script>
-    <script src="app/entities/inspeccion-baches/inspeccion-baches-delete-dialog.controller.js"></script>
-    <script src="app/entities/inspeccion-baches/inspeccion-baches.state.js"></script>
-    <script src="app/entities/inspeccion-baches/inspeccion-baches.service.js"></script>
-    <script src="app/entities/inspeccion-baches/inspeccion-baches.controller.js"></script>
-    <script src="app/entities/infraestructura-afectada/infraestructura-afectada-dialog.controller.js"></script>
-    <script src="app/entities/infraestructura-afectada/infraestructura-afectada-detail.controller.js"></script>
-    <script src="app/entities/infraestructura-afectada/infraestructura-afectada-delete-dialog.controller.js"></script>
-    <script src="app/entities/infraestructura-afectada/infraestructura-afectada.state.js"></script>
-    <script src="app/entities/infraestructura-afectada/infraestructura-afectada.service.js"></script>
-    <script src="app/entities/infraestructura-afectada/infraestructura-afectada.controller.js"></script>
-    <script src="app/entities/indice-mortalidad-detalle/indice-mortalidad-detalle-dialog.controller.js"></script>
-    <script src="app/entities/indice-mortalidad-detalle/indice-mortalidad-detalle-detail.controller.js"></script>
-    <script src="app/entities/indice-mortalidad-detalle/indice-mortalidad-detalle-delete-dialog.controller.js"></script>
-    <script src="app/entities/indice-mortalidad-detalle/indice-mortalidad-detalle.state.js"></script>
-    <script src="app/entities/indice-mortalidad-detalle/indice-mortalidad-detalle.service.js"></script>
-    <script src="app/entities/indice-mortalidad-detalle/indice-mortalidad-detalle.controller.js"></script>
-    <script src="app/entities/indice-mortalidad/indice-mortalidad-dialog.controller.js"></script>
-    <script src="app/entities/indice-mortalidad/indice-mortalidad-detail.controller.js"></script>
-    <script src="app/entities/indice-mortalidad/indice-mortalidad-delete-dialog.controller.js"></script>
-    <script src="app/entities/indice-mortalidad/indice-mortalidad.state.js"></script>
-    <script src="app/entities/indice-mortalidad/indice-mortalidad.service.js"></script>
-    <script src="app/entities/indice-mortalidad/indice-mortalidad.controller.js"></script>
-    <script src="app/entities/incidente/incidente-dialog.controller.js"></script>
-    <script src="app/entities/incidente/incidente-detail.controller.js"></script>
-    <script src="app/entities/incidente/incidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/incidente/incidente.state.js"></script>
-    <script src="app/entities/incidente/incidente.service.js"></script>
-    <script src="app/entities/incidente/incidente.controller.js"></script>
-    <script src="app/entities/factor-climatologico/factor-climatologico-dialog.controller.js"></script>
-    <script src="app/entities/factor-climatologico/factor-climatologico-detail.controller.js"></script>
-    <script src="app/entities/factor-climatologico/factor-climatologico-delete-dialog.controller.js"></script>
-    <script src="app/entities/factor-climatologico/factor-climatologico.state.js"></script>
-    <script src="app/entities/factor-climatologico/factor-climatologico.service.js"></script>
-    <script src="app/entities/factor-climatologico/factor-climatologico.controller.js"></script>
-    <script src="app/entities/estructura-hidraulica/estructura-hidraulica-dialog.controller.js"></script>
-    <script src="app/entities/estructura-hidraulica/estructura-hidraulica-detail.controller.js"></script>
-    <script src="app/entities/estructura-hidraulica/estructura-hidraulica-delete-dialog.controller.js"></script>
-    <script src="app/entities/estructura-hidraulica/estructura-hidraulica.state.js"></script>
-    <script src="app/entities/estructura-hidraulica/estructura-hidraulica.service.js"></script>
-    <script src="app/entities/estructura-hidraulica/estructura-hidraulica.controller.js"></script>
-    <script src="app/entities/estructura-contencion/estructura-contencion-dialog.controller.js"></script>
-    <script src="app/entities/estructura-contencion/estructura-contencion-detail.controller.js"></script>
-    <script src="app/entities/estructura-contencion/estructura-contencion-delete-dialog.controller.js"></script>
-    <script src="app/entities/estructura-contencion/estructura-contencion.state.js"></script>
-    <script src="app/entities/estructura-contencion/estructura-contencion.service.js"></script>
-    <script src="app/entities/estructura-contencion/estructura-contencion.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-v/estado-senalizacion-v-dialog.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-v/estado-senalizacion-v-detail.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-v/estado-senalizacion-v-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-v/estado-senalizacion-v.state.js"></script>
-    <script src="app/entities/estado-senalizacion-v/estado-senalizacion-v.service.js"></script>
-    <script src="app/entities/estado-senalizacion-v/estado-senalizacion-v.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-v/angulo-medicion-senalizacion-v.service.js"></script>
-    <script src="app/entities/estado-senalizacion-h/estado-senalizacion-h-dialog.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-h/estado-senalizacion-h-detail.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-h/estado-senalizacion-h-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-senalizacion-h/estado-senalizacion-h.state.js"></script>
-    <script src="app/entities/estado-senalizacion-h/estado-senalizacion-h.service.js"></script>
-    <script src="app/entities/estado-senalizacion-h/estado-senalizacion-h.controller.js"></script>
-    <script src="app/entities/estado-margenes-separador/estado-margenes-separador-dialog.controller.js"></script>
-    <script src="app/entities/estado-margenes-separador/estado-margenes-separador-detail.controller.js"></script>
-    <script src="app/entities/estado-margenes-separador/estado-margenes-separador-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-margenes-separador/estado-margenes-separador.state.js"></script>
-    <script src="app/entities/estado-margenes-separador/estado-margenes-separador.service.js"></script>
-    <script src="app/entities/estado-margenes-separador/estado-margenes-separador.controller.js"></script>
-    <script src="app/entities/estado-drenajes/estado-drenajes-dialog.controller.js"></script>
-    <script src="app/entities/estado-drenajes/estado-drenajes-detail.controller.js"></script>
-    <script src="app/entities/estado-drenajes/estado-drenajes-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-drenajes/estado-drenajes.state.js"></script>
-    <script src="app/entities/estado-drenajes/estado-drenajes.service.js"></script>
-    <script src="app/entities/estado-drenajes/estado-drenajes.controller.js"></script>
-    <script src="app/entities/estado-desportillamiento/estado-desportillamiento-dialog.controller.js"></script>
-    <script src="app/entities/estado-desportillamiento/estado-desportillamiento-detail.controller.js"></script>
-    <script src="app/entities/estado-desportillamiento/estado-desportillamiento-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-desportillamiento/estado-desportillamiento.state.js"></script>
-    <script src="app/entities/estado-desportillamiento/estado-desportillamiento.service.js"></script>
-    <script src="app/entities/estado-desportillamiento/estado-desportillamiento.controller.js"></script>
-    <script src="app/entities/estado-barrera-contencion/estado-barrera-contencion-dialog.controller.js"></script>
-    <script src="app/entities/estado-barrera-contencion/estado-barrera-contencion-detail.controller.js"></script>
-    <script src="app/entities/estado-barrera-contencion/estado-barrera-contencion-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-barrera-contencion/estado-barrera-contencion.state.js"></script>
-    <script src="app/entities/estado-barrera-contencion/estado-barrera-contencion.service.js"></script>
-    <script src="app/entities/estado-barrera-contencion/estado-barrera-contencion.controller.js"></script>
-    <script src="app/entities/estado-baches/estado-baches-dialog.controller.js"></script>
-    <script src="app/entities/estado-baches/estado-baches-detail.controller.js"></script>
-    <script src="app/entities/estado-baches/estado-baches-delete-dialog.controller.js"></script>
-    <script src="app/entities/estado-baches/estado-baches.state.js"></script>
-    <script src="app/entities/estado-baches/estado-baches.service.js"></script>
-    <script src="app/entities/estado-baches/estado-baches.controller.js"></script>
     <script src="app/entities/entity.state.js"></script>
     <script src="app/entities/entity.constants.js"></script>
-    <script src="app/entities/cola-peaje-detalle/cola-peaje-detalle-dialog.controller.js"></script>
-    <script src="app/entities/cola-peaje-detalle/cola-peaje-detalle-detail.controller.js"></script>
-    <script src="app/entities/cola-peaje-detalle/cola-peaje-detalle-delete-dialog.controller.js"></script>
-    <script src="app/entities/cola-peaje-detalle/cola-peaje-detalle.state.js"></script>
-    <script src="app/entities/cola-peaje-detalle/cola-peaje-detalle.service.js"></script>
-    <script src="app/entities/cola-peaje-detalle/cola-peaje-detalle.controller.js"></script>
-    <script src="app/entities/cola-peaje/cola-peaje-dialog.controller.js"></script>
-    <script src="app/entities/cola-peaje/cola-peaje-detail.controller.js"></script>
-    <script src="app/entities/cola-peaje/cola-peaje-delete-dialog.controller.js"></script>
-    <script src="app/entities/cola-peaje/cola-peaje.state.js"></script>
-    <script src="app/entities/cola-peaje/cola-peaje.service.js"></script>
-    <script src="app/entities/cola-peaje/cola-peaje.controller.js"></script>
-    <script src="app/entities/centro-medico/centro-medico-dialog.controller.js"></script>
-    <script src="app/entities/centro-medico/centro-medico-detail.controller.js"></script>
-    <script src="app/entities/centro-medico/centro-medico-delete-dialog.controller.js"></script>
-    <script src="app/entities/centro-medico/centro-medico.state.js"></script>
-    <script src="app/entities/centro-medico/centro-medico.service.js"></script>
-    <script src="app/entities/centro-medico/centro-medico.controller.js"></script>
-    <script src="app/entities/causa-incidente/causa-incidente-dialog.controller.js"></script>
-    <script src="app/entities/causa-incidente/causa-incidente-detail.controller.js"></script>
-    <script src="app/entities/causa-incidente/causa-incidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/causa-incidente/causa-incidente.state.js"></script>
-    <script src="app/entities/causa-incidente/causa-incidente.service.js"></script>
-    <script src="app/entities/causa-incidente/causa-incidente.controller.js"></script>
-    <script src="app/entities/causa-accidente/causa-accidente-dialog.controller.js"></script>
-    <script src="app/entities/causa-accidente/causa-accidente-detail.controller.js"></script>
-    <script src="app/entities/causa-accidente/causa-accidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/causa-accidente/causa-accidente.state.js"></script>
-    <script src="app/entities/causa-accidente/causa-accidente.service.js"></script>
-    <script src="app/entities/causa-accidente/causa-accidente.controller.js"></script>
-    <script src="app/entities/archivo-ocupacion-carriles/archivo-ocupacion-carriles-dialog.controller.js"></script>
-    <script src="app/entities/archivo-ocupacion-carriles/archivo-ocupacion-carriles-detail.controller.js"></script>
-    <script src="app/entities/archivo-ocupacion-carriles/archivo-ocupacion-carriles-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-ocupacion-carriles/archivo-ocupacion-carriles.state.js"></script>
-    <script src="app/entities/archivo-ocupacion-carriles/archivo-ocupacion-carriles.service.js"></script>
-    <script src="app/entities/archivo-ocupacion-carriles/archivo-ocupacion-carriles.controller.js"></script>
-    <script src="app/entities/archivo-margenes-separador/archivo-margenes-separador-dialog.controller.js"></script>
-    <script src="app/entities/archivo-margenes-separador/archivo-margenes-separador-detail.controller.js"></script>
-    <script src="app/entities/archivo-margenes-separador/archivo-margenes-separador-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-margenes-separador/archivo-margenes-separador.state.js"></script>
-    <script src="app/entities/archivo-margenes-separador/archivo-margenes-separador.service.js"></script>
-    <script src="app/entities/archivo-margenes-separador/archivo-margenes-separador.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-v/archivo-inspeccion-senalizacion-v-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-v/archivo-inspeccion-senalizacion-v-detail.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-v/archivo-inspeccion-senalizacion-v-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-v/archivo-inspeccion-senalizacion-v.state.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-v/archivo-inspeccion-senalizacion-v.service.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-v/archivo-inspeccion-senalizacion-v.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-h/archivo-inspeccion-senalizacion-h-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-h/archivo-inspeccion-senalizacion-h-detail.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-h/archivo-inspeccion-senalizacion-h-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-h/archivo-inspeccion-senalizacion-h.state.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-h/archivo-inspeccion-senalizacion-h.service.js"></script>
-    <script src="app/entities/archivo-inspeccion-senalizacion-h/archivo-inspeccion-senalizacion-h.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-drenajes/archivo-inspeccion-drenajes-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-drenajes/archivo-inspeccion-drenajes-detail.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-drenajes/archivo-inspeccion-drenajes-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-drenajes/archivo-inspeccion-drenajes.state.js"></script>
-    <script src="app/entities/archivo-inspeccion-drenajes/archivo-inspeccion-drenajes.service.js"></script>
-    <script src="app/entities/archivo-inspeccion-drenajes/archivo-inspeccion-drenajes.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-desportillamiento/archivo-inspeccion-desportillamiento-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-desportillamiento/archivo-inspeccion-desportillamiento-detail.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-desportillamiento/archivo-inspeccion-desportillamiento-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-desportillamiento/archivo-inspeccion-desportillamiento.state.js"></script>
-    <script src="app/entities/archivo-inspeccion-desportillamiento/archivo-inspeccion-desportillamiento.service.js"></script>
-    <script src="app/entities/archivo-inspeccion-desportillamiento/archivo-inspeccion-desportillamiento.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-barrera/archivo-inspeccion-barrera-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-barrera/archivo-inspeccion-barrera-detail.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-barrera/archivo-inspeccion-barrera-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-barrera/archivo-inspeccion-barrera.state.js"></script>
-    <script src="app/entities/archivo-inspeccion-barrera/archivo-inspeccion-barrera.service.js"></script>
-    <script src="app/entities/archivo-inspeccion-barrera/archivo-inspeccion-barrera.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-baches/archivo-inspeccion-baches-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-baches/archivo-inspeccion-baches-detail.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-baches/archivo-inspeccion-baches-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-inspeccion-baches/archivo-inspeccion-baches.state.js"></script>
-    <script src="app/entities/archivo-inspeccion-baches/archivo-inspeccion-baches.service.js"></script>
-    <script src="app/entities/archivo-inspeccion-baches/archivo-inspeccion-baches.controller.js"></script>
-    <script src="app/entities/archivo-indice-mortalidad/archivo-indice-mortalidad-dialog.controller.js"></script>
-    <script src="app/entities/archivo-indice-mortalidad/archivo-indice-mortalidad-detail.controller.js"></script>
-    <script src="app/entities/archivo-indice-mortalidad/archivo-indice-mortalidad-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-indice-mortalidad/archivo-indice-mortalidad.state.js"></script>
-    <script src="app/entities/archivo-indice-mortalidad/archivo-indice-mortalidad.service.js"></script>
-    <script src="app/entities/archivo-indice-mortalidad/archivo-indice-mortalidad.controller.js"></script>
-    <script src="app/entities/archivo-incidente/archivo-incidente-dialog.controller.js"></script>
-    <script src="app/entities/archivo-incidente/archivo-incidente-detail.controller.js"></script>
-    <script src="app/entities/archivo-incidente/archivo-incidente-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-incidente/archivo-incidente.state.js"></script>
-    <script src="app/entities/archivo-incidente/archivo-incidente.service.js"></script>
-    <script src="app/entities/archivo-incidente/archivo-incidente.controller.js"></script>
-    <script src="app/entities/archivo-cola-peaje/archivo-cola-peaje-dialog.controller.js"></script>
-    <script src="app/entities/archivo-cola-peaje/archivo-cola-peaje-detail.controller.js"></script>
-    <script src="app/entities/archivo-cola-peaje/archivo-cola-peaje-delete-dialog.controller.js"></script>
-    <script src="app/entities/archivo-cola-peaje/archivo-cola-peaje.state.js"></script>
-    <script src="app/entities/archivo-cola-peaje/archivo-cola-peaje.service.js"></script>
-    <script src="app/entities/archivo-cola-peaje/archivo-cola-peaje.controller.js"></script>
     <script src="app/entities/archivo-accidente/archivo-accidente-dialog.controller.js"></script>
     <script src="app/entities/archivo-accidente/archivo-accidente-detail.controller.js"></script>
     <script src="app/entities/archivo-accidente/archivo-accidente-delete-dialog.controller.js"></script>
@@ -507,7 +176,6 @@
     <script src="app/admin/health/health.service.js"></script>
     <script src="app/admin/health/health.modal.controller.js"></script>
     <script src="app/admin/health/health.controller.js"></script>
-    <script src="app/admin/docs/docs.state.js"></script>
     <script src="app/admin/configuration/configuration.state.js"></script>
     <script src="app/admin/configuration/configuration.service.js"></script>
     <script src="app/admin/configuration/configuration.controller.js"></script>
@@ -532,5 +200,34 @@
     <!-- endinject -->
     <!-- endbuild -->
 
+    <script src="content/js/typed.min.js"></script>
+    <script>
+        $(function () {
+            $("#typed").typed({
+                stringsElement: $('#typed-string'),
+                typeSpeed: 70,
+                backDelay: 800,
+                loop: true,
+                contentType: 'html',
+                loopCount: false,
+                callback: function () {
+                    foo();
+                },
+                resetCallback: function () {
+                    newTyped();
+                }
+            });
+            $(".reset").click(function () {
+                $("#typed").typed('reset');
+            });
+        });
+
+        function newTyped() {
+        }
+
+        function foo() {
+            console.log("Callback");
+        }
+    </script>
 </body>
 </html>

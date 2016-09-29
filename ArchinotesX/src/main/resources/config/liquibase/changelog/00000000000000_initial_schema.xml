@@ -172,7 +172,7 @@
             <column name="db_name" type="varchar(512)">
                 <constraints nullable="false"/>
             </column>
-            <column name="uesrname" type="varchar(512)">
+            <column name="username" type="varchar(512)">
                 <constraints nullable="false"/>
             </column>
             <column name="password" type="varchar(512)">

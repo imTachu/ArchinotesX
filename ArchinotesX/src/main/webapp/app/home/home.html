@@ -1,33 +1,47 @@
 <div ng-cloak>
     <div class="row">
         <div class="col-md-5">
-            <br><br><br>
-            <h1 align="center">ArchinotesX</h1>
-            <!--<p class="lead" align="center">Este es su sistema de información <br> para operación y mantenimiento vial</p>-->
+            <div ng-switch="!vm.isAuthenticated()" class="intro-header">
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+                <div class="clouds"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="intro-message">
+                                <h1><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;ArchinotesX</h1>
+                                <div class="type-wrap">
+                                    <h3>An ArcOps framework for every software
+                                        <div id="typed-string">
+                                            <p>architect.</p>
+                                            <p>team.</p>
+                                            <p>project.</p>
+                                        </div>
+                                        <span id="typed" style="white-space:pre;"></span>
+                                    </h3>
+                                </div>
+                                <hr class="intro-divider">
+                                <ul class="list-inline intro-social-buttons">
+                                    <li>
+                                        <a href="https://github.com/imTachu/ArchinotesX" class="btn btn-default btn-lg"><i
+                                            class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div ng-switch="vm.isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true">
+                    <br><br><br>
+                    <h1 align="center">ArchinotesX</h1>
                     Ha iniciado sesión como "{{vm.account.login}}".
                 </div>
-                <!--<div class="alert alert-warning" ng-switch-when="false">
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>-->
-
-                <!--<div class="alert alert-warning" ng-switch-when="false">
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
-                </div>-->
             </div>
-            <!--<p align="center">-->
-                <!--Aquí podrá realizar las siguientes acciones-->
-            <!--</p>-->
-            <!--<p align="center">-->
-                <!--&lt;!&ndash;<a href="#" target="_blank">&ndash;&gt;Realizar reportes de incidentes&lt;!&ndash;</a>&ndash;&gt;<br>-->
-                <!--&lt;!&ndash;<a href="#" target="_blank">&ndash;&gt;Realizar reportes de accidentes&lt;!&ndash;</a>&ndash;&gt;<br>-->
-                <!--&lt;!&ndash;<a href="#" target="_blank">&ndash;&gt;Realizar seguimiento a eventos&lt;!&ndash;</a>&ndash;&gt;<br>-->
-                <!--&lt;!&ndash;<a href="#" target="_blank">&ndash;&gt;Extraer indicadores de desempeño&lt;!&ndash;</a>&ndash;&gt;<br>-->
-            <!--</p>-->
         </div>
-        <div class="col-md-7" >
+        <!--<div class="col-md-7" >
             <span class="avenue img-responsive img-rounded"></span>
-        </div>
+        </div>-->
     </div>
 </div>

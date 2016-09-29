@@ -4,7 +4,7 @@
     <div class="container-fluid"  ng-if="isEditableList">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-warning" ng-click="vm.goToListItemCreate()" >
+                <button class="btn btn-success" ng-click="vm.goToListItemCreate()" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
                         {{vm.getCreateBtnLabel()}}
@@ -23,17 +23,7 @@
         <uib-pagination total-items="vm.totalItems" ng-change="vm.loadPage(vm.page)" ng-model='vm.page' class="pagination-sm" items-per-page='vm.itemsPerPage' boundary-links="true" max-size="5" />
         <div class="row">
             <div class="col-xs-12">
-                <p class="report__paginationText">Página {{vm.page}} de {{vm.numberOfPages}}</p>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{vm.itemsPerPage}} ítems por página <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="node-link" ng-click="vm.changeItemsPerPage(20)">20 ítems por página</a></li>
-                        <li><a class="node-link" ng-click="vm.changeItemsPerPage(50)">50 ítems por página</a></li>
-                        <li><a class="node-link" ng-click="vm.changeItemsPerPage(100)">100 ítems por página</a></li>
-                    </ul>
-                </div>
+                <p class="report__paginationText">Page {{vm.page}} of {{vm.numberOfPages}}</p>
             </div>
         </div>
     </div>

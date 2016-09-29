@@ -10,50 +10,50 @@
     function AccidenteController ($filter, EntityListControllerFactory, $scope, pagingParams, Accidente) {
         var EntityListController=EntityListControllerFactory.create($scope, pagingParams, Accidente);
         var controller=new EntityListController({
-            title:"Accidentes",
+            title:"SQL Datasources",
             entityName:"accidente",
             sortable:true,
             getColumnsConfig:function(controller){
                 return {
                     fields:[
                         {
-                            sortBy:'id', 
-                            label:"ID", 
+                            sortBy:'id',
+                            label:"ID",
                             value:function(item){
                                 return item.id;
                             }
                         },
                         {
-                            sortBy:'fechaRecepcionLlamada', 
-                            label:"Hora de recepción de llamada", 
+                            sortBy:'host',
+                            label:"Host",
                             value:function(item){
-                                return $filter('date')(item.fechaRecepcionLlamada, 'medium');
+                                return $filter('date')(item.host, 'medium');
                             }
                         },
                         {
-                            sortBy:'estado', 
-                            label:"Estado", 
+                            sortBy:'estado',
+                            label:"Estado",
                             value:function(item){
                                 return item.estado;
                             }
                         },
                         {
-                            sortBy:'causaDeAccidente.causaAccidente', 
-                            label:"Posible causa", 
+                            sortBy:'causaDeAccidente.causaAccidente',
+                            label:"Posible causa",
                             value:function(item){
                                 return item.causaDeAccidente && item.causaDeAccidente.causaAccidente;
                             }
                         },
                         {
-                            sortBy:'tipoDeAccidente.tipoAccidente', 
-                            label:"Tipo de accidente", 
+                            sortBy:'tipoDeAccidente.tipoAccidente',
+                            label:"Tipo de accidente",
                             value:function(item){
                                 return item.tipoDeAccidente && item.tipoDeAccidente.tipoAccidente;
                             }
                         },
                         {
-                            sortBy:'tramoDeAccidente.nombreTramo', 
-                            label:"Tramo", 
+                            sortBy:'tramoDeAccidente.nombreTramo',
+                            label:"Tramo",
                             value:function(item){
                                 return item.tramoDeAccidente && item.tramoDeAccidente.nombreTramo;
                             },
@@ -61,7 +61,7 @@
                                 return{
                                     state:'tramo-detail',
                                     stateParams:{id:item.tramoDeAccidente.id}
-                                };   
+                                };
                             }
                         }
                     ],
@@ -70,7 +70,7 @@
                             state:'accidente-detail',
                             stateParams:{id:item.id},
                             roles:'ROLE_SUPERVISOR'
-                        };   
+                        };
                     },
                     editLink:function(item){
                         return{
@@ -79,7 +79,7 @@
                             isDisabled:function(){
                                 return controller.isFinalizedEntity(item);
                             }
-                        };   
+                        };
                     }
                 };
             }

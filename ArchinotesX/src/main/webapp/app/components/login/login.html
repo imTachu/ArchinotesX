@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
             <div class="alert alert-danger" ng-show="vm.authenticationError">
-                <strong>¡Fallo la autenticación!</strong> Por favor verifique sus credenciales e intente nuevamente.
+                <strong>Authentication failed!</strong> Please verify your credentials and try again
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
@@ -24,21 +24,9 @@
                     <input type="password" class="form-control" id="password" placeholder="Password"
                            ng-model="vm.password">
                 </div>
-                <!--<div class="form-group">
-                    <label for="rememberMe">
-                        <input type="checkbox" id="rememberMe" ng-model="vm.rememberMe" checked>
-                        <span>Remember me</span>
-                    </label>
-                </div>-->
                 <button type="submit" class="btn btn-primary">Log in</button>
             </form>
             <p></p>
-            <!--<div class="alert alert-warning">
-                <a class="alert-link" href="" ng-click="vm.requestResetPassword()">Did you forget your password?</a>
-            </div>
-            <div class="alert alert-warning">
-                You don't have an account yet? <a class="alert-link" href="" ng-click="vm.register()">Register a new account</a>
-            </div>-->
         </div>
     </div>
 </div>

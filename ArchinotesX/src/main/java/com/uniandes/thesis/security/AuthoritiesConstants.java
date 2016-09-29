@@ -10,7 +10,7 @@ public final class AuthoritiesConstants {
     /**
      * Roles Concesión
      */
-    public static final String OPERADOR1 = "ROLE_OPERADOR1";
+    public static final String OPERADOR1 = "ROLE_REFERENCE_ARCHITECT";
     public static final String OPERADOR2 = "ROLE_OPERADOR2";
     public static final String CONSULTA_CONCESION = "ROLE_CONSULTA_CONCESION";
     public static final String SUPERVISOR = "ROLE_SUPERVISOR";

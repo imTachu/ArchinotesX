@@ -11,7 +11,7 @@
             var defaultOptions={
                 title:"Entities List",
                 entityName:'entity',
-                listItemCreateBtnLabel:"Registrar",
+                listItemCreateBtnLabel:"Create",
                 templateURLUIList:"",
                 withBackButton:false,
                 sortable:true,
@@ -20,8 +20,8 @@
             };
             var controllerOptions=angular.extend(defaultOptions, customOptions || {});
             function EntityListController(instanceOptions){
-                
-                
+
+
 
                 var vm = this; //TODO encapsular metodos y props para no sobrecargar el scope en el controller
                 vm.loadPage = vm.loadPageAt;
@@ -35,7 +35,7 @@
 
                 var allOptions=angular.extend(controllerOptions, instanceOptions || {});
                 vm.getOptions=function(){
-                    return allOptions;   
+                    return allOptions;
                 };
 
                 vm.postConstructor();
@@ -45,7 +45,7 @@
 
             EntityListController.prototype={
                 postConstructor:function(){
-                    
+
                 },
                 getTitle:function(){
                     return this.getOptions().title;
@@ -63,12 +63,12 @@
                         requiredParams[paramParentEntityName]=parentEntityInstance.id;
 
                     var extraParams=this.addExtraQueryAllReqParams(requiredParams);
-                    
+
                     return angular.extend(requiredParams, extraParams || {});
                 },
                 addExtraQueryAllReqParams:function(requiredParams){
                     return {
-                        
+
                     };
                 },
                 preLoadAllRequest:function(){
@@ -121,14 +121,14 @@
                     var isInstanceFinalized=entity.estado && entity.estado===ENTITY_STATES.FINISH_STATE;
                     if(parentEntityInstance){
                         var isParentFinalized=parentEntityInstance.estado && parentEntityInstance.estado===ENTITY_STATES.FINISH_STATE;
-                        return isParentFinalized || isInstanceFinalized;    
+                        return isParentFinalized || isInstanceFinalized;
                     }
                     return isInstanceFinalized;
                 },
                 isEditableList:function(){
                     if(parentEntityInstance){
                         var isParentFinalized=parentEntityInstance.estado && parentEntityInstance.estado===ENTITY_STATES.FINISH_STATE;
-                        return !isParentFinalized;    
+                        return !isParentFinalized;
                     }
                     return true;
                 },
@@ -143,7 +143,7 @@
 
                 getCreateBtnLabel:function(){
                     return this.getOptions().listItemCreateBtnLabel;
-                }, 
+                },
 
                 getUIListTemplateURL:function(){
                     var options=this.getOptions();

@@ -58,7 +58,7 @@
             parent: 'entity',
             url: '/accidente/{id}',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR'],
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR'],
                 pageTitle: 'Accidente'
             },
             views: {
@@ -77,7 +77,7 @@
         .state('accidente.modal', {
             parent: 'accidente',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
             },
             abstract: true,
             onEnter: ['$stateParams', '$state', '$uibModal', 'EntityModalControllerConfig', function($stateParams, $state, $uibModal, EntityModalControllerConfig){
@@ -108,7 +108,7 @@
             parent: 'accidente.modal',
             url: '/new',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
             },
             views: {
                 'dialog-content@': {
@@ -153,7 +153,7 @@
             parent: 'accidente.modal',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
             },
             views: {
                 'dialog-content@': {
@@ -175,7 +175,7 @@
         //     parent: 'accidente',
         //     url: '/{id}/delete',
         //     data: {
-        //         authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+        //         authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
         //     },
         //     onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
         //         $uibModal.open({
@@ -199,7 +199,7 @@
             parent: 'accidente.edit',
             url: '/confirmacion',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR'],
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR'],
                 pageTitle: 'Accidente'
             },
             views: {

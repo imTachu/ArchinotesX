@@ -54,13 +54,3 @@ jhipster:
                 secret: 3b666e9dfcb4b79c5afab5ab57fc4f29da68db4a
                 # Token is valid 24 hours
                 tokenValidityInSeconds: 3600
-    swagger:
-        title: archinotesx API
-        description: archinotesx API documentation
-        version: 0.0.1
-        termsOfServiceUrl:
-        contactName:
-        contactUrl:
-        contactEmail:
-        license:
-        licenseUrl:

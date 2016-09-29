@@ -13,7 +13,7 @@
             parent: 'accidente.edit',
             url: '/archivo?filesPage&filesSort&filesSearch&filesCount',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR'],
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR'],
                 pageTitle: 'Archivos del accidente'
             },
             ncyBreadcrumb: {
@@ -67,7 +67,7 @@
         //     parent: 'entity',
         //     url: '/archivo-accidente/{id_archivo}',
         //     data: {
-        //         authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR'],
+        //         authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR'],
         //         pageTitle: 'ArchivoAccidente'
         //     },
         //     views: {
@@ -87,7 +87,7 @@
         //     parent: 'archivo-accidente',
         //     url: '/new',
         //     data: {
-        //         authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+        //         authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
         //     },
         //     views: {
         //         'accidente-dialog-content@':{
@@ -118,7 +118,7 @@
         //     parent: 'archivo-accidente',
         //     url: '/{id_archivo}/edit',
         //     data: {
-        //         authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+        //         authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
         //     },
         //     views: {
         //         'accidente-dialog-content@':{
@@ -140,7 +140,7 @@
             parent: 'archivo-accidente',
             url: '/{id_archivo}/delete',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', 'archivosListListener', function($stateParams, $state, $uibModal, archivosListListener) {
                 $uibModal.open({
@@ -166,7 +166,7 @@
             parent: 'archivo-accidente',
             url: '/upload-file',
             data: {
-                authorities: ['ROLE_OPERADOR1', 'ROLE_SUPERVISOR']
+                authorities: ['ROLE_REFERENCE_ARCHITECT', 'ROLE_SUPERVISOR']
             },
             onEnter: ['entity', '$stateParams', '$state', '$uibModal', 'ENTITY_STATES', '$rootScope', 'archivosListListener', 'EntityFileUploadControllerConfig', function(entity, $stateParams, $state, $uibModal, ENTITY_STATES, $rootScope, archivosListListener, EntityFileUploadControllerConfig){
 

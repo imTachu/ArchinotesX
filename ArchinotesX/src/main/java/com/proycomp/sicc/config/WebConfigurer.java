@@ -46,7 +46,7 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         log.info("Web application configuration, using profiles: {}", Arrays.toString(env.getActiveProfiles()));
         EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ASYNC);
         initMetrics(servletContext, disps);
-        if (env.acceptsProfiles(Constants.SPRING_PROFILE_PRODUCTION, Constants.SPRING_PROFILE_TEST)) {
+        if (env.acceptsProfiles(Constants.SPRING_PROFILE_PRODUCTION)) {
             initCachingHttpHeadersFilter(servletContext, disps);
         }
         log.info("Web application fully configured");
@@ -67,7 +67,7 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
 
         // When running in an IDE or with ./mvnw spring-boot:run, set location of the static web assets.
         File root;
-        if (env.acceptsProfiles(Constants.SPRING_PROFILE_PRODUCTION, Constants.SPRING_PROFILE_TEST)) {
+        if (env.acceptsProfiles(Constants.SPRING_PROFILE_PRODUCTION)) {
             root = new File("target/www/");
         } else {
             root = new File("src/main/webapp/");

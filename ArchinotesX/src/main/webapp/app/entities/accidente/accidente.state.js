@@ -24,7 +24,7 @@
                 }
             },
             ncyBreadcrumb: {
-                skip: true // Never display this state in breadcrumb.
+                skip: true
             },
             params: {
                 page: {

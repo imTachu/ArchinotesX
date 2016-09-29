@@ -162,7 +162,7 @@
                     }
                 },
                 ncyBreadcrumb: {
-                    label: 'Editar sqldatasource'
+                    label: 'Edit a SQL Datasource'
                 },
                 resolve: {
                     entity: ['$stateParams', 'SQLDatasource', function ($stateParams, SQLDatasource) {

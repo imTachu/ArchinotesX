@@ -1,562 +1,79 @@
-        <!--<div class="form-group" ng-show="vm.sqldatasource.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.sqldatasource.id" readonly />
-        </div>-->
-        <!--
-        <div class="form-group">
-            <label class="control-label" for="field_fechaRecepcionLlamada">Fecha Recepcion Llamada</label>
-                <div class="input-group">
-                    <input id="field_fechaRecepcionLlamada" type="text" class="form-control" name="fechaRecepcionLlamada" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaRecepcionLlamada" is-open="vm.datePickerOpenStatus.fechaRecepcionLlamada"
-                      />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaRecepcionLlamada')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-        </div>
-        -->
+<div class="alert alert-info" ng-if="vm.sqldatasource.id">
+    Hora de recepción de la llamada:
+    <strong>{{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}</strong>
+</div>
 
-        <div class="alert alert-info" ng-if="vm.sqldatasource.id">
-            Hora de recepción de la llamada:
-            <strong>{{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}</strong>
-        </div>
-
-        <h4>Clasificación del sqldatasource:</h4>
-        <div class="entity-section-form-group">
-
-            <div class="row">
-                <div class="form-group col-md-3 col-sm-6"
-                    ng-class="{'has-error':editForm.tipoDeSQLDatasource.$invalid}">
-                    <label for="field_tipoDeSQLDatasource">Tipo de sqldatasource</label>
-                    <select required class="form-control" id="field_tipoDeSQLDatasource" name="tipoDeSQLDatasource" ng-model="vm.sqldatasource.tipoDeSQLDatasource" ng-options="TipoSQLDatasource as TipoSQLDatasource.tipoSQLDatasource for TipoSQLDatasource in vm.tiposqldatasources track by TipoSQLDatasource.id"
-                    >
-                        <option value=""></option>
-                    </select>
-                    <div ng-show="editForm.tipoDeSQLDatasource.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.tipoDeSQLDatasource.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.causaDeSQLDatasource.$invalid}">
-                    <label for="field_causaDeSQLDatasource">Posible causa</label>
-                    <select class="form-control" id="field_causaDeSQLDatasource" name="causaDeSQLDatasource" ng-model="vm.sqldatasource.causaDeSQLDatasource" ng-options="CausaSQLDatasource as CausaSQLDatasource.causaSQLDatasource for CausaSQLDatasource in vm.causasqldatasources track by CausaSQLDatasource.id">
-                        <option value=""></option>
-                    </select>
-                    <div ng-show="editForm.causaDeSQLDatasource.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.causaDeSQLDatasource.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                    </div>
-                </div>
-                <div class="clearfix hidden-md hidden-lg"></div>
-                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.climaEnSQLDatasource.$invalid}">
-                    <label for="field_climaEnSQLDatasource">Factores climatológicos</label>
-                    <select class="form-control" id="field_climaEnSQLDatasource" name="climaEnSQLDatasource" ng-model="vm.sqldatasource.climaEnSQLDatasource" ng-options="FactorClimatologico as FactorClimatologico.condicionClima for FactorClimatologico in vm.factorclimatologicos track by FactorClimatologico.id">
-                        <option value=""></option>
-                    </select>
-                    <div ng-show="editForm.climaEnSQLDatasource.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.climaEnSQLDatasource.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group col-md-3 col-sm-6" ng-class="{'has-error':editForm.tipoNovedadDeSQLDatasource.$invalid}">
-                    <label for="field_tipoNovedadDeSQLDatasource">Tipo de novedad</label>
-                    <select class="form-control" id="field_tipoNovedadDeSQLDatasource" name="tipoNovedadDeSQLDatasource" ng-model="vm.sqldatasource.tipoNovedadDeSQLDatasource" ng-options="tipoNovedadSQLDatasource as tipoNovedadSQLDatasource.tipoNovedad for tipoNovedadSQLDatasource in vm.tiponovedadsqldatasources track by tipoNovedadSQLDatasource.id">
-                        <option value=""></option>
-                    </select>
-                    <div ng-show="editForm.tipoNovedadDeSQLDatasource.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.tipoNovedadDeSQLDatasource.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h4>Información de la persona que reporta:</h4>
-        <div class="entity-section-form-group">
-            <div class="row">
-                <div class="form-group col-sm-5 col-md-6" ng-class="{'has-error':editForm.nombrePersonaQueReporta.$invalid}">
-                    <label class="control-label" for="field_nombrePersonaQueReporta">Nombre</label>
-                    <input type="text" class="form-control" name="nombrePersonaQueReporta" id="field_nombrePersonaQueReporta"
-                            ng-model="vm.sqldatasource.nombrePersonaQueReporta"
-                            required
-                            ng-minlength="5" ng-maxlength="40" />
-                    <div ng-show="editForm.nombrePersonaQueReporta.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.nombrePersonaQueReporta.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.nombrePersonaQueReporta.$error.minlength" translate-value-min="5">
-                            Este campo debe tener al menos 5 caracteres.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.nombrePersonaQueReporta.$error.maxlength">
-                            Este campo no puede tener más de 40 caracteres.
-                        </p>
-
-                    </div>
-                </div>
-                <div class="form-group col-sm-3 col-md-3" ng-class="{'has-error':editForm.telefonoPersonaQueReporta.$invalid}">
-                    <label class="control-label" for="field_telefonoPersonaQueReporta">Teléfono</label>
-                    <input type="text" class="form-control" name="telefonoPersonaQueReporta" id="field_telefonoPersonaQueReporta"
-                            ng-model="vm.sqldatasource.telefonoPersonaQueReporta"
-                            required
-                            ng-maxlength="10" />
-                    <div ng-show="editForm.telefonoPersonaQueReporta.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.telefonoPersonaQueReporta.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.telefonoPersonaQueReporta.$error.maxlength">
-                            Este campo no puede tener más de 10 caracteres.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <br class="hidden-xs"/>
-                    <input type="checkbox" name="reportadoPorTercero" id="field_reportadoPorTercero"
-                            ng-model="vm.sqldatasource.reportadoPorTercero"
-                             />
-                    <label class="control-label" for="field_reportadoPorTercero">Es un tercero?</label>
-                </div>
-            </div>
-        </div>
-
-
-        <h4>Infraestructura afectada:</h4>
-        <div class="entity-section-form-group">
-            <div class="row">
-                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.infraestructuraEnSQLDatasource.$invalid && vm.sqldatasource.id}">
-                    <label for="field_infraestructuraEnSQLDatasource">Infraestructura</label>
-                    <select required class="form-control" id="field_infraestructuraEnSQLDatasource" name="infraestructuraEnSQLDatasource" ng-model="vm.sqldatasource.infraestructuraEnSQLDatasource" ng-options="InfraestructuraAfectada as InfraestructuraAfectada.infraestructuraAfectada for InfraestructuraAfectada in vm.infraestructuraafectadas track by InfraestructuraAfectada.id">
-                        <option value=""></option>
-                    </select>
-                    <div ng-show="editForm.infraestructuraEnSQLDatasource.$invalid && vm.sqldatasource.id">
-                        <p class="help-block"
-                            ng-show="editForm.infraestructuraEnSQLDatasource.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.otraInfraestructuraAfectada.$invalid && vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada == 'Otro'}">
-                    <label class="control-label" for="field_otraInfraestructuraAfectada">Otra infraestructura</label>
-                    <input type="text" class="form-control" name="otraInfraestructuraAfectada"
-                            id="field_otraInfraestructuraAfectada"
-                            ng-model="vm.sqldatasource.otraInfraestructuraAfectada"
-                            ng-required="vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada == 'Otro'"
-                            ng-minlength="3" ng-maxlength="20"
-                            ng-disabled="vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada != 'Otro'"  />
-                    <div ng-show="editForm.otraInfraestructuraAfectada.$invalid && vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada == 'Otro'">
-                        <p class="help-block"
-                            ng-show="editForm.otraInfraestructuraAfectada.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.otraInfraestructuraAfectada.$error.minlength" translate-value-min="3">
-                            Este campo debe tener al menos 3 caracteres.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.otraInfraestructuraAfectada.$error.maxlength">
-                            Este campo no puede tener más de 20 caracteres.
-                        </p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-
-                <div class="form-group col-sm-6" ng-class="{'has-error':editForm.tramoDeSQLDatasource.$invalid}">
-                    <label for="field_tramoDeSQLDatasource">Tramo</label>
-                    <select required class="form-control" id="field_tramoDeSQLDatasource" name="tramoDeSQLDatasource" ng-model="vm.sqldatasource.tramoDeSQLDatasource"
-                    ng-options="tramo as tramo.nombreTramo for tramo in vm.tramos track by tramo.id"
-                    ng-change="vm.onTramoChanged()">
-                        <option value=""></option>
-                    </select>
-                    <div ng-show="editForm.tramoDeSQLDatasource.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.tramoDeSQLDatasource.$error.required">
-                            Este campo es obligatorio
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group col-sm-6"
-                    ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
-                    <label class="control-label sr-only" for="field_kilometro">Kilómetro + Abscisa</label>
-                    <label class="control-label " for="field_kilometro">Kilómetro + Abscisa</label>
-
-                    <div class="input-group">
-                        <div class="input-group-addon">Km</div>
-                        <input required type="number" class="form-control" name="kilometro" id="field_kilometro"
-                                ng-model="vm.sqldatasource.kilometro"
-                                min="0" max="200"
-                                ng-class="{'has-error':editForm.kilometro.$invalid}"
-                                 />
-                        <div class="input-group-addon">+</div>
-                        <input required type="number" class="form-control" name="abscisa" id="field_abscisa"
-                                ng-model="vm.sqldatasource.abscisa"
-                                min="0" max="999"
-                                ng-class="{'has-error':editForm.abscisa.$invalid}" />
-                    </div>
-
-                    <div ng-show="editForm.kilometro.$invalid || editForm.abscisa.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.min" translate-value-min="0">
-                            El campo km no puede ser menor a 0
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.max">
-                            El campo km no pude ser mayor a 200
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.number">
-                            El campo km es numérico
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.abscisa.$error.min" translate-value-min="0">
-                            El campo abscisa no puede ser menor a 0.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.abscisa.$error.max">
-                            El campo abscisa no puede ser mayor a 999.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.abscisa.$error.number">
-                            El campo abscisa es numérico.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.required && !editForm.abscisa.$error.required">
-                            El campo km es obligatorio.
-                        </p>
-
-                        <p class="help-block"
-                            ng-show="!editForm.kilometro.$error.required && editForm.abscisa.$error.required">
-                            El campo abscisa es obligatorio.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.required && editForm.abscisa.$error.required">
-                            Los campos Km y abscisa son obligatorios.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.tramoDesconocido">
-                            No has seleccionado el tramo.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.kilometro.$error.kilometroAbscisaInvalid">
-                            Valores por fuera del tramo comprendido de  {{vm.getTramo().origen}}
-                            - {{vm.getTramo().destino}}.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-offset-6" ng-if="vm.sqldatasource.id">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="vehiculo-de-apoyo-sqldatasource({id: vm.sqldatasource.id})">
-                        <span>
-                            Vehículos de apoyo
-                            &nbsp
-                        </span>
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-        <h4 ng-if="vm.sqldatasource.id">Tiempos de atención:</h4>
-        <div class="entity-section-form-group" ng-if="vm.sqldatasource.id">
-            <div class="row">
-                <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaSenalizacion.$invalid}">
-                    <label class="control-label" for="field_fechaLlegadaSenalizacion">Hora llegada de señalización</label>
-                    <div class="input-group">
-                        <input required id="field_fechaLlegadaSenalizacion" type="text" class="form-control" name="fechaLlegadaSenalizacion" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaSenalizacion" is-open="vm.datePickerOpenStatus.fechaLlegadaSenalizacion"
-                          />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaSenalizacion')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                    <div ng-show="editForm.fechaLlegadaSenalizacion.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaSenalizacion.$error.required">
-                            Este campo es obligatorio para finalizar.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaSenalizacion.$error.invalidFechaRecepcion">
-                            La fecha de recepción de la llamada es inválido
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaSenalizacion.$error.datetime">
-                            La fecha es inválida
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaSenalizacion.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
-                        </p>
-                    </div>
-                </div>
-
-
-
-                <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaAmbulancia.$invalid}">
-                    <label class="control-label" for="field_fechaLlegadaAmbulancia">Hora de llegada de ambulancia</label>
-                    <div class="input-group">
-                        <input id="field_fechaLlegadaAmbulancia" type="text" class="form-control" name="fechaLlegadaAmbulancia" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaAmbulancia" is-open="vm.datePickerOpenStatus.fechaLlegadaAmbulancia"
-                        ng-required="vm.necesitaValidarHoraAmbulancia()"
-                          />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaAmbulancia')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                    <div ng-show="editForm.fechaLlegadaAmbulancia.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaAmbulancia.$error.required">
-                            Este campo es obligatorio para finalizar.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaAmbulancia.$error.invalidFechaRecepcion">
-                            La fecha de recepción de la llamada es inválido
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaAmbulancia.$error.datetime">
-                            La fecha es inválida
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaAmbulancia.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
-                        </p>
-                    </div>
-                </div>
-                <div class="clearfix hidden-md hidden-lg"></div>
-                <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaVehiculoApoyo.$invalid}">
-                    <label class="control-label" for="field_fechaLlegadaVehiculoApoyo">Hora de llegada de vehículo Apoyo</label>
-                    <div class="input-group">
-                        <input required id="field_fechaLlegadaVehiculoApoyo" type="text" class="form-control" name="fechaLlegadaVehiculoApoyo" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaVehiculoApoyo" is-open="vm.datePickerOpenStatus.fechaLlegadaVehiculoApoyo"
-                          />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaVehiculoApoyo')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                    <div ng-show="editForm.fechaLlegadaVehiculoApoyo.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaVehiculoApoyo.$error.required">
-                            Este campo es obligatorio para finalizar.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaVehiculoApoyo.$error.invalidFechaRecepcion">
-                            La fecha de recepción de la llamada es inválido
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaVehiculoApoyo.$error.datetime">
-                            La fecha es inválida
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaVehiculoApoyo.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group col-sm-6 col-md-3" ng-class="{'has-error':editForm.fechaLlegadaFinDespeje.$invalid}">
-                    <label class="control-label" for="field_fechaLlegadaFinDespeje">Hora de finalización de despeje</label>
-                    <div class="input-group">
-                        <input required id="field_fechaLlegadaFinDespeje" type="text" class="form-control" name="fechaLlegadaFinDespeje" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaLlegadaFinDespeje" is-open="vm.datePickerOpenStatus.fechaLlegadaFinDespeje"
-                          />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaLlegadaFinDespeje')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                    <div ng-show="editForm.fechaLlegadaFinDespeje.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaFinDespeje.$error.required">
-                            Este campo es obligatorio para finalizar.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaFinDespeje.$error.invalidFechaRecepcion">
-                            La fecha de recepción de la llamada es inválido
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaFinDespeje.$error.datetime">
-                            La fecha es inválida
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaFinDespeje.$error.fechaMenorAFechaRegistro">
-                            La fecha debe ser mayor a {{vm.sqldatasource.fechaRecepcionLlamada | date:'yyyy-MM-dd h:mm:ssa'}}.
-                        </p>
-                        <p class="help-block"
-                            ng-show="editForm.fechaLlegadaFinDespeje.$error.fechaDespejeNoEsMayor">
-                            La fecha debe ser posterior a las anteriores
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h4 ng-if="vm.sqldatasource.id">Datos Adicionales:</h4>
-        <div class="entity-section-form-group" ng-if="vm.sqldatasource.id">
-            <div class="row">
-                <div class="form-group col-xs-12">
-                     <input type="checkbox" name="requiereCierreDeVia" id="field_requiereCierreDeVia"
-                    ng-model="vm.sqldatasource.requiereCierreDeVia"
-                     />
-                    <label class="control-label" for="field_requiereCierreDeVia">¿Requiere cierre de la vía?</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-group col-sm-6">
-                    <label class="control-label" for="field_fechaInicioCierreVia">Hora de inicio de cierre</label>
-                    <div class="input-group">
-                        <input id="field_fechaInicioCierreVia" type="text" class="form-control" name="fechaInicioCierreVia" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaInicioCierreVia" is-open="vm.datePickerOpenStatus.fechaInicioCierreVia" ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
-                          />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaInicioCierreVia')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label class="control-label" for="field_fechaFinCierreVia">Hora de fin de cierre</label>
-                    <div class="input-group">
-                        <input id="field_fechaFinCierreVia" type="text" class="form-control" name="fechaFinCierreVia" datetime-picker="{{dateformat}}" ng-model="vm.sqldatasource.fechaFinCierreVia" is-open="vm.datePickerOpenStatus.fechaFinCierreVia"  ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
-                          />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fechaFinCierreVia')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="form-group col-sm-6">
-                    <label class="control-label" for="field_entidadQueCierraVia">Entidad realiza el cierre</label>
-                    <input type="text" class="form-control" name="entidadQueCierraVia" id="field_entidadQueCierraVia"
-                            ng-model="vm.sqldatasource.entidadQueCierraVia"
-                            ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
-                            ng-maxlength="20" />
-                    <div ng-show="editForm.entidadQueCierraVia.$invalid">
-                        <p class="help-block"
-                            ng-show="editForm.entidadQueCierraVia.$error.maxlength">
-                            This field cannot be longer than 20 characters.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label class="control-label" for="field_tipoDeCierre">Tipo de cierre</label>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-6 form-control-static">
-                            <label>
-                                <input type="radio" name="tipoDeCierre" id="field_tipoDeCierre"
-                                    ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
-                                    ng-model="vm.sqldatasource.tipoDeCierre" value="Total"/>
-                                Total
-                            </label>
-                        </div>
-                        <div class="col-sm-6 form-control-static" >
-                            <label>
-                                <input type="radio" name="tipoDeCierre" id="field_tipoDeCierre"
-                                    ng-disabled="!vm.sqldatasource.requiereCierreDeVia"
-                                    ng-model="vm.sqldatasource.tipoDeCierre" value="Parcial"/>
-                                Parcial
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" ng-if="vm.sqldatasource.id">
-                <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="vehiculo-afectado-en-sqldatasource({id: vm.sqldatasource.id})">
-                        <span>
-                            Vehículos afectados
-                            &nbsp
-                        </span>
-                        <span class="glyphicon glyphicon-bullhorn"></span>
-                    </button>
-                </div>
-                <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="persona-afectada-en-sqldatasource({id: vm.sqldatasource.id})">
-                        <span>
-                            Personas afectadas
-                            &nbsp
-                        </span>
-                        <span class="glyphicon glyphicon-user"></span>
-                    </button>
-                </div>
-                <div class="col-sm-4">
-                    <button type="button" class="btn btn-primary btn-block" ui-sref="archivo-sqldatasource({id: vm.sqldatasource.id})">
-                        <span>
-                            Archivos
-                            &nbsp
-                        </span>
-                        <span class="glyphicon glyphicon-file"></span>
-                    </button>
-                </div>
-            </div>
-            <br/>
-            <div class="form-group">
-                <label class="control-label" for="field_comentario">Comentarios:</label>
-                <textarea class="form-control" rows="3" name="comentario"
-                    id="field_comentario" ng-model="vm.sqldatasource.comentario" ng-maxlength="500" ></textarea>
-                <div ng-show="editForm.comentario.$invalid">
-                    <p class="help-block"
-                        ng-show="editForm.comentario.$error.maxlength">
-                        This field cannot be longer than 500 characters.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-        <!--
-        <div class="form-group">
-            <label class="control-label" for="field_comentarioInterventor">Comentario Interventor</label>
-            <input type="text" class="form-control" name="comentarioInterventor" id="field_comentarioInterventor"
-                    ng-model="vm.sqldatasource.comentarioInterventor"
-                    ng-maxlength="500" />
-            <div ng-show="editForm.comentarioInterventor.$invalid">
+<h4>Remember, only PostgreSQL databases are allowed</h4>
+<div class="entity-section-form-group">
+    <div class="row">
+        <div class="form-group col-sm-5 col-md-6" ng-class="{'has-error':editForm.nombrePersonaQueReporta.$invalid}">
+            <label class="control-label" for="field_nombrePersonaQueReporta">Host</label>
+            <input type="text" class="form-control" name="nombrePersonaQueReporta" id="field_nombrePersonaQueReporta"
+                   ng-model="vm.sqldatasource.nombrePersonaQueReporta"
+                   required
+                   ng-minlength="2" ng-maxlength="500"/>
+            <div ng-show="editForm.nombrePersonaQueReporta.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.comentarioInterventor.$error.maxlength">
-                    This field cannot be longer than 500 characters.
+                   ng-show="editForm.nombrePersonaQueReporta.$error.required">
+                    This field is mandatory
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label" for="field_vistoBuenoInterventor">Visto Bueno Interventor</label>
-            <input type="checkbox" class="form-control" name="vistoBuenoInterventor" id="field_vistoBuenoInterventor"
-                    ng-model="vm.sqldatasource.vistoBuenoInterventor"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_cumple">Cumple</label>
-            <input type="checkbox" class="form-control" name="cumple" id="field_cumple"
-                    ng-model="vm.sqldatasource.cumple"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_estado">Estado</label>
-            <input type="text" class="form-control" name="estado" id="field_estado"
-                    ng-model="vm.sqldatasource.estado"
-                    ng-maxlength="10" />
-            <div ng-show="editForm.estado.$invalid">
+        <div class="form-group col-sm-3 col-md-3" ng-class="{'has-error':editForm.telefonoPersonaQueReporta.$invalid}">
+            <label class="control-label" for="field_telefonoPersonaQueReporta">Port</label>
+            <input type="text" class="form-control" name="telefonoPersonaQueReporta"
+                   id="field_telefonoPersonaQueReporta"
+                   ng-model="vm.sqldatasource.telefonoPersonaQueReporta"
+                   required
+                   ng-maxlength="5"/>
+            <div ng-show="editForm.telefonoPersonaQueReporta.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.estado.$error.maxlength">
-                    This field cannot be longer than 10 characters.
+                   ng-show="editForm.telefonoPersonaQueReporta.$error.required">
+                    This field is mandatory
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.telefonoPersonaQueReporta.$error.maxlength">
+                    This field can't be that long. IT IS A PORT!
                 </p>
             </div>
-        </div>-->
+        </div>
+        <div class="form-group col-sm-6"
+             ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
+            <label class="control-label sr-only" for="field_kilometro">Authentication</label>
+            <label class="control-label " for="field_kilometro">Authentication</label>
+
+            <div class="input-group">
+                <div class="input-group-addon">Username</div>
+                <input required type="number" class="form-control" name="kilometro" id="field_kilometro"
+                       ng-model="vm.sqldatasource.kilometro"
+                       min="0" max="200"
+                       ng-class="{'has-error':editForm.kilometro.$invalid}"
+                />
+                <div class="input-group-addon">Password</div>
+                <input required type="number" class="form-control" name="abscisa" id="field_abscisa"
+                       ng-model="vm.sqldatasource.abscisa"
+                       min="0" max="999"
+                       ng-class="{'has-error':editForm.abscisa.$invalid}"/>
+            </div>
+        </div>
+
+        <div class="form-group col-sm-3 col-md-3" ng-class="{'has-error':editForm.telefonoPersonaQueReporta.$invalid}">
+            <label class="control-label" for="field_telefonoPersonaQueReporta">DB Name</label>
+            <input type="text" class="form-control" name="telefonoPersonaQueReporta"
+                   id="field_telefonoPersonaQueReporta"
+                   ng-model="vm.sqldatasource.telefonoPersonaQueReporta"
+                   required
+                   ng-maxlength="5"/>
+            <div ng-show="editForm.telefonoPersonaQueReporta.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.telefonoPersonaQueReporta.$error.required">
+                    This field is mandatory
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.telefonoPersonaQueReporta.$error.maxlength">
+                    This field can't be that long. IT IS A PORT!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

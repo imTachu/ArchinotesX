@@ -1,6 +1,5 @@
 package com.uniandes.thesis.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import com.uniandes.thesis.domain.SQLDatasource;
 import com.uniandes.thesis.service.SQLDatasourceService;
 import com.uniandes.thesis.web.rest.util.HeaderUtil;
@@ -31,11 +30,15 @@ public class SQLDatasourceResource {
     @Autowired
     private SQLDatasourceService sqlDatasourceService;
 
-    @RequestMapping(value = "/sqldatasources",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<SQLDatasource> createSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception{
+    /**
+     * Create a new SQLDatasource
+     *
+     * @param sqldatasource
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/sqldatasources", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<SQLDatasource> createSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception {
         if (sqldatasource.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sqldatasource", "idexists", "A new sqldatasource cannot already have an ID")).body(null);
         }
@@ -45,10 +48,14 @@ public class SQLDatasourceResource {
             .body(result);
     }
 
-    @RequestMapping(value = "/sqldatasources",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
+    /**
+     * Update a SQLDatasource
+     *
+     * @param sqldatasource
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/sqldatasources", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SQLDatasource> updateSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception {
         if (sqldatasource.getId() == null) {
             return createSQLDatasource(sqldatasource);
@@ -59,20 +66,44 @@ public class SQLDatasourceResource {
             .body(result);
     }
 
-    @RequestMapping(value = "/sqldatasources",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
+    /**
+     * Delete a SQLDatasource
+     *
+     * @param sqldatasource
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/sqldatasources", method = RequestMethod.DELETE)
+    public ResponseEntity deleteSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception {
+        if (sqldatasource.getId() == null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sqldatasource", "idnull", "Cannot delete a cannot without an ID")).body(null);
+        }
+        sqlDatasourceService.delete(sqldatasource);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityDeletionAlert("sqldatasource", "Successfully deleted")).body(null);
+    }
+
+    /**
+     * Get all SQLDatasource
+     *
+     * @param pageable
+     * @return
+     * @throws URISyntaxException
+     */
+    @RequestMapping(value = "/sqldatasources", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SQLDatasource>> getAllSQLDatasources(Pageable pageable) throws URISyntaxException {
         Page<SQLDatasource> page = sqlDatasourceService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/sqldatasources");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/sqldatasources/{id}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
+    /**
+     * Get a SQLDatasource
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/sqldatasources/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<SQLDatasource> getSQLDatasource(@PathVariable Long id) {
         SQLDatasource sqldatasource = sqlDatasourceService.findOne(id);
         return Optional.ofNullable(sqldatasource)

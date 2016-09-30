@@ -1,4 +1,4 @@
-# archinotesx
+# ArchinotesX - The client
 
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
 
@@ -31,7 +31,7 @@ Add the `-h` flag on any command to see how you can use it. For example, `bower 
 
 ## Building for production
 
-To optimize the archinotesx client for production, run:
+To optimize the ArchinotesX client for production, run:
 
     ./mvnw -Pprod clean package
 

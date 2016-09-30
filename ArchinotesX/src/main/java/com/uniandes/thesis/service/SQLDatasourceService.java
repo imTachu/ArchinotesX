@@ -27,4 +27,8 @@ public class SQLDatasourceService {
     public SQLDatasource save(SQLDatasource SQLDatasource) {
         return sqlDatasourceRepository.save(SQLDatasource);
     }
+
+    public void delete(SQLDatasource SQLDatasource) {
+        sqlDatasourceRepository.delete(SQLDatasource);
+    }
 }

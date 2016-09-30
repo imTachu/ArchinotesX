@@ -1,6 +1,6 @@
-id;login;password_hash;first_name;last_name;email;activated;lang_key;created_by;project_id
-1;tachu;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Lorena;Salamanca;tachu.salamanca@gmail.com;true;en;system;1
-2;lorenaref;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Lorena;Salamanca;l.salamanca10@uniandes.edu.co;true;en;system;1
-3;darioref;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Dario;Correal;dcorreal@uniandes.edu.co;true;en;system;1
-4;julianaref;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Juliana;Davila;dr.juliana10@uniandes.edu.co;true;en;system;1
+id;login;password_hash;first_name;last_name;email;mobile_number;activated;lang_key;created_by;project_id
+1;tachu;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Lorena;Salamanca;tachu.salamanca@gmail.com;"+570000000000";true;en;system;1
+2;lorenaref;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Lorena;Salamanca;l.salamanca10@uniandes.edu.co;"+573166537244";true;en;system;1
+3;darioref;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Dario;Correal;dcorreal@uniandes.edu.co;"+571111111111";true;en;system;1
+4;julianaref;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Juliana;Davila;dr.juliana10@uniandes.edu.co;"+572222222222";true;en;system;1
 

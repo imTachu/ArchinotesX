@@ -21,6 +21,9 @@
             <column name="email" type="varchar(100)">
                 <constraints unique="true" nullable="false"/>
             </column>
+            <column name="mobile_number" type="varchar(13)">
+                <constraints unique="true" nullable="false"/>
+            </column>
             <column name="activated" type="boolean" valueBoolean="false">
                 <constraints nullable="false" />
             </column>
@@ -143,7 +146,7 @@
                 <constraints primaryKey="true" primaryKeyName="project_PK"/>
             </column>
             <column name="name" type="varchar(512)">
-                <constraints nullable="false"/>
+                <constraints unique="true" nullable="false"/>
             </column>
             <column name="company_id" type="bigint"/>
         </createTable>
@@ -151,6 +154,9 @@
         <createTable tableName="data_microservice">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="data_microservice_PK"/>
+            </column>
+            <column name="name" type="varchar(512)">
+                <constraints unique="true" nullable="false"/>
             </column>
             <column name="endpoint" type="varchar(512)">
                 <constraints nullable="false"/>
@@ -165,6 +171,9 @@
         <createTable tableName="sql_datasource">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="sql_datasource_PK"/>
+            </column>
+            <column name="name" type="varchar(512)">
+                <constraints unique="true" nullable="false"/>
             </column>
             <column name="host" type="varchar(512)">
                 <constraints nullable="false"/>

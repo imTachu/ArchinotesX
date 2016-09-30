@@ -40,6 +40,10 @@ public class SQLDatasource implements Serializable {
     private Integer id;
 
     @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @NotNull
     @Column(name = "host", nullable = false)
     private String host;
 

@@ -83,7 +83,6 @@
                         allDatesAreValid = validateField('fechaLlegadaVehiculoApoyo') && allDatesAreValid;
                         allDatesAreValid = validateField('fechaLlegadaFinDespeje') && allDatesAreValid;
 
-
                         form.fechaLlegadaFinDespeje.$setValidity('fechaDespejeNoEsMayor', true);
                         if (allDatesAreValid &&
                             (
@@ -93,7 +92,6 @@
                             )) {
                             form.fechaLlegadaFinDespeje.$setValidity('fechaDespejeNoEsMayor', false);
                         }
-
                     }
                 });
             }

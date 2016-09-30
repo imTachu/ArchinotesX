@@ -176,7 +176,8 @@ public class UserService {
     @Transactional(readOnly = true)
     public User getUserWithAuthorities() {
         User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
-        user.getAuthorities().size(); // eagerly load the association
+        user.getAuthorities().size();
+        user.getProject().getCompany();
         return user;
     }
 

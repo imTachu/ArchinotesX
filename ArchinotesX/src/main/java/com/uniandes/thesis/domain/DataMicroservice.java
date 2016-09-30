@@ -37,7 +37,10 @@ public class DataMicroservice implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "endpoint", nullable = false)
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "endpoint")
     private String endpoint;
 
     @NotNull

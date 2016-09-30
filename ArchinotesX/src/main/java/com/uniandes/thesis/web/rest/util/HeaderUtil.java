@@ -10,7 +10,7 @@ public class HeaderUtil {
 
     public static HttpHeaders createAlert(String message, String param) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-archinotesxApp-alert", message);
+        headers.add("X-ArchinotesxApp-alert", message);
         headers.add("X-archinotesxApp-params", param);
         return headers;
     }

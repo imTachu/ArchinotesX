@@ -27,7 +27,6 @@ public class PostgreSQLConnectionResource {
      *
      * @param sqldatasource
      * @return
-     * @throws SQLException
      */
     @RequestMapping(value = "/test-connection", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity createSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) {

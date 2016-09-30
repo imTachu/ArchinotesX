@@ -112,5 +112,4 @@ public class SQLDatasourceResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
 }

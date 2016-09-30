@@ -1,10 +1,15 @@
 package com.uniandes.thesis.web.rest;
 
+import com.uniandes.thesis.domain.SQLDatasource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -12,32 +17,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @RestController
-@RequestMapping(value = "/archinotesx", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/postgresql", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PostgreSQLConnectionResource {
 
-    @RequestMapping(value = "/tenants", method = RequestMethod.GET)
-    public void getAllTenants() throws SQLException {
+    /**
+     * Service to test if a database can be reached
+     *
+     * @param sqldatasource
+     * @return
+     * @throws SQLException
+     */
+    @RequestMapping(value = "/test-connection", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity createSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) {
         try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Where is your PostgreSQL JDBC Driver? "
-                + "Include it in your library path!");
-            e.printStackTrace();
-            return;
-        }
-
-        System.out.println("PostgreSQL JDBC Driver Registered!");
-        Connection connection;
-
-        try {
-            connection = DriverManager.getConnection(
-                "jdbc:postgresql://archinotesx.cv3pd00vsf0w.us-east-1.rds.amazonaws.com:5432/archinotesx", "archinotesx",
-                "archinotesx");
+            testConnection(sqldatasource);
         } catch (SQLException e) {
-            System.out.println("Connection Failed! Check output console");
             e.printStackTrace();
-            return;
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(e.getMessage());
         }
+        return ResponseEntity.ok().body(null);
+    }
+
+    /**
+     * Get all tables of a given datasource
+     *
+     * @param sqldatasource
+     * @throws SQLException
+     */
+    @RequestMapping(value = "/get-tables", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void getAllTenants(@Valid @RequestBody SQLDatasource sqldatasource) throws SQLException {
+        Connection connection = testConnection(sqldatasource);
         if (connection != null) {
             System.out.println("You made it, take control your database now!");
             DatabaseMetaData md = connection.getMetaData();
@@ -51,4 +60,14 @@ public class PostgreSQLConnectionResource {
         }
     }
 
+    /**
+     * Tests if a PostgreSQL database can be reached
+     *
+     * @param sqlDatasource
+     * @return
+     */
+    public Connection testConnection(SQLDatasource sqlDatasource) throws SQLException {
+        return DriverManager.getConnection("jdbc:postgresql://" + sqlDatasource.getHost() + ":" +
+            sqlDatasource.getPort() + "/" + sqlDatasource.getDbName(), sqlDatasource.getUsername(), sqlDatasource.getPassword());
+    }
 }

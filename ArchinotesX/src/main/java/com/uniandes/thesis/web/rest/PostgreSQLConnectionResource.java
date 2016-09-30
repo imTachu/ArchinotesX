@@ -15,6 +15,8 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/postgresql", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -42,22 +44,28 @@ public class PostgreSQLConnectionResource {
      * Get all tables of a given datasource
      *
      * @param sqldatasource
-     * @throws SQLException
+     * @return
      */
     @RequestMapping(value = "/get-tables", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void getAllTenants(@Valid @RequestBody SQLDatasource sqldatasource) throws SQLException {
-        Connection connection = testConnection(sqldatasource);
-        if (connection != null) {
-            System.out.println("You made it, take control your database now!");
-            DatabaseMetaData md = connection.getMetaData();
-            ResultSet rs = md.getTables(null, null, "%", null);
-            while (rs.next()) {
-                System.out.println(rs.getString(3));
+    public ResponseEntity<List<String>> getAllTenants(@Valid @RequestBody SQLDatasource sqldatasource) {
+        List<String> tables = new ArrayList<>();
+        try {
+            Connection connection = testConnection(sqldatasource);
+            if (connection != null) {
+                DatabaseMetaData md = connection.getMetaData();
+                ResultSet rs = md.getTables(sqldatasource.getDbName(), "public", "%", new String[]{"TABLE"});
+                while (rs.next()) {
+                    System.out.println(rs.getString(3));
+                    tables.add(rs.getString(3));
+                }
+            } else {
+                System.out.println("Failed to make connection!");
             }
-
-        } else {
-            System.out.println("Failed to make connection!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(null);
         }
+        return new ResponseEntity<>(tables, HttpStatus.OK);
     }
 
     /**

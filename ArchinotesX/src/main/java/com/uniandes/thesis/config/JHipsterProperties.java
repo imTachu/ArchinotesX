@@ -1,5 +1,7 @@
 package com.uniandes.thesis.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.cors.CorsConfiguration;
 
@@ -23,6 +25,8 @@ public class JHipsterProperties {
 
     private final Security security = new Security();
 
+    private final Swagger swagger = new Swagger();
+
     private final Metrics metrics = new Metrics();
 
     private final CorsConfiguration cors = new CorsConfiguration();
@@ -45,6 +49,10 @@ public class JHipsterProperties {
 
     public Security getSecurity() {
         return security;
+    }
+
+    public Swagger getSwagger() {
+        return swagger;
     }
 
     public Metrics getMetrics() {
@@ -203,6 +211,22 @@ public class JHipsterProperties {
                 }
             }
         }
+    }
+
+    @Setter
+    @Getter
+    public static class Swagger {
+        private String title;
+        private String description;
+        private String version;
+        private String termsOfServiceUrl;
+        private String contactName;
+        private String contactUrl;
+        private String contactEmail;
+        private String license;
+        private String licenseUrl;
+        private Boolean enabled;
+
     }
 
     public static class Metrics {

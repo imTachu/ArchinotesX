@@ -85,7 +85,7 @@
                         controller: 'EntityModalController',
                         controllerAs: 'vm',
                         backdrop: 'static',
-                        size: 'lg',
+                        size: 'md',
                         resolve: {
                             modalControllerConfig: function () {
                                 return new EntityModalControllerConfig('sqldatasource');

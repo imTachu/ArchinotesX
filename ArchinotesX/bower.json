@@ -22,6 +22,7 @@
     "modernizr": "3.3.1",
     "ng-file-upload": "12.0.4",
     "ngInfiniteScroll": "1.2.2",
+	"swagger-ui": "2.1.4",
     "angular-breadcrumb": "^0.4.1",
     "font-awesome": "fontawesome#^4.6.1",
     "ng-csv": "0.3.6",

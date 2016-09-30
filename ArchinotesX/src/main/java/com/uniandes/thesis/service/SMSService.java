@@ -20,7 +20,7 @@ import java.util.List;
 public class SMSService {
 
     public void sendSMS(String mobileNumber) throws TwilioRestException {
-        TwilioRestClient client = new TwilioRestClient("xxx", "xxx");
+        TwilioRestClient client = new TwilioRestClient("AC8a30897f2b17c00bc6ef005b25e1229b", "fdf0912be81dd1a5f48cc07a125c0e5e");
 
         // Build a filter for the MessageList
         List<NameValuePair> params = new ArrayList<NameValuePair>();

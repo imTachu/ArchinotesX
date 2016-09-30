@@ -54,7 +54,6 @@ public class PostgreSQLConnectionResource {
                 DatabaseMetaData md = connection.getMetaData();
                 ResultSet rs = md.getTables(sqldatasource.getDbName(), "public", "%", new String[]{"TABLE"});
                 while (rs.next()) {
-                    System.out.println(rs.getString(3));
                     tables.add(rs.getString(3));
                 }
             } else {

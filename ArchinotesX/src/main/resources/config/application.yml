@@ -54,3 +54,13 @@ jhipster:
                 secret: 3b666e9dfcb4b79c5afab5ab57fc4f29da68db4a
                 # Token is valid 24 hours
                 tokenValidityInSeconds: 3600
+    swagger:
+        title: ArchinotesX API
+        description: ArchinotesX API documentation
+        version: 1.0.0
+        termsOfServiceUrl: http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open
+        contactName: Lorena Salamanca
+        contactUrl:
+        contactEmail:
+        license: Apache License Version 2.0
+        licenseUrl: https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE

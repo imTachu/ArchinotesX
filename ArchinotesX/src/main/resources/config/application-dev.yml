@@ -49,14 +49,12 @@ spring:
             ssl.trust: smtp.gmail.com
     messages:
         cache-seconds: 1
-    thymeleaf:
-        cache: false
 
 liquibase:
     contexts: dev
 
 server:
-    port: 8081
+    port: 8080
 
 bucket:
     name: archinotesx-dev
@@ -93,3 +91,5 @@ jhipster:
             host: localhost
             port: 5000
             queueSize: 512
+    swagger: # swagger is enabled. It can be disabled by pasing 'no-swagger' profile at run time as well
+        enabled: true

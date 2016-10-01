@@ -4,7 +4,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
         <h4 class="modal-title" id="myUserLabel">
-            Crear o editar usuario</h4>
+            Create user</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">Nombres del usuario</label>
+            <label class="control-label">Given name</label>
             <input type="text" class="form-control" name="firstName"
                    ng-model="vm.user.firstName" ng-maxlength="50">
 
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label>Apellidos del usuario</label>
+            <label>Last name</label>
             <input type="text" class="form-control" name="lastName"
                    ng-model="vm.user.lastName" ng-maxlength="50">
 
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">Dirección de correo electrónico</label>
+            <label class="control-label">E-mail</label>
             <input type="email" class="form-control" name="email"
                    ng-model="vm.user.email" required ng-maxlength="100">
 
@@ -84,12 +84,12 @@
             <label for="activated">
                 <input ng-disabled="vm.user.id === undefined" type="checkbox" id="activated"
                        ng-model="vm.user.activated">
-                <span>Activado</span>
+                <span>Active</span>
             </label>
         </div>
 
         <div class="form-group">
-            <label>Perfiles</label>
+            <label>Profiles</label>
             <select class="form-control" multiple name="authority" ng-model="vm.user.authorities"
                     ng-options="authority for authority in vm.authorities">
             </select>

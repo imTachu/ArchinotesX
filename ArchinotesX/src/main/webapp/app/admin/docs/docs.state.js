@@ -13,7 +13,7 @@
             url: '/docs',
             data: {
                 authorities: ['ROLE_ADMIN'],
-                pageTitle: 'API'
+                pageTitle: 'API Documentation'
             },
             views: {
                 'content@': {

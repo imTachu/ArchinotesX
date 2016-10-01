@@ -49,7 +49,7 @@ public class DataMicroservice implements Serializable {
     private String table;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
 

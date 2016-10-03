@@ -5,9 +5,9 @@
         .module('archinotesxApp')
         .controller('SQLDatasourceDetailController', SQLDatasourceDetailController);
 
-    SQLDatasourceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'SQLDatasource', 'InfraestructuraAfectada', 'CausaSQLDatasource', 'TipoSQLDatasource', 'FactorClimatologico', 'TipoNovedadSQLDatasource', 'Tramo'];
+    SQLDatasourceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'SQLDatasource'];
 
-    function SQLDatasourceDetailController($scope, $rootScope, $stateParams, entity, SQLDatasource, InfraestructuraAfectada, CausaSQLDatasource, TipoSQLDatasource, FactorClimatologico, TipoNovedadSQLDatasource, Tramo) {
+    function SQLDatasourceDetailController($scope, $rootScope, $stateParams, entity, SQLDatasource) {
         var vm = this;
         vm.sqldatasource = entity;
         

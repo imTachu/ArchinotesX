@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">&times;</button>
+    <h4 class="modal-title">New microservice</h4>
+</div>
+<div class="modal-body modal-body-principal-entities">
+<div class="entity-section-form-group">
+    <div class="row">
+        <div class="form-group col-sm-12" ng-class="{'has-error':editForm.name.$invalid}">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                   ng-model="vm.name"
+                   required
+                   ng-minlength="2" ng-maxlength="500"/>
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required">
+                    This field is mandatory
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-sm-12" ng-class="{'has-error':editForm.endpoint.$invalid}">
+            <label class="control-label" for="field_endpoint">Endpoint</label>
+            <input type="text" class="form-control" name="endpoint"
+                   id="field_endpoint"
+                   ng-model="vm.endpoint"
+                   required
+                   ng-disabled="true"
+                   ng-maxlength="100"/>
+            <div ng-show="editForm.endpoint.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.endpoint.$error.required">
+                    This field is mandatory
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-sm-12"
+             ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
+            <label class="control-label" for="field_kilometro">Datasource</label>
+            <select class="form-control" ng-model="vm.datasource" ng-options="dataSources.name for dataSources in vm.SQLDatasources" ng-change="vm.getTables()">
+                <option value="">-- choose datasource --</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-12"
+             ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
+            <label class="control-label" for="field_kilometro">Table / Sheet</label>
+            <select class="form-control" ng-model="vm.table" ng-options="tables.name for tables in vm.tables">
+                <option value="">-- choose table --</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+    <div class="entity-actions">
+        <button skip-disable type="button" class="btn btn-info" ng-click="vm.microserviceNew()">
+            <span class="glyphicon glyphicon-arrow-right"></span>&nbsp;<span>Create</span>
+        </button>
+        <button skip-disable ng-if="!vm.withBackButton" type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+    </div>
+</div>

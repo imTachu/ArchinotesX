@@ -429,6 +429,14 @@ Estilos para navbar brand
 }
 
 /* ==========================================================================
+navbar - helpers 
+========================================================================== */
+
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+/* ==========================================================================
 Rendimiento del sistema - helpers pie disponibilidad 
 ========================================================================== */
 
@@ -474,5 +482,57 @@ Indice de cumplimiento
     font-weight: bold;
 }
 
+/* ==========================================================================
+Info header
+========================================================================== */
+.user-header {
+    margin: 3% 0;
+}
 
+.user > h3{
+    margin: 10px 0;
+}
 
+.user-rol {
+    text-transform: capitalize;
+    color: #555;
+    font-size: .8em;
+}
+
+/* ==========================================================================
+Microservices header
+========================================================================== */
+.microservices-header {
+    padding: 2% 0; 
+    margin: 2% 0;
+    border-top: 1px solid #ccc;
+}
+
+.data-microservice{
+    padding: 2%;
+    border-radius: 10px;
+    border:1px solid rgba(0,0,0,.2);
+}
+
+.data-microservice-header {
+    padding: 1% 1.5%;
+    font-size:1.2em;
+}
+
+.data-microservice-body {
+    padding: 1% 3%;
+    border-top:1px solid rgba(0,0,0,.2);
+}
+
+.data-microservice-delete {
+    position: absolute;
+    top:-10%;
+    right: -5%;
+    border-radius: 50%;
+}
+
+/* overrides */
+
+.navbar {
+    border-radius: 0px;
+}

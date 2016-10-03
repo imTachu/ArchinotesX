@@ -3,141 +3,44 @@
     <h2><span>SQLDatasource</span> {{vm.sqldatasource.id}}</h2>
     <hr>
     <dl class="dl-horizontal">
-        <dt><span>Fecha de recepción de llamada</span></dt>
+        <dt><span>ID</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.fechaRecepcionLlamada | date:'medium'}}</span>
+            <span>{{vm.sqldatasource.id}}</span>
         </dd>
         <hr>
-        <dt><span>¿Reportado Por Tercero?</span></dt>
+        <dt><span>Name</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.reportadoPorTercero}}</span>
+            <span>{{vm.sqldatasource.name}}</span>
         </dd>
         <hr>
-        <dt><span>Nombre de persona que reporta</span></dt>
+        <dt><span>Host</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.nombrePersonaQueReporta}}</span>
+            <span>{{vm.sqldatasource.host}}</span>
         </dd>
         <hr>
-        <dt><span>Telefono de persona que reporta</span></dt>
+        <dt><span>Database</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.telefonoPersonaQueReporta}}</span>
+            <span>{{vm.sqldatasource.dbName}}</span>
         </dd>
         <hr>
-        <dt><span>Kilómetro</span></dt>
+        <dt><span>Athentication</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.kilometro}}</span>
+            <span>{{vm.sqldatasource.username}}</span>
+        </dd>
+        <dd>
+            <span>{{vm.sqldatasource.password}}</span>
         </dd>
         <hr>
-        <dt><span>Abscisa</span></dt>
+        <dt><span>Port</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.abscisa}}</span>
+            <span>{{vm.sqldatasource.port}}</span>
         </dd>
         <hr>
-        <dt><span>Fecha y hora de señalizacion</span></dt>
+        <dt><span>Data microservices</span></dt>
         <dd>
-            <span>{{vm.sqldatasource.fechaLlegadaSenalizacion | date:'medium'}}</span>
+            <span>{{vm.sqldatasource.dataMicroservices}}</span>
         </dd>
-        <hr>
-        <dt><span>Fecha y hora de llegada de ambulancia</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.fechaLlegadaAmbulancia | date:'medium'}}</span>
-        </dd>
-        <hr>
-        <dt><span>Fecha y hora de llegada de vehículo de apoyo</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.fechaLlegadaVehiculoApoyo | date:'medium'}}</span>
-        </dd>
-        <hr>
-        <dt><span>Fecha y hora de despeje</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.fechaLlegadaFinDespeje | date:'medium'}}</span>
-        </dd>
-        <hr>
-        <dt><span>Otra infraestructura afectada</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.otraInfraestructuraAfectada}}</span>
-        </dd>
-        <hr>
-        <dt><span>Requiere cierre de vía</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.requiereCierreDeVia}}</span>
-        </dd>
-        <hr>
-        <dt><span>Fecha inicio de cierre de vía</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.fechaInicioCierreVia | date:'medium'}}</span>
-        </dd>
-        <hr>
-        <dt><span>Fecha fin de cierre de vía</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.fechaFinCierreVia | date:'medium'}}</span>
-        </dd>
-        <hr>
-        <dt><span>Entidad que cierra la vía</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.entidadQueCierraVia}}</span>
-        </dd>
-        <hr>
-        <dt><span>Tipo de cierre</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.tipoDeCierre}}</span>
-        </dd>
-        <hr>
-        <dt><span>Comentarios</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.comentario}}</span>
-        </dd>
-        <hr>
-        <!--<dt><span>Comentario Interventor</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.comentarioInterventor}}</span>
-        </dd>
-        <hr>
-        <dt><span>Visto Bueno Interventor</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.vistoBuenoInterventor}}</span>
-        </dd>
-        <hr>-->
-        <dt><span>¿Cumple?</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.cumple}}</span>
-        </dd>
-        <hr>
-        <dt><span>Estado</span></dt>
-        <dd>
-            <span>{{vm.sqldatasource.estado}}</span>
-        </dd>
-        <hr>
-        <dt><span>Infraestructura afectada</span></dt>
-        <dd>
-            <a ui-sref="infraestructura-afectada-detail({id:vm.sqldatasource.infraestructuraEnSQLDatasource.id})">{{vm.sqldatasource.infraestructuraEnSQLDatasource.infraestructuraAfectada}}</a>
-        </dd>
-        <hr>
-        <dt><span>Posible causa de sqldatasource</span></dt>
-        <dd>
-            <a ui-sref="causa-sqldatasource-detail({id:vm.sqldatasource.causaDeSQLDatasource.id})">{{vm.sqldatasource.causaDeSQLDatasource.causaSQLDatasource}}</a>
-        </dd>
-        <hr>
-        <dt><span>Tipo de sqldatasource</span></dt>
-        <dd>
-            <a ui-sref="tipo-sqldatasource-detail({id:vm.sqldatasource.tipoDeSQLDatasource.id})">{{vm.sqldatasource.tipoDeSQLDatasource.tipoSQLDatasource}}</a>
-        </dd>
-        <hr>
-        <dt><span>Factor climatológico en SQLDatasource</span></dt>
-        <dd>
-            <a ui-sref="factor-climatologico-detail({id:vm.sqldatasource.climaEnSQLDatasource.id})">{{vm.sqldatasource.climaEnSQLDatasource.condicionClima}}</a>
-        </dd>
-        <hr>
-        <dt><span>Tipo de novedad de sqldatasource</span></dt>
-        <dd>
-            <a ui-sref="tipo-novedad-sqldatasource-detail({id:vm.sqldatasource.tipoNovedadDeSQLDatasource.id})">{{vm.sqldatasource.tipoNovedadDeSQLDatasource.tipoNovedad}}</a>
-        </dd>
-        <hr>
-        <dt><span>Tramo de sqldatasource</span></dt>
-        <dd>
-            <a ui-sref="tramo-detail({id:vm.sqldatasource.tramoDeSQLDatasource.id})">{{vm.sqldatasource.tramoDeSQLDatasource.nombreTramo}}</a>
-        </dd>
-        <hr>
+
     </dl>
 
     <button type="submit"

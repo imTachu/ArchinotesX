@@ -19,11 +19,11 @@
         </button>
         <button skip-disable ng-if="isEditableEntity" type="submit" ng-disabled="vm.isSaveDisabled()"
                 class="btn btn-success">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Create</span>
         </button>
-        <button skip-disable ng-if="vm.withFinalizeState && isEditableEntity" type="button" ng-show="vm.entity.id"
+    <!--    <button skip-disable ng-if="vm.withFinalizeState && isEditableEntity" type="button" ng-show="vm.entity.id"
                 ng-click="vm.saveAndSendToConfirm()" ng-disabled="vm.isConfirmationDisabled()" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Finalizar</span>
-        </button>
+        </button> -->
     </div>
 </form>

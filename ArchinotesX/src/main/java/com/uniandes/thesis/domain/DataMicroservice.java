@@ -1,5 +1,6 @@
 package com.uniandes.thesis.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,11 +49,13 @@ public class DataMicroservice implements Serializable {
     @Column(name = "table", length = 256, nullable = false)
     private String table;
 
+    @JsonIgnore
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
 
+    @JsonIgnore
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sql_datasource_id")

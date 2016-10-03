@@ -1,9 +1,11 @@
 package com.uniandes.thesis.web.rest;
 
 import com.uniandes.thesis.domain.DataMicroservice;
+import com.uniandes.thesis.service.DCOSService;
 import com.uniandes.thesis.service.DataMicroserviceService;
 import com.uniandes.thesis.web.rest.util.HeaderUtil;
 import com.uniandes.thesis.web.rest.util.PaginationUtil;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -29,6 +32,9 @@ public class DataMicroserviceResource {
 
     @Autowired
     private DataMicroserviceService dataMicroserviceService;
+
+    @Autowired
+    private DCOSService dcosService;
 
     /**
      * Create a new DataMicroservice
@@ -91,8 +97,9 @@ public class DataMicroserviceResource {
      * @throws URISyntaxException
      */
     @RequestMapping(value = "/datamicroservices", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<DataMicroservice>> getAllDataMicroservices(Pageable pageable) throws URISyntaxException {
+    public ResponseEntity<List<DataMicroservice>> getAllDataMicroservices(Pageable pageable) throws URISyntaxException, IOException, ParseException {
         Page<DataMicroservice> page = dataMicroserviceService.findAll(pageable);
+        dcosService.createDataMicroservice("teeeest", "postgres://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", "sgdrgdfdfg");
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/datamicroservices");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

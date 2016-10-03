@@ -43,7 +43,7 @@
         <div class="form-group col-sm-12"
              ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
             <label class="control-label" for="field_kilometro">Table / Sheet</label>
-            <select class="form-control" ng-model="vm.table" ng-options="tables.name for tables in vm.tables">
+            <select class="form-control" ng-model="vm.table" ng-options="tables for tables in vm.tables">
                 <option value="">-- choose table --</option>
             </select>
         </div>

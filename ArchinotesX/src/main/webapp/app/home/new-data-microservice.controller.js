@@ -9,7 +9,7 @@
 
     function NewMicroserviceController(DataMicroservice, $uibModalInstance, SQLDatasource, $scope, $http){
         var vm = this;
-        getSQLDatasource(); 
+        getSQLDatasource();
         vm.name = "";
         vm.datasource = "";
         vm.table = "";
@@ -17,7 +17,7 @@
         $scope.$watchGroup(['vm.name', 'vm.endpoint'], function(){
            vm.endpoint = "/api/"+ vm.name;
         });
-        
+
         vm.microserviceNew = function(){
             DataMicroservice.new({id: entity.id}).$promise.then(function(result){
                 $uibModalInstance.close(result);
@@ -47,9 +47,10 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                data: JSON.stringify(data)
+                // data: JSON.stringify(data)
+                data: data
             }).then(function(result){
-                vm.tables = result;
+                vm.tables = result.data;
             }, function(err){
                 console.log(err);
             });

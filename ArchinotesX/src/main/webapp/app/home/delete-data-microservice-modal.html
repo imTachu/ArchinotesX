@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">&times;</button>
+    <h4 class="modal-title">Delete Confirmation</h4>
+</div>
+<div class="modal-body modal-body-principal-entities">
+    <p>Are you sure you want to delete the <strong>{{vm.microservice.name}}</strong> microservice ?</p>
+    <div class="entity-actions">
+        <button skip-disable type="button" class="btn btn-danger" ng-click="vm.microserviceDelete()">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span>Yes</span>
+        </button>
+        <button skip-disable ng-if="!vm.withBackButton" type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>No</span>
+        </button>
+    </div>
+</div>

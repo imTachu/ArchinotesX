@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
@@ -29,15 +30,8 @@
     <![endif]-->
     <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak></div>
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div ng-switch="!vm.isAuthenticated()" class="intro-header">
-
-        </div>
-        <div class="" ui-view="content"></div>
-
-        <div class="footer" ng-cloak>
-        </div>
-    </div>
+    <div class="" ui-view="content"></div>
+    <div class="footer" ng-cloak></div>
 
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->
@@ -84,8 +78,11 @@
     <script src="app/layouts/navbar/has-active-state-child-link.directive.js"></script>
     <script src="app/layouts/navbar/active-link.directive.js"></script>
     <script src="app/layouts/error/error.state.js"></script>
+    <script src="app/home/new-data-microservice.controller.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/home/delete-data-microservice.controller.js"></script>
+    <script src="app/home/data-microservice.service.js"></script>
     <script src="app/entities/sqldatasource/sqldatasource-dialog.controller.js"></script>
     <script src="app/entities/sqldatasource/sqldatasource-detail.controller.js"></script>
     <script src="app/entities/sqldatasource/sqldatasource-delete-dialog.controller.js"></script>
@@ -115,6 +112,7 @@
     <script src="app/entities/_components/entity-confirmation/entity-confirmation.controller.js"></script>
     <script src="app/entities/_components/entity-confirmation/confirmation-controller-config.factory.js"></script>
     <script src="app/entities/_components/entity-confirmation/confirmation-controller.factory.js"></script>
+    <script src="app/entities/_components/directives/user-header-info/user-header-info.directive.js"></script>
     <script src="app/entities/_components/directives/indicador-cumple.directive.js"></script>
     <script src="app/entities/_components/directives/disabled-inputs.directive.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>

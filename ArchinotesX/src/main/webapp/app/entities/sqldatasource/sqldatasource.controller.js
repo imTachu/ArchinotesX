@@ -58,13 +58,19 @@
                             roles: 'ROLE_REFERENCE_ARCHITECT'
                         };
                     },
-                    deleteLink: function (item) {
+                    editLink: function (item) {
                         return {
                             state: controller.getOptions().entityName + '.edit',
                             stateParams: {id: item.id},
                             isDisabled: function () {
                                 return controller.isFinalizedEntity(item);
                             }
+                        };
+                    },
+                    deleteLink: function (item) {
+                        return {
+                            state: controller.getOptions().entityName + '.delete',
+                            stateParams: {id: item.id},
                         };
                     }
                 };

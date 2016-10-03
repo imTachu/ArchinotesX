@@ -1,74 +1,81 @@
 <h4>Remember, only PostgreSQL databases are allowed</h4>
+<div class="row">
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-success" ng-click="vm.createSQL(false)">Excel file</button>
+        <button type="button" class="btn btn-primary" ng-click="vm.createSQL(true)">SQL connection</button>
+    </div>
+</div>
 <div class="entity-section-form-group">
     <div class="row">
-        <div class="form-group col-sm-5 col-md-6" ng-class="{'has-error':editForm.nombrePersonaQueReporta.$invalid}">
-            <label class="control-label" for="field_nombrePersonaQueReporta">Host</label>
-            <input type="text" class="form-control" name="nombrePersonaQueReporta" id="field_nombrePersonaQueReporta"
-                   ng-model="vm.sqldatasource.nombrePersonaQueReporta"
-                   required
-                   ng-minlength="2" ng-maxlength="500"/>
-            <div ng-show="editForm.nombrePersonaQueReporta.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.nombrePersonaQueReporta.$error.required">
+        <div class="form-group col-sm-12 " ng-class="{'has-error':editForm.dataSourceName.$invalid}">
+            <label class="control-label" for="field_dataSourceName">Datasource name</label>
+            <input type="text" class="form-control" name="dataSourceName" id="field_dataSourceName" ng-model="vm.sqldatasource.dataSourceName"
+                required ng-minlength="2" ng-maxlength="500" />
+            <div ng-show="editForm.dataSourceName.$invalid">
+                <p class="help-block" ng-show="editForm.dataSourceName.$error.required">
                     This field is mandatory
+                </p>
+                <p class="help-block" ng-show="editForm.dataSourceName.$error.minlength">
+                    This field can't be shorter than 2 characters!
                 </p>
             </div>
         </div>
-        <div class="form-group col-sm-3 col-md-3" ng-class="{'has-error':editForm.telefonoPersonaQueReporta.$invalid}">
-            <label class="control-label" for="field_telefonoPersonaQueReporta">Port</label>
-            <input type="text" class="form-control" name="telefonoPersonaQueReporta"
-                   id="field_telefonoPersonaQueReporta"
-                   ng-model="vm.sqldatasource.telefonoPersonaQueReporta"
-                   required
-                   ng-maxlength="5"/>
-            <div ng-show="editForm.telefonoPersonaQueReporta.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.telefonoPersonaQueReporta.$error.required">
+
+        <div class="form-group col-sm-6 col-md-6" ng-class="{'has-error':editForm.host.$invalid}" ng-if="vm.sql">
+            <label class="control-label" for="field_host">Host</label>
+            <input type="text" class="form-control" name="host" id="field_host" ng-model="vm.sqldatasource.host" required ng-minlength="2"
+                ng-maxlength="500" />
+            <div ng-show="editForm.host.$invalid">
+                <p class="help-block" ng-show="editForm.host.$error.required">
                     This field is mandatory
                 </p>
-                <p class="help-block"
-                   ng-show="editForm.telefonoPersonaQueReporta.$error.maxlength">
+                <p class="help-block" ng-show="editForm.host.$error.minlength">
+                    This field can't be shorter than 2 characters!
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-sm-6 col-md-6" ng-class="{'has-error':editForm.port.$invalid}" ng-if="vm.sql">
+            <label class="control-label" for="field_port">Port</label>
+            <input type="number" class="form-control" name="port" id="field_port" ng-model="vm.sqldatasource.port" required ng-maxlength="5"
+            />
+            <div ng-show="editForm.port.$invalid">
+                <p class="help-block" ng-show="editForm.port.$error.required">
+                    This field is mandatory
+                </p>
+                <p class="help-block" ng-show="editForm.port.$error.maxlength">
                     This field can't be that long. IT IS A PORT!
                 </p>
             </div>
         </div>
-        <div class="form-group col-sm-6"
-             ng-class="{'has-error':editForm.kilometro.$invalid || editForm.abscisa.$invalid}">
-            <label class="control-label sr-only" for="field_kilometro">Authentication</label>
-            <label class="control-label " for="field_kilometro">Authentication</label>
+        <div class="form-group col-sm-12 col-md-12" ng-class="{'has-error':editForm.dbName.$invalid}" ng-if="vm.sql">
+            <label class="control-label" for="field_dbName">DB Name</label>
+            <input type="text" class="form-control" name="dbName" id="field_dbName" ng-model="vm.sqldatasource.dbName" required ng-maxlength="100"
+            />
+            <div ng-show="editForm.dbName.$invalid">
+                <p class="help-block" ng-show="editForm.dbName.$error.required">
+                    This field is mandatory
+                </p>
+                <p class="help-block" ng-show="editForm.dbName.$error.maxlength">
+                    This field can't be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group col-sm-12" ng-class="{'has-error':editForm.username.$invalid || editForm.password.$invalid}" ng-if="vm.sql">
+            <label class="control-label sr-only" for="field_username">Authentication</label>
+            <label class="control-label " for="field_username">Authentication</label>
 
             <div class="input-group">
                 <div class="input-group-addon">Username</div>
-                <input required type="number" class="form-control" name="kilometro" id="field_kilometro"
-                       ng-model="vm.sqldatasource.kilometro"
-                       min="0" max="200"
-                       ng-class="{'has-error':editForm.kilometro.$invalid}"
-                />
+                <input required type="text" class="form-control" name="username" id="field_username" ng-model="vm.sqldatasource.username"
+                    min="0" max="200" ng-class="{'has-error':editForm.username.$invalid}" />
                 <div class="input-group-addon">Password</div>
-                <input required type="number" class="form-control" name="abscisa" id="field_abscisa"
-                       ng-model="vm.sqldatasource.abscisa"
-                       min="0" max="999"
-                       ng-class="{'has-error':editForm.abscisa.$invalid}"/>
+                <input required type="text" class="form-control" name="password" id="field_password" ng-model="vm.sqldatasource.password"
+                    min="0" max="999" ng-class="{'has-error':editForm.password.$invalid}" />
             </div>
+            <p class="help-block" ng-show="editForm.username.$error.required || editForm.password.$error.required">
+                Those fields are mandatory
+            </p>
         </div>
 
-        <div class="form-group col-sm-3 col-md-3" ng-class="{'has-error':editForm.telefonoPersonaQueReporta.$invalid}">
-            <label class="control-label" for="field_telefonoPersonaQueReporta">DB Name</label>
-            <input type="text" class="form-control" name="telefonoPersonaQueReporta"
-                   id="field_telefonoPersonaQueReporta"
-                   ng-model="vm.sqldatasource.telefonoPersonaQueReporta"
-                   required
-                   ng-maxlength="5"/>
-            <div ng-show="editForm.telefonoPersonaQueReporta.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.telefonoPersonaQueReporta.$error.required">
-                    This field is mandatory
-                </p>
-                <p class="help-block"
-                   ng-show="editForm.telefonoPersonaQueReporta.$error.maxlength">
-                    This field can't be that long. IT IS A PORT!
-                </p>
-            </div>
-        </div>
     </div>
 </div>

@@ -170,7 +170,7 @@
                     }]
                 }
             })
-            .state('sqldatasource-confirmation', {
+           /* .state('sqldatasource-confirmation', {
                 parent: 'sqldatasource.edit',
                 url: '/confirmacion',
                 data: {
@@ -195,6 +195,37 @@
                             entityName: 'sqldatasource'
                         });
                     }]
+                }
+            })*/
+             .state('sqldatasource.delete', {
+                parent: 'sqldatasource',
+                url: '/sqldatasource-delete/{id}',
+                data: {
+                    authorities: ['ROLE_REFERENCE_ARCHITECT'],
+                    pageTitle: 'SQL Datasources'
+                },
+                onEnter: ['$state', '$uibModal', 'SQLDatasource', '$stateParams', function ($state, $uibModal, SQLDatasource, $stateParams) {
+                    this.modalDialog = $uibModal.open({
+                        templateUrl: 'app/entities/sqldatasource/sqldatasource-delete-dialog.html',
+                        controller: 'SQLDatasourceDeleteController',
+                        controllerAs: 'vm',
+                        backdrop: true,
+                        size: 'md',
+                        resolve: {
+                            entity: function () {
+                                return SQLDatasource.get({id: $stateParams.id}).$promise;
+                            }
+                        }
+                    });
+                    this.modalDialog.result.then(function () {
+                        $state.go('sqldatasource', null, { reload: true });
+                    }, function () {
+                        $state.go('sqldatasource', null, {});
+                    });
+                }],
+                onExit: function () {
+                    this.modalDialog.close();
+                    this.modalDialog = null;
                 }
             });
     }

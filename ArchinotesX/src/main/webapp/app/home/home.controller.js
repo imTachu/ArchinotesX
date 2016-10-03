@@ -5,9 +5,9 @@
         .module('archinotesxApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'DataMicroservice', '$interval', '$http'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($scope, Principal, LoginService, $state, DataMicroservice, $interval, $http) {
         var vm = this;
 
         vm.account = null;
@@ -19,6 +19,7 @@
         });
 
         getAccount();
+        getDataMicroservices();
 
         function getAccount() {
             Principal.identity().then(function(account) {
@@ -30,6 +31,27 @@
             $state.go('register');
         }
 
+        function getDataMicroservices() {
+            var aux = DataMicroservice.query({});
+
+            aux.$promise.then(function(data){
+                 vm.dataMicroservices = data;
+                 checkServiceState();
+            });
+        }
+
+        function checkServiceState() {
+            angular.forEach(vm.dataMicroservices, function(item, index){
+                $http.get(item.endpoint).then(function(response) {
+                    item.ok= true;
+                 }, function(response){
+                     item.ok= false;
+                });
+            })
+        }
+
+      //  $interval(checkServiceState, 5000);
+               
         angular.element(function () {
             angular.element("#typed").typed({
                 stringsElement: angular.element('#typed-string'),
@@ -54,7 +76,7 @@
         }
 
         function foo() {
-            console.log("Callback");
+           // console.log("Callback");
         }
     }
 })();

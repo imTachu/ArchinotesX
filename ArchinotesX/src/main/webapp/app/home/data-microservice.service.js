@@ -22,7 +22,11 @@
                 }
             },
             'new': {
-                method:'POST'
+                method:'POST',
+                params: {
+                    projectId: null,
+                    datasourceId: null
+                }
             },
             'delete': {
                 method: 'DELETE'

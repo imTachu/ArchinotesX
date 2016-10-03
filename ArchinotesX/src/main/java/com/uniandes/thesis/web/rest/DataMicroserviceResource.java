@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -44,11 +45,14 @@ public class DataMicroserviceResource {
      * @throws Exception
      */
     @RequestMapping(value = "/datamicroservices", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<DataMicroservice> createDataMicroservice(@Valid @RequestBody DataMicroservice datamicroservice) throws Exception {
+    public ResponseEntity<DataMicroservice> createDataMicroservice(@RequestParam("projectId") Long projectId,
+                                                                   @RequestParam("datasourceId") Long datasourceId,
+                                                                   @RequestBody DataMicroservice datamicroservice) throws Exception {
         if (datamicroservice.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("datamicroservice", "idexists", "A new datamicroservice cannot already have an ID")).body(null);
         }
-        DataMicroservice result = dataMicroserviceService.save(datamicroservice);
+        DataMicroservice result = dataMicroserviceService.save(datamicroservice, projectId, datasourceId);
+        dcosService.createDataMicroservice(result.getName(), "postgres://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", result.getTableName());
         return ResponseEntity.created(new URI("/api/datamicroservices/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("datamicroservice", result.getId().toString()))
             .body(result);
@@ -62,11 +66,10 @@ public class DataMicroserviceResource {
      * @throws Exception
      */
     @RequestMapping(value = "/datamicroservices", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<DataMicroservice> updateDataMicroservice(@Valid @RequestBody DataMicroservice datamicroservice) throws Exception {
-        if (datamicroservice.getId() == null) {
-            return createDataMicroservice(datamicroservice);
-        }
-        DataMicroservice result = dataMicroserviceService.save(datamicroservice);
+    public ResponseEntity<DataMicroservice> updateDataMicroservice(@RequestParam("projectId") Long projectId,
+                                                                   @RequestParam("datasourceId") Long datasourceId,
+                                                                   @Valid @RequestBody DataMicroservice datamicroservice) throws Exception {
+        DataMicroservice result = dataMicroserviceService.save(datamicroservice, projectId, datasourceId);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("datamicroservice", datamicroservice.getId().toString()))
             .body(result);
@@ -99,7 +102,6 @@ public class DataMicroserviceResource {
     @RequestMapping(value = "/datamicroservices", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<DataMicroservice>> getAllDataMicroservices(Pageable pageable) throws URISyntaxException, IOException, ParseException {
         Page<DataMicroservice> page = dataMicroserviceService.findAll(pageable);
-        dcosService.createDataMicroservice("teeeest", "postgres://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", "sgdrgdfdfg");
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/datamicroservices");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

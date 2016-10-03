@@ -21,7 +21,7 @@
             var controllerOptions = angular.extend(defaultOptions, customOptions || {});
 
             function EntityListController(instanceOptions) {
-                
+
                 var vm = this; //TODO encapsular metodos y props para no sobrecargar el scope en el controller
                 vm.loadPage = vm.loadPageAt;
                 vm.predicate = pagingParams.predicate;

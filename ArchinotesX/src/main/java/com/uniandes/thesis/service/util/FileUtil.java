@@ -1,6 +1,5 @@
 package com.uniandes.thesis.service.util;
 
-import com.google.common.io.Resources;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -8,15 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class FileUtil {
@@ -38,7 +28,7 @@ public class FileUtil {
 //            .collect(Collectors.toList());
 //        Files.write(targetFile, replaced);
 //    }
-        String jsonString = "{\"container\":{\"docker\":{\"privileged\":false,\"image\":\"imtachu\\/data-microservice\",\"forcePullImage\":false,\"portMappings\":[{\"protocol\":\"tcp\",\"containerPort\":8080}],\"network\":\"BRIDGE\"}},\"residency\":null,\"healthChecks\":null,\"taskKillGracePeriodSeconds\":null,\"instances\":1,\"maxLaunchDelaySeconds\":3600,\"upgradeStrategy\":{\"maximumOverCapacity\":1,\"minimumHealthCapacity\":1},\"acceptedResourceRoles\":[\"slave_public\"],\"constraints\":null,\"mem\":64,\"executor\":null,\"readinessChecks\":null,\"id\":\"\\/data_microservices\\/ID_PARAMETER\",\"backoffFactor\":1.15,\"cpus\":0.1,\"backoffSeconds\":1,\"volumes\":null,\"env\":{\"TABLE\":\"TABLE_PARAMETER\",\"DATABASE_URL\":\"DATABASE_URL_PARAMETER\"},\"secrets\":null,\"dependencies\":null,\"labels\":null,\"args\":null,\"disk\":0,\"requirePorts\":false,\"gpus\":0,\"fetch\":null,\"portDefinitions\":[{\"protocol\":\"tcp\",\"port\":10000,\"labels\":{}}],\"cmd\":null,\"storeUrls\":null,\"user\":null}";
+        String jsonString = "{\"volumes\":null,\"id\":\"/data-microservices/ID_PARAMETER\",\"cmd\":null,\"args\":null,\"user\":null,\"env\":{\"DATABASE_URL\":\"DATABASE_URL_PARAMETER\",\"TABLE\":\"TABLE_PARAMETER\"},\"instances\":1,\"cpus\":0.1,\"mem\":64,\"disk\":0,\"gpus\":0,\"executor\":null,\"constraints\":null,\"fetch\":null,\"storeUrls\":null,\"backoffSeconds\":1,\"backoffFactor\":1.15,\"maxLaunchDelaySeconds\":3600,\"container\":{\"docker\":{\"image\":\"imtachu/data-microservice\",\"forcePullImage\":false,\"privileged\":false,\"portMappings\":[{\"containerPort\":80,\"protocol\":\"tcp\"}],\"network\":\"BRIDGE\"}},\"healthChecks\":null,\"readinessChecks\":null,\"dependencies\":null,\"upgradeStrategy\":{\"minimumHealthCapacity\":1,\"maximumOverCapacity\":1},\"labels\":null,\"acceptedResourceRoles\": [\"slave_public\"],\"residency\":null,\"secrets\":null,\"taskKillGracePeriodSeconds\":null,\"portDefinitions\":[{\"port\":10000,\"protocol\":\"tcp\",\"labels\":{}}],\"requirePorts\":false}";
         jsonString = jsonString.replace("TABLE_PARAMETER", table);
         jsonString = jsonString.replace("DATABASE_URL_PARAMETER", databaseUrl);
         jsonString = jsonString.replace("ID_PARAMETER", name);
@@ -55,9 +45,12 @@ public class FileUtil {
 //            System.out.println("Successfully Copied JSON Object to File...");
 //            System.out.println("\nJSON Object: " + json);
 //        }
- }
 
+        try (FileWriter file = new FileWriter("D:\\tesis\\" + name + ".json")) {
+            file.write(json.toJSONString());
+            System.out.println("Successfully Copied JSON Object to File...");
+            System.out.println("\nJSON Object: " + json);
+        }
 
-
-
+    }
 }

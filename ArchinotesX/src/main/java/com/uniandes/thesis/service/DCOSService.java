@@ -21,7 +21,7 @@ public class DCOSService {
     public void createDataMicroservice(String name, String databaseUrl, String table) throws IOException, ParseException {
         fileUtil.replaceContentInFile(DCOSJson.CREATE_DATA_MICROSERVICE.getFilePath(), name, databaseUrl, table);
 
-        String output = shellUtil.executeCommand("dcos marathon app list");
+        String output = shellUtil.executeCommand(name);
 //        String output = shellUtil.executeCommand("dcos marathon app add myApp.json");
         System.out.println(output);
     }

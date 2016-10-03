@@ -143,7 +143,7 @@
 
         <createTable tableName="project">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="project_PK"/>
+                <constraints primaryKey="true" nullable="false" primaryKeyName="project_PK"/>
             </column>
             <column name="name" type="varchar(512)">
                 <constraints unique="true" nullable="false"/>
@@ -153,13 +153,13 @@
 
         <createTable tableName="data_microservice">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="data_microservice_PK"/>
+                <constraints primaryKey="true" nullable="false" primaryKeyName="data_microservice_PK"/>
             </column>
             <column name="name" type="varchar(512)">
                 <constraints unique="true" nullable="false"/>
             </column>
             <column name="endpoint" type="varchar(512)"/>
-            <column name="table" type="varchar(512)">
+            <column name="table_name" type="varchar(512)">
                 <constraints nullable="false"/>
             </column>
             <column name="project_id" type="bigint"/>
@@ -168,7 +168,7 @@
 
         <createTable tableName="sql_datasource">
             <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="sql_datasource_PK"/>
+                <constraints primaryKey="true" nullable="false" primaryKeyName="sql_datasource_PK"/>
             </column>
             <column name="name" type="varchar(512)">
                 <constraints unique="true" nullable="false"/>

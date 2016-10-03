@@ -46,17 +46,14 @@ public class DataMicroservice implements Serializable {
 
     @NotNull
     @Size(min = 1, max = 256)
-    @Column(name = "table", length = 256, nullable = false)
-    private String table;
+    @Column(name = "table_name", length = 256, nullable = false)
+    private String tableName;
 
     @JsonIgnore
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id")
     private Project project;
 
-    @JsonIgnore
-    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sql_datasource_id")
     private SQLDatasource sqlDatasource;

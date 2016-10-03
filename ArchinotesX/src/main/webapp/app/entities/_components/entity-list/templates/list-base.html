@@ -1,5 +1,6 @@
 <div class="container" >
 <div ng-init="isEditableList=vm.isEditableList();">
+    <user-info-header user="vm.account"></user-info-header>
     <h2>{{vm.getTitle()}}</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid"  ng-if="isEditableList">

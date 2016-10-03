@@ -1,8 +1,6 @@
 package com.uniandes.thesis.web.rest;
 
 import com.uniandes.thesis.domain.SQLDatasource;
-import com.uniandes.thesis.service.util.PostgreSQLUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +21,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/postgresql", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PostgreSQLConnectionResource {
-
-    @Autowired
-    public PostgreSQLUtil postgreSQLUtil;
 
     /**
      * Service to test if a database can be reached
@@ -78,6 +73,7 @@ public class PostgreSQLConnectionResource {
      * @return
      */
     public Connection testConnection(SQLDatasource sqlDatasource) throws SQLException {
-        return DriverManager.getConnection(postgreSQLUtil.createConnectionString(sqlDatasource));
+        return DriverManager.getConnection("jdbc:postgresql://" + sqlDatasource.getHost() + ":" +
+            sqlDatasource.getPort() + "/" + sqlDatasource.getDbName(), sqlDatasource.getUsername(), sqlDatasource.getPassword());
     }
 }

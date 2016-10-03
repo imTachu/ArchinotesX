@@ -38,7 +38,7 @@
                 },
                 data: data
             }).then(function(result){
-                vm.tables = result.data;
+                vm.clear();
             }, function(err){
                 console.log(err);
             });
@@ -67,7 +67,6 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                // data: JSON.stringify(data)
                 data: data
             }).then(function(result){
                 vm.tables = result.data;

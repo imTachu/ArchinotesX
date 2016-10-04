@@ -78,18 +78,14 @@ public class DataMicroserviceResource {
     /**
      * Delete a DataMicroservice
      *
-     * @param datamicroservice
+     * @param id
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/datamicroservices", method = RequestMethod.DELETE)
-    public ResponseEntity deleteDataMicroservice(@Valid @RequestBody DataMicroservice datamicroservice) throws Exception {
-        if (datamicroservice.getId() == null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("datamicroservice", "idnull", "Cannot delete a cannot without an ID")).body(null);
-        }
-        dataMicroserviceService.delete(datamicroservice);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityDeletionAlert("datamicroservice", "Successfully deleted")).body(null);
+    @RequestMapping(value = "/datamicroservices/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> deleteSQLDatasource(@PathVariable Long id) {
+        dataMicroserviceService.delete(id);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("datamicroservices", id.toString())).build();
     }
 
     /**

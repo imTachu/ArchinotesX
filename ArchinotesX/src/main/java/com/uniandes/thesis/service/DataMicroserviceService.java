@@ -39,7 +39,7 @@ public class DataMicroserviceService {
         return dataMicroserviceRepository.save(dataMicroservice);
     }
 
-    public void delete(DataMicroservice DataMicroservice) {
-        dataMicroserviceRepository.delete(DataMicroservice);
+    public void delete(Long id) {
+        dataMicroserviceRepository.delete(id);
     }
 }

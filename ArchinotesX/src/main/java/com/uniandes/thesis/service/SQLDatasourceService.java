@@ -2,13 +2,10 @@ package com.uniandes.thesis.service;
 
 import com.uniandes.thesis.domain.SQLDatasource;
 import com.uniandes.thesis.repository.SQLDatasourceRepository;
-import com.uniandes.thesis.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.time.ZonedDateTime;
 
 @Service
 public class SQLDatasourceService {
@@ -28,7 +25,8 @@ public class SQLDatasourceService {
         return sqlDatasourceRepository.save(SQLDatasource);
     }
 
-    public void delete(SQLDatasource SQLDatasource) {
-        sqlDatasourceRepository.delete(SQLDatasource);
+    public void delete(Long id) {
+        sqlDatasourceRepository.delete(id);
     }
+
 }

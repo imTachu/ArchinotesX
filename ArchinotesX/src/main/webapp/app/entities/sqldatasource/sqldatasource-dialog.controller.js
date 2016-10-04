@@ -17,7 +17,7 @@
 
                 var vm = this;
                 $scope.$watchGroup([
-                    'vm.sqldatasource.dataSourceName',
+                    'vm.sqldatasource.name',
                     'vm.sqldatasource.host',
                     'vm.sqldatasource.port',
                     'vm.sqldatasource.dbName',
@@ -26,7 +26,7 @@
                 ], function () {
                     vm.isInvalidToSave = false;
                     var entityForm = $scope.editForm;
-                    if (!entityForm || entityForm.dataSourceName.$invalid ||
+                    if (!entityForm || entityForm.name.$invalid ||
                         entityForm.host.$invalid ||
                         entityForm.port.$invalid ||
                         entityForm.dbName.$invalid ||
@@ -42,30 +42,6 @@
                 vm.sql = flag;
             }
         });
-
-        // vm.testConnection = function(){
-        //     var data =  JSON.stringify({
-        //         name: vm.datasource.name,
-        //         host: vm.datasource.host,
-        //         dbName: vm.datasource.dbName,
-        //         username: vm.datasource.username,
-        //         password: vm.datasource.password,
-        //         port: vm.datasource.port
-        //     });
-        //     $http({
-        //         url: "/api/postgresql/test-connection",
-        //         dataType: "json",
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         data: data
-        //     }).then(function(result){
-        //         debugger
-        //     }, function(err){
-        //         console.log(err);
-        //     });
-        // }
 
         var controller = new EntityDialogController({
             entityName: "sqldatasource",

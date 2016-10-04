@@ -12,7 +12,7 @@
         vm.microservice = entity;
 
         vm.microserviceDelete = function(){
-            DataMicroservice.delete({entity}).$promise.then(function(result){
+            DataMicroservice.delete({id: entity.id}).$promise.then(function(result){
                 $uibModalInstance.close(result);
             });
         }

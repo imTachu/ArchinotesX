@@ -87,32 +87,9 @@
                         angular.element('.form-group:eq(1)>input').focus();
                     });
                 },
-                openCalendar: function (date) {
-                    var vm = this;
-                    vm.datePickerOpenStatus[date] = true;
-                },
-
                 goToBack: function () {
 
                 },
-
-                isSaveDisabled: function () {
-                    var vm = this;
-                    if (vm.getOptions().withFinalizeState) {
-                        return !vm.isEditableEntity() || vm.isInvalidToSave || vm.isSaving;
-                    }
-                    else {
-                        var editForm = $scope.editForm;
-                        return editForm.$invalid || vm.isSaving;
-                    }
-                },
-
-                isConfirmationDisabled: function () {
-                    var vm = this;
-                    var editForm = $scope.editForm;
-                    return !vm.isEditableEntity() || editForm.$invalid || vm.isSaving;
-                },
-
 
                 save: function () {
 
@@ -135,8 +112,6 @@
                         entity.$save(onSuccess, onError);
                     }
                 },
-
-
                 onSaveSuccess: function (result) {
 
                     var vm = this;
@@ -147,15 +122,6 @@
                     $state.go(entityName);
                     vm.isSaving = false;
                 },
-
-                /*onSaveToSendToConfirmation: function (result) {
-
-                    var vm = this;
-                    //console.log('onSaveToSendToConfirmation state go '+vm.entityName+'-confirmation');
-                    $state.go(vm.entityName);
-                    vm.isSaving = false;
-                },*/
-
                 onSaveError: function (error) {
 
                     var vm = this;
@@ -163,12 +129,6 @@
                     vm.isSaving = false;
                 },
 
-
-                /*saveAndSendToConfirm: function () {
-
-                    var vm = this;
-                    vm._save(this.onSaveToSendToConfirmation.bind(this), this.onSaveError.bind(this));
-                },*/
 
                 initCustomValidations: function () {
 
@@ -195,9 +155,9 @@
                             backdrop: false,
                             size: 'sm',
                         }).result.then(function(){
-                            
+
                         }, function(){
-                            
+
                         });
                     }, function (err) {
                         console.log(err);

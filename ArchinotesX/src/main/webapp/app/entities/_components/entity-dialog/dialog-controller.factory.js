@@ -4,9 +4,9 @@
         .module('archinotesxApp')
         .factory('EntityDialogControllerFactory', EntityDialogControllerFactory);
 
-    EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES', '$http'];
+    EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES', '$http', '$uibModal'];
 
-    function EntityDialogControllerFactory($filter, $timeout, $rootScope, $state, $stateParams, AlertService, ENTITY_STATES, $http) {
+    function EntityDialogControllerFactory($filter, $timeout, $rootScope, $state, $stateParams, AlertService, ENTITY_STATES, $http, $uibModal) {
         function createController($scope, EntityResource, entity, customOptions) {
             var defaultOptions = {
                 entityName: 'entity',
@@ -188,7 +188,17 @@
                         },
                         data: entity
                     }).then(function (result) {
-                        console.log("funciona");
+                        $uibModal.open({
+                            templateUrl: 'app/entities/_components/entity-modal/templates/modal-connection.html',
+                            controller: 'ModalConnectionController',
+                            controllerAs: 'vm',
+                            backdrop: false,
+                            size: 'sm',
+                        }).result.then(function(){
+                            
+                        }, function(){
+                            
+                        });
                     }, function (err) {
                         console.log(err);
                     });

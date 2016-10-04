@@ -9,15 +9,17 @@
 
     function SQLDatasourceDeleteController($uibModalInstance, entity, SQLDatasource) {
         var vm = this;
-        console.log(entity);
         vm.sqldatasource = entity;
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
+        var data = JSON.stringify(entity);
         vm.confirmDelete = function (id) {
-            SQLDatasource.delete({id: id},
+            SQLDatasource.delete({data},
                 function () {
                     $uibModalInstance.close(true);
+                }, function(err){
+                    console.log(err);
                 });
         };
     }

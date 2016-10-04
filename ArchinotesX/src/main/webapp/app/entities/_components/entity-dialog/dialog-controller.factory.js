@@ -4,9 +4,9 @@
         .module('archinotesxApp')
         .factory('EntityDialogControllerFactory', EntityDialogControllerFactory);
 
-    EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES'];
+    EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES', '$http'];
 
-    function EntityDialogControllerFactory($filter, $timeout, $rootScope, $state, $stateParams, AlertService, ENTITY_STATES) {
+    function EntityDialogControllerFactory($filter, $timeout, $rootScope, $state, $stateParams, AlertService, ENTITY_STATES, $http) {
         function createController($scope, EntityResource, entity, customOptions) {
             var defaultOptions = {
                 entityName: 'entity',
@@ -128,12 +128,10 @@
                 _save: function (onSuccess, onError) {
 
                     var vm = this;
-                    console.log(entity);
                     vm.isSaving = true;
                     if (entity.id !== null) {
                         entity.$update(onSuccess, onError);
                     } else {
-                        
                         entity.$save(onSuccess, onError);
                     }
                 },
@@ -146,17 +144,17 @@
                     var entityCamelCase = $filter('hyphenToCamelCase')(entityName);
                     //console.log('onSaveSuccess emit name: '+'archinotesxApp:'+entityCamelCase+'Update');
                     $scope.$emit('archinotesxApp:' + entityCamelCase + 'Update', result);
-                    $state.go(entityName + '.edit', {id: result.id});
+                    $state.go(entityName);
                     vm.isSaving = false;
                 },
 
-                onSaveToSendToConfirmation: function (result) {
+                /*onSaveToSendToConfirmation: function (result) {
 
                     var vm = this;
                     //console.log('onSaveToSendToConfirmation state go '+vm.entityName+'-confirmation');
-                    $state.go(vm.entityName + '-confirmation', {id: result.id});
+                    $state.go(vm.entityName);
                     vm.isSaving = false;
-                },
+                },*/
 
                 onSaveError: function (error) {
 
@@ -166,11 +164,11 @@
                 },
 
 
-                saveAndSendToConfirm: function () {
+                /*saveAndSendToConfirm: function () {
 
                     var vm = this;
                     vm._save(this.onSaveToSendToConfirmation.bind(this), this.onSaveError.bind(this));
-                },
+                },*/
 
                 initCustomValidations: function () {
 
@@ -178,6 +176,22 @@
 
                 startWatcherIfCanToSaveEntity: function () {
 
+                },
+
+                testConnection: function () {
+                    $http({
+                        url: "/api/postgresql/test-connection",
+                        dataType: "json",
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        data: entity
+                    }).then(function (result) {
+                        console.log("funciona");
+                    }, function (err) {
+                        console.log(err);
+                    });
                 }
 
 

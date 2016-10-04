@@ -95,7 +95,7 @@
                     this.modalDialog.result.then(function () {
                         $state.go('sqldatasource', null, {reload: true});
                     }, function () {
-                        $state.go('sqldatasource', null, {reload: true});
+                        $state.go('sqldatasource', null, {});
                     });
                 }],
                 onExit: function () {

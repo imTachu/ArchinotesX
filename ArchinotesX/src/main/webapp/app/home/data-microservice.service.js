@@ -10,8 +10,8 @@
         var resourceUrl =  'api/datamicroservices/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { 
-                method: 'GET', 
+            'query': {
+                method: 'GET',
                 isArray: true
             },
             'get': {
@@ -21,8 +21,12 @@
                     return data;
                 }
             },
-            'new': { 
-                method:'POST'
+            'new': {
+                method:'POST',
+                params: {
+                    projectId: null,
+                    datasourceId: null
+                }
             },
             'delete': {
                 method: 'DELETE'

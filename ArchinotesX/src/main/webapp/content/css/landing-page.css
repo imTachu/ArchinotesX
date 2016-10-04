@@ -22,7 +22,7 @@ html {
 }
 
 .intro-header {
-    /*padding-top: 50px; 
+    /*padding-top: 50px;
     padding-bottom: 50px;*/
     text-align: center;
     color: #f8f8f8;
@@ -175,11 +175,7 @@ Typed.js styles
     -o-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
-@-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
+
 @-webkit-keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }

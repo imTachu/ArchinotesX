@@ -35,9 +35,12 @@
             <div ng-show="vm.isAuthenticated()">
                 <user-info-header user="vm.account"></user-info-header>
                 <div class="row">
-                    <div class="col-xs-12">
-                        <h2>Projects | {{vm.account.projectName}}</h2>
+                    <div class="col-xs-9">
+                        <h2>Project | {{vm.account.projectName}}</h2>
                     </div>
+                    <!--<div class="col-xs-3">-->
+                    <!--<button type="button" class="btn btn-lg dcos-button" />-->
+                    <!--</div>-->
                 </div>
                 <div class="row microservices-header">
                     <div class="col-xs-12 col-sm-12">
@@ -45,25 +48,31 @@
                             <h4>Data Microservices</h4>
                         </div>
                         <div class="col-xs-12  col-sm-2 text-right">
-                            <button type="button" class="btn btn-primary" ui-sref="microServiceNew">New microservice</button>
+                            <button class="btn btn-success" ui-sref="microServiceNew">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span>New microservice</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-                    <div class="col-xs-12">
-                        <div class="col-xs-12 col-sm-4" ng-repeat="dataMicroservices in vm.dataMicroservices">
-                            <div class="data-microservice col-xs-12 " ng-class="{'alert-success': dataMicroservices.ok, 'alert-danger': !dataMicroservices.ok}">
-                                <button type="button" class="btn btn-danger data-microservice-delete" ui-sref="microServiceDelete({id: dataMicroservices.id})"><i class="fa fa-times" aria-hidden="true"></i></button>
-                                <div class="col-xs-8 data-microservice-header">
-                                    <p>{{dataMicroservices.name}}</p>
-                                </div>
-                                <div class="col-xs-12 data-microservice-body">
-                                    <p><strong>Endpoint: </strong>{{dataMicroservices.endpoint}}</p>
-                                    <p>Using <strong>{{dataMicroservices.sqlDatasource.name}}</strong> datasource</p>
-                                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-12 col-sm-4" ng-repeat="dataMicroservices in vm.dataMicroservices">
+                        <div class="data-microservice col-xs-12 "
+                             ng-class="{'alert-success': dataMicroservices.ok, 'alert-danger': !dataMicroservices.ok}">
+                            <button type="button" class="btn btn-danger data-microservice-delete"
+                                    ui-sref="microServiceDelete({id: dataMicroservices.id})"><i class="fa fa-times"
+                                                                                                aria-hidden="true"></i>
+                            </button>
+                            <div class="col-xs-8 data-microservice-header">
+                                <p>{{dataMicroservices.name}}</p>
+                            </div>
+                            <div class="col-xs-12 data-microservice-body">
+                                <p><strong>Endpoint: </strong>{{dataMicroservices.endpoint}}</p>
+                                <p>Using <strong>{{dataMicroservices.sqlDatasource.name}}</strong> datasource</p>
                             </div>
                         </div>
                     </div>
-        
+                </div>
             </div>
         </div>
     </div>

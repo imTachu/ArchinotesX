@@ -62,7 +62,7 @@
 
 form.disable-all .has-error .control-label{
     color:inherit;
-    
+
 }
 
 form.disable-all .has-error .form-control{
@@ -75,7 +75,7 @@ form.disable-all .has-error .form-control{
 
 form.disable-all .has-error .help-block{
     display: none;
-    
+
 }
 
 form.disable-all .has-error .input-group-addon{
@@ -108,7 +108,7 @@ form.disable-all .has-error .input-group-addon{
 }
 .summary-section__text {
     color: #337ab7;
-} 
+}
 .summary-section__info {
     padding: 2% 1%;
 }
@@ -248,7 +248,7 @@ hr.double {
 }
 
 .report {
-    font-size:.9em; 
+    font-size:.9em;
     margin-top:3%;
 }
 
@@ -274,18 +274,18 @@ hr.double {
 }
 
 .report__paginationText {
-    display: inline-block; 
-    vertical-align:inherit; 
+    display: inline-block;
+    vertical-align:inherit;
     padding: 0 7px;
 }
 
 .report__md-table {
-    width: 50%; 
+    width: 50%;
     margin: 0 auto;
 }
 
 .report__modal-content-div {
-    border:1px solid #ccc; 
+    border:1px solid #ccc;
     padding:0;
     margin-bottom: 2%;
     border-radius: 5px;
@@ -293,26 +293,26 @@ hr.double {
 
 .report__modal-content-title {
     background: #d9edf7;
-    margin: 0; 
+    margin: 0;
     padding: 1.5%;
     border-radius: 5px;
 }
 
 .report__modal-content-description {
-    margin-top: 2%; 
+    margin-top: 2%;
     padding: 2%;
 }
 
 .report__detail-table {
-    border-top: 1px dashed #ccc; 
+    border-top: 1px dashed #ccc;
     margin-top:2%;
 }
 
-.modal__line { 
+.modal__line {
     border:10px solid gray;
-    width:100px; 
-    height:30px; 
-    margin: 0 auto; 
+    width:100px;
+    height:30px;
+    margin: 0 auto;
     border-radius:5px;
 }
 
@@ -429,7 +429,7 @@ Estilos para navbar brand
 }
 
 /* ==========================================================================
-navbar - helpers 
+navbar - helpers
 ========================================================================== */
 
 .no-margin-bottom {
@@ -437,7 +437,7 @@ navbar - helpers
 }
 
 /* ==========================================================================
-Rendimiento del sistema - helpers pie disponibilidad 
+Rendimiento del sistema - helpers pie disponibilidad
 ========================================================================== */
 
 .pie__helper {
@@ -457,19 +457,19 @@ Indice de cumplimiento
 ========================================================================== */
 
 .UF__title {
-    background:#6393bd; 
-    margin:0; padding: 1% 0; 
-    color:white; 
-    border-top-right-radius:5px; 
+    background:#6393bd;
+    margin:0; padding: 1% 0;
+    color:white;
+    border-top-right-radius:5px;
     border-top-left-radius:5px;
 }
 
 .UF__value {
-    background:#fff; 
-    margin:0; 
-    padding: 1% 0; 
-    font-weight:bold; 
-    border-bottom-right-radius:5px; 
+    background:#fff;
+    margin:0;
+    padding: 1% 0;
+    font-weight:bold;
+    border-bottom-right-radius:5px;
     border-bottom-left-radius:5px;
 }
 
@@ -478,7 +478,7 @@ Indice de cumplimiento
 }
 
 .important-table-data {
-    background:#ccc; 
+    background:#ccc;
     font-weight: bold;
 }
 
@@ -503,7 +503,7 @@ Info header
 Microservices header
 ========================================================================== */
 .microservices-header {
-    padding: 2% 0; 
+    padding: 2% 0;
     margin: 2% 0;
     border-top: 1px solid #ccc;
 }
@@ -536,3 +536,11 @@ Microservices header
 .navbar {
     border-radius: 0px;
 }
+
+/*.dcos-button {*/
+    /*background: #f2f2f2 url("../images/dcos.png") no-repeat -9px -7px;*/
+    /*background-size: 39px 43px;*/
+    /*padding-left: 41px;*/
+    /*color: #000;*/
+/*}*/
+

@@ -1,10 +1,10 @@
 <div>
-    <h2>Usuarios</h2>
+    <h2>Users</h2>
     <jhi-alert></jhi-alert>
     <div class="row">
       <div class="col-md-4">
           <button class="btn btn-primary" ui-sref="user-management.new">
-              <span class="glyphicon glyphicon-user"></span> <span>Crear usuario</span>
+              <span class="glyphicon glyphicon-user"></span> <span>Create user</span>
           </button>
       </div>
     </div>
@@ -14,56 +14,29 @@
             <tr>
                 <th>ID</th>
                 <th>Login</th>
-                <th>Correo electrónico</th>
-                <th></th>
-
-                <th>Perfil</th>
-                <th>Fecha creación</th>
-                <th>Última modificación (Usuario)</th>
-                <th>Última modificación (Fecha)</th>
+                <th>E-mail</th>
+                <th>Profile</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="user in vm.users track by user.id">
-                <td><!--<a ui-sref="user-management-detail({login:user.login})">-->{{user.id}}<!--</a>--></td>
+                <td>{{user.id}}</td>
                 <td>{{user.login}}</td>
                 <td>{{user.email}}</td>
-                <td>
-                    <span class="label label-danger" ng-click="vm.setActive(user, true)" ng-show="!user.activated"
-                          style="cursor: pointer;">Desactivado</span>
-                    <span class="label label-success" ng-click="vm.setActive(user, false)" ng-show="user.activated"
-                          style="cursor: pointer;">Activado</span>
-                </td>
-
                 <td>
                     <div ng-repeat="authority in user.authorities">
                         <span class="label label-info">{{ authority }}</span>
                     </div>
                 </td>
-                <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
-                <td>{{user.lastModifiedBy}}</td>
-                <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
-                        <!--<button type="submit"
-                                ui-sref="user-management-detail({login:user.login})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>
-                            <span class="hidden-xs hidden-sm"></span>
-                        </button>-->
                         <button type="submit"
                                 ui-sref="user-management.edit({login:user.login})"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <span class="hidden-xs hidden-sm"></span>
                         </button>
-                        <!-- <button type="submit"
-                                ui-sref="user-management.delete({login:user.login})"
-                                class="btn btn-danger btn-sm" ng-disabled="vm.currentAccount.login==user.login">
-                            <span class="glyphicon glyphicon-remove-circle"></span>
-                            <span class="hidden-xs hidden-sm"></span>
-                        </button> -->
                     </div>
                 </td>
             </tr>

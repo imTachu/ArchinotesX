@@ -9,23 +9,43 @@
 
     function NewMicroserviceController(DataMicroservice, $uibModalInstance, SQLDatasource, $scope, $http){
         var vm = this;
-        getSQLDatasource(); 
+        vm.tablesReady = false;
+        getSQLDatasource();
         vm.name = "";
         vm.datasource = "";
-        vm.table = "";
+        vm.tableName = "";
 
-        $scope.$watchGroup(['vm.name', 'vm.endpoint'], function(){
-           vm.endpoint = "/api/"+ vm.name;
+        $scope.$watchGroup(['vm.tableName', 'vm.endpoint'], function(){
+           vm.endpoint = "/api/"+ vm.tableName;
         });
-        
+
         vm.microserviceNew = function(){
-            DataMicroservice.new({id: entity.id}).$promise.then(function(result){
-                $uibModalInstance.close(result);
+            var data =  JSON.stringify({
+                name: vm.name,
+                endpoint: vm.endpoint,
+                tableName: vm.tableName
+            });
+            $http({
+                url: "/api/datamicroservices",
+                dataType: "json",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                params: {
+                    projectId: 1,
+                    datasourceId: vm.datasource.id
+                },
+                data: data
+            }).then(function(result){
+                vm.clear();
+            }, function(err){
+                console.log(err);
             });
         }
 
         function getSQLDatasource() {
-            var aux =SQLDatasource.query({});
+            var aux = SQLDatasource.query({});
             aux.$promise.then(function(result){
                 vm.SQLDatasources = result;
             });
@@ -47,9 +67,10 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                data: JSON.stringify(data)
+                data: data
             }).then(function(result){
-                vm.tables = result;
+                vm.tables = result.data;
+                vm.tablesReady = true;
             }, function(err){
                 console.log(err);
             });

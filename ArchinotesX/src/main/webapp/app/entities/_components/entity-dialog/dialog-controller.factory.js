@@ -117,7 +117,7 @@
                 save: function () {
 
                     var vm = this;
-                    vm.beforeSave();
+                    //vm.beforeSave();
                     vm._save(this.onSaveSuccess.bind(this), this.onSaveError.bind(this));
                 },
 
@@ -128,10 +128,12 @@
                 _save: function (onSuccess, onError) {
 
                     var vm = this;
+                    console.log(entity);
                     vm.isSaving = true;
                     if (entity.id !== null) {
                         entity.$update(onSuccess, onError);
                     } else {
+                        
                         entity.$save(onSuccess, onError);
                     }
                 },

@@ -47,7 +47,7 @@
                     item.ok = true;
                 }, function (response) {
                     item.ok = false;
-                    vm.notifyFallenMicroservice(item.name);
+                   // vm.notifyFallenMicroservice(item.name);
                 });
             })
         }

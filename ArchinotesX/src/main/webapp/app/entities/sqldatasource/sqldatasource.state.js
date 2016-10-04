@@ -122,28 +122,12 @@
                 resolve: {
                     entity: ['SQLDatasource', function (SQLDatasource) {
                         return new SQLDatasource({
-                            fechaRecepcionLlamada: null,
-                            reportadoPorTercero: null,
-                            nombrePersonaQueReporta: null,
-                            telefonoPersonaQueReporta: null,
-                            kilometro: null,
-                            abscisa: null,
-                            fechaLlegadaSenalizacion: null,
-                            fechaLlegadaAmbulancia: null,
-                            fechaLlegadaVehiculoApoyo: null,
-                            fechaLlegadaFinDespeje: null,
-                            otraInfraestructuraAfectada: null,
-                            requiereCierreDeVia: null,
-                            fechaInicioCierreVia: null,
-                            fechaFinCierreVia: null,
-                            entidadQueCierraVia: null,
-                            tipoDeCierre: null,
-                            comentario: null,
-                            comentarioInterventor: null,
-                            vistoBuenoInterventor: null,
-                            cumple: null,
-                            estado: null,
-                            id: null
+                            name: null,
+                            host: null,
+                            dbName: null,
+                            username: null,
+                            password: null,
+                            port: null
                         });
                     }]
                 }

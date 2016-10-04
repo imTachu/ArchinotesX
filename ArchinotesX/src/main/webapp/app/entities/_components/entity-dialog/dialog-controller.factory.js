@@ -87,32 +87,9 @@
                         angular.element('.form-group:eq(1)>input').focus();
                     });
                 },
-                openCalendar: function (date) {
-                    var vm = this;
-                    vm.datePickerOpenStatus[date] = true;
-                },
-
                 goToBack: function () {
 
                 },
-
-                isSaveDisabled: function () {
-                    var vm = this;
-                    if (vm.getOptions().withFinalizeState) {
-                        return !vm.isEditableEntity() || vm.isInvalidToSave || vm.isSaving;
-                    }
-                    else {
-                        var editForm = $scope.editForm;
-                        return editForm.$invalid || vm.isSaving;
-                    }
-                },
-
-                isConfirmationDisabled: function () {
-                    var vm = this;
-                    var editForm = $scope.editForm;
-                    return !vm.isEditableEntity() || editForm.$invalid || vm.isSaving;
-                },
-
 
                 save: function () {
 
@@ -135,8 +112,6 @@
                         entity.$save(onSuccess, onError);
                     }
                 },
-
-
                 onSaveSuccess: function (result) {
 
                     var vm = this;
@@ -147,15 +122,6 @@
                     $state.go(entityName + '.edit', {id: result.id});
                     vm.isSaving = false;
                 },
-
-                onSaveToSendToConfirmation: function (result) {
-
-                    var vm = this;
-                    //console.log('onSaveToSendToConfirmation state go '+vm.entityName+'-confirmation');
-                    $state.go(vm.entityName + '-confirmation', {id: result.id});
-                    vm.isSaving = false;
-                },
-
                 onSaveError: function (error) {
 
                     var vm = this;
@@ -163,12 +129,29 @@
                     vm.isSaving = false;
                 },
 
-
-                saveAndSendToConfirm: function () {
-
-                    var vm = this;
-                    vm._save(this.onSaveToSendToConfirmation.bind(this), this.onSaveError.bind(this));
-                },
+                // testConnection: function(){
+                //     var data =  JSON.stringify({
+                //         name: vm.datasource.name,
+                //         host: vm.datasource.host,
+                //         dbName: vm.datasource.dbName,
+                //         username: vm.datasource.username,
+                //         password: vm.datasource.password,
+                //         port: vm.datasource.port
+                //     });
+                //     $http({
+                //         url: "/api/postgresql/test-connection",
+                //         dataType: "json",
+                //         method: "POST",
+                //         headers: {
+                //             "Content-Type": "application/json"
+                //         },
+                //         data: data
+                //     }).then(function(result){
+                //         debugger
+                //     }, function(err){
+                //         console.log(err);
+                //     });
+                // }
 
                 initCustomValidations: function () {
 

@@ -43,30 +43,6 @@
             }
         });
 
-        // vm.testConnection = function(){
-        //     var data =  JSON.stringify({
-        //         name: vm.datasource.name,
-        //         host: vm.datasource.host,
-        //         dbName: vm.datasource.dbName,
-        //         username: vm.datasource.username,
-        //         password: vm.datasource.password,
-        //         port: vm.datasource.port
-        //     });
-        //     $http({
-        //         url: "/api/postgresql/test-connection",
-        //         dataType: "json",
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         data: data
-        //     }).then(function(result){
-        //         debugger
-        //     }, function(err){
-        //         console.log(err);
-        //     });
-        // }
-
         var controller = new EntityDialogController({
             entityName: "sqldatasource",
             withFinalizeState: true

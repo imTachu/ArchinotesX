@@ -69,18 +69,14 @@ public class SQLDatasourceResource {
     /**
      * Delete a SQLDatasource
      *
-     * @param sqldatasource
+     * @param id
      * @return
      * @throws Exception
      */
-    @RequestMapping(value = "/sqldatasources", method = RequestMethod.DELETE)
-    public ResponseEntity deleteSQLDatasource(@Valid @RequestBody SQLDatasource sqldatasource) throws Exception {
-        if (sqldatasource.getId() == null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("sqldatasource", "idnull", "Cannot delete a cannot without an ID")).body(null);
-        }
-        sqlDatasourceService.delete(sqldatasource);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityDeletionAlert("sqldatasource", "Successfully deleted")).body(null);
+    @RequestMapping(value = "/sqldatasources/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> deleteSQLDatasource(@PathVariable Long id) {
+        sqlDatasourceService.delete(id);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("sqldatasource", id.toString())).build();
     }
 
     /**

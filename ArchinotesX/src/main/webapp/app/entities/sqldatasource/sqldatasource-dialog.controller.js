@@ -17,7 +17,7 @@
 
                 var vm = this;
                 $scope.$watchGroup([
-                    'vm.sqldatasource.dataSourceName',
+                    'vm.sqldatasource.name',
                     'vm.sqldatasource.host',
                     'vm.sqldatasource.port',
                     'vm.sqldatasource.dbName',
@@ -26,7 +26,7 @@
                 ], function () {
                     vm.isInvalidToSave = false;
                     var entityForm = $scope.editForm;
-                    if (!entityForm || entityForm.dataSourceName.$invalid ||
+                    if (!entityForm || entityForm.name.$invalid ||
                         entityForm.host.$invalid ||
                         entityForm.port.$invalid ||
                         entityForm.dbName.$invalid ||

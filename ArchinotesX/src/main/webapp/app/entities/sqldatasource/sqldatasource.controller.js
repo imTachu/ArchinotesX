@@ -33,7 +33,7 @@
                             sortBy: 'host',
                             label: "Host",
                             value: function (item) {
-                                return $filter('date')(item.host, 'medium');
+                                return item.host;
                             }
                         },
                         {

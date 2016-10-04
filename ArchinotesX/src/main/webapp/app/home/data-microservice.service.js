@@ -29,7 +29,10 @@
                 }
             },
             'delete': {
-                method: 'DELETE'
+                method: 'DELETE',
+                params: {
+                    id: null
+                }
             }
         });
     }

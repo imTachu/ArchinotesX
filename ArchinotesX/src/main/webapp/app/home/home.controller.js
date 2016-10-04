@@ -47,12 +47,12 @@
                     item.ok = true;
                 }, function (response) {
                     item.ok = false;
-                    vm.notifyFallenMicroservice(item.name);
+                    //vm.notifyFallenMicroservice(item.name);
                 });
             })
         }
 
-        // $interval(checkServiceState, 30000);
+        //$interval(checkServiceState, 5000);
 
         vm.notifyFallenMicroservice = function(name){
             $http({

@@ -1,15 +1,15 @@
 <h4>Remember, only PostgreSQL databases are allowed</h4>
 <div class="entity-section-form-group">
     <div class="row">
-        <div class="form-group col-sm-12 " ng-class="{'has-error':editForm.dataSourceName.$invalid}">
-            <label class="control-label" for="field_dataSourceName">Datasource name</label>
-            <input type="text" class="form-control" name="dataSourceName" id="field_dataSourceName" ng-model="vm.sqldatasource.dataSourceName"
+        <div class="form-group col-sm-12 " ng-class="{'has-error':editForm.name.$invalid}">
+            <label class="control-label" for="field_name">Datasource name</label>
+            <input type="text" class="form-control" name="name" id="field_name" ng-model="vm.sqldatasource.name"
                 required ng-minlength="2" ng-maxlength="500" />
-            <div ng-show="editForm.dataSourceName.$invalid">
-                <p class="help-block" ng-show="editForm.dataSourceName.$error.required">
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block" ng-show="editForm.name.$error.required">
                     This field is mandatory
                 </p>
-                <p class="help-block" ng-show="editForm.dataSourceName.$error.minlength">
+                <p class="help-block" ng-show="editForm.name.$error.minlength">
                     This field can't be shorter than 2 characters!
                 </p>
             </div>
@@ -63,7 +63,7 @@
                 <input required type="text" class="form-control" name="username" id="field_username" ng-model="vm.sqldatasource.username"
                     min="0" max="200" ng-class="{'has-error':editForm.username.$invalid}" />
                 <div class="input-group-addon">Password</div>
-                <input required type="text" class="form-control" name="password" id="field_password" ng-model="vm.sqldatasource.password"
+                <input required type="password" class="form-control" name="password" id="field_password" ng-model="vm.sqldatasource.password"
                     min="0" max="999" ng-class="{'has-error':editForm.password.$invalid}" />
             </div>
             <p class="help-block" ng-show="editForm.username.$error.required || editForm.password.$error.required">

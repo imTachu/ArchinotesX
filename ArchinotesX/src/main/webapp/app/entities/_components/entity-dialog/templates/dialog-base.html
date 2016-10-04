@@ -13,13 +13,13 @@
                 ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
-        <button skip-disable ng-if="isEditableEntity" ng-disabled="vm.isSaveDisabled()" ng-click="vm.testConnection()"
+        <button skip-disable ng-if="isEditableEntity"  ng-click="vm.testConnection()"
                 class="btn btn-warning">
             <span class="glyphicon glyphicon-ok"></span>&nbsp;<span>Test Connection</span>
         </button>
         <button skip-disable ng-if="isEditableEntity" type="submit" ng-disabled="vm.isSaveDisabled()"
                 class="btn btn-success">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Create</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
 </form>

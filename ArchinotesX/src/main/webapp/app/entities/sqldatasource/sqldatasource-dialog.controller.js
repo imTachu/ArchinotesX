@@ -45,7 +45,6 @@
 
         var controller = new EntityDialogController({
             entityName: "sqldatasource",
-            withFinalizeState: true
         });
         return controller;
     }

@@ -24,6 +24,9 @@
                     data = angular.fromJson(data);
                     return data;
                 }
+            },
+            'delete': {
+                method: 'DELETE'
             }
         });
     }

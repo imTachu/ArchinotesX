@@ -71,6 +71,7 @@
                         return {
                             state: controller.getOptions().entityName + '.delete',
                             stateParams: {id: item.id},
+                            value: item.dataMicroservices
                         };
                     }
                 };

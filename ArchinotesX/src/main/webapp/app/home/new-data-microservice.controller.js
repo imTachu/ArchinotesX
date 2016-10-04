@@ -38,7 +38,7 @@
                 },
                 data: data
             }).then(function(result){
-                vm.clear();
+                $uibModalInstance.close(result);
             }, function(err){
                 console.log(err);
             });

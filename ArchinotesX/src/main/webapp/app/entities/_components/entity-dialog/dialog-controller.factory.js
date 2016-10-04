@@ -4,9 +4,9 @@
         .module('archinotesxApp')
         .factory('EntityDialogControllerFactory', EntityDialogControllerFactory);
 
-    EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES'];
+    EntityDialogControllerFactory.$inject = ['$filter', '$timeout', '$rootScope', '$state', '$stateParams', 'AlertService', 'ENTITY_STATES', '$http', '$uibModal'];
 
-    function EntityDialogControllerFactory($filter, $timeout, $rootScope, $state, $stateParams, AlertService, ENTITY_STATES) {
+    function EntityDialogControllerFactory($filter, $timeout, $rootScope, $state, $stateParams, AlertService, ENTITY_STATES, $http, $uibModal) {
         function createController($scope, EntityResource, entity, customOptions) {
             var defaultOptions = {
                 entityName: 'entity',
@@ -94,7 +94,7 @@
                 save: function () {
 
                     var vm = this;
-                    vm.beforeSave();
+                    //vm.beforeSave();
                     vm._save(this.onSaveSuccess.bind(this), this.onSaveError.bind(this));
                 },
 
@@ -119,7 +119,7 @@
                     var entityCamelCase = $filter('hyphenToCamelCase')(entityName);
                     //console.log('onSaveSuccess emit name: '+'archinotesxApp:'+entityCamelCase+'Update');
                     $scope.$emit('archinotesxApp:' + entityCamelCase + 'Update', result);
-                    $state.go(entityName + '.edit', {id: result.id});
+                    $state.go(entityName);
                     vm.isSaving = false;
                 },
                 onSaveError: function (error) {
@@ -129,29 +129,6 @@
                     vm.isSaving = false;
                 },
 
-                // testConnection: function(){
-                //     var data =  JSON.stringify({
-                //         name: vm.datasource.name,
-                //         host: vm.datasource.host,
-                //         dbName: vm.datasource.dbName,
-                //         username: vm.datasource.username,
-                //         password: vm.datasource.password,
-                //         port: vm.datasource.port
-                //     });
-                //     $http({
-                //         url: "/api/postgresql/test-connection",
-                //         dataType: "json",
-                //         method: "POST",
-                //         headers: {
-                //             "Content-Type": "application/json"
-                //         },
-                //         data: data
-                //     }).then(function(result){
-                //         debugger
-                //     }, function(err){
-                //         console.log(err);
-                //     });
-                // }
 
                 initCustomValidations: function () {
 
@@ -159,6 +136,32 @@
 
                 startWatcherIfCanToSaveEntity: function () {
 
+                },
+
+                testConnection: function () {
+                    $http({
+                        url: "/api/postgresql/test-connection",
+                        dataType: "json",
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        data: entity
+                    }).then(function (result) {
+                        $uibModal.open({
+                            templateUrl: 'app/entities/_components/entity-modal/templates/modal-connection.html',
+                            controller: 'ModalConnectionController',
+                            controllerAs: 'vm',
+                            backdrop: false,
+                            size: 'sm',
+                        }).result.then(function(){
+
+                        }, function(){
+
+                        });
+                    }, function (err) {
+                        console.log(err);
+                    });
                 }
 
 

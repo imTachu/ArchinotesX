@@ -61,6 +61,7 @@
                     <button type="button"
                             ng-if="fieldsConfig.deleteLink"
                             ng-init="link=fieldsConfig.deleteLink(entity)"
+                            ng-show="!link.value"
                             ui-state="link.state"
                             ui-state-params="link.stateParams"
                             has-any-authority="{{link.roles}}"

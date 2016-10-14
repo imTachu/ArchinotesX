@@ -10,16 +10,19 @@
         restrict: 'E',
         transclude: true,
         scope: {
+          container: '@',
           msId: '@',
           dsId: '@'
         },
         replace: true,
         link: function (scope, element, attributes) {
           scope.$watch( function(scope) {
-              $('#container').line($('#ds-'+scope.dsId), $('#ms-'+scope.msId), {color:'black', stroke:2, zindex:500})
+              $('#'+scope.container).line($('#'+scope.dsId), $('#'+scope.msId), {color:'black', stroke:2, zindex:500})
           } );
 
         }
       }
     }
+
+
 })();

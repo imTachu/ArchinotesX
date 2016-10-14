@@ -30,105 +30,17 @@
 
     <br/>
 
-  <div class="panel panel-default" style="width: 100%; margin-left: -13%">
-    <div class="panel-body" style='display: block;'>
+    <uib-tabset active="active">
+      <uib-tab index="0" heading="Functional">
+        <ng-include src="'app/viewpoints/functional.html'"></ng-include>
+      </uib-tab>
+      <uib-tab index="1" heading="Assigment" >
+        <ng-include src="'app/viewpoints/assignment.html'"></ng-include>
+      </uib-tab>
+      <uib-tab index="2" heading="Deployment" >
+        <ng-include src="'app/viewpoints/deployment.html'"></ng-include>
+      </uib-tab>
+    </uib-tabset>
 
-        <div class="row" id="container">
-
-          <div class="col-md-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">Databases</div>
-              <br><br><br>
-              <div class="panel-body" style='display: block;' ng-repeat="db in vm.sqldatasources">
-                <div class="panel panel-primary" id=ds-{{db.id}}>
-                  <div class="panel-body" style='display: block;'>
-                    <div class="dbIcon"> </div>
-                    {{db.name}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-8" >
-            <div class="panel panel-default" >
-              <div class="panel-heading" >DCoS</div>
-
-              <div class="panel-body">
-
-                <div class="row">
-
-                  <div class="col-md-4" >
-                    <div class="panel panel-default">
-                      <div class="panel-heading">Prived Agents</div>
-                      <div class="panel-body" style='display: block;'>
-
-                        <div class="panel panel-info"  ng-repeat="ms in vm.dataMicroservices">
-                          <div class="panel-heading" >Docker Container</div>
-                          <div class="panel-body" id=ms-{{ms.id}}>
-                            <div  class="microservice"></div>
-                            <p>{{ms.sqlDatasource.name}}</p>
-                          </div>
-
-                          <drawline ms-id={{ms.id}} ds-id={{ms.sqlDatasource.id}}></drawline>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                <div class="col-md-2" >
-                  <div style="padding-top: 200%;text-align: -webkit-right;">
-                  <img src="content/images/haproxy.png" style="width:124%;">
-                  Internal LB
-                </div>
-                </div>
-
-                  <div class="col-md-4" >
-                    <div class="panel panel-default" id='externallb'>
-                      <div class="panel-heading">Public Agents</div>
-                      <div class="panel-body" style='display: block;'>
-                        <div class="panel panel-primary" >
-                          <div class="panel-body" style='display: block;'>
-                            <img src="content/images/marathon.png" style="width:150px;height:150px;">
-                            Marathon
-                          </div>
-                        </div>
-                        <div class="panel panel-primary">
-                          <div class="panel-body" style='display: block;'>
-                            <img src="content/images/zookeeper.png" style="width:150px;height:150px;">
-                            Apache Zookeeper
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-
-                  <div class="col-md-2" style="margin-left: -15px;">
-                    <div style="padding-top: 200%;text-align: -webkit-right; margin-bottom:388px;" >
-                      <img src="content/images/haproxy.png" style="width:124%;" >
-                      External LB
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div  class="panel-footer">123456 MEMORIA 123123 RAM </div>
-            </div>
-          </div>
-
-          <div class="col-md-2" style="padding-top: 23.7%;" >
-            <h3 id='endpoints'>
-              HTTP Endpoints
-            </h3>
-          </div>
-
-          </div>
-
-      </div>
-    </div>
   </div>
 </div>
-
-<script>$('#container').line($('#externallb'), $('#endpoints'), {color:'black', stroke:2, zindex:500})</script>

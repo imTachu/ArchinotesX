@@ -1,0 +1,35 @@
+<div class="panel panel-default" style="width: 100%">
+  <div class="panel-body" style='display: block;'>
+      <div class="row" id="assigment-container">
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">Databases</div>
+            <br><br><br>
+            <div class="panel-body" style='display: block;' ng-repeat="db in vm.sqldatasources">
+              <div class="panel panel-primary" id=ads-{{db.id}}>
+                <div class="panel-body" style='display: block;'>
+                  <div class="dbIcon"> </div>
+                  {{db.name}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6" >
+          <div class="panel panel-default" >
+            <div class="panel-heading" >microservices</div>
+            <div class="panel panel-info"  ng-repeat="ms in vm.dataMicroservices">
+              <div class="panel-body" id=ams-{{ms.id}}>
+                <div  class="microservice"></div>
+                <p>{{ms.name}}</p>
+              </div>
+              <!-- <drawline container=assigment-container ms-id=ams-{{ms.id}} ds-id=ads-{{ms.sqlDatasource.id}}></drawline> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -54,6 +54,7 @@
 
   $.fn.line = function( element1, element2, options, callbacks) {
 
+
       var x1offset = element1.offset();
       var x2offset = element2.offset();
 

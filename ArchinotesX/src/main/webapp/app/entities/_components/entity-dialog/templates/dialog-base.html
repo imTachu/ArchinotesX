@@ -10,13 +10,7 @@
                 ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
-        <button type="button" skip-disable ng-if="isEditableEntity" ng-disabled="vm.isSaveDisabled()" ng-click="vm.testConnection()"
-                class="btn btn-warning">
-        </button>
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-        </button>
-        <button ng-click="vm.testConnection()" data-dismiss="modal" class="btn btn-warning">
+        <button ng-click="vm.testConnection()" type="button" data-dismiss="modal" class="btn btn-warning">
             <span class="glyphicon glyphicon-ok"></span>&nbsp;<span>Test Connection</span>
         </button>
         <button type="submit" data-dismiss="modal" class="btn btn-success">

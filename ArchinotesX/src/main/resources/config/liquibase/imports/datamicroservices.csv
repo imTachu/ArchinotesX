@@ -1,0 +1,4 @@
+id;name;endpoint;tags;table_name;project_id;sql_datasource_id
+1;The first microservice;https://httpbin.org/get;"client,business";A table;1;1
+2;The second microservice;https://httpbin.org/getz;"billing,client";Another table;1;1
+3;The third microservice;localhost/test;"localhost,accounting";One more table;1;1

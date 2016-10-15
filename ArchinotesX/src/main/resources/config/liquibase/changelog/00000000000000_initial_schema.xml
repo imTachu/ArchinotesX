@@ -159,6 +159,9 @@
                 <constraints unique="true" nullable="false"/>
             </column>
             <column name="endpoint" type="varchar(512)"/>
+            <column name="tags" type="varchar(512)">
+                <constraints nullable="false"/>
+            </column>
             <column name="table_name" type="varchar(512)">
                 <constraints nullable="false"/>
             </column>
@@ -228,6 +231,11 @@
                   file="config/liquibase/imports/sql_datasources.csv"
                   separator=";"
                   tableName="sql_datasource"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/imports/datamicroservices.csv"
+                  separator=";"
+                  tableName="data_microservice"/>
 
         <loadData encoding="UTF-8"
                   file="config/liquibase/imports/users.csv"

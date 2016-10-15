@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use stric';
 
     angular
@@ -10,7 +10,7 @@
     function ModalConnectionController($uibModalInstance) {
         var vm = this;
 
-        vm.clear = function (){
+        vm.clear = function () {
             $uibModalInstance.dismiss('ok');
         }
     }

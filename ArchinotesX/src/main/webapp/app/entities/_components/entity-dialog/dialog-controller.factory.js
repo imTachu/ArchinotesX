@@ -154,17 +154,15 @@
                             controllerAs: 'vm',
                             backdrop: false,
                             size: 'sm',
-                        }).result.then(function(){
+                        }).result.then(function () {
 
-                        }, function(){
+                        }, function () {
 
                         });
                     }, function (err) {
                         console.log(err);
                     });
                 }
-
-
             };
 
             return EntityDialogController;

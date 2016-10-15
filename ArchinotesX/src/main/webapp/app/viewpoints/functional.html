@@ -1,96 +1,125 @@
-<div class="panel panel-default" style="width: 100%">
-  <div class="panel-body" style='display: block;'>
-      <div class="row" id="functional-container">
-        <div class="col-md-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">Databases</div>
-            <br><br><br>
-            <div class="panel-body" style='display: block;' ng-repeat="db in vm.sqldatasources">
-              <div class="panel panel-primary" id=fds-{{db.id}}>
-                <div class="panel-body" style='display: block;'>
-                  <div class="dbIcon"> </div>
-                  {{db.name}}
+
+<div>
+  <div style="padding: 20px">
+    Filter by
+    <p>
+      Datasource: <select ng-options="ds.name for ds in vm.sqldatasources" ng-model='selectedItem' ng-change="updateByDataSource(selectedItem)">
+      </select>
+    </p>
+    <p>
+      Tags: 
+        <select multiple ng-model="selectedTags" ng-options="o as o for o in msTags" ng-change="updateByTags(selectedTags)"></select>
+
+    </p>
+  </div>
+  <div class="row" id="functional-container" >
+    <div class="col-md-2" >
+      <div class="row" ng-repeat="db in vm.sqlMDatasources">
+        <div class="col-md-12">
+          <div class="thumbnail" style='margin: 10px;' id=fds-{{db.id}}>
+            <img src="content/images/db-icon.png" style="width:70px;">
+            <div style="text-align: center">
+              {{db.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 dashed-border" >
+      <img src="content/images/dcos.png" style="width:150px; margin-left: auto;margin-right: auto; display:block" >
+      <div class="row">
+        <div class="col-md-4" >
+          <div class="dashed-border-private" id='private-agents'>
+            <h3 class='to-right'>Private Agents</h3>
+            <div class="row" style="min-height: 335px;">
+              <div  ng-repeat="ms in vm.dataMicroservices">
+                <div class="col-md-10"  style='padding-left: 45px;' id=fms-{{ms.id}}>
+                  <div class='round-blue-border' >
+                    {{ms.name}}
+                  </div>
+                  <img src="content/images/docker.png" style="width:50px; margin-left: auto; display:block">
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-        <div class="col-md-8" >
-          <div class="panel panel-default" >
-            <div class="panel-heading" >DCoS</div>
-
-            <div class="panel-body">
-
-              <div class="row">
-
-                <div class="col-md-4" >
-                  <div class="panel panel-default">
-                    <div class="panel-heading">Prived Slaves</div>
-                    <div class="panel-body" style='display: block;'>
-
-                      <div class="panel panel-info"  ng-repeat="ms in vm.dataMicroservices">
-                        <div class="panel-heading" >Docker Container</div>
-                        <div class="panel-body" id=fms-{{ms.id}}>
-                          <div  class="microservice"></div>
-                          <p>{{ms.sqlDatasource.name}}</p>
-                        </div>
-
-                        <drawline container=functional-container ms-id=fms-{{ms.id}} ds-id=fds-{{ms.sqlDatasource.id}}></drawline>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              <div class="col-md-2" >
-                <div style="padding-top: 200%;text-align: -webkit-right;">
-                <img src="content/images/haproxy.png" style="width:124%;">
-                Internal LB
-              </div>
-              </div>
-
-                <div class="col-md-4" >
-                  <div class="panel panel-default" id='externallb'>
-                    <div class="panel-heading">Public Slaves</div>
-                    <div class="panel-body" style='display: block;'>
-                      <div class="panel panel-primary" >
-                        <div class="panel-body" style='display: block;'>
-                          <img src="content/images/marathon.png" style="width:150px;height:150px;">
-                          Marathon
-                        </div>
-                      </div>
-                      <div class="panel panel-primary">
-                        <div class="panel-body" style='display: block;'>
-                          <img src="content/images/zookeeper.png" style="width:150px;height:150px;">
-                          Apache Zookeeper
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-
-                <div class="col-md-2" style="margin-left: -15px;">
-                  <div style="padding-top: 200%;text-align: -webkit-right;" >
-                    <img src="content/images/haproxy.png" style="width:124%;" >
-                    External LB
-                  </div>
-                </div>
-              </div>
-
+        <div class="col-md-2" >
+          <div class="row" style='padding-top: 140px;'>
+            <img src="content/images/haproxy.png" style="width:80px;margin-left: auto;margin-right: auto; display:block">
+            <div style="text-align: center">
+              Internal LB
             </div>
-            <div  class="panel-footer">123456 MEMORIA 123123 RAM </div>
+          </div>
+        </div>
+        <div class="col-md-4" >
+          <div class="dashed-border-public" id='public-agents'>
+            <h3 class='to-right'>Public Agents</h3>
+            <div class="row">
+              <div class="thumbnail" style='margin: 25px;'>
+                <img src="content/images/marathon.png" style="width:100px;">
+                Marathon
+              </div>
+              <div class="thumbnail" style='margin: 25px;'>
+                <img src="content/images/zookeeper.png" style="width:100px;">
+                Apache Zookeeper
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-2" style="padding-top: 24.7%;" >
-          <h3 id='endpoints'>
-            HTTP Endpoints
-          </h3>
+        <div class="col-md-2" >
+          <div class="row" style='padding-top: 140px;' >
+            <div>
+              <img src="content/images/haproxy.png" style="width:80px;margin-left: auto;margin-right: auto; display:block">
+              <div style="text-align: center">
+                External LB
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
-    <script>$('#functional-container').line($('#externallb'), $('#endpoints'), {color:'black', stroke:2, zindex:500})</script>
+
+    <div class="col-md-1" >
+      <div style='padding-top: 234px;'>
+        <div id='http-endpoints'>
+          <h1 style="padding-left: 10px;">HTTP Endpoints</h1>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+<script>
+  var x1offset = $('#http-endpoints').offset();
+  var x2offset = $('#public-agents').offset();
+
+  var x1height = $('#http-endpoints').height();
+  var x2width = $('#public-agents').width();
+
+  var x1 = x1offset.left;
+  var y1 = x1offset.top + x1height/2;
+
+  var x2 = x2offset.left + x2width + 3 ;
+  var y2 = y1;
+
+  $('#functional-container').line_points(x1,y1,x2,y2, {color:'black', stroke:2, zindex:500})
+
+  var x3offset = $('#private-agents').offset();
+  var x4offset = $('#public-agents').offset();
+
+  var x3width = $('#private-agents').width();
+
+  var x3 = x3offset.left + x3width ;
+  var y3 = y1;
+
+  var x4 = x4offset.left + 3 ;
+  var y4 = y1;
+
+  $('#functional-container').line_points(x3,y3,x4,y4, {color:'black', stroke:2, zindex:500})
+
+
+ </script>

@@ -11,13 +11,14 @@
         transclude: true,
         scope: {
           container: '@',
-          msId: '@',
-          dsId: '@'
+          element1: '@',
+          element2: '@'
         },
         replace: true,
         link: function (scope, element, attributes) {
           scope.$watch( function(scope) {
-              $('#'+scope.container).line($('#'+scope.dsId), $('#'+scope.msId), {color:'black', stroke:2, zindex:500})
+            alert(scope.element2)
+              // $('#'+scope.container).line($('#'+scope.element1), $('#'+scope.element2), {color:'black', stroke:2, zindex:500})
           } );
 
         }

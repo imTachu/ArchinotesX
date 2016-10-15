@@ -32,6 +32,10 @@ public class DataMicroserviceService {
         return dataMicroserviceRepository.findAll(pageable);
     }
 
+    public List<DataMicroservice> findAllNoPageable() {
+        return dataMicroserviceRepository.findAll();
+    }
+
     public DataMicroservice findOne(Long id) {
         return dataMicroserviceRepository.findOne(id);
     }
@@ -56,5 +60,20 @@ public class DataMicroserviceService {
             dataMicroservices.addAll(result);
         }
         return dataMicroservices;
+    }
+
+    public List<DataMicroservice> findDatamicroservicesBySQLDatasourceId(Long datasourceId){
+        return dataMicroserviceRepository.findDatamicroservicesBySQLDatasourceId(datasourceId);
+    }
+
+    public Set<String> getAllTags() {
+        Set<String> result = new HashSet<>();
+        for (DataMicroservice dataMicroservice : findAllNoPageable()){
+            String[] tags = dataMicroservice.getTags().split(",");
+            for (String tag : tags){
+                result.add(tag);
+            }
+        }
+        return result;
     }
 }

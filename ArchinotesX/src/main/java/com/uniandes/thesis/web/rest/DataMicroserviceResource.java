@@ -134,4 +134,36 @@ public class DataMicroserviceResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    /**
+     * Get dataMicroservices by datasourceId
+     *
+     * @param datasourceId
+     * @return
+     */
+    @RequestMapping(value = "/datamicroservices/find-by-ds/{datasourceId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<DataMicroservice>> findDatamicroservicesBySQLDatasourceId(@PathVariable Long datasourceId) {
+        List<DataMicroservice> datamicroservices = dataMicroserviceService.findDatamicroservicesBySQLDatasourceId(datasourceId);
+        return Optional.ofNullable(datamicroservices)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * Get all tags
+     *
+     * @return
+     */
+    @RequestMapping(value = "/datamicroservices/tags", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<String>> getAllTags() {
+        Set<String> tags = dataMicroserviceService.getAllTags();
+        return Optional.ofNullable(tags)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
 }

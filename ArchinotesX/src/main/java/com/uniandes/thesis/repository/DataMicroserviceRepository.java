@@ -12,4 +12,8 @@ public interface DataMicroserviceRepository extends JpaRepository<DataMicroservi
     @Query("SELECT d FROM DataMicroservice d "
         + " WHERE d.tags like :tag ")
     List<DataMicroservice> findDatamicroservicesByTag(@Param("tag") String tag);
+
+    @Query("SELECT d FROM DataMicroservice d "
+        + " WHERE d.sqlDatasource.id = :datasourceId ")
+    List<DataMicroservice> findDatamicroservicesBySQLDatasourceId(@Param("datasourceId") Long datasourceId);
 }

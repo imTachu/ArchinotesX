@@ -11,6 +11,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Service
 public class DataMicroserviceService {
 
@@ -41,5 +46,15 @@ public class DataMicroserviceService {
 
     public void delete(Long id) {
         dataMicroserviceRepository.delete(id);
+    }
+
+    public Set<DataMicroservice> findDatamicroservicesByTag(String tags){
+        Set<DataMicroservice> dataMicroservices = new HashSet<>();
+        String[] tagsForQuery = tags.split(",");
+        for (String tag : tagsForQuery){
+            List<DataMicroservice> result = dataMicroserviceRepository.findDatamicroservicesByTag("%" + tag + "%");
+            dataMicroservices.addAll(result);
+        }
+        return dataMicroservices;
     }
 }

@@ -26,6 +26,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
@@ -112,6 +113,22 @@ public class DataMicroserviceResource {
     public ResponseEntity<DataMicroservice> getDataMicroservice(@PathVariable Long id) {
         DataMicroservice datamicroservice = dataMicroserviceService.findOne(id);
         return Optional.ofNullable(datamicroservice)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
+     * Get dataMicroservices by tags
+     *
+     * @param tags
+     * @return
+     */
+    @RequestMapping(value = "/datamicroservices/tags/{tags}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Set<DataMicroservice>> findDatamicroservicesByTag(@PathVariable String tags) {
+        Set<DataMicroservice> datamicroservices = dataMicroserviceService.findDatamicroservicesByTag(tags);
+        return Optional.ofNullable(datamicroservices)
             .map(result -> new ResponseEntity<>(
                 result,
                 HttpStatus.OK))

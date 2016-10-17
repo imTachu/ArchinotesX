@@ -17,8 +17,9 @@
         replace: true,
         link: function (scope, element, attributes) {
           scope.$watch( function(scope) {
-            alert(scope.element2)
-              // $('#'+scope.container).line($('#'+scope.element1), $('#'+scope.element2), {color:'black', stroke:2, zindex:500})
+            if( $('#'+scope.element1).height() >= 90 && $('#'+scope.element2).height() >= 66 ){
+                $('#'+scope.container).line($('#'+scope.element1), $('#'+scope.element2), {color:'black', stroke:2, zindex:500})
+              }
           } );
 
         }

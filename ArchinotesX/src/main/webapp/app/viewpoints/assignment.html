@@ -1,5 +1,7 @@
 
 <div>
+
+  <div id="assigment-container"></div>
   <div style="padding: 20px">
     Filter by
     <p>
@@ -11,13 +13,13 @@
     </p>
 
   </div>
-  <div class="row dashed-border" id="functional-container" style="margin-left: 150px; margin-right: 150px; padding-top:20px" >
+  <div class="row dashed-border" style="margin-left: 150px; margin-right: 150px; padding-top:20px" >
     <div class="col-md-4" >
       <div class="row" ng-repeat="db in vm.sqlMDatasources">
         <div class="col-md-12">
-          <div class="thumbnail" style='margin: 10px;' id=fds-{{db.id}}>
+          <div class="thumbnail" style='margin: 10px;' id=aads-{{db.id}}>
             <img src="content/images/db-icon.png" style="width:70px;">
-            <div style="text-align: center">
+            <div style="text-align: center" >
               {{db.name}}
             </div>
           </div>
@@ -25,15 +27,19 @@
       </div>
     </div>
 
+
+
+
     <div class="col-md-8 " >
       <div class="row" style="min-height: 335px;">
         <div  ng-repeat="ms in vm.dataMicroservices">
-          <div class="col-md-10 "  style='padding-left: 45px;' id=fms-{{ms.id}}>
-            <div class='round-blue-border' style="min-height:70px; max-width:150px; margin-left: auto" >
+          <div class="col-md-10 " style='padding-left: 45px;' >
+            <div class='round-blue-border' style="min-height:70px; max-width:150px; margin-left: auto" id=ams-{{ms.id}}>
               {{ms.name}}
             </div>
             <img src="content/images/docker.png" style="width:80px; margin-left: auto; display:block">
 
+            <drawline container=assigment-container element2=ams-{{ms.id}} element1=aads-{{ms.sqlDatasource.id}}></drawline>
           </div>
         </div>
       </div>

@@ -28,6 +28,7 @@
         aux.$promise.then(function (data) {
             vm.sqldatasources = data;
             $scope.myDS = data[0];
+            getDataMicroservices();
         });
     }
 
@@ -39,17 +40,21 @@
         });
     }
 
-    getDataMicroservices();
+
     $scope.updateByDataSource = function(dsSelected) {
+      vm.sqlMDatasources = []
       var aux = MicroservicesByDS.get({id: dsSelected.id});
       aux.$promise.then(function (data) {
           vm.sqlMDatasources = [dsSelected];
           vm.dataMicroservices = data;
+          $('#functional-container').empty();
+          $('#assigment-container').empty();
       });
     }
 
 
     $scope.updateByTags = function(dsSelected) {
+         debugger
       var aux = MicroservicesTags.get({tags: dsSelected});
       aux.$promise.then(function (data) {
           vm.dataMicroservices = data;
@@ -57,6 +62,7 @@
           angular.forEach(data, function(val) {
             var valid = true;
             $.each(tmp, function( v ) {
+              debugger
               if( this.id == val.sqlDatasource.id)
               {
                 valid = false;
@@ -68,6 +74,8 @@
             }
           }, tmp);
           vm.sqlMDatasources = tmp;
+          $('#functional-container').empty();
+          $('#assigment-container').empty();
       });
     }
 

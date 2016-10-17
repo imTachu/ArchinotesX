@@ -1,5 +1,6 @@
 
 <div>
+  <div id="functional-container"></div>
   <div style="padding: 20px">
     Filter by
     <p>
@@ -10,13 +11,13 @@
 
     </p>
   </div>
-  <div class="row" id="functional-container" >
+  <div class="row" >
     <div class="col-md-2" >
       <div class="row" ng-repeat="db in vm.sqlMDatasources">
         <div class="col-md-12">
           <div class="thumbnail" style='margin: 10px;' id=fds-{{db.id}}>
             <img src="content/images/db-icon.png" style="width:70px;">
-            <div style="text-align: center">
+            <div style="text-align: center" >
               {{db.name}}
             </div>
           </div>
@@ -32,13 +33,15 @@
             <h3 class='to-right'>Private Agents</h3>
             <div class="row" style="min-height: 335px;">
               <div  ng-repeat="ms in vm.dataMicroservices">
-                <div class="col-md-10"  style='padding-left: 45px;' id=fms-{{ms.id}}>
-                  <div class='round-blue-border' >
-                    {{ms.name}}
+                <div class="col-md-10"  style='padding-left: 45px;' >
+                  <div id=fms-{{ms.id}}>
+                    <div class='round-blue-border' >
+                      {{ms.name}}
+                    </div>
+                    <img src="content/images/docker.png" style="width:50px; margin-left: auto; display:block">
                   </div>
-                  <img src="content/images/docker.png" style="width:50px; margin-left: auto; display:block">
-
                 </div>
+                <drawline container=functional-container element2=fms-{{ms.id}} element1=fds-{{ms.sqlDatasource.id}}></drawline>
               </div>
             </div>
           </div>

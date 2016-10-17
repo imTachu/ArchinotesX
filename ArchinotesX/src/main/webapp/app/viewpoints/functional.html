@@ -5,8 +5,6 @@
     <p>
       Datasource: <select ng-options="ds.name for ds in vm.sqldatasources" ng-model='selectedItem' ng-change="updateByDataSource(selectedItem)">
       </select>
-    </p>
-    <p>
       Tags: 
         <select multiple ng-model="selectedTags" ng-options="o as o for o in msTags" ng-change="updateByTags(selectedTags)"></select>
 

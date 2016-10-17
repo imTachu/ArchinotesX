@@ -1,35 +1,42 @@
-<div class="panel panel-default" style="width: 100%">
-  <div class="panel-body" style='display: block;'>
-      <div class="row" id="assigment-container">
 
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-heading">Databases</div>
-            <br><br><br>
-            <div class="panel-body" style='display: block;' ng-repeat="db in vm.sqldatasources">
-              <div class="panel panel-primary" id=ads-{{db.id}}>
-                <div class="panel-body" style='display: block;'>
-                  <div class="dbIcon"> </div>
-                  {{db.name}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div>
+  <div style="padding: 20px">
+    Filter by
+    <p>
+      Datasource: <select ng-options="ds.name for ds in vm.sqldatasources" ng-model='selectedItem' ng-change="updateByDataSource(selectedItem)">
+      </select>
+      Tags: 
+        <select multiple ng-model="selectedTags" ng-options="o as o for o in msTags" ng-change="updateByTags(selectedTags)"></select>
 
+    </p>
 
-        <div class="col-md-6" >
-          <div class="panel panel-default" >
-            <div class="panel-heading" >microservices</div>
-            <div class="panel panel-info"  ng-repeat="ms in vm.dataMicroservices">
-              <div class="panel-body" id=ams-{{ms.id}}>
-                <div  class="microservice"></div>
-                <p>{{ms.name}}</p>
-              </div>
-              <!-- <drawline container=assigment-container ms-id=ams-{{ms.id}} ds-id=ads-{{ms.sqlDatasource.id}}></drawline> -->
+  </div>
+  <div class="row dashed-border" id="functional-container" style="margin-left: 150px; margin-right: 150px; padding-top:20px" >
+    <div class="col-md-4" >
+      <div class="row" ng-repeat="db in vm.sqlMDatasources">
+        <div class="col-md-12">
+          <div class="thumbnail" style='margin: 10px;' id=fds-{{db.id}}>
+            <img src="content/images/db-icon.png" style="width:70px;">
+            <div style="text-align: center">
+              {{db.name}}
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="col-md-8 " >
+      <div class="row" style="min-height: 335px;">
+        <div  ng-repeat="ms in vm.dataMicroservices">
+          <div class="col-md-10 "  style='padding-left: 45px;' id=fms-{{ms.id}}>
+            <div class='round-blue-border' style="min-height:70px; max-width:150px; margin-left: auto" >
+              {{ms.name}}
+            </div>
+            <img src="content/images/docker.png" style="width:80px; margin-left: auto; display:block">
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>

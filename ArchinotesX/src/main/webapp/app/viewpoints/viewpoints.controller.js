@@ -31,8 +31,6 @@
         });
     }
 
-
-    getDataMicroservices();
     function getDataMicroservices() {
         var aux = MicroservicesByDS.get({id: $scope.myDS});
         aux.$promise.then(function (data) {
@@ -41,6 +39,7 @@
         });
     }
 
+    getDataMicroservices();
     $scope.updateByDataSource = function(dsSelected) {
       var aux = MicroservicesByDS.get({id: dsSelected.id});
       aux.$promise.then(function (data) {
@@ -54,12 +53,21 @@
       var aux = MicroservicesTags.get({tags: dsSelected});
       aux.$promise.then(function (data) {
           vm.dataMicroservices = data;
-          vm.sqlMDatasources = [];
+          var tmp = [];
           angular.forEach(data, function(val) {
-            if (this.indexOf(val.sqlDatasource) == -1) {
-                this.push(val.sqlDatasource);
+            var valid = true;
+            $.each(tmp, function( v ) {
+              if( this.id == val.sqlDatasource.id)
+              {
+                valid = false;
+              }
+            });
+
+            if (valid) {
+              this.push(val.sqlDatasource);
             }
-          }, vm.sqlMDatasources);
+          }, tmp);
+          vm.sqlMDatasources = tmp;
       });
     }
 

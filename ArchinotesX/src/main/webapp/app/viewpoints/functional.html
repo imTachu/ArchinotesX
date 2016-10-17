@@ -1,6 +1,7 @@
 
 <div>
   <div id="functional-container"></div>
+  <div id="functional-container2"></div>
   <div style="padding: 20px">
     Filter by
     <p>
@@ -107,7 +108,7 @@
   var x2 = x2offset.left + x2width + 3 ;
   var y2 = y1;
 
-  $('#functional-container').line_points(x1,y1,x2,y2, {color:'black', stroke:2, zindex:500})
+  $('#functional-container2').line_points(x1,y1,x2,y2, {color:'black', stroke:2, zindex:500})
 
   var x3offset = $('#private-agents').offset();
   var x4offset = $('#public-agents').offset();
@@ -120,7 +121,7 @@
   var x4 = x4offset.left + 3 ;
   var y4 = y1;
 
-  $('#functional-container').line_points(x3,y3,x4,y4, {color:'black', stroke:2, zindex:500})
+  $('#functional-container2').line_points(x3,y3,x4,y4, {color:'black', stroke:2, zindex:500})
 
 
  </script>

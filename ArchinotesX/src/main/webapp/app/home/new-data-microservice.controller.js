@@ -14,6 +14,7 @@
         vm.name = "";
         vm.datasource = "";
         vm.tableName = "";
+        vm.tags = "";
 
         $scope.$watchGroup(['vm.tableName', 'vm.endpoint'], function(){
            vm.endpoint = "/api/"+ vm.tableName;
@@ -23,7 +24,8 @@
             var data =  JSON.stringify({
                 name: vm.name,
                 endpoint: vm.endpoint,
-                tableName: vm.tableName
+                tableName: vm.tableName,
+                tags: vm.tags
             });
             $http({
                 url: "/api/datamicroservices",

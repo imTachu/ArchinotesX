@@ -19,9 +19,6 @@ public class ShellUtil {
         StringBuffer output = new StringBuffer();
         Process p;
         try {
-//            p = Runtime.getRuntime().exec(new String[]{"bash","-c", command});
-//            p = Runtime.getRuntime().exec(command);
-//            p = Runtime.getRuntime().exec("cmd /c start build.bat");
             p =  Runtime.getRuntime().exec("cmd /c dcos marathon app add " + fileName + ".json", null, tempFolder);
 
             p.waitFor();

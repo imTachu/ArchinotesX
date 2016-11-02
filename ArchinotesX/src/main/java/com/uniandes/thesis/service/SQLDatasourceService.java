@@ -29,4 +29,9 @@ public class SQLDatasourceService {
         sqlDatasourceRepository.delete(id);
     }
 
+    public String getConnectionString(Long datasourceId){
+        SQLDatasource sqlDatasource = findOne(datasourceId);
+        return "postgres://" + sqlDatasource.getUsername() + ":" + sqlDatasource.getPassword() + "@" + sqlDatasource.getHost() +
+            ":" + sqlDatasource.getPort() + "/" + sqlDatasource.getDbName();
+    }
 }

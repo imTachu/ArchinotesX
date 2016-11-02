@@ -1,13 +1,11 @@
 var pg = require('pg');
-//var connectionString = process.env.DATABASE_URL;
-var connectionString = "postgres://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test";
+var connectionString = process.env.DATABASE_URL;
 
 var client = new pg.Client(connectionString);
 client.connect();
 
 function getAll(req, res, next) {
-  //db.any('select * from ' + process.env.TABLE)
-  client.query('select * from ' + "rtuyjjjjj")
+  client.query('select * from ' + process.env.TABLE)
     .then(function (data) {
       res.status(200)
         .json({

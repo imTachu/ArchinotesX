@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public class FileUtil {
 
     private static final File dataMicroserviceTemplate = loadReadOnlyFromClasspath(DCOSJson.CREATE_DATA_MICROSERVICE.getFilePath());
-    private static final File tempFolder = prepareTempFolder();
+//    private static final File tempFolder = prepareTempFolder();
 
     private static File prepareTempFolder() {
         File result;
@@ -39,7 +39,8 @@ public class FileUtil {
         return f;
     }
 
-    public void replaceContentInFile(String name, String databaseUrl, String table) throws IOException {
+    public File replaceContentInFile(String name, String databaseUrl, String table) throws IOException {
+        File tempFolder = new File("D:\\lsalamanca\\Descargas\\dcos");
         System.out.println(tempFolder.getPath());
         File target = new File(tempFolder, "./" + name + ".json");
         Files.copy(dataMicroserviceTemplate, target);
@@ -52,5 +53,6 @@ public class FileUtil {
                 .collect(Collectors.toList());
             java.nio.file.Files.write(target.toPath(), replaced);
         }
+        return tempFolder;
     }
 }

@@ -56,9 +56,9 @@ public class DataMicroserviceResource {
         }
 //        DataMicroservice result = dataMicroserviceService.save(datamicroservice, projectId, datasourceId);
         DataMicroservice result = new DataMicroservice();
-        result.setName("klrgjkorhgeori");
-        result.setTableName("unatabla");
-        dcosService.createDataMicroservice(result.getName(), "postgreXXXXXXs://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", result.getTableName());
+        result.setName("klrgjkorsshgeori");
+        result.setTableName("rtuyjjjjj");
+        dcosService.createDataMicroservice(result.getName(), "postgres://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", result.getTableName());
         return ResponseEntity.created(new URI("/api/datamicroservices/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("datamicroservice", result.getId().toString()))
             .body(result);

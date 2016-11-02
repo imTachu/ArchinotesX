@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 
 @Service
@@ -19,10 +20,10 @@ public class DCOSService {
     public FileUtil fileUtil;
 
     public void createDataMicroservice(String name, String databaseUrl, String table) throws IOException, ParseException {
-        fileUtil.replaceContentInFile(name, databaseUrl, table);
+        File tempFolder = fileUtil.replaceContentInFile(name, databaseUrl, table);
 
-        //String output = shellUtil.executeCommand(name);
+        String output = shellUtil.executeCommand(tempFolder, name);
 //        String output = shellUtil.executeCommand("dcos marathon app add myApp.json");
-        //System.out.println(output);
+        System.out.println(output);
     }
 }

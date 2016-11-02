@@ -1,0 +1,72 @@
+{
+    "volumes": null,
+    "id": "/data-microservices/MICROSERVICE_ID_PARAM",
+    "cmd": null,
+    "args": null,
+    "user": null,
+    "env": {
+        "DATABASE_URL": "DATABASE_URL_PARAM",
+        "TABLE": "TABLE_PARAM"
+    },
+    "instances": 1,
+    "cpus": 0.1,
+    "mem": 65,
+    "disk": 0,
+    "gpus": 0,
+    "executor": null,
+    "constraints": null,
+    "fetch": null,
+    "storeUrls": null,
+    "backoffSeconds": 1,
+    "backoffFactor": 1.15,
+    "maxLaunchDelaySeconds": 3600,
+    "container": {
+        "docker": {
+            "image": "imtachu/data-microservice",
+            "forcePullImage": true,
+            "privileged": false,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "protocol": "tcp",
+                    "servicePort": 10000
+                }
+            ],
+            "network": "BRIDGE"
+        }
+    },
+    "healthChecks": [
+        {
+            "protocol": "HTTP",
+            "path": "/api/TABLE_PARAM",
+            "gracePeriodSeconds": 10,
+            "intervalSeconds": 2,
+            "timeoutSeconds": 10,
+            "maxConsecutiveFailures": 10,
+            "ignoreHttp1xx": false
+        }
+    ],
+    "readinessChecks": null,
+    "dependencies": null,
+    "upgradeStrategy": {
+        "minimumHealthCapacity": 1,
+        "maximumOverCapacity": 1
+    },
+    "labels": {
+        "HAPROXY_GROUP": "external",
+        "HAPROXY_0_VHOST": "dcos-PublicSlaveLo-WW1UCGCWZ3V-256409039.us-east-1.elb.amazonaws.com",
+        "HAPROXY_0_PORT": "10006"
+    },
+    "acceptedResourceRoles": null,
+    "residency": null,
+    "secrets": null,
+    "taskKillGracePeriodSeconds": null,
+    "portDefinitions": [
+        {
+            "port": 10000,
+            "protocol": "tcp",
+            "labels": {}
+        }
+    ],
+    "requirePorts": false
+}

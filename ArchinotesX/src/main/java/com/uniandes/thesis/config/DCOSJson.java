@@ -2,7 +2,7 @@ package com.uniandes.thesis.config;
 
 public enum DCOSJson {
 
-    CREATE_DATA_MICROSERVICE("dcos/data_microservice.json");
+    CREATE_DATA_MICROSERVICE("/dcos/data-microservice.json");
 
     private final String filePath;
 

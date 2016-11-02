@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import static com.amazonaws.services.cloudsearchv2.model.AnalysisSchemeLanguage.Da;
+
 @RestController
 @RequestMapping("/api")
 public class DataMicroserviceResource {
@@ -52,8 +54,11 @@ public class DataMicroserviceResource {
         if (datamicroservice.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("datamicroservice", "idexists", "A new datamicroservice cannot already have an ID")).body(null);
         }
-        DataMicroservice result = dataMicroserviceService.save(datamicroservice, projectId, datasourceId);
-        dcosService.createDataMicroservice(result.getName(), "postgres://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", result.getTableName());
+//        DataMicroservice result = dataMicroserviceService.save(datamicroservice, projectId, datasourceId);
+        DataMicroservice result = new DataMicroservice();
+        result.setName("klrgjkorhgeori");
+        result.setTableName("unatabla");
+        dcosService.createDataMicroservice(result.getName(), "postgreXXXXXXs://test:testtest@test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com:5432/test", result.getTableName());
         return ResponseEntity.created(new URI("/api/datamicroservices/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("datamicroservice", result.getId().toString()))
             .body(result);

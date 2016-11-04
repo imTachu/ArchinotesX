@@ -44,6 +44,9 @@ public class DataMicroservice implements Serializable {
     @Column(name = "endpoint")
     private String endpoint;
 
+    @Column(name = "short_endpoint")
+    private String shortEndpoint;
+
     @NotNull
     @Size(min = 1, max = 256)
     @Column(name = "table_name", length = 256, nullable = false)

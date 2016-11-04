@@ -39,7 +39,7 @@ public class FileUtil {
         return f;
     }
 
-    public File replaceContentInFile(String name, String databaseUrl, String table) throws IOException {
+    public File replaceContentInFile(String name, String databaseUrl, String table, String elbPublicSlave) throws IOException {
         File tempFolder = new File("D:\\lsalamanca\\Descargas\\dcos");
         System.out.println(tempFolder.getPath());
         File target = new File(tempFolder, "./" + name + ".json");
@@ -50,6 +50,7 @@ public class FileUtil {
                 .map(line -> line.replaceAll("DATABASE_URL_PARAM", databaseUrl))
                 .map(line -> line.replaceAll("TABLE_PARAM", table))
                 .map(line -> line.replaceAll("MICROSERVICE_ID_PARAM", name))
+                .map(line -> line.replaceAll("ELB_PUBLIC_SLAVE_PARAM", elbPublicSlave))
                 .collect(Collectors.toList());
             java.nio.file.Files.write(target.toPath(), replaced);
         }

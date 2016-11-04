@@ -40,6 +40,8 @@ public class DataMicroserviceResource {
     @Autowired
     private DCOSService dcosService;
 
+    private static final String DCOS_ELB_PUBLIC_SLAVE = "dcos2-PublicSlaveL-KWSCFODW1ME5-878889582.us-east-1.elb.amazonaws.com";
+
     /**
      * Create a new DataMicroservice
      *
@@ -54,8 +56,9 @@ public class DataMicroserviceResource {
         if (datamicroservice.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("datamicroservice", "idexists", "A new datamicroservice cannot already have an ID")).body(null);
         }
+        datamicroservice.setEndpoint("http://" + DCOS_ELB_PUBLIC_SLAVE + datamicroservice.getShortEndpoint());
         DataMicroservice result = dataMicroserviceService.save(datamicroservice, projectId, datasourceId);
-        dcosService.createDataMicroservice(result.getName(), datasourceId, result.getTableName());
+        dcosService.createDataMicroservice(result.getName(), datasourceId, result.getTableName(), DCOS_ELB_PUBLIC_SLAVE);
         return ResponseEntity.created(new URI("/api/datamicroservices/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("datamicroservice", result.getId().toString()))
             .body(result);

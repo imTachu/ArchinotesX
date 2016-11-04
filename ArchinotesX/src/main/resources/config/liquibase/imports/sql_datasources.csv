@@ -1,4 +1,4 @@
 id;name;host;db_name;username;password;port
 1;AWS Datasource;test.c4zzuekbjjf5.us-west-2.rds.amazonaws.com;test;test;testtest;5432
-2;A null datasource;"1888.999.000.8";testagain;test;test;5432
+2;An invalid datasource;"1888.999.000.8";testagain;test;test;5432
 3;Another invalid datasource;"localhost";testme;test;test;5432

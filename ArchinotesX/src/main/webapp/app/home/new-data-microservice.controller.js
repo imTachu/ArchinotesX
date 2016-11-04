@@ -24,6 +24,7 @@
             var data =  JSON.stringify({
                 name: vm.name,
                 endpoint: vm.endpoint,
+                shortEndpoint: vm.endpoint,
                 tableName: vm.tableName,
                 tags: vm.tags
             });

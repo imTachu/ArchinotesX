@@ -23,9 +23,9 @@ public class DCOSService {
     @Autowired
     public SQLDatasourceService sqlDatasourceService;
 
-    public void createDataMicroservice(String name, Long datasourceId, String table) throws IOException, ParseException {
+    public void createDataMicroservice(String name, Long datasourceId, String table, String elbPublicSlave) throws IOException, ParseException {
         String databaseUrl = sqlDatasourceService.getConnectionString(datasourceId);
-        File tempFolder = fileUtil.replaceContentInFile(name, databaseUrl, table);
+        File tempFolder = fileUtil.replaceContentInFile(name, databaseUrl, table, elbPublicSlave);
         String output = shellUtil.executeCommand(tempFolder, name);
         System.out.println(output);
     }

@@ -25,7 +25,7 @@
                 <constraints unique="true" nullable="false"/>
             </column>
             <column name="activated" type="boolean" valueBoolean="false">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="lang_key" type="varchar(5)"/>
             <column name="activation_key" type="varchar(20)"/>
@@ -45,14 +45,14 @@
         </createTable>
 
         <createIndex indexName="idx_user_login"
-            tableName="jhi_user"
-            unique="true">
+                     tableName="jhi_user"
+                     unique="true">
             <column name="login" type="varchar(50)"/>
         </createIndex>
 
         <createIndex indexName="idx_user_email"
-            tableName="jhi_user"
-            unique="true">
+                     tableName="jhi_user"
+                     unique="true">
             <column name="email" type="varchar(100)"/>
         </createIndex>
 
@@ -90,7 +90,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="principal" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="event_date" type="timestamp"/>
             <column name="event_type" type="varchar(255)"/>
@@ -159,6 +159,7 @@
                 <constraints unique="true" nullable="false"/>
             </column>
             <column name="endpoint" type="varchar(512)"/>
+            <column name="short_endpoint" type="varchar(512)"/>
             <column name="tags" type="varchar(512)">
                 <constraints nullable="false"/>
             </column>
@@ -232,18 +233,13 @@
                   separator=";"
                   tableName="sql_datasource"/>
 
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/imports/datamicroservices.csv"
-                  separator=";"
-                  tableName="data_microservice"/>
-
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/imports/users.csv"
-                  separator=";"
-                  tableName="jhi_user">
+        <loadUpdateData encoding="UTF-8"
+                        file="config/liquibase/imports/users.csv"
+                        separator=";" primaryKey="id"
+                        tableName="jhi_user">
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
-        </loadData>
+        </loadUpdateData>
         <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
 
         <loadData encoding="UTF-8"
@@ -251,10 +247,10 @@
                   separator=";"
                   tableName="jhi_authority"/>
 
-        <loadData encoding="UTF-8"
-                  file="config/liquibase/imports/users_authorities.csv"
-                  separator=";"
-                  tableName="jhi_user_authority"/>
+        <loadUpdateData encoding="UTF-8"
+                        file="config/liquibase/imports/users_authorities.csv"
+                        separator=";" primaryKey="id"
+                        tableName="jhi_user_authority"/>
     </changeSet>
 
 </databaseChangeLog>

@@ -40,7 +40,7 @@ public class DataMicroserviceResource {
     @Autowired
     private DCOSService dcosService;
 
-    private static final String DCOS_ELB_PUBLIC_SLAVE = "dcos2-PublicSlaveL-KWSCFODW1ME5-878889582.us-east-1.elb.amazonaws.com";
+    private static final String DCOS_ELB_PUBLIC_SLAVE = "";
 
     /**
      * Create a new DataMicroservice

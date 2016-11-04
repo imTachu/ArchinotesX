@@ -40,12 +40,12 @@ jhipster:
         corePoolSize: 2
         maxPoolSize: 50
         queueCapacity: 10000
-    cors:
-       allowed-methods: GET, PUT, POST, DELETE, OPTIONS
-       allowed-headers: "*"
-       exposed-headers: X-Total-Count, Link
-       allow-credentials: true
-       max-age: 1800
+#    cors:
+#       allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+#       allowed-headers: "*"
+#       exposed-headers: X-Total-Count, Link
+#       allow-credentials: true
+#       max-age: 1800
     mail:
         from: archinotesx@localhost
     security:

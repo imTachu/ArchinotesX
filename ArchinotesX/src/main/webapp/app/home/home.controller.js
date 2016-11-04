@@ -43,7 +43,9 @@
 
         function checkServiceState() {
             angular.forEach(vm.dataMicroservices, function (item, index) {
-                $http.get(item.endpoint).then(function (response) {
+                $http.get(item.endpoint, {
+                    headers: {'Cache-Control': 'no-cache', 'Content-Type': 'text/plain'}
+                }).then(function (response) {
                     item.ok = true;
                 }, function (response) {
                     item.ok = false;
@@ -52,7 +54,7 @@
             })
         }
 
-        //$interval(checkServiceState, 5000);
+        $interval(checkServiceState, 5000);
 
         vm.notifyFallenMicroservice = function(name){
             $http({

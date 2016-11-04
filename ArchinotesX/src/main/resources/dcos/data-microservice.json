@@ -54,7 +54,7 @@
     },
     "labels": {
         "HAPROXY_GROUP": "external",
-        "HAPROXY_0_VHOST": "dcos-PublicSlaveLo-WW1UCGCWZ3V-256409039.us-east-1.elb.amazonaws.com",
+        "HAPROXY_0_VHOST": "dcos2-PublicSlaveL-KWSCFODW1ME5-878889582.us-east-1.elb.amazonaws.com",
         "HAPROXY_0_PORT": "10006"
     },
     "acceptedResourceRoles": null,

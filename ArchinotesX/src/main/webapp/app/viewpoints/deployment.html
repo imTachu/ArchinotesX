@@ -1,125 +1,73 @@
-
 <div>
-  <div class="row" id="assigment-container" >
-    <div class="col-md-8 dashed-border" >
-      <img src="content/images/dcos.png" style="width:24%;margin-left: auto;margin-right: auto; display:block" >
+    <div class="row" id="assigment-container">
+        <div class="col-md-8 dashed-border">
+            <img src="content/images/dcos.png" style="width:24%;margin-left: auto;margin-right: auto; display:block">
 
-      <div class="row">
-        <div class="col-md-8">
-          <div class="dashed-border-private">
-            <h3 class='to-right'>Private Agents</h3>
             <div class="row">
-              <div class="col-md-6">
-                <div class="dashed-border">
-                    <h4 class='to-right'>Agent 1</h4>
-                    <div class="row">
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name
+                <div class="col-md-6">
+                    <div class="dashed-border-private">
+                        <h3 class='to-right'>Private Agents</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="dashed-border">
+                                    <h4 class='to-right'>Agent 1</h4>
+                                    <div class="row">
+                                        <div  ng-repeat="ms in vm.dataMicroservices">
+                                            <div class="col-md-10"  style='padding-left: 45px;' >
+                                                <div id=fms-{{ms.id}}>
+                                                    <div class='round-blue-border' >
+                                                        {{ms.name}}
+                                                    </div>
+                                                    <img src="content/images/docker.png" style="width:50px; margin-left: auto; display:block">
+                                                </div>
+                                            </div>
+                                            <drawline container=functional-container element2=fms-{{ms.id}} element1=fds-{{ms.sqlDatasource.id}}></drawline>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name
-                        </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name
-                        </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
                     </div>
                 </div>
-              </div>
 
-
-              <div class="col-md-6">
-                <div class="dashed-border">
-                    <h4 class='to-right'>Agent 2</h4>
-                    <div class="row">
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name 2
-                        </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name 2
-                        </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name 2
-                        </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
-                      <div class="col-xs-5 col-md-5">
-                        <div class='round-blue-border'>
-                          Long Resource Name 2
-                        </div>
-                        <img src="content/images/docker.png" style="width:50px;">
-                      </div>
-
+                <div class="col-md-6">
+                    <div class="dashed-border-public">
+                        <h3 class='to-right'>Public Agents</h2>
+                            <div class="thumbnail" style='margin: 10px;'>
+                                <img src="content/images/marathon.png" style="width:100px;">
+                                Marathon
+                            </div>
+                            <div class="thumbnail" style='margin: 10px;'>
+                                <img src="content/images/zookeeper.png" style="width:100px;">
+                                Apache Zookeeper
+                            </div>
                     </div>
                 </div>
-              </div>
-
             </div>
-          </div>
+        </div>
+        <div class="col-md-3">
+            <h3>Resources Allocation</h3>
+            <br>
+            <h4>Data Center</h4>
+            <p>
+                Total Memory: 27GiB <br>
+                Total CPU Shares: 8 <br>
+            </p>
+
+            <br>
+            <h4>Public Agents</h4>
+            <p>
+                Total Memory: 13GiB <br>
+                Total CPU Shares: 4 <br>
+            </p>
+
+            <br>
+            <h4>Private Agents</h4>
+            <p>
+                Total Memory: 13GiB <br>
+                Total CPU Shares: 4 <br>
+            </p>
         </div>
 
-        <div class="col-md-4">
-          <div class="dashed-border-public">
-            <h3 class='to-right'>Public Agents</h2>
-            <div class="thumbnail" style='margin: 10px;'>
-              <img src="content/images/marathon.png" style="width:100px;">
-              Marathon
-            </div>
-            <div class="thumbnail" style='margin: 10px;'>
-              <img src="content/images/zookeeper.png" style="width:100px;">
-              Apache Zookeeper
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="col-md-2" >
-      <h3>Resources Allocation</h3>
-      Filter by <select ng-model="myColor" ng-options="color for color in [black, blue]"></select>
-
-      <br>
-      <br>
-      <h4>Data Center</h4>
-      <p>
-        Total Memory: 32GB <br>
-        Memory Available: 5.2GB
-      </p>
-
-      <br>
-      <h4>Public Agents</h4>
-      <p>
-        Total Memory: 32GB <br>
-        Memory Available: 5.2GB
-      </p>
-
-      <br>
-      <h4>Private Agents</h4>
-      <p>
-        Total Memory: 32GB <br>
-        Memory Available: 5.2GB
-      </p>
-    </div>
-
-  </div>
 </div>

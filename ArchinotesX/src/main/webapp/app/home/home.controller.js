@@ -14,6 +14,7 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+        vm.counter = 0;
         $scope.$on('authenticationSuccess', function () {
             getAccount();
         });
@@ -36,8 +37,10 @@
             var aux = DataMicroservice.query({});
 
             aux.$promise.then(function (data) {
+
                 vm.dataMicroservices = data;
                 checkServiceState();
+
             });
         }
 
@@ -46,17 +49,21 @@
                 $http.get(item.endpoint, {
                     headers: {'Cache-Control': 'no-cache', 'Content-Type': 'text/plain'}
                 }).then(function (response) {
+                    vm.counter = 0;
                     item.ok = true;
                 }, function (response) {
+                    vm.counter = vm.counter + 1;
                     item.ok = false;
-                    //vm.notifyFallenMicroservice(item.name);
+                    if (vm.counter == 1) {
+                        vm.notifyFallenMicroservice();
+                    }
                 });
             })
         }
 
         $interval(checkServiceState, 5000);
 
-        vm.notifyFallenMicroservice = function(name){
+        vm.notifyFallenMicroservice = function(){
             $http({
                 url: "/api/notify",
                 dataType: "json",
@@ -65,8 +72,7 @@
                     "Content-Type": "application/json"
                 },
                 params: {
-                    notifyTo: [573166537244],
-                    microserviceName: name
+                    notifyTo:  vm.account.email
                 }
             }).then(function(result){
 
